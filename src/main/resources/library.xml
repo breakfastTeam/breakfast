@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.4.0.xsd">
+    <!-- Configure the database connection here -->
+    <jdbc>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://192.168.59.103:3306/breakfast</url>
+        <user>root</user>
+        <password>admin</password>
+    </jdbc>
+
+    <generator>
+        <!-- The default code generator. You can override this one, to generate your own code style
+             Defaults to org.jooq.util.DefaultGenerator -->
+        <name>org.jooq.util.DefaultGenerator</name>
+        <strategy>
+            <matchers>
+                <tables>
+                    <table>
+                        <tableIdentifier>
+                            <transform>CAMEL</transform>
+                            <expression>$0</expression>
+                        </tableIdentifier>
+                        <tableClass>
+                            <transform>PASCAL</transform>
+                            <expression>$0</expression>
+                        </tableClass>
+                    </table>
+                </tables>
+            </matchers>
+        </strategy>
+        <database>
+            <!-- The database type. The format here is:
+                 org.util.[database].[database]Database -->
+            <name>org.jooq.util.mysql.MySQLDatabase</name>
+
+            <!-- The database schema (or in the absence of schema support, in your RDBMS this
+                 can be the owner, user, database name) to be generated -->
+            <inputSchema>breakfast</inputSchema>
+
+            <!-- All elements that are generated from your schema
+                 (A Java regular expression. Use the pipe to separate several expressions)
+                 Watch out for case-sensitivity. Depending on your database, this might be important! -->
+            <includes>.*</includes>
+
+            <!-- All elements that are excluded from your schema
+                 (A Java regular expression. Use the pipe to separate several expressions).
+                 Excludes match before includes -->
+            <excludes></excludes>
+        </database>
+        <target>
+            <!-- The destination package of your generated classes (within the destination directory) -->
+            <packageName>com.breakfast.domain</packageName>
+
+            <!-- The destination directory of your generated classes -->
+            <directory>./src/main/java/</directory>
+        </target>
+    </generator>
+</configuration>
