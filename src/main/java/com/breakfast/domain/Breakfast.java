@@ -11,7 +11,7 @@ package com.breakfast.domain;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Breakfast extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = -71412068;
+	private static final long serialVersionUID = 86172288;
 
 	/**
 	 * The singleton instance of <code>breakfast</code>
@@ -34,27 +34,27 @@ public class Breakfast extends org.jooq.impl.SchemaImpl {
 
 	private final java.util.List<org.jooq.Table<?>> getTables0() {
 		return java.util.Arrays.<org.jooq.Table<?>>asList(
-			com.breakfast.domain.tables.TBfAddress.tBfAddress,
-			com.breakfast.domain.tables.TBfCoupon.tBfCoupon,
-			com.breakfast.domain.tables.TBfCustomerService.tBfCustomerService,
-			com.breakfast.domain.tables.TBfCustomOrderDetail.tBfCustomOrderDetail,
-			com.breakfast.domain.tables.TBfExpress.tBfExpress,
-			com.breakfast.domain.tables.TBfFeedback.tBfFeedback,
-			com.breakfast.domain.tables.TBfFile.tBfFile,
-			com.breakfast.domain.tables.TBfFood.tBfFood,
-			com.breakfast.domain.tables.TBfFoodCustom.tBfFoodCustom,
-			com.breakfast.domain.tables.TBfFoodDetail.tBfFoodDetail,
-			com.breakfast.domain.tables.TBfGrade.tBfGrade,
-			com.breakfast.domain.tables.TBfMessage.tBfMessage,
-			com.breakfast.domain.tables.TBfOrder.tBfOrder,
-			com.breakfast.domain.tables.TBfOrderDetail.tBfOrderDetail,
-			com.breakfast.domain.tables.TBfPhotoShow.tBfPhotoShow,
-			com.breakfast.domain.tables.TBfProvider.tBfProvider,
-			com.breakfast.domain.tables.TBfRawMaterial.tBfRawMaterial,
-			com.breakfast.domain.tables.TBfSetFoods.tBfSetFoods,
-			com.breakfast.domain.tables.TBfSetMeal.tBfSetMeal,
-			com.breakfast.domain.tables.TBfUser.tBfUser,
-			com.breakfast.domain.tables.TBfUserCustomer.tBfUserCustomer,
-			com.breakfast.domain.tables.TBrUserCourier.tBrUserCourier);
+			com.breakfast.domain.tables.Address.Address,
+			com.breakfast.domain.tables.Coupon.Coupon,
+			com.breakfast.domain.tables.CustomerService.CustomerService,
+			com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail,
+			com.breakfast.domain.tables.Express.Express,
+			com.breakfast.domain.tables.Feedback.Feedback,
+			com.breakfast.domain.tables.File.File,
+			com.breakfast.domain.tables.Food.Food,
+			com.breakfast.domain.tables.FoodCustom.FoodCustom,
+			com.breakfast.domain.tables.FoodDetail.FoodDetail,
+			com.breakfast.domain.tables.Grade.Grade,
+			com.breakfast.domain.tables.Message.Message,
+			com.breakfast.domain.tables.Order.Order,
+			com.breakfast.domain.tables.OrderDetail.OrderDetail,
+			com.breakfast.domain.tables.PhotoShow.PhotoShow,
+			com.breakfast.domain.tables.Provider.Provider,
+			com.breakfast.domain.tables.RawMaterial.RawMaterial,
+			com.breakfast.domain.tables.SetFoods.SetFoods,
+			com.breakfast.domain.tables.SetMeal.SetMeal,
+			com.breakfast.domain.tables.User.User,
+			com.breakfast.domain.tables.UserCourier.UserCourier,
+			com.breakfast.domain.tables.UserCustomer.UserCustomer);
 	}
 }

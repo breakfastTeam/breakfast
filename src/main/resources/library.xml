@@ -17,7 +17,7 @@
                 <tables>
                     <table>
                         <tableIdentifier>
-                            <transform>CAMEL</transform>
+                            <transform>PASCAL</transform>
                             <expression>$0</expression>
                         </tableIdentifier>
                         <tableClass>
@@ -47,6 +47,11 @@
                  Excludes match before includes -->
             <excludes></excludes>
         </database>
+        <generate>
+            <deprecated>false</deprecated>
+            <instanceFields>true</instanceFields>
+            <pojos>true</pojos>
+        </generate>
         <target>
             <!-- The destination package of your generated classes (within the destination directory) -->
             <packageName>com.breakfast.domain</packageName>
