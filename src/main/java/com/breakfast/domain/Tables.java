@@ -16,110 +16,110 @@ public class Tables {
 	/**
 	 * 地址表
 	 */
-	public static final com.breakfast.domain.tables.TBfAddress tBfAddress = com.breakfast.domain.tables.TBfAddress.tBfAddress;
+	public static final com.breakfast.domain.tables.Address Address = com.breakfast.domain.tables.Address.Address;
 
 	/**
 	 * 代金券表
 	 */
-	public static final com.breakfast.domain.tables.TBfCoupon tBfCoupon = com.breakfast.domain.tables.TBfCoupon.tBfCoupon;
+	public static final com.breakfast.domain.tables.Coupon Coupon = com.breakfast.domain.tables.Coupon.Coupon;
 
 	/**
 	 * 客服
 	 */
-	public static final com.breakfast.domain.tables.TBfCustomerService tBfCustomerService = com.breakfast.domain.tables.TBfCustomerService.tBfCustomerService;
+	public static final com.breakfast.domain.tables.CustomerService CustomerService = com.breakfast.domain.tables.CustomerService.CustomerService;
 
 	/**
 	 * 用户定制详情
 	 */
-	public static final com.breakfast.domain.tables.TBfCustomOrderDetail tBfCustomOrderDetail = com.breakfast.domain.tables.TBfCustomOrderDetail.tBfCustomOrderDetail;
+	public static final com.breakfast.domain.tables.CustomOrderDetail CustomOrderDetail = com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail;
 
 	/**
 	 * 订单配送表
 	 */
-	public static final com.breakfast.domain.tables.TBfExpress tBfExpress = com.breakfast.domain.tables.TBfExpress.tBfExpress;
+	public static final com.breakfast.domain.tables.Express Express = com.breakfast.domain.tables.Express.Express;
 
 	/**
 	 * 评价反馈表
 	 */
-	public static final com.breakfast.domain.tables.TBfFeedback tBfFeedback = com.breakfast.domain.tables.TBfFeedback.tBfFeedback;
+	public static final com.breakfast.domain.tables.Feedback Feedback = com.breakfast.domain.tables.Feedback.Feedback;
 
 	/**
 	 * 文件表
 	 */
-	public static final com.breakfast.domain.tables.TBfFile tBfFile = com.breakfast.domain.tables.TBfFile.tBfFile;
+	public static final com.breakfast.domain.tables.File File = com.breakfast.domain.tables.File.File;
 
 	/**
 	 * 食品表
 	 */
-	public static final com.breakfast.domain.tables.TBfFood tBfFood = com.breakfast.domain.tables.TBfFood.tBfFood;
+	public static final com.breakfast.domain.tables.Food Food = com.breakfast.domain.tables.Food.Food;
 
 	/**
 	 * 用户定制表
 	 */
-	public static final com.breakfast.domain.tables.TBfFoodCustom tBfFoodCustom = com.breakfast.domain.tables.TBfFoodCustom.tBfFoodCustom;
+	public static final com.breakfast.domain.tables.FoodCustom FoodCustom = com.breakfast.domain.tables.FoodCustom.FoodCustom;
 
 	/**
 	 * 原材料食品中间表
 	 */
-	public static final com.breakfast.domain.tables.TBfFoodDetail tBfFoodDetail = com.breakfast.domain.tables.TBfFoodDetail.tBfFoodDetail;
+	public static final com.breakfast.domain.tables.FoodDetail FoodDetail = com.breakfast.domain.tables.FoodDetail.FoodDetail;
 
 	/**
 	 * 评分详情表
 	 */
-	public static final com.breakfast.domain.tables.TBfGrade tBfGrade = com.breakfast.domain.tables.TBfGrade.tBfGrade;
+	public static final com.breakfast.domain.tables.Grade Grade = com.breakfast.domain.tables.Grade.Grade;
 
 	/**
 	 * 聊天信息表
 	 */
-	public static final com.breakfast.domain.tables.TBfMessage tBfMessage = com.breakfast.domain.tables.TBfMessage.tBfMessage;
+	public static final com.breakfast.domain.tables.Message Message = com.breakfast.domain.tables.Message.Message;
 
 	/**
 	 * 订单表
 	 */
-	public static final com.breakfast.domain.tables.TBfOrder tBfOrder = com.breakfast.domain.tables.TBfOrder.tBfOrder;
+	public static final com.breakfast.domain.tables.Order Order = com.breakfast.domain.tables.Order.Order;
 
 	/**
 	 * 订单详情表
 	 */
-	public static final com.breakfast.domain.tables.TBfOrderDetail tBfOrderDetail = com.breakfast.domain.tables.TBfOrderDetail.tBfOrderDetail;
+	public static final com.breakfast.domain.tables.OrderDetail OrderDetail = com.breakfast.domain.tables.OrderDetail.OrderDetail;
 
 	/**
 	 * 图片展示
 	 */
-	public static final com.breakfast.domain.tables.TBfPhotoShow tBfPhotoShow = com.breakfast.domain.tables.TBfPhotoShow.tBfPhotoShow;
+	public static final com.breakfast.domain.tables.PhotoShow PhotoShow = com.breakfast.domain.tables.PhotoShow.PhotoShow;
 
 	/**
 	 * 供应商
 	 */
-	public static final com.breakfast.domain.tables.TBfProvider tBfProvider = com.breakfast.domain.tables.TBfProvider.tBfProvider;
+	public static final com.breakfast.domain.tables.Provider Provider = com.breakfast.domain.tables.Provider.Provider;
 
 	/**
 	 * 原材料表
 	 */
-	public static final com.breakfast.domain.tables.TBfRawMaterial tBfRawMaterial = com.breakfast.domain.tables.TBfRawMaterial.tBfRawMaterial;
+	public static final com.breakfast.domain.tables.RawMaterial RawMaterial = com.breakfast.domain.tables.RawMaterial.RawMaterial;
 
 	/**
 	 * 套餐食品
 	 */
-	public static final com.breakfast.domain.tables.TBfSetFoods tBfSetFoods = com.breakfast.domain.tables.TBfSetFoods.tBfSetFoods;
+	public static final com.breakfast.domain.tables.SetFoods SetFoods = com.breakfast.domain.tables.SetFoods.SetFoods;
 
 	/**
 	 * 套餐表
 	 */
-	public static final com.breakfast.domain.tables.TBfSetMeal tBfSetMeal = com.breakfast.domain.tables.TBfSetMeal.tBfSetMeal;
+	public static final com.breakfast.domain.tables.SetMeal SetMeal = com.breakfast.domain.tables.SetMeal.SetMeal;
 
 	/**
 	 * 人员表
 	 */
-	public static final com.breakfast.domain.tables.TBfUser tBfUser = com.breakfast.domain.tables.TBfUser.tBfUser;
-
-	/**
-	 * 用户详情
-	 */
-	public static final com.breakfast.domain.tables.TBfUserCustomer tBfUserCustomer = com.breakfast.domain.tables.TBfUserCustomer.tBfUserCustomer;
+	public static final com.breakfast.domain.tables.User User = com.breakfast.domain.tables.User.User;
 
 	/**
 	 * 快递员详情
 	 */
-	public static final com.breakfast.domain.tables.TBrUserCourier tBrUserCourier = com.breakfast.domain.tables.TBrUserCourier.tBrUserCourier;
+	public static final com.breakfast.domain.tables.UserCourier UserCourier = com.breakfast.domain.tables.UserCourier.UserCourier;
+
+	/**
+	 * 用户详情
+	 */
+	public static final com.breakfast.domain.tables.UserCustomer UserCustomer = com.breakfast.domain.tables.UserCustomer.UserCustomer;
 }

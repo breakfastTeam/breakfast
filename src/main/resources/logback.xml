@@ -17,10 +17,10 @@
         </filter>
 
         <!-- 可让每天产生一个日志文件，最多 10 个，自动回滚 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/log/Unmi-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>10</maxHistory>
-        </rollingPolicy>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<fileNamePattern>/log/Unmi-%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!--<maxHistory>10</maxHistory>-->
+        <!--</rollingPolicy>-->
 
         <!-- 下面这段注释的代码可以在日志文件超过 5MB 时进行归档，并且归档文件后缀只要是 .zip 或 .gz 就会自动压缩日志归档 -->
         <!--file>d:/log/Unmi.log</file>
