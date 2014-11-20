@@ -13,115 +13,115 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.UserCustomerRecord> implements org.jooq.Record8<java.lang.String, java.lang.String, java.lang.Integer, java.lang.String, java.sql.Timestamp, java.lang.String, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 1900182080;
+	private static final long serialVersionUID = -1632647303;
 
 	/**
-	 * Setter for <code>breakfast.user_customer.user_id</code>.
+	 * Setter for <code>breakfast.t_bf_user_customer.user_id</code>.
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.user_id</code>.
+	 * Getter for <code>breakfast.t_bf_user_customer.user_id</code>.
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.customer_level</code>. 客户等级
+	 * Setter for <code>breakfast.t_bf_user_customer.customer_level</code>. 客户等级
 	 */
 	public void setCustomerLevel(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.customer_level</code>. 客户等级
+	 * Getter for <code>breakfast.t_bf_user_customer.customer_level</code>. 客户等级
 	 */
 	public java.lang.String getCustomerLevel() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.credits</code>. 小黄豆数量
+	 * Setter for <code>breakfast.t_bf_user_customer.credits</code>. 小黄豆数量
 	 */
 	public void setCredits(java.lang.Integer value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.credits</code>. 小黄豆数量
+	 * Getter for <code>breakfast.t_bf_user_customer.credits</code>. 小黄豆数量
 	 */
 	public java.lang.Integer getCredits() {
 		return (java.lang.Integer) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.referrer</code>. 推荐人
+	 * Setter for <code>breakfast.t_bf_user_customer.referrer</code>. 推荐人
 	 */
 	public void setReferrer(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.referrer</code>. 推荐人
+	 * Getter for <code>breakfast.t_bf_user_customer.referrer</code>. 推荐人
 	 */
 	public java.lang.String getReferrer() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.recommend_time</code>. 推荐时间
+	 * Setter for <code>breakfast.t_bf_user_customer.recommend_time</code>. 推荐时间
 	 */
 	public void setRecommendTime(java.sql.Timestamp value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.recommend_time</code>. 推荐时间
+	 * Getter for <code>breakfast.t_bf_user_customer.recommend_time</code>. 推荐时间
 	 */
 	public java.sql.Timestamp getRecommendTime() {
 		return (java.sql.Timestamp) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.address1</code>. 常用地址1
+	 * Setter for <code>breakfast.t_bf_user_customer.address1</code>. 常用地址1
 	 */
 	public void setAddress1(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.address1</code>. 常用地址1
+	 * Getter for <code>breakfast.t_bf_user_customer.address1</code>. 常用地址1
 	 */
 	public java.lang.String getAddress1() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.address2</code>. 常用地址2
+	 * Setter for <code>breakfast.t_bf_user_customer.address2</code>. 常用地址2
 	 */
 	public void setAddress2(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.address2</code>. 常用地址2
+	 * Getter for <code>breakfast.t_bf_user_customer.address2</code>. 常用地址2
 	 */
 	public java.lang.String getAddress2() {
 		return (java.lang.String) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_customer.address3</code>. 常用地址3
+	 * Setter for <code>breakfast.t_bf_user_customer.address3</code>. 常用地址3
 	 */
 	public void setAddress3(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_customer.address3</code>. 常用地址3
+	 * Getter for <code>breakfast.t_bf_user_customer.address3</code>. 常用地址3
 	 */
 	public java.lang.String getAddress3() {
 		return (java.lang.String) getValue(7);
@@ -164,7 +164,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.USER_ID;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.userId;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.CUSTOMER_LEVEL;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.customerLevel;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field3() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.CREDITS;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.credits;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.REFERRER;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.referrer;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field5() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.RECOMMEND_TIME;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.recommendTime;
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.ADDRESS1;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.address1;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.ADDRESS2;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.address2;
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class UserCustomerRecord extends org.jooq.impl.UpdatableRecordImpl<com.br
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field8() {
-		return com.breakfast.domain.tables.UserCustomer.UserCustomer.ADDRESS3;
+		return com.breakfast.domain.tables.UserCustomer.UserCustomer.address3;
 	}
 
 	/**

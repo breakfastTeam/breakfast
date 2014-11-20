@@ -13,59 +13,59 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SetFoodsRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.SetFoodsRecord> implements org.jooq.Record4<java.lang.String, java.lang.String, java.lang.String, java.lang.Integer> {
 
-	private static final long serialVersionUID = 289942331;
+	private static final long serialVersionUID = 1716189755;
 
 	/**
-	 * Setter for <code>breakfast.set_foods.set_foods_id</code>.
+	 * Setter for <code>breakfast.t_bf_set_foods.set_foods_id</code>.
 	 */
 	public void setSetFoodsId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_foods.set_foods_id</code>.
+	 * Getter for <code>breakfast.t_bf_set_foods.set_foods_id</code>.
 	 */
 	public java.lang.String getSetFoodsId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_foods.set_meal_id</code>. 套餐ID
+	 * Setter for <code>breakfast.t_bf_set_foods.set_meal_id</code>. 套餐ID
 	 */
 	public void setSetMealId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_foods.set_meal_id</code>. 套餐ID
+	 * Getter for <code>breakfast.t_bf_set_foods.set_meal_id</code>. 套餐ID
 	 */
 	public java.lang.String getSetMealId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_foods.food_id</code>. 食品Id
+	 * Setter for <code>breakfast.t_bf_set_foods.food_id</code>. 食品Id
 	 */
 	public void setFoodId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_foods.food_id</code>. 食品Id
+	 * Getter for <code>breakfast.t_bf_set_foods.food_id</code>. 食品Id
 	 */
 	public java.lang.String getFoodId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_foods.food_count</code>. 食品数量
+	 * Setter for <code>breakfast.t_bf_set_foods.food_count</code>. 食品数量
 	 */
 	public void setFoodCount(java.lang.Integer value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_foods.food_count</code>. 食品数量
+	 * Getter for <code>breakfast.t_bf_set_foods.food_count</code>. 食品数量
 	 */
 	public java.lang.Integer getFoodCount() {
 		return (java.lang.Integer) getValue(3);
@@ -108,7 +108,7 @@ public class SetFoodsRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.SetFoods.SetFoods.SET_FOODS_ID;
+		return com.breakfast.domain.tables.SetFoods.SetFoods.setFoodsId;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class SetFoodsRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.SetFoods.SetFoods.SET_MEAL_ID;
+		return com.breakfast.domain.tables.SetFoods.SetFoods.setMealId;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class SetFoodsRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.SetFoods.SetFoods.FOOD_ID;
+		return com.breakfast.domain.tables.SetFoods.SetFoods.foodId;
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class SetFoodsRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field4() {
-		return com.breakfast.domain.tables.SetFoods.SetFoods.FOOD_COUNT;
+		return com.breakfast.domain.tables.SetFoods.SetFoods.foodCount;
 	}
 
 	/**

@@ -13,87 +13,87 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.PhotoShowRecord> implements org.jooq.Record6<java.lang.String, java.lang.String, java.sql.Timestamp, java.sql.Timestamp, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = -1248952828;
+	private static final long serialVersionUID = 2140416094;
 
 	/**
-	 * Setter for <code>breakfast.photo_show.photo_id</code>.
+	 * Setter for <code>breakfast.t_bf_photo_show.photo_id</code>.
 	 */
 	public void setPhotoId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.photo_id</code>.
+	 * Getter for <code>breakfast.t_bf_photo_show.photo_id</code>.
 	 */
 	public java.lang.String getPhotoId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.photo_show.file_id</code>. 图片文件ID
+	 * Setter for <code>breakfast.t_bf_photo_show.file_id</code>. 图片文件ID
 	 */
 	public void setFileId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.file_id</code>. 图片文件ID
+	 * Getter for <code>breakfast.t_bf_photo_show.file_id</code>. 图片文件ID
 	 */
 	public java.lang.String getFileId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.photo_show.create_time</code>. 图片上传日期
+	 * Setter for <code>breakfast.t_bf_photo_show.create_time</code>. 图片上传日期
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.create_time</code>. 图片上传日期
+	 * Getter for <code>breakfast.t_bf_photo_show.create_time</code>. 图片上传日期
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.photo_show.valid_date</code>. 图片有效期
+	 * Setter for <code>breakfast.t_bf_photo_show.valid_date</code>. 图片有效期
 	 */
 	public void setValidDate(java.sql.Timestamp value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.valid_date</code>. 图片有效期
+	 * Getter for <code>breakfast.t_bf_photo_show.valid_date</code>. 图片有效期
 	 */
 	public java.sql.Timestamp getValidDate() {
 		return (java.sql.Timestamp) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.photo_show.createBy</code>. 上传机器编号
+	 * Setter for <code>breakfast.t_bf_photo_show.createBy</code>. 上传机器编号
 	 */
 	public void setCreateby(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.createBy</code>. 上传机器编号
+	 * Getter for <code>breakfast.t_bf_photo_show.createBy</code>. 上传机器编号
 	 */
 	public java.lang.String getCreateby() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.photo_show.status</code>. 图片状态
+	 * Setter for <code>breakfast.t_bf_photo_show.status</code>. 图片状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.photo_show.status</code>. 图片状态
+	 * Getter for <code>breakfast.t_bf_photo_show.status</code>. 图片状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(5);
@@ -136,7 +136,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.PHOTO_ID;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.photoId;
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.FILE_ID;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.fileId;
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field3() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.CREATE_TIME;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.createTime;
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field4() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.VALID_DATE;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.validDate;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.CREATEBY;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.createby;
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class PhotoShowRecord extends org.jooq.impl.UpdatableRecordImpl<com.break
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.PhotoShow.PhotoShow.STATUS;
+		return com.breakfast.domain.tables.PhotoShow.PhotoShow.status;
 	}
 
 	/**

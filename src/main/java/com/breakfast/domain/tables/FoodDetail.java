@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodDetail extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.FoodDetailRecord> {
 
-	private static final long serialVersionUID = 182579968;
+	private static final long serialVersionUID = -942271030;
 
 	/**
-	 * The singleton instance of <code>breakfast.food_detail</code>
+	 * The singleton instance of <code>breakfast.t_bf_food_detail</code>
 	 */
 	public static final com.breakfast.domain.tables.FoodDetail FoodDetail = new com.breakfast.domain.tables.FoodDetail();
 
@@ -29,34 +29,34 @@ public class FoodDetail extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	}
 
 	/**
-	 * The column <code>breakfast.food_detail.detail_id</code>.
+	 * The column <code>breakfast.t_bf_food_detail.detail_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> DETAIL_ID = createField("detail_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> detailId = createField("detail_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.food_detail.food_id</code>. 食品ID
+	 * The column <code>breakfast.t_bf_food_detail.food_id</code>. 食品ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> FOOD_ID = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> foodId = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品ID");
 
 	/**
-	 * The column <code>breakfast.food_detail.raw_material_id</code>. 原材料ID
+	 * The column <code>breakfast.t_bf_food_detail.raw_material_id</code>. 原材料ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> RAW_MATERIAL_ID = createField("raw_material_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "原材料ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.String> rawMaterialId = createField("raw_material_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "原材料ID");
 
 	/**
-	 * The column <code>breakfast.food_detail.count</code>. 原材料数量
+	 * The column <code>breakfast.t_bf_food_detail.count</code>. 原材料数量
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.Integer> COUNT = createField("count", org.jooq.impl.SQLDataType.INTEGER, this, "原材料数量");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodDetailRecord, java.lang.Integer> count = createField("count", org.jooq.impl.SQLDataType.INTEGER, this, "原材料数量");
 
 	/**
-	 * Create a <code>breakfast.food_detail</code> table reference
+	 * Create a <code>breakfast.t_bf_food_detail</code> table reference
 	 */
 	public FoodDetail() {
-		this("food_detail", null);
+		this("t_bf_food_detail", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.food_detail</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_food_detail</code> table reference
 	 */
 	public FoodDetail(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.FoodDetail.FoodDetail);
@@ -67,7 +67,7 @@ public class FoodDetail extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	}
 
 	private FoodDetail(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.FoodDetailRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "原材料食品中间表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "原材料食品中间表");
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class FoodDetail extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_FOOD_DETAIL_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfFoodDetailPrimary;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class FoodDetail extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord>>asList(com.breakfast.domain.Keys.KEY_FOOD_DETAIL_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord>>asList(com.breakfast.domain.Keys.keyTBfFoodDetailPrimary);
 	}
 
 	/**

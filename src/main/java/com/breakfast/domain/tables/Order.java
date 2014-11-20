@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.OrderRecord> {
 
-	private static final long serialVersionUID = -311248902;
+	private static final long serialVersionUID = 1649688711;
 
 	/**
-	 * The singleton instance of <code>breakfast.order</code>
+	 * The singleton instance of <code>breakfast.t_bf_order</code>
 	 */
 	public static final com.breakfast.domain.tables.Order Order = new com.breakfast.domain.tables.Order();
 
@@ -29,59 +29,59 @@ public class Order extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	}
 
 	/**
-	 * The column <code>breakfast.order.order_id</code>.
+	 * The column <code>breakfast.t_bf_order.order_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> ORDER_ID = createField("order_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> orderId = createField("order_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.order.customer_id</code>. 客户ID
+	 * The column <code>breakfast.t_bf_order.customer_id</code>. 客户ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> CUSTOMER_ID = createField("customer_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> customerId = createField("customer_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
 
 	/**
-	 * The column <code>breakfast.order.type</code>. 类别
+	 * The column <code>breakfast.t_bf_order.type</code>. 类别
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "类别");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> type = createField("type", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "类别");
 
 	/**
-	 * The column <code>breakfast.order.status</code>. 状态
+	 * The column <code>breakfast.t_bf_order.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * The column <code>breakfast.order.consignee_name</code>. 收货人姓名
+	 * The column <code>breakfast.t_bf_order.consignee_name</code>. 收货人姓名
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> CONSIGNEE_NAME = createField("consignee_name", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "收货人姓名");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> consigneeName = createField("consignee_name", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "收货人姓名");
 
 	/**
-	 * The column <code>breakfast.order.consignee_address</code>. 收货人地址
+	 * The column <code>breakfast.t_bf_order.consignee_address</code>. 收货人地址
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> CONSIGNEE_ADDRESS = createField("consignee_address", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "收货人地址");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> consigneeAddress = createField("consignee_address", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "收货人地址");
 
 	/**
-	 * The column <code>breakfast.order.consignee_mobile</code>. 收货人手机号
+	 * The column <code>breakfast.t_bf_order.consignee_mobile</code>. 收货人手机号
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> CONSIGNEE_MOBILE = createField("consignee_mobile", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "收货人手机号");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.String> consigneeMobile = createField("consignee_mobile", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "收货人手机号");
 
 	/**
-	 * The column <code>breakfast.order.order_price</code>. 订单金额
+	 * The column <code>breakfast.t_bf_order.order_price</code>. 订单金额
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.Integer> ORDER_PRICE = createField("order_price", org.jooq.impl.SQLDataType.INTEGER, this, "订单金额");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.Integer> orderPrice = createField("order_price", org.jooq.impl.SQLDataType.INTEGER, this, "订单金额");
 
 	/**
-	 * The column <code>breakfast.order.exccreadit_count</code>. 消耗黄豆数
+	 * The column <code>breakfast.t_bf_order.exccreadit_count</code>. 消耗黄豆数
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.Integer> EXCCREADIT_COUNT = createField("exccreadit_count", org.jooq.impl.SQLDataType.INTEGER, this, "消耗黄豆数");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.OrderRecord, java.lang.Integer> exccreaditCount = createField("exccreadit_count", org.jooq.impl.SQLDataType.INTEGER, this, "消耗黄豆数");
 
 	/**
-	 * Create a <code>breakfast.order</code> table reference
+	 * Create a <code>breakfast.t_bf_order</code> table reference
 	 */
 	public Order() {
-		this("order", null);
+		this("t_bf_order", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.order</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_order</code> table reference
 	 */
 	public Order(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Order.Order);
@@ -92,7 +92,7 @@ public class Order extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	}
 
 	private Order(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.OrderRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "订单表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "订单表");
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class Order extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_ORDER_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfOrderPrimary;
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class Order extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord>>asList(com.breakfast.domain.Keys.KEY_ORDER_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord>>asList(com.breakfast.domain.Keys.keyTBfOrderPrimary);
 	}
 
 	/**

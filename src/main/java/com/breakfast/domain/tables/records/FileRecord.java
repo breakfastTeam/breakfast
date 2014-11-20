@@ -13,73 +13,73 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.FileRecord> implements org.jooq.Record5<java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = -2108251722;
+	private static final long serialVersionUID = 853560574;
 
 	/**
-	 * Setter for <code>breakfast.file.file_id</code>.
+	 * Setter for <code>breakfast.t_bf_file.file_id</code>.
 	 */
 	public void setFileId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.file.file_id</code>.
+	 * Getter for <code>breakfast.t_bf_file.file_id</code>.
 	 */
 	public java.lang.String getFileId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.file.file_path</code>. 文件路径
+	 * Setter for <code>breakfast.t_bf_file.file_path</code>. 文件路径
 	 */
 	public void setFilePath(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.file.file_path</code>. 文件路径
+	 * Getter for <code>breakfast.t_bf_file.file_path</code>. 文件路径
 	 */
 	public java.lang.String getFilePath() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.file.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_file.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.file.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_file.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.file.create_time</code>. 上传日期
+	 * Setter for <code>breakfast.t_bf_file.create_time</code>. 上传日期
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.file.create_time</code>. 上传日期
+	 * Getter for <code>breakfast.t_bf_file.create_time</code>. 上传日期
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.file.create_by</code>. 上传人
+	 * Setter for <code>breakfast.t_bf_file.create_by</code>. 上传人
 	 */
 	public void setCreateBy(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.file.create_by</code>. 上传人
+	 * Getter for <code>breakfast.t_bf_file.create_by</code>. 上传人
 	 */
 	public java.lang.String getCreateBy() {
 		return (java.lang.String) getValue(4);
@@ -122,7 +122,7 @@ public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.File.File.FILE_ID;
+		return com.breakfast.domain.tables.File.File.fileId;
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.File.File.FILE_PATH;
+		return com.breakfast.domain.tables.File.File.filePath;
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.File.File.STATUS;
+		return com.breakfast.domain.tables.File.File.status;
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field4() {
-		return com.breakfast.domain.tables.File.File.CREATE_TIME;
+		return com.breakfast.domain.tables.File.File.createTime;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class FileRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.File.File.CREATE_BY;
+		return com.breakfast.domain.tables.File.File.createBy;
 	}
 
 	/**

@@ -13,129 +13,129 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.OrderRecord> implements org.jooq.Record9<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer, java.lang.Integer> {
 
-	private static final long serialVersionUID = -1167236880;
+	private static final long serialVersionUID = -1011929297;
 
 	/**
-	 * Setter for <code>breakfast.order.order_id</code>.
+	 * Setter for <code>breakfast.t_bf_order.order_id</code>.
 	 */
 	public void setOrderId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.order_id</code>.
+	 * Getter for <code>breakfast.t_bf_order.order_id</code>.
 	 */
 	public java.lang.String getOrderId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.customer_id</code>. 客户ID
+	 * Setter for <code>breakfast.t_bf_order.customer_id</code>. 客户ID
 	 */
 	public void setCustomerId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.customer_id</code>. 客户ID
+	 * Getter for <code>breakfast.t_bf_order.customer_id</code>. 客户ID
 	 */
 	public java.lang.String getCustomerId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.type</code>. 类别
+	 * Setter for <code>breakfast.t_bf_order.type</code>. 类别
 	 */
 	public void setType(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.type</code>. 类别
+	 * Getter for <code>breakfast.t_bf_order.type</code>. 类别
 	 */
 	public java.lang.String getType() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_order.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_order.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.consignee_name</code>. 收货人姓名
+	 * Setter for <code>breakfast.t_bf_order.consignee_name</code>. 收货人姓名
 	 */
 	public void setConsigneeName(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.consignee_name</code>. 收货人姓名
+	 * Getter for <code>breakfast.t_bf_order.consignee_name</code>. 收货人姓名
 	 */
 	public java.lang.String getConsigneeName() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.consignee_address</code>. 收货人地址
+	 * Setter for <code>breakfast.t_bf_order.consignee_address</code>. 收货人地址
 	 */
 	public void setConsigneeAddress(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.consignee_address</code>. 收货人地址
+	 * Getter for <code>breakfast.t_bf_order.consignee_address</code>. 收货人地址
 	 */
 	public java.lang.String getConsigneeAddress() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.consignee_mobile</code>. 收货人手机号
+	 * Setter for <code>breakfast.t_bf_order.consignee_mobile</code>. 收货人手机号
 	 */
 	public void setConsigneeMobile(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.consignee_mobile</code>. 收货人手机号
+	 * Getter for <code>breakfast.t_bf_order.consignee_mobile</code>. 收货人手机号
 	 */
 	public java.lang.String getConsigneeMobile() {
 		return (java.lang.String) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.order_price</code>. 订单金额
+	 * Setter for <code>breakfast.t_bf_order.order_price</code>. 订单金额
 	 */
 	public void setOrderPrice(java.lang.Integer value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.order_price</code>. 订单金额
+	 * Getter for <code>breakfast.t_bf_order.order_price</code>. 订单金额
 	 */
 	public java.lang.Integer getOrderPrice() {
 		return (java.lang.Integer) getValue(7);
 	}
 
 	/**
-	 * Setter for <code>breakfast.order.exccreadit_count</code>. 消耗黄豆数
+	 * Setter for <code>breakfast.t_bf_order.exccreadit_count</code>. 消耗黄豆数
 	 */
 	public void setExccreaditCount(java.lang.Integer value) {
 		setValue(8, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.order.exccreadit_count</code>. 消耗黄豆数
+	 * Getter for <code>breakfast.t_bf_order.exccreadit_count</code>. 消耗黄豆数
 	 */
 	public java.lang.Integer getExccreaditCount() {
 		return (java.lang.Integer) getValue(8);
@@ -178,7 +178,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Order.Order.ORDER_ID;
+		return com.breakfast.domain.tables.Order.Order.orderId;
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Order.Order.CUSTOMER_ID;
+		return com.breakfast.domain.tables.Order.Order.customerId;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Order.Order.TYPE;
+		return com.breakfast.domain.tables.Order.Order.type;
 	}
 
 	/**
@@ -202,7 +202,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.Order.Order.STATUS;
+		return com.breakfast.domain.tables.Order.Order.status;
 	}
 
 	/**
@@ -210,7 +210,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.Order.Order.CONSIGNEE_NAME;
+		return com.breakfast.domain.tables.Order.Order.consigneeName;
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.Order.Order.CONSIGNEE_ADDRESS;
+		return com.breakfast.domain.tables.Order.Order.consigneeAddress;
 	}
 
 	/**
@@ -226,7 +226,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.Order.Order.CONSIGNEE_MOBILE;
+		return com.breakfast.domain.tables.Order.Order.consigneeMobile;
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field8() {
-		return com.breakfast.domain.tables.Order.Order.ORDER_PRICE;
+		return com.breakfast.domain.tables.Order.Order.orderPrice;
 	}
 
 	/**
@@ -242,7 +242,7 @@ public class OrderRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field9() {
-		return com.breakfast.domain.tables.Order.Order.EXCCREADIT_COUNT;
+		return com.breakfast.domain.tables.Order.Order.exccreaditCount;
 	}
 
 	/**

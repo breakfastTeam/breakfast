@@ -13,31 +13,31 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserCourierRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.UserCourierRecord> implements org.jooq.Record2<java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 1372845931;
+	private static final long serialVersionUID = -1760513352;
 
 	/**
-	 * Setter for <code>breakfast.user_courier.user_id</code>.
+	 * Setter for <code>breakfast.t_bf_user_courier.user_id</code>.
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_courier.user_id</code>.
+	 * Getter for <code>breakfast.t_bf_user_courier.user_id</code>.
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user_courier.source</code>. 来源
+	 * Setter for <code>breakfast.t_bf_user_courier.source</code>. 来源
 	 */
 	public void setSource(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user_courier.source</code>. 来源
+	 * Getter for <code>breakfast.t_bf_user_courier.source</code>. 来源
 	 */
 	public java.lang.String getSource() {
 		return (java.lang.String) getValue(1);
@@ -80,7 +80,7 @@ public class UserCourierRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.UserCourier.UserCourier.USER_ID;
+		return com.breakfast.domain.tables.UserCourier.UserCourier.userId;
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class UserCourierRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.UserCourier.UserCourier.SOURCE;
+		return com.breakfast.domain.tables.UserCourier.UserCourier.source;
 	}
 
 	/**

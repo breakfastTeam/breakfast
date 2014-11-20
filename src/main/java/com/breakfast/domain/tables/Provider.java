@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Provider extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.ProviderRecord> {
 
-	private static final long serialVersionUID = 1653888320;
+	private static final long serialVersionUID = -1359079069;
 
 	/**
-	 * The singleton instance of <code>breakfast.provider</code>
+	 * The singleton instance of <code>breakfast.t_bf_provider</code>
 	 */
 	public static final com.breakfast.domain.tables.Provider Provider = new com.breakfast.domain.tables.Provider();
 
@@ -29,49 +29,49 @@ public class Provider extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	/**
-	 * The column <code>breakfast.provider.provider_id</code>.
+	 * The column <code>breakfast.t_bf_provider.provider_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> PROVIDER_ID = createField("provider_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> providerId = createField("provider_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
 
 	/**
-	 * The column <code>breakfast.provider.provider_name</code>. 供应商名称
+	 * The column <code>breakfast.t_bf_provider.provider_name</code>. 供应商名称
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> PROVIDER_NAME = createField("provider_name", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "供应商名称");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> providerName = createField("provider_name", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "供应商名称");
 
 	/**
-	 * The column <code>breakfast.provider.phone</code>. 常用电话
+	 * The column <code>breakfast.t_bf_provider.phone</code>. 常用电话
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> PHONE = createField("phone", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "常用电话");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> phone = createField("phone", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "常用电话");
 
 	/**
-	 * The column <code>breakfast.provider.alternative_phone</code>. 备用电话
+	 * The column <code>breakfast.t_bf_provider.alternative_phone</code>. 备用电话
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> ALTERNATIVE_PHONE = createField("alternative_phone", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "备用电话");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> alternativePhone = createField("alternative_phone", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "备用电话");
 
 	/**
-	 * The column <code>breakfast.provider.address</code>. 地址
+	 * The column <code>breakfast.t_bf_provider.address</code>. 地址
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> ADDRESS = createField("address", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "地址");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> address = createField("address", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "地址");
 
 	/**
-	 * The column <code>breakfast.provider.intro</code>. 描述
+	 * The column <code>breakfast.t_bf_provider.intro</code>. 描述
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> INTRO = createField("intro", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "描述");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> intro = createField("intro", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "描述");
 
 	/**
-	 * The column <code>breakfast.provider.status</code>. 状态
+	 * The column <code>breakfast.t_bf_provider.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.ProviderRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.provider</code> table reference
+	 * Create a <code>breakfast.t_bf_provider</code> table reference
 	 */
 	public Provider() {
-		this("provider", null);
+		this("t_bf_provider", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.provider</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_provider</code> table reference
 	 */
 	public Provider(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Provider.Provider);
@@ -82,7 +82,7 @@ public class Provider extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	private Provider(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.ProviderRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "供应商");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "供应商");
 	}
 
 	/**

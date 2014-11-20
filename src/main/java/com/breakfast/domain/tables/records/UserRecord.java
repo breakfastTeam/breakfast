@@ -13,143 +13,143 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.UserRecord> implements org.jooq.Record10<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = 1914373193;
+	private static final long serialVersionUID = 45700452;
 
 	/**
-	 * Setter for <code>breakfast.user.user_id</code>.
+	 * Setter for <code>breakfast.t_bf_user.user_id</code>.
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.user_id</code>.
+	 * Getter for <code>breakfast.t_bf_user.user_id</code>.
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.login_name</code>. 用户名
+	 * Setter for <code>breakfast.t_bf_user.login_name</code>. 用户名
 	 */
 	public void setLoginName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.login_name</code>. 用户名
+	 * Getter for <code>breakfast.t_bf_user.login_name</code>. 用户名
 	 */
 	public java.lang.String getLoginName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.password</code>. 密码
+	 * Setter for <code>breakfast.t_bf_user.password</code>. 密码
 	 */
 	public void setPassword(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.password</code>. 密码
+	 * Getter for <code>breakfast.t_bf_user.password</code>. 密码
 	 */
 	public java.lang.String getPassword() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_user.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_user.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.user_name</code>. 姓名
+	 * Setter for <code>breakfast.t_bf_user.user_name</code>. 姓名
 	 */
 	public void setUserName(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.user_name</code>. 姓名
+	 * Getter for <code>breakfast.t_bf_user.user_name</code>. 姓名
 	 */
 	public java.lang.String getUserName() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.mobile</code>. 手机号
+	 * Setter for <code>breakfast.t_bf_user.mobile</code>. 手机号
 	 */
 	public void setMobile(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.mobile</code>. 手机号
+	 * Getter for <code>breakfast.t_bf_user.mobile</code>. 手机号
 	 */
 	public java.lang.String getMobile() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.weixin</code>. 微信号
+	 * Setter for <code>breakfast.t_bf_user.weixin</code>. 微信号
 	 */
 	public void setWeixin(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.weixin</code>. 微信号
+	 * Getter for <code>breakfast.t_bf_user.weixin</code>. 微信号
 	 */
 	public java.lang.String getWeixin() {
 		return (java.lang.String) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.qq</code>.
+	 * Setter for <code>breakfast.t_bf_user.qq</code>.
 	 */
 	public void setQq(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.qq</code>.
+	 * Getter for <code>breakfast.t_bf_user.qq</code>.
 	 */
 	public java.lang.String getQq() {
 		return (java.lang.String) getValue(7);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.create_time</code>. 注册日期
+	 * Setter for <code>breakfast.t_bf_user.create_time</code>. 注册日期
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(8, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.create_time</code>. 注册日期
+	 * Getter for <code>breakfast.t_bf_user.create_time</code>. 注册日期
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(8);
 	}
 
 	/**
-	 * Setter for <code>breakfast.user.create_way</code>. 注册方式
+	 * Setter for <code>breakfast.t_bf_user.create_way</code>. 注册方式
 	 */
 	public void setCreateWay(java.lang.String value) {
 		setValue(9, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.user.create_way</code>. 注册方式
+	 * Getter for <code>breakfast.t_bf_user.create_way</code>. 注册方式
 	 */
 	public java.lang.String getCreateWay() {
 		return (java.lang.String) getValue(9);
@@ -192,7 +192,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.User.User.USER_ID;
+		return com.breakfast.domain.tables.User.User.userId;
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.User.User.LOGIN_NAME;
+		return com.breakfast.domain.tables.User.User.loginName;
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.User.User.PASSWORD;
+		return com.breakfast.domain.tables.User.User.password;
 	}
 
 	/**
@@ -216,7 +216,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.User.User.STATUS;
+		return com.breakfast.domain.tables.User.User.status;
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.User.User.USER_NAME;
+		return com.breakfast.domain.tables.User.User.userName;
 	}
 
 	/**
@@ -232,7 +232,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.User.User.MOBILE;
+		return com.breakfast.domain.tables.User.User.mobile;
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.User.User.WEIXIN;
+		return com.breakfast.domain.tables.User.User.weixin;
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field8() {
-		return com.breakfast.domain.tables.User.User.QQ;
+		return com.breakfast.domain.tables.User.User.qq;
 	}
 
 	/**
@@ -256,7 +256,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field9() {
-		return com.breakfast.domain.tables.User.User.CREATE_TIME;
+		return com.breakfast.domain.tables.User.User.createTime;
 	}
 
 	/**
@@ -264,7 +264,7 @@ public class UserRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field10() {
-		return com.breakfast.domain.tables.User.User.CREATE_WAY;
+		return com.breakfast.domain.tables.User.User.createWay;
 	}
 
 	/**

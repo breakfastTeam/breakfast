@@ -13,101 +13,101 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.CouponRecord> implements org.jooq.Record7<java.lang.String, java.lang.String, java.sql.Timestamp, java.sql.Timestamp, java.math.BigDecimal, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 317068391;
+	private static final long serialVersionUID = 1913444611;
 
 	/**
-	 * Setter for <code>breakfast.coupon.coupon_id</code>.
+	 * Setter for <code>breakfast.t_bf_coupon.coupon_id</code>.
 	 */
 	public void setCouponId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.coupon_id</code>.
+	 * Getter for <code>breakfast.t_bf_coupon.coupon_id</code>.
 	 */
 	public java.lang.String getCouponId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.user_id</code>. 发放对象ID
+	 * Setter for <code>breakfast.t_bf_coupon.user_id</code>. 发放对象ID
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.user_id</code>. 发放对象ID
+	 * Getter for <code>breakfast.t_bf_coupon.user_id</code>. 发放对象ID
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.create_time</code>. 发放时间
+	 * Setter for <code>breakfast.t_bf_coupon.create_time</code>. 发放时间
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.create_time</code>. 发放时间
+	 * Getter for <code>breakfast.t_bf_coupon.create_time</code>. 发放时间
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.end_time</code>. 截止日期
+	 * Setter for <code>breakfast.t_bf_coupon.end_time</code>. 截止日期
 	 */
 	public void setEndTime(java.sql.Timestamp value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.end_time</code>. 截止日期
+	 * Getter for <code>breakfast.t_bf_coupon.end_time</code>. 截止日期
 	 */
 	public java.sql.Timestamp getEndTime() {
 		return (java.sql.Timestamp) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.price</code>. 价值
+	 * Setter for <code>breakfast.t_bf_coupon.price</code>. 价值
 	 */
 	public void setPrice(java.math.BigDecimal value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.price</code>. 价值
+	 * Getter for <code>breakfast.t_bf_coupon.price</code>. 价值
 	 */
 	public java.math.BigDecimal getPrice() {
 		return (java.math.BigDecimal) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.source</code>. 发放人
+	 * Setter for <code>breakfast.t_bf_coupon.source</code>. 发放人
 	 */
 	public void setSource(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.source</code>. 发放人
+	 * Getter for <code>breakfast.t_bf_coupon.source</code>. 发放人
 	 */
 	public java.lang.String getSource() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.coupon.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_coupon.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.coupon.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_coupon.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(6);
@@ -150,7 +150,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Coupon.Coupon.COUPON_ID;
+		return com.breakfast.domain.tables.Coupon.Coupon.couponId;
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Coupon.Coupon.USER_ID;
+		return com.breakfast.domain.tables.Coupon.Coupon.userId;
 	}
 
 	/**
@@ -166,7 +166,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field3() {
-		return com.breakfast.domain.tables.Coupon.Coupon.CREATE_TIME;
+		return com.breakfast.domain.tables.Coupon.Coupon.createTime;
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field4() {
-		return com.breakfast.domain.tables.Coupon.Coupon.END_TIME;
+		return com.breakfast.domain.tables.Coupon.Coupon.endTime;
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.math.BigDecimal> field5() {
-		return com.breakfast.domain.tables.Coupon.Coupon.PRICE;
+		return com.breakfast.domain.tables.Coupon.Coupon.price;
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.Coupon.Coupon.SOURCE;
+		return com.breakfast.domain.tables.Coupon.Coupon.source;
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class CouponRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfas
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.Coupon.Coupon.STATUS;
+		return com.breakfast.domain.tables.Coupon.Coupon.status;
 	}
 
 	/**

@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.UserRecord> {
 
-	private static final long serialVersionUID = -1672384209;
+	private static final long serialVersionUID = 340773696;
 
 	/**
-	 * The singleton instance of <code>breakfast.user</code>
+	 * The singleton instance of <code>breakfast.t_bf_user</code>
 	 */
 	public static final com.breakfast.domain.tables.User User = new com.breakfast.domain.tables.User();
 
@@ -29,64 +29,64 @@ public class User extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	}
 
 	/**
-	 * The column <code>breakfast.user.user_id</code>.
+	 * The column <code>breakfast.t_bf_user.user_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.user.login_name</code>. 用户名
+	 * The column <code>breakfast.t_bf_user.login_name</code>. 用户名
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> LOGIN_NAME = createField("login_name", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "用户名");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> loginName = createField("login_name", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "用户名");
 
 	/**
-	 * The column <code>breakfast.user.password</code>. 密码
+	 * The column <code>breakfast.t_bf_user.password</code>. 密码
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> PASSWORD = createField("password", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "密码");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> password = createField("password", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "密码");
 
 	/**
-	 * The column <code>breakfast.user.status</code>. 状态
+	 * The column <code>breakfast.t_bf_user.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * The column <code>breakfast.user.user_name</code>. 姓名
+	 * The column <code>breakfast.t_bf_user.user_name</code>. 姓名
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> USER_NAME = createField("user_name", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "姓名");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> userName = createField("user_name", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "姓名");
 
 	/**
-	 * The column <code>breakfast.user.mobile</code>. 手机号
+	 * The column <code>breakfast.t_bf_user.mobile</code>. 手机号
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> MOBILE = createField("mobile", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "手机号");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> mobile = createField("mobile", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "手机号");
 
 	/**
-	 * The column <code>breakfast.user.weixin</code>. 微信号
+	 * The column <code>breakfast.t_bf_user.weixin</code>. 微信号
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> WEIXIN = createField("weixin", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "微信号");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> weixin = createField("weixin", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "微信号");
 
 	/**
-	 * The column <code>breakfast.user.qq</code>.
+	 * The column <code>breakfast.t_bf_user.qq</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> QQ = createField("qq", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> qq = createField("qq", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "");
 
 	/**
-	 * The column <code>breakfast.user.create_time</code>. 注册日期
+	 * The column <code>breakfast.t_bf_user.create_time</code>. 注册日期
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "注册日期");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "注册日期");
 
 	/**
-	 * The column <code>breakfast.user.create_way</code>. 注册方式
+	 * The column <code>breakfast.t_bf_user.create_way</code>. 注册方式
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> CREATE_WAY = createField("create_way", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "注册方式");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserRecord, java.lang.String> createWay = createField("create_way", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "注册方式");
 
 	/**
-	 * Create a <code>breakfast.user</code> table reference
+	 * Create a <code>breakfast.t_bf_user</code> table reference
 	 */
 	public User() {
-		this("user", null);
+		this("t_bf_user", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.user</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_user</code> table reference
 	 */
 	public User(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.User.User);
@@ -97,7 +97,7 @@ public class User extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	}
 
 	private User(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.UserRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "人员表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "人员表");
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class User extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_USER_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfUserPrimary;
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class User extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord>>asList(com.breakfast.domain.Keys.KEY_USER_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord>>asList(com.breakfast.domain.Keys.keyTBfUserPrimary);
 	}
 
 	/**

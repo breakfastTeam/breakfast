@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Grade extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.GradeRecord> {
 
-	private static final long serialVersionUID = 1016078138;
+	private static final long serialVersionUID = 2041896117;
 
 	/**
-	 * The singleton instance of <code>breakfast.grade</code>
+	 * The singleton instance of <code>breakfast.t_bf_grade</code>
 	 */
 	public static final com.breakfast.domain.tables.Grade Grade = new com.breakfast.domain.tables.Grade();
 
@@ -29,54 +29,54 @@ public class Grade extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	}
 
 	/**
-	 * The column <code>breakfast.grade.grade_id</code>.
+	 * The column <code>breakfast.t_bf_grade.grade_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> GRADE_ID = createField("grade_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> gradeId = createField("grade_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.grade.user_id</code>. 评分人
+	 * The column <code>breakfast.t_bf_grade.user_id</code>. 评分人
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "评分人");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "评分人");
 
 	/**
-	 * The column <code>breakfast.grade.target_type</code>. 评分对象类别
+	 * The column <code>breakfast.t_bf_grade.target_type</code>. 评分对象类别
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> TARGET_TYPE = createField("target_type", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "评分对象类别");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> targetType = createField("target_type", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "评分对象类别");
 
 	/**
-	 * The column <code>breakfast.grade.object_id</code>. 评分对象ID
+	 * The column <code>breakfast.t_bf_grade.object_id</code>. 评分对象ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> OBJECT_ID = createField("object_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "评分对象ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> objectId = createField("object_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "评分对象ID");
 
 	/**
-	 * The column <code>breakfast.grade.grade</code>. 评分
+	 * The column <code>breakfast.t_bf_grade.grade</code>. 评分
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.Integer> GRADE = createField("grade", org.jooq.impl.SQLDataType.INTEGER, this, "评分");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.Integer> grade = createField("grade", org.jooq.impl.SQLDataType.INTEGER, this, "评分");
 
 	/**
-	 * The column <code>breakfast.grade.create_time</code>. 创建时间
+	 * The column <code>breakfast.t_bf_grade.create_time</code>. 创建时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
 
 	/**
-	 * The column <code>breakfast.grade.last_modify_time</code>. 更新时间
+	 * The column <code>breakfast.t_bf_grade.last_modify_time</code>. 更新时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.sql.Timestamp> LAST_MODIFY_TIME = createField("last_modify_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.sql.Timestamp> lastModifyTime = createField("last_modify_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
 
 	/**
-	 * The column <code>breakfast.grade.状态</code>. 状态
+	 * The column <code>breakfast.t_bf_grade.状态</code>. 状态
 	 */
 	public final org.jooq.TableField<com.breakfast.domain.tables.records.GradeRecord, java.lang.String> 状态 = createField("状态", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.grade</code> table reference
+	 * Create a <code>breakfast.t_bf_grade</code> table reference
 	 */
 	public Grade() {
-		this("grade", null);
+		this("t_bf_grade", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.grade</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_grade</code> table reference
 	 */
 	public Grade(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Grade.Grade);
@@ -87,7 +87,7 @@ public class Grade extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	}
 
 	private Grade(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.GradeRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "评分详情表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "评分详情表");
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class Grade extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_GRADE_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfGradePrimary;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class Grade extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.r
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord>>asList(com.breakfast.domain.Keys.KEY_GRADE_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord>>asList(com.breakfast.domain.Keys.keyTBfGradePrimary);
 	}
 
 	/**

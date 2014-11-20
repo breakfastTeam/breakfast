@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Address extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.AddressRecord> {
 
-	private static final long serialVersionUID = 761690851;
+	private static final long serialVersionUID = -1527903721;
 
 	/**
-	 * The singleton instance of <code>breakfast.address</code>
+	 * The singleton instance of <code>breakfast.t_bf_address</code>
 	 */
 	public static final com.breakfast.domain.tables.Address Address = new com.breakfast.domain.tables.Address();
 
@@ -29,34 +29,34 @@ public class Address extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	}
 
 	/**
-	 * The column <code>breakfast.address.adddress_id</code>.
+	 * The column <code>breakfast.t_bf_address.adddress_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> ADDDRESS_ID = createField("adddress_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> adddressId = createField("adddress_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.address.address_name</code>. 地址名
+	 * The column <code>breakfast.t_bf_address.address_name</code>. 地址名
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> ADDRESS_NAME = createField("address_name", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "地址名");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> addressName = createField("address_name", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "地址名");
 
 	/**
-	 * The column <code>breakfast.address.address</code>. 地址详情
+	 * The column <code>breakfast.t_bf_address.address</code>. 地址详情
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> ADDRESS = createField("address", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "地址详情");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> address = createField("address", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "地址详情");
 
 	/**
-	 * The column <code>breakfast.address.status</code>. 状态
+	 * The column <code>breakfast.t_bf_address.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.AddressRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.address</code> table reference
+	 * Create a <code>breakfast.t_bf_address</code> table reference
 	 */
 	public Address() {
-		this("address", null);
+		this("t_bf_address", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.address</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_address</code> table reference
 	 */
 	public Address(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Address.Address);
@@ -67,7 +67,7 @@ public class Address extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	}
 
 	private Address(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.AddressRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "地址表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "地址表");
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class Address extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_ADDRESS_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfAddressPrimary;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class Address extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord>>asList(com.breakfast.domain.Keys.KEY_ADDRESS_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord>>asList(com.breakfast.domain.Keys.keyTBfAddressPrimary);
 	}
 
 	/**

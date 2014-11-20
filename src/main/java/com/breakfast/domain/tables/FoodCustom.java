@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodCustom extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.FoodCustomRecord> {
 
-	private static final long serialVersionUID = 1868946856;
+	private static final long serialVersionUID = -655651732;
 
 	/**
-	 * The singleton instance of <code>breakfast.food_custom</code>
+	 * The singleton instance of <code>breakfast.t_bf_food_custom</code>
 	 */
 	public static final com.breakfast.domain.tables.FoodCustom FoodCustom = new com.breakfast.domain.tables.FoodCustom();
 
@@ -29,54 +29,54 @@ public class FoodCustom extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	}
 
 	/**
-	 * The column <code>breakfast.food_custom.food_custom_id</code>.
+	 * The column <code>breakfast.t_bf_food_custom.food_custom_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> FOOD_CUSTOM_ID = createField("food_custom_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> foodCustomId = createField("food_custom_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.food_custom.custom_order_name</code>. 订单名称
+	 * The column <code>breakfast.t_bf_food_custom.custom_order_name</code>. 订单名称
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> CUSTOM_ORDER_NAME = createField("custom_order_name", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "订单名称");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> customOrderName = createField("custom_order_name", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "订单名称");
 
 	/**
-	 * The column <code>breakfast.food_custom.customer_id</code>. 客户ID
+	 * The column <code>breakfast.t_bf_food_custom.customer_id</code>. 客户ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> CUSTOMER_ID = createField("customer_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> customerId = createField("customer_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
 
 	/**
-	 * The column <code>breakfast.food_custom.food_id</code>. 食品ID
+	 * The column <code>breakfast.t_bf_food_custom.food_id</code>. 食品ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> FOOD_ID = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> foodId = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品ID");
 
 	/**
-	 * The column <code>breakfast.food_custom.food_count</code>. 食品数量
+	 * The column <code>breakfast.t_bf_food_custom.food_count</code>. 食品数量
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.Integer> FOOD_COUNT = createField("food_count", org.jooq.impl.SQLDataType.INTEGER, this, "食品数量");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.Integer> foodCount = createField("food_count", org.jooq.impl.SQLDataType.INTEGER, this, "食品数量");
 
 	/**
-	 * The column <code>breakfast.food_custom.price</code>. 订单售价
+	 * The column <code>breakfast.t_bf_food_custom.price</code>. 订单售价
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.math.BigDecimal> PRICE = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(8, 3), this, "订单售价");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.math.BigDecimal> price = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(8, 3), this, "订单售价");
 
 	/**
-	 * The column <code>breakfast.food_custom.create_time</code>. 创建时间
+	 * The column <code>breakfast.t_bf_food_custom.create_time</code>. 创建时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
 
 	/**
-	 * The column <code>breakfast.food_custom.status</code>. 状态
+	 * The column <code>breakfast.t_bf_food_custom.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FoodCustomRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.food_custom</code> table reference
+	 * Create a <code>breakfast.t_bf_food_custom</code> table reference
 	 */
 	public FoodCustom() {
-		this("food_custom", null);
+		this("t_bf_food_custom", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.food_custom</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_food_custom</code> table reference
 	 */
 	public FoodCustom(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.FoodCustom.FoodCustom);
@@ -87,7 +87,7 @@ public class FoodCustom extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	}
 
 	private FoodCustom(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.FoodCustomRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "用户定制表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "用户定制表");
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class FoodCustom extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_FOOD_CUSTOM_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfFoodCustomPrimary;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class FoodCustom extends org.jooq.impl.TableImpl<com.breakfast.domain.tab
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord>>asList(com.breakfast.domain.Keys.KEY_FOOD_CUSTOM_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord>>asList(com.breakfast.domain.Keys.keyTBfFoodCustomPrimary);
 	}
 
 	/**

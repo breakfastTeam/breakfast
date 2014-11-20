@@ -13,115 +13,115 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.FeedbackRecord> implements org.jooq.Record8<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = -812429165;
+	private static final long serialVersionUID = 495032188;
 
 	/**
-	 * Setter for <code>breakfast.feedback.feedback_id</code>.
+	 * Setter for <code>breakfast.t_bf_feedback.feedback_id</code>.
 	 */
 	public void setFeedbackId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.feedback_id</code>.
+	 * Getter for <code>breakfast.t_bf_feedback.feedback_id</code>.
 	 */
 	public java.lang.String getFeedbackId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.user_id</code>. 反馈人
+	 * Setter for <code>breakfast.t_bf_feedback.user_id</code>. 反馈人
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.user_id</code>. 反馈人
+	 * Getter for <code>breakfast.t_bf_feedback.user_id</code>. 反馈人
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.target_type</code>. 反馈对象类别
+	 * Setter for <code>breakfast.t_bf_feedback.target_type</code>. 反馈对象类别
 	 */
 	public void setTargetType(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.target_type</code>. 反馈对象类别
+	 * Getter for <code>breakfast.t_bf_feedback.target_type</code>. 反馈对象类别
 	 */
 	public java.lang.String getTargetType() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.object_id</code>. 反馈对象ID
+	 * Setter for <code>breakfast.t_bf_feedback.object_id</code>. 反馈对象ID
 	 */
 	public void setObjectId(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.object_id</code>. 反馈对象ID
+	 * Getter for <code>breakfast.t_bf_feedback.object_id</code>. 反馈对象ID
 	 */
 	public java.lang.String getObjectId() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.content</code>. 反馈内容
+	 * Setter for <code>breakfast.t_bf_feedback.content</code>. 反馈内容
 	 */
 	public void setContent(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.content</code>. 反馈内容
+	 * Getter for <code>breakfast.t_bf_feedback.content</code>. 反馈内容
 	 */
 	public java.lang.String getContent() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.create_time</code>. 创建时间
+	 * Setter for <code>breakfast.t_bf_feedback.create_time</code>. 创建时间
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.create_time</code>. 创建时间
+	 * Getter for <code>breakfast.t_bf_feedback.create_time</code>. 创建时间
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.last_modify_time</code>. 更新时间
+	 * Setter for <code>breakfast.t_bf_feedback.last_modify_time</code>. 更新时间
 	 */
 	public void setLastModifyTime(java.sql.Timestamp value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.last_modify_time</code>. 更新时间
+	 * Getter for <code>breakfast.t_bf_feedback.last_modify_time</code>. 更新时间
 	 */
 	public java.sql.Timestamp getLastModifyTime() {
 		return (java.sql.Timestamp) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.feedback.状态</code>. 状态
+	 * Setter for <code>breakfast.t_bf_feedback.状态</code>. 状态
 	 */
 	public void set状态(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.feedback.状态</code>. 状态
+	 * Getter for <code>breakfast.t_bf_feedback.状态</code>. 状态
 	 */
 	public java.lang.String get状态() {
 		return (java.lang.String) getValue(7);
@@ -164,7 +164,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Feedback.Feedback.FEEDBACK_ID;
+		return com.breakfast.domain.tables.Feedback.Feedback.feedbackId;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Feedback.Feedback.USER_ID;
+		return com.breakfast.domain.tables.Feedback.Feedback.userId;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Feedback.Feedback.TARGET_TYPE;
+		return com.breakfast.domain.tables.Feedback.Feedback.targetType;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.Feedback.Feedback.OBJECT_ID;
+		return com.breakfast.domain.tables.Feedback.Feedback.objectId;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.Feedback.Feedback.CONTENT;
+		return com.breakfast.domain.tables.Feedback.Feedback.content;
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field6() {
-		return com.breakfast.domain.tables.Feedback.Feedback.CREATE_TIME;
+		return com.breakfast.domain.tables.Feedback.Feedback.createTime;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class FeedbackRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakf
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field7() {
-		return com.breakfast.domain.tables.Feedback.Feedback.LAST_MODIFY_TIME;
+		return com.breakfast.domain.tables.Feedback.Feedback.lastModifyTime;
 	}
 
 	/**

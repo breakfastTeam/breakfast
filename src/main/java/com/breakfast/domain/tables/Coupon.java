@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Coupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.CouponRecord> {
 
-	private static final long serialVersionUID = -1613469406;
+	private static final long serialVersionUID = 950900144;
 
 	/**
-	 * The singleton instance of <code>breakfast.coupon</code>
+	 * The singleton instance of <code>breakfast.t_bf_coupon</code>
 	 */
 	public static final com.breakfast.domain.tables.Coupon Coupon = new com.breakfast.domain.tables.Coupon();
 
@@ -29,49 +29,49 @@ public class Coupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.
 	}
 
 	/**
-	 * The column <code>breakfast.coupon.coupon_id</code>.
+	 * The column <code>breakfast.t_bf_coupon.coupon_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> COUPON_ID = createField("coupon_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> couponId = createField("coupon_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.coupon.user_id</code>. 发放对象ID
+	 * The column <code>breakfast.t_bf_coupon.user_id</code>. 发放对象ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "发放对象ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "发放对象ID");
 
 	/**
-	 * The column <code>breakfast.coupon.create_time</code>. 发放时间
+	 * The column <code>breakfast.t_bf_coupon.create_time</code>. 发放时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "发放时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "发放时间");
 
 	/**
-	 * The column <code>breakfast.coupon.end_time</code>. 截止日期
+	 * The column <code>breakfast.t_bf_coupon.end_time</code>. 截止日期
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.sql.Timestamp> END_TIME = createField("end_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "截止日期");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.sql.Timestamp> endTime = createField("end_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "截止日期");
 
 	/**
-	 * The column <code>breakfast.coupon.price</code>. 价值
+	 * The column <code>breakfast.t_bf_coupon.price</code>. 价值
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.math.BigDecimal> PRICE = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(8, 3), this, "价值");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.math.BigDecimal> price = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(8, 3), this, "价值");
 
 	/**
-	 * The column <code>breakfast.coupon.source</code>. 发放人
+	 * The column <code>breakfast.t_bf_coupon.source</code>. 发放人
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> SOURCE = createField("source", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "发放人");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> source = createField("source", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "发放人");
 
 	/**
-	 * The column <code>breakfast.coupon.status</code>. 状态
+	 * The column <code>breakfast.t_bf_coupon.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CouponRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.coupon</code> table reference
+	 * Create a <code>breakfast.t_bf_coupon</code> table reference
 	 */
 	public Coupon() {
-		this("coupon", null);
+		this("t_bf_coupon", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.coupon</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_coupon</code> table reference
 	 */
 	public Coupon(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Coupon.Coupon);
@@ -82,7 +82,7 @@ public class Coupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.
 	}
 
 	private Coupon(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.CouponRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "代金券表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "代金券表");
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class Coupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_COUPON_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfCouponPrimary;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class Coupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord>>asList(com.breakfast.domain.Keys.KEY_COUPON_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord>>asList(com.breakfast.domain.Keys.keyTBfCouponPrimary);
 	}
 
 	/**

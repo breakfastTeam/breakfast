@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SetFoods extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.SetFoodsRecord> {
 
-	private static final long serialVersionUID = 542528806;
+	private static final long serialVersionUID = 1994684586;
 
 	/**
-	 * The singleton instance of <code>breakfast.set_foods</code>
+	 * The singleton instance of <code>breakfast.t_bf_set_foods</code>
 	 */
 	public static final com.breakfast.domain.tables.SetFoods SetFoods = new com.breakfast.domain.tables.SetFoods();
 
@@ -29,34 +29,34 @@ public class SetFoods extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	/**
-	 * The column <code>breakfast.set_foods.set_foods_id</code>.
+	 * The column <code>breakfast.t_bf_set_foods.set_foods_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> SET_FOODS_ID = createField("set_foods_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> setFoodsId = createField("set_foods_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.set_foods.set_meal_id</code>. 套餐ID
+	 * The column <code>breakfast.t_bf_set_foods.set_meal_id</code>. 套餐ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> SET_MEAL_ID = createField("set_meal_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "套餐ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> setMealId = createField("set_meal_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "套餐ID");
 
 	/**
-	 * The column <code>breakfast.set_foods.food_id</code>. 食品Id
+	 * The column <code>breakfast.t_bf_set_foods.food_id</code>. 食品Id
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> FOOD_ID = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品Id");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.String> foodId = createField("food_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "食品Id");
 
 	/**
-	 * The column <code>breakfast.set_foods.food_count</code>. 食品数量
+	 * The column <code>breakfast.t_bf_set_foods.food_count</code>. 食品数量
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.Integer> FOOD_COUNT = createField("food_count", org.jooq.impl.SQLDataType.INTEGER, this, "食品数量");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.SetFoodsRecord, java.lang.Integer> foodCount = createField("food_count", org.jooq.impl.SQLDataType.INTEGER, this, "食品数量");
 
 	/**
-	 * Create a <code>breakfast.set_foods</code> table reference
+	 * Create a <code>breakfast.t_bf_set_foods</code> table reference
 	 */
 	public SetFoods() {
-		this("set_foods", null);
+		this("t_bf_set_foods", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.set_foods</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_set_foods</code> table reference
 	 */
 	public SetFoods(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.SetFoods.SetFoods);
@@ -67,7 +67,7 @@ public class SetFoods extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	private SetFoods(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.SetFoodsRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "套餐食品");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "套餐食品");
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class SetFoods extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_SET_FOODS_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfSetFoodsPrimary;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class SetFoods extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord>>asList(com.breakfast.domain.Keys.KEY_SET_FOODS_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord>>asList(com.breakfast.domain.Keys.keyTBfSetFoodsPrimary);
 	}
 
 	/**

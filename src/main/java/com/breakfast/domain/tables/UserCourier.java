@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserCourier extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.UserCourierRecord> {
 
-	private static final long serialVersionUID = 373667744;
+	private static final long serialVersionUID = -98564049;
 
 	/**
-	 * The singleton instance of <code>breakfast.user_courier</code>
+	 * The singleton instance of <code>breakfast.t_bf_user_courier</code>
 	 */
 	public static final com.breakfast.domain.tables.UserCourier UserCourier = new com.breakfast.domain.tables.UserCourier();
 
@@ -29,24 +29,24 @@ public class UserCourier extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	}
 
 	/**
-	 * The column <code>breakfast.user_courier.user_id</code>.
+	 * The column <code>breakfast.t_bf_user_courier.user_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserCourierRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserCourierRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.user_courier.source</code>. 来源
+	 * The column <code>breakfast.t_bf_user_courier.source</code>. 来源
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserCourierRecord, java.lang.String> SOURCE = createField("source", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "来源");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.UserCourierRecord, java.lang.String> source = createField("source", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "来源");
 
 	/**
-	 * Create a <code>breakfast.user_courier</code> table reference
+	 * Create a <code>breakfast.t_bf_user_courier</code> table reference
 	 */
 	public UserCourier() {
-		this("user_courier", null);
+		this("t_bf_user_courier", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.user_courier</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_user_courier</code> table reference
 	 */
 	public UserCourier(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.UserCourier.UserCourier);
@@ -57,7 +57,7 @@ public class UserCourier extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	}
 
 	private UserCourier(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.UserCourierRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "快递员详情");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "快递员详情");
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class UserCourier extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_USER_COURIER_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfUserCourierPrimary;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class UserCourier extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord>>asList(com.breakfast.domain.Keys.KEY_USER_COURIER_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord>>asList(com.breakfast.domain.Keys.keyTBfUserCourierPrimary);
 	}
 
 	/**

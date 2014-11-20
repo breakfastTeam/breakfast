@@ -13,59 +13,59 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.FoodDetailRecord> implements org.jooq.Record4<java.lang.String, java.lang.String, java.lang.String, java.lang.Integer> {
 
-	private static final long serialVersionUID = 428903805;
+	private static final long serialVersionUID = 1648724547;
 
 	/**
-	 * Setter for <code>breakfast.food_detail.detail_id</code>.
+	 * Setter for <code>breakfast.t_bf_food_detail.detail_id</code>.
 	 */
 	public void setDetailId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_detail.detail_id</code>.
+	 * Getter for <code>breakfast.t_bf_food_detail.detail_id</code>.
 	 */
 	public java.lang.String getDetailId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_detail.food_id</code>. 食品ID
+	 * Setter for <code>breakfast.t_bf_food_detail.food_id</code>. 食品ID
 	 */
 	public void setFoodId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_detail.food_id</code>. 食品ID
+	 * Getter for <code>breakfast.t_bf_food_detail.food_id</code>. 食品ID
 	 */
 	public java.lang.String getFoodId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_detail.raw_material_id</code>. 原材料ID
+	 * Setter for <code>breakfast.t_bf_food_detail.raw_material_id</code>. 原材料ID
 	 */
 	public void setRawMaterialId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_detail.raw_material_id</code>. 原材料ID
+	 * Getter for <code>breakfast.t_bf_food_detail.raw_material_id</code>. 原材料ID
 	 */
 	public java.lang.String getRawMaterialId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_detail.count</code>. 原材料数量
+	 * Setter for <code>breakfast.t_bf_food_detail.count</code>. 原材料数量
 	 */
 	public void setCount(java.lang.Integer value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_detail.count</code>. 原材料数量
+	 * Getter for <code>breakfast.t_bf_food_detail.count</code>. 原材料数量
 	 */
 	public java.lang.Integer getCount() {
 		return (java.lang.Integer) getValue(3);
@@ -108,7 +108,7 @@ public class FoodDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.FoodDetail.FoodDetail.DETAIL_ID;
+		return com.breakfast.domain.tables.FoodDetail.FoodDetail.detailId;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class FoodDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.FoodDetail.FoodDetail.FOOD_ID;
+		return com.breakfast.domain.tables.FoodDetail.FoodDetail.foodId;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class FoodDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.FoodDetail.FoodDetail.RAW_MATERIAL_ID;
+		return com.breakfast.domain.tables.FoodDetail.FoodDetail.rawMaterialId;
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class FoodDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field4() {
-		return com.breakfast.domain.tables.FoodDetail.FoodDetail.COUNT;
+		return com.breakfast.domain.tables.FoodDetail.FoodDetail.count;
 	}
 
 	/**

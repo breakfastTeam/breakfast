@@ -13,171 +13,171 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.SetMealRecord> implements org.jooq.Record12<java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.sql.Timestamp, java.math.BigDecimal, java.math.BigDecimal, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 1774239933;
+	private static final long serialVersionUID = -426405963;
 
 	/**
-	 * Setter for <code>breakfast.set_meal.set_meal_id</code>.
+	 * Setter for <code>breakfast.t_bf_set_meal.set_meal_id</code>.
 	 */
 	public void setSetMealId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.set_meal_id</code>.
+	 * Getter for <code>breakfast.t_bf_set_meal.set_meal_id</code>.
 	 */
 	public java.lang.String getSetMealId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.set_name</code>. 套餐名称
+	 * Setter for <code>breakfast.t_bf_set_meal.set_name</code>. 套餐名称
 	 */
 	public void setSetName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.set_name</code>. 套餐名称
+	 * Getter for <code>breakfast.t_bf_set_meal.set_name</code>. 套餐名称
 	 */
 	public java.lang.String getSetName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.introduce</code>. 套餐说明
+	 * Setter for <code>breakfast.t_bf_set_meal.introduce</code>. 套餐说明
 	 */
 	public void setIntroduce(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.introduce</code>. 套餐说明
+	 * Getter for <code>breakfast.t_bf_set_meal.introduce</code>. 套餐说明
 	 */
 	public java.lang.String getIntroduce() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.star_time</code>. 套餐开始日期
+	 * Setter for <code>breakfast.t_bf_set_meal.star_time</code>. 套餐开始日期
 	 */
 	public void setStarTime(java.sql.Timestamp value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.star_time</code>. 套餐开始日期
+	 * Getter for <code>breakfast.t_bf_set_meal.star_time</code>. 套餐开始日期
 	 */
 	public java.sql.Timestamp getStarTime() {
 		return (java.sql.Timestamp) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.end_time</code>. 套餐结束日期
+	 * Setter for <code>breakfast.t_bf_set_meal.end_time</code>. 套餐结束日期
 	 */
 	public void setEndTime(java.sql.Timestamp value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.end_time</code>. 套餐结束日期
+	 * Getter for <code>breakfast.t_bf_set_meal.end_time</code>. 套餐结束日期
 	 */
 	public java.sql.Timestamp getEndTime() {
 		return (java.sql.Timestamp) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.price</code>. 套餐价格
+	 * Setter for <code>breakfast.t_bf_set_meal.price</code>. 套餐价格
 	 */
 	public void setPrice(java.math.BigDecimal value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.price</code>. 套餐价格
+	 * Getter for <code>breakfast.t_bf_set_meal.price</code>. 套餐价格
 	 */
 	public java.math.BigDecimal getPrice() {
 		return (java.math.BigDecimal) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.privilege</code>. 套餐优惠
+	 * Setter for <code>breakfast.t_bf_set_meal.privilege</code>. 套餐优惠
 	 */
 	public void setPrivilege(java.math.BigDecimal value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.privilege</code>. 套餐优惠
+	 * Getter for <code>breakfast.t_bf_set_meal.privilege</code>. 套餐优惠
 	 */
 	public java.math.BigDecimal getPrivilege() {
 		return (java.math.BigDecimal) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.status</code>. 状态：上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
+	 * Setter for <code>breakfast.t_bf_set_meal.status</code>. 状态：上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.status</code>. 状态：上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
+	 * Getter for <code>breakfast.t_bf_set_meal.status</code>. 状态：上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(7);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.food_count</code>. 假库存数
+	 * Setter for <code>breakfast.t_bf_set_meal.food_count</code>. 假库存数
 	 */
 	public void setFoodCount(java.lang.Integer value) {
 		setValue(8, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.food_count</code>. 假库存数
+	 * Getter for <code>breakfast.t_bf_set_meal.food_count</code>. 假库存数
 	 */
 	public java.lang.Integer getFoodCount() {
 		return (java.lang.Integer) getValue(8);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.real_food_count</code>. 真实库存
+	 * Setter for <code>breakfast.t_bf_set_meal.real_food_count</code>. 真实库存
 	 */
 	public void setRealFoodCount(java.lang.Integer value) {
 		setValue(9, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.real_food_count</code>. 真实库存
+	 * Getter for <code>breakfast.t_bf_set_meal.real_food_count</code>. 真实库存
 	 */
 	public java.lang.Integer getRealFoodCount() {
 		return (java.lang.Integer) getValue(9);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.small_pic_id</code>. 缩略图
+	 * Setter for <code>breakfast.t_bf_set_meal.small_pic_id</code>. 缩略图
 	 */
 	public void setSmallPicId(java.lang.String value) {
 		setValue(10, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.small_pic_id</code>. 缩略图
+	 * Getter for <code>breakfast.t_bf_set_meal.small_pic_id</code>. 缩略图
 	 */
 	public java.lang.String getSmallPicId() {
 		return (java.lang.String) getValue(10);
 	}
 
 	/**
-	 * Setter for <code>breakfast.set_meal.orgin_pic_id</code>. 原图
+	 * Setter for <code>breakfast.t_bf_set_meal.orgin_pic_id</code>. 原图
 	 */
 	public void setOrginPicId(java.lang.String value) {
 		setValue(11, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.set_meal.orgin_pic_id</code>. 原图
+	 * Getter for <code>breakfast.t_bf_set_meal.orgin_pic_id</code>. 原图
 	 */
 	public java.lang.String getOrginPicId() {
 		return (java.lang.String) getValue(11);
@@ -220,7 +220,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.SET_MEAL_ID;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.setMealId;
 	}
 
 	/**
@@ -228,7 +228,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.SET_NAME;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.setName;
 	}
 
 	/**
@@ -236,7 +236,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.INTRODUCE;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.introduce;
 	}
 
 	/**
@@ -244,7 +244,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field4() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.STAR_TIME;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.starTime;
 	}
 
 	/**
@@ -252,7 +252,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field5() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.END_TIME;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.endTime;
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.math.BigDecimal> field6() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.PRICE;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.price;
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.math.BigDecimal> field7() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.PRIVILEGE;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.privilege;
 	}
 
 	/**
@@ -276,7 +276,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field8() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.STATUS;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.status;
 	}
 
 	/**
@@ -284,7 +284,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field9() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.FOOD_COUNT;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.foodCount;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field10() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.REAL_FOOD_COUNT;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.realFoodCount;
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field11() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.SMALL_PIC_ID;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.smallPicId;
 	}
 
 	/**
@@ -308,7 +308,7 @@ public class SetMealRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field12() {
-		return com.breakfast.domain.tables.SetMeal.SetMeal.ORGIN_PIC_ID;
+		return com.breakfast.domain.tables.SetMeal.SetMeal.orginPicId;
 	}
 
 	/**

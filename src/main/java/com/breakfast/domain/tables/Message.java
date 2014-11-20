@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Message extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.MessageRecord> {
 
-	private static final long serialVersionUID = 1239065154;
+	private static final long serialVersionUID = -1918872811;
 
 	/**
-	 * The singleton instance of <code>breakfast.message</code>
+	 * The singleton instance of <code>breakfast.t_bf_message</code>
 	 */
 	public static final com.breakfast.domain.tables.Message Message = new com.breakfast.domain.tables.Message();
 
@@ -29,44 +29,44 @@ public class Message extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	}
 
 	/**
-	 * The column <code>breakfast.message.message_id</code>.
+	 * The column <code>breakfast.t_bf_message.message_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> MESSAGE_ID = createField("message_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> messageId = createField("message_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
 
 	/**
-	 * The column <code>breakfast.message.user_id</code>. 客户ID
+	 * The column <code>breakfast.t_bf_message.user_id</code>. 客户ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客户ID");
 
 	/**
-	 * The column <code>breakfast.message.customer_service_id</code>. 客服ID
+	 * The column <code>breakfast.t_bf_message.customer_service_id</code>. 客服ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> CUSTOMER_SERVICE_ID = createField("customer_service_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客服ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> customerServiceId = createField("customer_service_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "客服ID");
 
 	/**
-	 * The column <code>breakfast.message.content</code>. 内容
+	 * The column <code>breakfast.t_bf_message.content</code>. 内容
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> CONTENT = createField("content", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "内容");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> content = createField("content", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "内容");
 
 	/**
-	 * The column <code>breakfast.message.create_time</code>. 创建时间
+	 * The column <code>breakfast.t_bf_message.create_time</code>. 创建时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
 
 	/**
-	 * The column <code>breakfast.message.status</code>. 状态
+	 * The column <code>breakfast.t_bf_message.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.MessageRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.message</code> table reference
+	 * Create a <code>breakfast.t_bf_message</code> table reference
 	 */
 	public Message() {
-		this("message", null);
+		this("t_bf_message", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.message</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_message</code> table reference
 	 */
 	public Message(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Message.Message);
@@ -77,7 +77,7 @@ public class Message extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	}
 
 	private Message(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.MessageRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "聊天信息表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "聊天信息表");
 	}
 
 	/**

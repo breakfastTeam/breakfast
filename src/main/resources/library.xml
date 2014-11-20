@@ -13,20 +13,7 @@
              Defaults to org.jooq.util.DefaultGenerator -->
         <name>org.jooq.util.DefaultGenerator</name>
         <strategy>
-            <matchers>
-                <tables>
-                    <table>
-                        <tableIdentifier>
-                            <transform>PASCAL</transform>
-                            <expression>$0</expression>
-                        </tableIdentifier>
-                        <tableClass>
-                            <transform>PASCAL</transform>
-                            <expression>$0</expression>
-                        </tableClass>
-                    </table>
-                </tables>
-            </matchers>
+            <name>com.bf.test.sqlBuilder.AsInDatabaseStrategy</name>
         </strategy>
         <database>
             <!-- The database type. The format here is:

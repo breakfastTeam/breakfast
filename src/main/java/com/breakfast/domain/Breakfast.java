@@ -11,12 +11,12 @@ package com.breakfast.domain;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Breakfast extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 86172288;
+	private static final long serialVersionUID = 1190156960;
 
 	/**
 	 * The singleton instance of <code>breakfast</code>
 	 */
-	public static final Breakfast BREAKFAST = new Breakfast();
+	public static final Breakfast breakfast = new Breakfast();
 
 	/**
 	 * No further instances allowed

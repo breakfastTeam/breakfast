@@ -13,59 +13,59 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AddressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.AddressRecord> implements org.jooq.Record4<java.lang.String, java.lang.String, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 18707076;
+	private static final long serialVersionUID = 2037516892;
 
 	/**
-	 * Setter for <code>breakfast.address.adddress_id</code>.
+	 * Setter for <code>breakfast.t_bf_address.adddress_id</code>.
 	 */
 	public void setAdddressId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.address.adddress_id</code>.
+	 * Getter for <code>breakfast.t_bf_address.adddress_id</code>.
 	 */
 	public java.lang.String getAdddressId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.address.address_name</code>. 地址名
+	 * Setter for <code>breakfast.t_bf_address.address_name</code>. 地址名
 	 */
 	public void setAddressName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.address.address_name</code>. 地址名
+	 * Getter for <code>breakfast.t_bf_address.address_name</code>. 地址名
 	 */
 	public java.lang.String getAddressName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.address.address</code>. 地址详情
+	 * Setter for <code>breakfast.t_bf_address.address</code>. 地址详情
 	 */
 	public void setAddress(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.address.address</code>. 地址详情
+	 * Getter for <code>breakfast.t_bf_address.address</code>. 地址详情
 	 */
 	public java.lang.String getAddress() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.address.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_address.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.address.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_address.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(3);
@@ -108,7 +108,7 @@ public class AddressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Address.Address.ADDDRESS_ID;
+		return com.breakfast.domain.tables.Address.Address.adddressId;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class AddressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Address.Address.ADDRESS_NAME;
+		return com.breakfast.domain.tables.Address.Address.addressName;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class AddressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Address.Address.ADDRESS;
+		return com.breakfast.domain.tables.Address.Address.address;
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class AddressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.Address.Address.STATUS;
+		return com.breakfast.domain.tables.Address.Address.status;
 	}
 
 	/**

@@ -13,101 +13,101 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.domain.tables.records.ProviderRecord> implements org.jooq.Record7<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = -309460694;
+	private static final long serialVersionUID = -583534347;
 
 	/**
-	 * Setter for <code>breakfast.provider.provider_id</code>.
+	 * Setter for <code>breakfast.t_bf_provider.provider_id</code>.
 	 */
 	public void setProviderId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.provider_id</code>.
+	 * Getter for <code>breakfast.t_bf_provider.provider_id</code>.
 	 */
 	public java.lang.String getProviderId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.provider_name</code>. 供应商名称
+	 * Setter for <code>breakfast.t_bf_provider.provider_name</code>. 供应商名称
 	 */
 	public void setProviderName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.provider_name</code>. 供应商名称
+	 * Getter for <code>breakfast.t_bf_provider.provider_name</code>. 供应商名称
 	 */
 	public java.lang.String getProviderName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.phone</code>. 常用电话
+	 * Setter for <code>breakfast.t_bf_provider.phone</code>. 常用电话
 	 */
 	public void setPhone(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.phone</code>. 常用电话
+	 * Getter for <code>breakfast.t_bf_provider.phone</code>. 常用电话
 	 */
 	public java.lang.String getPhone() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.alternative_phone</code>. 备用电话
+	 * Setter for <code>breakfast.t_bf_provider.alternative_phone</code>. 备用电话
 	 */
 	public void setAlternativePhone(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.alternative_phone</code>. 备用电话
+	 * Getter for <code>breakfast.t_bf_provider.alternative_phone</code>. 备用电话
 	 */
 	public java.lang.String getAlternativePhone() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.address</code>. 地址
+	 * Setter for <code>breakfast.t_bf_provider.address</code>. 地址
 	 */
 	public void setAddress(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.address</code>. 地址
+	 * Getter for <code>breakfast.t_bf_provider.address</code>. 地址
 	 */
 	public java.lang.String getAddress() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.intro</code>. 描述
+	 * Setter for <code>breakfast.t_bf_provider.intro</code>. 描述
 	 */
 	public void setIntro(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.intro</code>. 描述
+	 * Getter for <code>breakfast.t_bf_provider.intro</code>. 描述
 	 */
 	public java.lang.String getIntro() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.provider.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_provider.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.provider.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_provider.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(6);
@@ -138,7 +138,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Provider.Provider.PROVIDER_ID;
+		return com.breakfast.domain.tables.Provider.Provider.providerId;
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Provider.Provider.PROVIDER_NAME;
+		return com.breakfast.domain.tables.Provider.Provider.providerName;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Provider.Provider.PHONE;
+		return com.breakfast.domain.tables.Provider.Provider.phone;
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.Provider.Provider.ALTERNATIVE_PHONE;
+		return com.breakfast.domain.tables.Provider.Provider.alternativePhone;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.Provider.Provider.ADDRESS;
+		return com.breakfast.domain.tables.Provider.Provider.address;
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.Provider.Provider.INTRO;
+		return com.breakfast.domain.tables.Provider.Provider.intro;
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class ProviderRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.Provider.Provider.STATUS;
+		return com.breakfast.domain.tables.Provider.Provider.status;
 	}
 
 	/**

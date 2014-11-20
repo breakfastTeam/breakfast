@@ -13,17 +13,17 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CustomerServiceRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.CustomerServiceRecord> implements org.jooq.Record1<java.lang.String> {
 
-	private static final long serialVersionUID = -1287257398;
+	private static final long serialVersionUID = 1857587327;
 
 	/**
-	 * Setter for <code>breakfast.customer_service.user_id</code>.
+	 * Setter for <code>breakfast.t_bf_customer_service.user_id</code>.
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.customer_service.user_id</code>.
+	 * Getter for <code>breakfast.t_bf_customer_service.user_id</code>.
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(0);
@@ -66,7 +66,7 @@ public class CustomerServiceRecord extends org.jooq.impl.UpdatableRecordImpl<com
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.CustomerService.CustomerService.USER_ID;
+		return com.breakfast.domain.tables.CustomerService.CustomerService.userId;
 	}
 
 	/**

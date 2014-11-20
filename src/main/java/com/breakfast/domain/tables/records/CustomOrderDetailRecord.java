@@ -13,59 +13,59 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CustomOrderDetailRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.CustomOrderDetailRecord> implements org.jooq.Record4<java.lang.String, java.lang.String, java.lang.String, java.lang.Integer> {
 
-	private static final long serialVersionUID = -589925944;
+	private static final long serialVersionUID = -63451977;
 
 	/**
-	 * Setter for <code>breakfast.custom_order_detail.detail_id</code>.
+	 * Setter for <code>breakfast.t_bf_custom_order_detail.detail_id</code>.
 	 */
 	public void setDetailId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.custom_order_detail.detail_id</code>.
+	 * Getter for <code>breakfast.t_bf_custom_order_detail.detail_id</code>.
 	 */
 	public java.lang.String getDetailId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.custom_order_detail.food_custom_id</code>. 定制表ID
+	 * Setter for <code>breakfast.t_bf_custom_order_detail.food_custom_id</code>. 定制表ID
 	 */
 	public void setFoodCustomId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.custom_order_detail.food_custom_id</code>. 定制表ID
+	 * Getter for <code>breakfast.t_bf_custom_order_detail.food_custom_id</code>. 定制表ID
 	 */
 	public java.lang.String getFoodCustomId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.custom_order_detail.food_id</code>. 食品数量
+	 * Setter for <code>breakfast.t_bf_custom_order_detail.food_id</code>. 食品数量
 	 */
 	public void setFoodId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.custom_order_detail.food_id</code>. 食品数量
+	 * Getter for <code>breakfast.t_bf_custom_order_detail.food_id</code>. 食品数量
 	 */
 	public java.lang.String getFoodId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.custom_order_detail.food_count</code>. 食品数量
+	 * Setter for <code>breakfast.t_bf_custom_order_detail.food_count</code>. 食品数量
 	 */
 	public void setFoodCount(java.lang.Integer value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.custom_order_detail.food_count</code>. 食品数量
+	 * Getter for <code>breakfast.t_bf_custom_order_detail.food_count</code>. 食品数量
 	 */
 	public java.lang.Integer getFoodCount() {
 		return (java.lang.Integer) getValue(3);
@@ -108,7 +108,7 @@ public class CustomOrderDetailRecord extends org.jooq.impl.UpdatableRecordImpl<c
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.DETAIL_ID;
+		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.detailId;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class CustomOrderDetailRecord extends org.jooq.impl.UpdatableRecordImpl<c
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.FOOD_CUSTOM_ID;
+		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.foodCustomId;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class CustomOrderDetailRecord extends org.jooq.impl.UpdatableRecordImpl<c
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.FOOD_ID;
+		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.foodId;
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class CustomOrderDetailRecord extends org.jooq.impl.UpdatableRecordImpl<c
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field4() {
-		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.FOOD_COUNT;
+		return com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.foodCount;
 	}
 
 	/**

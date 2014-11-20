@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PhotoShow extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.PhotoShowRecord> {
 
-	private static final long serialVersionUID = -1348364306;
+	private static final long serialVersionUID = -989549630;
 
 	/**
-	 * The singleton instance of <code>breakfast.photo_show</code>
+	 * The singleton instance of <code>breakfast.t_bf_photo_show</code>
 	 */
 	public static final com.breakfast.domain.tables.PhotoShow PhotoShow = new com.breakfast.domain.tables.PhotoShow();
 
@@ -29,44 +29,44 @@ public class PhotoShow extends org.jooq.impl.TableImpl<com.breakfast.domain.tabl
 	}
 
 	/**
-	 * The column <code>breakfast.photo_show.photo_id</code>.
+	 * The column <code>breakfast.t_bf_photo_show.photo_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> PHOTO_ID = createField("photo_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> photoId = createField("photo_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.photo_show.file_id</code>. 图片文件ID
+	 * The column <code>breakfast.t_bf_photo_show.file_id</code>. 图片文件ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> FILE_ID = createField("file_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "图片文件ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> fileId = createField("file_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "图片文件ID");
 
 	/**
-	 * The column <code>breakfast.photo_show.create_time</code>. 图片上传日期
+	 * The column <code>breakfast.t_bf_photo_show.create_time</code>. 图片上传日期
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "图片上传日期");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "图片上传日期");
 
 	/**
-	 * The column <code>breakfast.photo_show.valid_date</code>. 图片有效期
+	 * The column <code>breakfast.t_bf_photo_show.valid_date</code>. 图片有效期
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.sql.Timestamp> VALID_DATE = createField("valid_date", org.jooq.impl.SQLDataType.TIMESTAMP, this, "图片有效期");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.sql.Timestamp> validDate = createField("valid_date", org.jooq.impl.SQLDataType.TIMESTAMP, this, "图片有效期");
 
 	/**
-	 * The column <code>breakfast.photo_show.createBy</code>. 上传机器编号
+	 * The column <code>breakfast.t_bf_photo_show.createBy</code>. 上传机器编号
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> CREATEBY = createField("createBy", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "上传机器编号");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> createby = createField("createBy", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "上传机器编号");
 
 	/**
-	 * The column <code>breakfast.photo_show.status</code>. 图片状态
+	 * The column <code>breakfast.t_bf_photo_show.status</code>. 图片状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "图片状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.PhotoShowRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "图片状态");
 
 	/**
-	 * Create a <code>breakfast.photo_show</code> table reference
+	 * Create a <code>breakfast.t_bf_photo_show</code> table reference
 	 */
 	public PhotoShow() {
-		this("photo_show", null);
+		this("t_bf_photo_show", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.photo_show</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_photo_show</code> table reference
 	 */
 	public PhotoShow(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.PhotoShow.PhotoShow);
@@ -77,7 +77,7 @@ public class PhotoShow extends org.jooq.impl.TableImpl<com.breakfast.domain.tabl
 	}
 
 	private PhotoShow(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.PhotoShowRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "图片展示");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "图片展示");
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class PhotoShow extends org.jooq.impl.TableImpl<com.breakfast.domain.tabl
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_PHOTO_SHOW_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfPhotoShowPrimary;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class PhotoShow extends org.jooq.impl.TableImpl<com.breakfast.domain.tabl
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord>>asList(com.breakfast.domain.Keys.KEY_PHOTO_SHOW_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord>>asList(com.breakfast.domain.Keys.keyTBfPhotoShowPrimary);
 	}
 
 	/**

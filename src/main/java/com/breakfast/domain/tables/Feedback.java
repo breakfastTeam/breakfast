@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Feedback extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.FeedbackRecord> {
 
-	private static final long serialVersionUID = 374540496;
+	private static final long serialVersionUID = 2021659309;
 
 	/**
-	 * The singleton instance of <code>breakfast.feedback</code>
+	 * The singleton instance of <code>breakfast.t_bf_feedback</code>
 	 */
 	public static final com.breakfast.domain.tables.Feedback Feedback = new com.breakfast.domain.tables.Feedback();
 
@@ -29,54 +29,54 @@ public class Feedback extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	/**
-	 * The column <code>breakfast.feedback.feedback_id</code>.
+	 * The column <code>breakfast.t_bf_feedback.feedback_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> FEEDBACK_ID = createField("feedback_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> feedbackId = createField("feedback_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.feedback.user_id</code>. 反馈人
+	 * The column <code>breakfast.t_bf_feedback.user_id</code>. 反馈人
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "反馈人");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "反馈人");
 
 	/**
-	 * The column <code>breakfast.feedback.target_type</code>. 反馈对象类别
+	 * The column <code>breakfast.t_bf_feedback.target_type</code>. 反馈对象类别
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> TARGET_TYPE = createField("target_type", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "反馈对象类别");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> targetType = createField("target_type", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "反馈对象类别");
 
 	/**
-	 * The column <code>breakfast.feedback.object_id</code>. 反馈对象ID
+	 * The column <code>breakfast.t_bf_feedback.object_id</code>. 反馈对象ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> OBJECT_ID = createField("object_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "反馈对象ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> objectId = createField("object_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "反馈对象ID");
 
 	/**
-	 * The column <code>breakfast.feedback.content</code>. 反馈内容
+	 * The column <code>breakfast.t_bf_feedback.content</code>. 反馈内容
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> CONTENT = createField("content", org.jooq.impl.SQLDataType.VARCHAR.length(500), this, "反馈内容");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> content = createField("content", org.jooq.impl.SQLDataType.VARCHAR.length(500), this, "反馈内容");
 
 	/**
-	 * The column <code>breakfast.feedback.create_time</code>. 创建时间
+	 * The column <code>breakfast.t_bf_feedback.create_time</code>. 创建时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "创建时间");
 
 	/**
-	 * The column <code>breakfast.feedback.last_modify_time</code>. 更新时间
+	 * The column <code>breakfast.t_bf_feedback.last_modify_time</code>. 更新时间
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.sql.Timestamp> LAST_MODIFY_TIME = createField("last_modify_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.sql.Timestamp> lastModifyTime = createField("last_modify_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
 
 	/**
-	 * The column <code>breakfast.feedback.状态</code>. 状态
+	 * The column <code>breakfast.t_bf_feedback.状态</code>. 状态
 	 */
 	public final org.jooq.TableField<com.breakfast.domain.tables.records.FeedbackRecord, java.lang.String> 状态 = createField("状态", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.feedback</code> table reference
+	 * Create a <code>breakfast.t_bf_feedback</code> table reference
 	 */
 	public Feedback() {
-		this("feedback", null);
+		this("t_bf_feedback", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.feedback</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_feedback</code> table reference
 	 */
 	public Feedback(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.Feedback.Feedback);
@@ -87,7 +87,7 @@ public class Feedback extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	}
 
 	private Feedback(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.FeedbackRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "评价反馈表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "评价反馈表");
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class Feedback extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_FEEDBACK_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfFeedbackPrimary;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class Feedback extends org.jooq.impl.TableImpl<com.breakfast.domain.table
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord>>asList(com.breakfast.domain.Keys.KEY_FEEDBACK_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord>>asList(com.breakfast.domain.Keys.keyTBfFeedbackPrimary);
 	}
 
 	/**

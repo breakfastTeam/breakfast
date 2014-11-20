@@ -13,115 +13,115 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.ExpressRecord> implements org.jooq.Record8<java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.sql.Timestamp, java.lang.String, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = 636530216;
+	private static final long serialVersionUID = -1694221352;
 
 	/**
-	 * Setter for <code>breakfast.express.express_id</code>.
+	 * Setter for <code>breakfast.t_bf_express.express_id</code>.
 	 */
 	public void setExpressId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.express_id</code>.
+	 * Getter for <code>breakfast.t_bf_express.express_id</code>.
 	 */
 	public java.lang.String getExpressId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.订单ID</code>. 订单ID
+	 * Setter for <code>breakfast.t_bf_express.订单ID</code>. 订单ID
 	 */
 	public void set订单id(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.订单ID</code>. 订单ID
+	 * Getter for <code>breakfast.t_bf_express.订单ID</code>. 订单ID
 	 */
 	public java.lang.String get订单id() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.courier_id</code>. 快递员ID
+	 * Setter for <code>breakfast.t_bf_express.courier_id</code>. 快递员ID
 	 */
 	public void setCourierId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.courier_id</code>. 快递员ID
+	 * Getter for <code>breakfast.t_bf_express.courier_id</code>. 快递员ID
 	 */
 	public java.lang.String getCourierId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.start_time</code>. 起送时间
+	 * Setter for <code>breakfast.t_bf_express.start_time</code>. 起送时间
 	 */
 	public void setStartTime(java.sql.Timestamp value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.start_time</code>. 起送时间
+	 * Getter for <code>breakfast.t_bf_express.start_time</code>. 起送时间
 	 */
 	public java.sql.Timestamp getStartTime() {
 		return (java.sql.Timestamp) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.finish_time</code>. 送达时间
+	 * Setter for <code>breakfast.t_bf_express.finish_time</code>. 送达时间
 	 */
 	public void setFinishTime(java.sql.Timestamp value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.finish_time</code>. 送达时间
+	 * Getter for <code>breakfast.t_bf_express.finish_time</code>. 送达时间
 	 */
 	public java.sql.Timestamp getFinishTime() {
 		return (java.sql.Timestamp) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.longitude</code>. 经度
+	 * Setter for <code>breakfast.t_bf_express.longitude</code>. 经度
 	 */
 	public void setLongitude(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.longitude</code>. 经度
+	 * Getter for <code>breakfast.t_bf_express.longitude</code>. 经度
 	 */
 	public java.lang.String getLongitude() {
 		return (java.lang.String) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.latitude</code>. 纬度
+	 * Setter for <code>breakfast.t_bf_express.latitude</code>. 纬度
 	 */
 	public void setLatitude(java.lang.String value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.latitude</code>. 纬度
+	 * Getter for <code>breakfast.t_bf_express.latitude</code>. 纬度
 	 */
 	public java.lang.String getLatitude() {
 		return (java.lang.String) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.express.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_express.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.express.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_express.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(7);
@@ -164,7 +164,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Express.Express.EXPRESS_ID;
+		return com.breakfast.domain.tables.Express.Express.expressId;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Express.Express.订单ID;
+		return com.breakfast.domain.tables.Express.Express.订单id;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Express.Express.COURIER_ID;
+		return com.breakfast.domain.tables.Express.Express.courierId;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field4() {
-		return com.breakfast.domain.tables.Express.Express.START_TIME;
+		return com.breakfast.domain.tables.Express.Express.startTime;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field5() {
-		return com.breakfast.domain.tables.Express.Express.FINISH_TIME;
+		return com.breakfast.domain.tables.Express.Express.finishTime;
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.Express.Express.LONGITUDE;
+		return com.breakfast.domain.tables.Express.Express.longitude;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field7() {
-		return com.breakfast.domain.tables.Express.Express.LATITUDE;
+		return com.breakfast.domain.tables.Express.Express.latitude;
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class ExpressRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfa
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field8() {
-		return com.breakfast.domain.tables.Express.Express.STATUS;
+		return com.breakfast.domain.tables.Express.Express.status;
 	}
 
 	/**

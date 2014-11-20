@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class File extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.FileRecord> {
 
-	private static final long serialVersionUID = 75374099;
+	private static final long serialVersionUID = -328463111;
 
 	/**
-	 * The singleton instance of <code>breakfast.file</code>
+	 * The singleton instance of <code>breakfast.t_bf_file</code>
 	 */
 	public static final com.breakfast.domain.tables.File File = new com.breakfast.domain.tables.File();
 
@@ -29,39 +29,39 @@ public class File extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	}
 
 	/**
-	 * The column <code>breakfast.file.file_id</code>.
+	 * The column <code>breakfast.t_bf_file.file_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> FILE_ID = createField("file_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> fileId = createField("file_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.file.file_path</code>. 文件路径
+	 * The column <code>breakfast.t_bf_file.file_path</code>. 文件路径
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> FILE_PATH = createField("file_path", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "文件路径");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> filePath = createField("file_path", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "文件路径");
 
 	/**
-	 * The column <code>breakfast.file.status</code>. 状态
+	 * The column <code>breakfast.t_bf_file.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * The column <code>breakfast.file.create_time</code>. 上传日期
+	 * The column <code>breakfast.t_bf_file.create_time</code>. 上传日期
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.sql.Timestamp> CREATE_TIME = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "上传日期");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.sql.Timestamp> createTime = createField("create_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "上传日期");
 
 	/**
-	 * The column <code>breakfast.file.create_by</code>. 上传人
+	 * The column <code>breakfast.t_bf_file.create_by</code>. 上传人
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> CREATE_BY = createField("create_by", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "上传人");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.FileRecord, java.lang.String> createBy = createField("create_by", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "上传人");
 
 	/**
-	 * Create a <code>breakfast.file</code> table reference
+	 * Create a <code>breakfast.t_bf_file</code> table reference
 	 */
 	public File() {
-		this("file", null);
+		this("t_bf_file", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.file</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_file</code> table reference
 	 */
 	public File(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.File.File);
@@ -72,7 +72,7 @@ public class File extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	}
 
 	private File(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.FileRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "文件表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "文件表");
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class File extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_FILE_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfFilePrimary;
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class File extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.re
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord>>asList(com.breakfast.domain.Keys.KEY_FILE_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord>>asList(com.breakfast.domain.Keys.keyTBfFilePrimary);
 	}
 
 	/**

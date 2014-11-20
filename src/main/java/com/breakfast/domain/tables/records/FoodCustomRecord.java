@@ -13,115 +13,115 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.FoodCustomRecord> implements org.jooq.Record8<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer, java.math.BigDecimal, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = -472719685;
+	private static final long serialVersionUID = 1441238807;
 
 	/**
-	 * Setter for <code>breakfast.food_custom.food_custom_id</code>.
+	 * Setter for <code>breakfast.t_bf_food_custom.food_custom_id</code>.
 	 */
 	public void setFoodCustomId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.food_custom_id</code>.
+	 * Getter for <code>breakfast.t_bf_food_custom.food_custom_id</code>.
 	 */
 	public java.lang.String getFoodCustomId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.custom_order_name</code>. 订单名称
+	 * Setter for <code>breakfast.t_bf_food_custom.custom_order_name</code>. 订单名称
 	 */
 	public void setCustomOrderName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.custom_order_name</code>. 订单名称
+	 * Getter for <code>breakfast.t_bf_food_custom.custom_order_name</code>. 订单名称
 	 */
 	public java.lang.String getCustomOrderName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.customer_id</code>. 客户ID
+	 * Setter for <code>breakfast.t_bf_food_custom.customer_id</code>. 客户ID
 	 */
 	public void setCustomerId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.customer_id</code>. 客户ID
+	 * Getter for <code>breakfast.t_bf_food_custom.customer_id</code>. 客户ID
 	 */
 	public java.lang.String getCustomerId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.food_id</code>. 食品ID
+	 * Setter for <code>breakfast.t_bf_food_custom.food_id</code>. 食品ID
 	 */
 	public void setFoodId(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.food_id</code>. 食品ID
+	 * Getter for <code>breakfast.t_bf_food_custom.food_id</code>. 食品ID
 	 */
 	public java.lang.String getFoodId() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.food_count</code>. 食品数量
+	 * Setter for <code>breakfast.t_bf_food_custom.food_count</code>. 食品数量
 	 */
 	public void setFoodCount(java.lang.Integer value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.food_count</code>. 食品数量
+	 * Getter for <code>breakfast.t_bf_food_custom.food_count</code>. 食品数量
 	 */
 	public java.lang.Integer getFoodCount() {
 		return (java.lang.Integer) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.price</code>. 订单售价
+	 * Setter for <code>breakfast.t_bf_food_custom.price</code>. 订单售价
 	 */
 	public void setPrice(java.math.BigDecimal value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.price</code>. 订单售价
+	 * Getter for <code>breakfast.t_bf_food_custom.price</code>. 订单售价
 	 */
 	public java.math.BigDecimal getPrice() {
 		return (java.math.BigDecimal) getValue(5);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.create_time</code>. 创建时间
+	 * Setter for <code>breakfast.t_bf_food_custom.create_time</code>. 创建时间
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.create_time</code>. 创建时间
+	 * Getter for <code>breakfast.t_bf_food_custom.create_time</code>. 创建时间
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(6);
 	}
 
 	/**
-	 * Setter for <code>breakfast.food_custom.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_food_custom.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(7, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.food_custom.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_food_custom.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(7);
@@ -164,7 +164,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.FOOD_CUSTOM_ID;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.foodCustomId;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.CUSTOM_ORDER_NAME;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.customOrderName;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.CUSTOMER_ID;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.customerId;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.FOOD_ID;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.foodId;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.Integer> field5() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.FOOD_COUNT;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.foodCount;
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.math.BigDecimal> field6() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.PRICE;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.price;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field7() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.CREATE_TIME;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.createTime;
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class FoodCustomRecord extends org.jooq.impl.UpdatableRecordImpl<com.brea
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field8() {
-		return com.breakfast.domain.tables.FoodCustom.FoodCustom.STATUS;
+		return com.breakfast.domain.tables.FoodCustom.FoodCustom.status;
 	}
 
 	/**

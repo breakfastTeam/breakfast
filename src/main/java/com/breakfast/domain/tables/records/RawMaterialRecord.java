@@ -13,87 +13,87 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.breakfast.domain.tables.records.RawMaterialRecord> implements org.jooq.Record6<java.lang.String, java.lang.String, java.math.BigDecimal, java.lang.String, java.lang.String, java.lang.String> {
 
-	private static final long serialVersionUID = -1102547608;
+	private static final long serialVersionUID = -256476697;
 
 	/**
-	 * Setter for <code>breakfast.raw_material.raw_material_id</code>.
+	 * Setter for <code>breakfast.t_bf_raw_material.raw_material_id</code>.
 	 */
 	public void setRawMaterialId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.raw_material_id</code>.
+	 * Getter for <code>breakfast.t_bf_raw_material.raw_material_id</code>.
 	 */
 	public java.lang.String getRawMaterialId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.raw_material.raw_material_name</code>. 原材料名称
+	 * Setter for <code>breakfast.t_bf_raw_material.raw_material_name</code>. 原材料名称
 	 */
 	public void setRawMaterialName(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.raw_material_name</code>. 原材料名称
+	 * Getter for <code>breakfast.t_bf_raw_material.raw_material_name</code>. 原材料名称
 	 */
 	public java.lang.String getRawMaterialName() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.raw_material.price</code>. 原材料价格
+	 * Setter for <code>breakfast.t_bf_raw_material.price</code>. 原材料价格
 	 */
 	public void setPrice(java.math.BigDecimal value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.price</code>. 原材料价格
+	 * Getter for <code>breakfast.t_bf_raw_material.price</code>. 原材料价格
 	 */
 	public java.math.BigDecimal getPrice() {
 		return (java.math.BigDecimal) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.raw_material.provider_id</code>. 供应商ID
+	 * Setter for <code>breakfast.t_bf_raw_material.provider_id</code>. 供应商ID
 	 */
 	public void setProviderId(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.provider_id</code>. 供应商ID
+	 * Getter for <code>breakfast.t_bf_raw_material.provider_id</code>. 供应商ID
 	 */
 	public java.lang.String getProviderId() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.raw_material.unit</code>. 单位
+	 * Setter for <code>breakfast.t_bf_raw_material.unit</code>. 单位
 	 */
 	public void setUnit(java.lang.String value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.unit</code>. 单位
+	 * Getter for <code>breakfast.t_bf_raw_material.unit</code>. 单位
 	 */
 	public java.lang.String getUnit() {
 		return (java.lang.String) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.raw_material.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_raw_material.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.raw_material.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_raw_material.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(5);
@@ -136,7 +136,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.RAW_MATERIAL_ID;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.rawMaterialId;
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.RAW_MATERIAL_NAME;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.rawMaterialName;
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.math.BigDecimal> field3() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.PRICE;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.price;
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.PROVIDER_ID;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.providerId;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field5() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.UNIT;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.unit;
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class RawMaterialRecord extends org.jooq.impl.UpdatableRecordImpl<com.bre
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.RawMaterial.RawMaterial.STATUS;
+		return com.breakfast.domain.tables.RawMaterial.RawMaterial.status;
 	}
 
 	/**

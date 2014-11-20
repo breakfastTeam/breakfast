@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RawMaterial extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.RawMaterialRecord> {
 
-	private static final long serialVersionUID = 876724669;
+	private static final long serialVersionUID = 1997351674;
 
 	/**
-	 * The singleton instance of <code>breakfast.raw_material</code>
+	 * The singleton instance of <code>breakfast.t_bf_raw_material</code>
 	 */
 	public static final com.breakfast.domain.tables.RawMaterial RawMaterial = new com.breakfast.domain.tables.RawMaterial();
 
@@ -29,44 +29,44 @@ public class RawMaterial extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	}
 
 	/**
-	 * The column <code>breakfast.raw_material.raw_material_id</code>.
+	 * The column <code>breakfast.t_bf_raw_material.raw_material_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> RAW_MATERIAL_ID = createField("raw_material_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> rawMaterialId = createField("raw_material_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * The column <code>breakfast.raw_material.raw_material_name</code>. 原材料名称
+	 * The column <code>breakfast.t_bf_raw_material.raw_material_name</code>. 原材料名称
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> RAW_MATERIAL_NAME = createField("raw_material_name", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "原材料名称");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> rawMaterialName = createField("raw_material_name", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "原材料名称");
 
 	/**
-	 * The column <code>breakfast.raw_material.price</code>. 原材料价格
+	 * The column <code>breakfast.t_bf_raw_material.price</code>. 原材料价格
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.math.BigDecimal> PRICE = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(7, 3), this, "原材料价格");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.math.BigDecimal> price = createField("price", org.jooq.impl.SQLDataType.DECIMAL.precision(7, 3), this, "原材料价格");
 
 	/**
-	 * The column <code>breakfast.raw_material.provider_id</code>. 供应商ID
+	 * The column <code>breakfast.t_bf_raw_material.provider_id</code>. 供应商ID
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> PROVIDER_ID = createField("provider_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "供应商ID");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> providerId = createField("provider_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "供应商ID");
 
 	/**
-	 * The column <code>breakfast.raw_material.unit</code>. 单位
+	 * The column <code>breakfast.t_bf_raw_material.unit</code>. 单位
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> UNIT = createField("unit", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "单位");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> unit = createField("unit", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "单位");
 
 	/**
-	 * The column <code>breakfast.raw_material.status</code>. 状态
+	 * The column <code>breakfast.t_bf_raw_material.status</code>. 状态
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.RawMaterialRecord, java.lang.String> status = createField("status", org.jooq.impl.SQLDataType.VARCHAR.length(20), this, "状态");
 
 	/**
-	 * Create a <code>breakfast.raw_material</code> table reference
+	 * Create a <code>breakfast.t_bf_raw_material</code> table reference
 	 */
 	public RawMaterial() {
-		this("raw_material", null);
+		this("t_bf_raw_material", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.raw_material</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_raw_material</code> table reference
 	 */
 	public RawMaterial(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.RawMaterial.RawMaterial);
@@ -77,7 +77,7 @@ public class RawMaterial extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	}
 
 	private RawMaterial(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.RawMaterialRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "原材料表");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "原材料表");
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class RawMaterial extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_RAW_MATERIAL_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfRawMaterialPrimary;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class RawMaterial extends org.jooq.impl.TableImpl<com.breakfast.domain.ta
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord>>asList(com.breakfast.domain.Keys.KEY_RAW_MATERIAL_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord>>asList(com.breakfast.domain.Keys.keyTBfRawMaterialPrimary);
 	}
 
 	/**

@@ -13,87 +13,87 @@ package com.breakfast.domain.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.domain.tables.records.MessageRecord> implements org.jooq.Record6<java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = -232774451;
+	private static final long serialVersionUID = 1849382852;
 
 	/**
-	 * Setter for <code>breakfast.message.message_id</code>.
+	 * Setter for <code>breakfast.t_bf_message.message_id</code>.
 	 */
 	public void setMessageId(java.lang.String value) {
 		setValue(0, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.message_id</code>.
+	 * Getter for <code>breakfast.t_bf_message.message_id</code>.
 	 */
 	public java.lang.String getMessageId() {
 		return (java.lang.String) getValue(0);
 	}
 
 	/**
-	 * Setter for <code>breakfast.message.user_id</code>. 客户ID
+	 * Setter for <code>breakfast.t_bf_message.user_id</code>. 客户ID
 	 */
 	public void setUserId(java.lang.String value) {
 		setValue(1, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.user_id</code>. 客户ID
+	 * Getter for <code>breakfast.t_bf_message.user_id</code>. 客户ID
 	 */
 	public java.lang.String getUserId() {
 		return (java.lang.String) getValue(1);
 	}
 
 	/**
-	 * Setter for <code>breakfast.message.customer_service_id</code>. 客服ID
+	 * Setter for <code>breakfast.t_bf_message.customer_service_id</code>. 客服ID
 	 */
 	public void setCustomerServiceId(java.lang.String value) {
 		setValue(2, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.customer_service_id</code>. 客服ID
+	 * Getter for <code>breakfast.t_bf_message.customer_service_id</code>. 客服ID
 	 */
 	public java.lang.String getCustomerServiceId() {
 		return (java.lang.String) getValue(2);
 	}
 
 	/**
-	 * Setter for <code>breakfast.message.content</code>. 内容
+	 * Setter for <code>breakfast.t_bf_message.content</code>. 内容
 	 */
 	public void setContent(java.lang.String value) {
 		setValue(3, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.content</code>. 内容
+	 * Getter for <code>breakfast.t_bf_message.content</code>. 内容
 	 */
 	public java.lang.String getContent() {
 		return (java.lang.String) getValue(3);
 	}
 
 	/**
-	 * Setter for <code>breakfast.message.create_time</code>. 创建时间
+	 * Setter for <code>breakfast.t_bf_message.create_time</code>. 创建时间
 	 */
 	public void setCreateTime(java.sql.Timestamp value) {
 		setValue(4, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.create_time</code>. 创建时间
+	 * Getter for <code>breakfast.t_bf_message.create_time</code>. 创建时间
 	 */
 	public java.sql.Timestamp getCreateTime() {
 		return (java.sql.Timestamp) getValue(4);
 	}
 
 	/**
-	 * Setter for <code>breakfast.message.status</code>. 状态
+	 * Setter for <code>breakfast.t_bf_message.status</code>. 状态
 	 */
 	public void setStatus(java.lang.String value) {
 		setValue(5, value);
 	}
 
 	/**
-	 * Getter for <code>breakfast.message.status</code>. 状态
+	 * Getter for <code>breakfast.t_bf_message.status</code>. 状态
 	 */
 	public java.lang.String getStatus() {
 		return (java.lang.String) getValue(5);
@@ -124,7 +124,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field1() {
-		return com.breakfast.domain.tables.Message.Message.MESSAGE_ID;
+		return com.breakfast.domain.tables.Message.Message.messageId;
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field2() {
-		return com.breakfast.domain.tables.Message.Message.USER_ID;
+		return com.breakfast.domain.tables.Message.Message.userId;
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field3() {
-		return com.breakfast.domain.tables.Message.Message.CUSTOMER_SERVICE_ID;
+		return com.breakfast.domain.tables.Message.Message.customerServiceId;
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field4() {
-		return com.breakfast.domain.tables.Message.Message.CONTENT;
+		return com.breakfast.domain.tables.Message.Message.content;
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.sql.Timestamp> field5() {
-		return com.breakfast.domain.tables.Message.Message.CREATE_TIME;
+		return com.breakfast.domain.tables.Message.Message.createTime;
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class MessageRecord extends org.jooq.impl.TableRecordImpl<com.breakfast.d
 	 */
 	@Override
 	public org.jooq.Field<java.lang.String> field6() {
-		return com.breakfast.domain.tables.Message.Message.STATUS;
+		return com.breakfast.domain.tables.Message.Message.status;
 	}
 
 	/**

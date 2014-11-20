@@ -13,10 +13,10 @@ package com.breakfast.domain.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CustomerService extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.CustomerServiceRecord> {
 
-	private static final long serialVersionUID = 603895137;
+	private static final long serialVersionUID = 1367532828;
 
 	/**
-	 * The singleton instance of <code>breakfast.customer_service</code>
+	 * The singleton instance of <code>breakfast.t_bf_customer_service</code>
 	 */
 	public static final com.breakfast.domain.tables.CustomerService CustomerService = new com.breakfast.domain.tables.CustomerService();
 
@@ -29,19 +29,19 @@ public class CustomerService extends org.jooq.impl.TableImpl<com.breakfast.domai
 	}
 
 	/**
-	 * The column <code>breakfast.customer_service.user_id</code>.
+	 * The column <code>breakfast.t_bf_customer_service.user_id</code>.
 	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.CustomerServiceRecord, java.lang.String> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.CustomerServiceRecord, java.lang.String> userId = createField("user_id", org.jooq.impl.SQLDataType.VARCHAR.length(32).nullable(false), this, "");
 
 	/**
-	 * Create a <code>breakfast.customer_service</code> table reference
+	 * Create a <code>breakfast.t_bf_customer_service</code> table reference
 	 */
 	public CustomerService() {
-		this("customer_service", null);
+		this("t_bf_customer_service", null);
 	}
 
 	/**
-	 * Create an aliased <code>breakfast.customer_service</code> table reference
+	 * Create an aliased <code>breakfast.t_bf_customer_service</code> table reference
 	 */
 	public CustomerService(java.lang.String alias) {
 		this(alias, com.breakfast.domain.tables.CustomerService.CustomerService);
@@ -52,7 +52,7 @@ public class CustomerService extends org.jooq.impl.TableImpl<com.breakfast.domai
 	}
 
 	private CustomerService(java.lang.String alias, org.jooq.Table<com.breakfast.domain.tables.records.CustomerServiceRecord> aliased, org.jooq.Field<?>[] parameters) {
-		super(alias, com.breakfast.domain.Breakfast.BREAKFAST, aliased, parameters, "客服");
+		super(alias, com.breakfast.domain.Breakfast.breakfast, aliased, parameters, "客服");
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class CustomerService extends org.jooq.impl.TableImpl<com.breakfast.domai
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord> getPrimaryKey() {
-		return com.breakfast.domain.Keys.KEY_CUSTOMER_SERVICE_PRIMARY;
+		return com.breakfast.domain.Keys.keyTBfCustomerServicePrimary;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class CustomerService extends org.jooq.impl.TableImpl<com.breakfast.domai
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord>>asList(com.breakfast.domain.Keys.KEY_CUSTOMER_SERVICE_PRIMARY);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord>>asList(com.breakfast.domain.Keys.keyTBfCustomerServicePrimary);
 	}
 
 	/**
