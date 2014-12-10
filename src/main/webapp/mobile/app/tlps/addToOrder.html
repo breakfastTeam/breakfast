@@ -1,0 +1,109 @@
+<nav class="navbar navbar-default nav-green mgb20" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">立即支付</p>
+        </div>
+    </div>
+</nav>
+
+<form class="form" role="form" ng-submit="toOrder()">
+<input name="type" type="hidden" ng-model="order.orderType"/>
+<input name="status" type="hidden" ng-model="order.status"/>
+<table class="table table-bordered-bottom table-striped table-hover">
+    <tr>
+        <td class="col-xs-2">名称：</td>
+        <td class="col-xs-10 text-center"><span ng-bind="foodObjName"></span></td>
+    </tr>
+    <tr>
+        <td>单价：</td>
+        <td class="text-center"><span ng-bind="orderDetail.foodObjPrice"></span></td>
+    </tr>
+    <tr>
+        <td>数量：</td>
+        <td class="text-center">
+            <div class="col-xs-8 col-xs-offset-2">
+            <div class="input-group">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="minus()">-1</button>
+                </span>
+                <input type="text" class="form-control text-center" ng-model="count">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="plus()">+1</button>
+                </span>
+            </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>总价：</td>
+        <td class="text-center"><span ng-bind="order.orderPrice"></span></td>
+    </tr>
+</table>
+
+<table class="table table-bordered-bottom table-striped table-hover">
+    <tr>
+        <td>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">积分兑换：
+                </label>
+            </div>
+        </td>
+        <td>
+            <span ng-bind="order.exccreaditCount"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">使用代金券：
+                </label>
+            </div>
+        </td>
+        <td>
+            <span ng-bind="order.usedCoupons"></span>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-bordered-bottom table-striped table-hover">
+    <tr>
+        <td class="col-xs-2">手机：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.mobile"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">姓名：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.mobile"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">城市：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.city"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">区域：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.area"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">地址：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.address"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">预计送达日期：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.preSendDate"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-2">订单备注：</td>
+        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.comments"/></td>
+    </tr>
+</table>
+
+<div class="row text-center">
+    <div class="col-xs-5 col-xs-offset-1">
+        <button type="submit" class="btn btn-primary btn-block" ng-click="online()">在线支付</button>
+    </div>
+    <div class="col-xs-5">
+        <button type="submit" class="btn btn-warning btn-block" ng-click="offline()">货到付款</button>
+    </div>
+</div>
+</form>

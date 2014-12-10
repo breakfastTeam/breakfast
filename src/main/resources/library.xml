@@ -13,7 +13,7 @@
              Defaults to org.jooq.util.DefaultGenerator -->
         <name>org.jooq.util.DefaultGenerator</name>
         <strategy>
-            <name>com.bf.test.sqlBuilder.AsInDatabaseStrategy</name>
+            <name>com.breakfast.provider.AsInDatabaseStrategy</name>
         </strategy>
         <database>
             <!-- The database type. The format here is:
@@ -28,6 +28,42 @@
                  (A Java regular expression. Use the pipe to separate several expressions)
                  Watch out for case-sensitivity. Depending on your database, this might be important! -->
             <includes>.*</includes>
+
+            <!-- Associate data type rewrites with database columns -->
+            <customTypes>
+                <customType>
+                    <name>org.joda.time.DateTime</name>
+                    <converter>com.breakfast.provider.DateTimeConverter</converter>
+                </customType>
+            </customTypes>
+            <forcedTypes>
+                <forcedType>
+                    <name>org.joda.time.DateTime</name>
+                    <expression>.*create_time|.*last_modify_time|.*start_time|.*finish_time|.*pre_send_date|.*end_time|.*post_time|.*upload_time|.*register_time|.*recommend_time|.*valid_date</expression>
+                </forcedType>
+                <forcedType>
+                    <!-- Specify any data type from org.jooq.impl.SQLDataType -->
+                    <name>BOOLEAN</name>
+
+                    <!-- Add a Java regular expression matching fully-qualified columns. Use the pipe to separate several expressions.
+
+                         If provided, both "expressions" and "types" must match. -->
+                    <expression>.*breakfast\.t_bf_food\.support_exchange|.*breakfast\.t_bf_food\.support_snap_up</expression>
+
+                    <!-- Add a Java regular expression matching data types to be forced to have this type.
+
+                         Data types may be reported by your database as:
+                         - NUMBER
+                         - NUMBER(5)
+                         - NUMBER(5, 2)
+                         - any other form.
+
+                         It is thus recommended to use defensive regexes for types.
+
+                         If provided, both "expressions" and "types" must match. -->
+                    <!--<types>.*org\.jooq\.impl\.SQLDataType\.BOOLEAN</types>-->
+                </forcedType>
+            </forcedTypes>
 
             <!-- All elements that are excluded from your schema
                  (A Java regular expression. Use the pipe to separate several expressions).

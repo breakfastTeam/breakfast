@@ -13,28 +13,37 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class File implements java.io.Serializable {
 
-	private static final long serialVersionUID = 930523501;
+	private static final long serialVersionUID = 1980820851;
 
-	private java.lang.String   fileId;
-	private java.lang.String   filePath;
-	private java.lang.String   status;
-	private java.sql.Timestamp createTime;
-	private java.lang.String   createBy;
+	private java.lang.String       fileId;
+	private java.lang.String       filePath;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public File() {}
 
 	public File(
-		java.lang.String   fileId,
-		java.lang.String   filePath,
-		java.lang.String   status,
-		java.sql.Timestamp createTime,
-		java.lang.String   createBy
+		java.lang.String       fileId,
+		java.lang.String       filePath,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.fileId = fileId;
 		this.filePath = filePath;
 		this.status = status;
 		this.createTime = createTime;
 		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getFileId() {
@@ -61,11 +70,11 @@ public class File implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
+	public org.joda.time.DateTime getCreateTime() {
 		return this.createTime;
 	}
 
-	public void setCreateTime(java.sql.Timestamp createTime) {
+	public void setCreateTime(org.joda.time.DateTime createTime) {
 		this.createTime = createTime;
 	}
 
@@ -75,5 +84,29 @@ public class File implements java.io.Serializable {
 
 	public void setCreateBy(java.lang.String createBy) {
 		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

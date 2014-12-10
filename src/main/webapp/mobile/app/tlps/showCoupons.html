@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default nav-green mgb20" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">我的礼券</p>
+        </div>
+    </div>
+</nav>
+
+<div ng-repeat="coupon in coupons">
+    <div class="media media-border row">
+        <a class="media-left col-xs-4" href="#">
+            <img src="components/resources/images/setmeal_ex.png" class="img-thumbnail">
+        </a>
+        <div class="media-body col-xs-8">
+            <p ng-bind="coupon.briefIntro"></p>
+        </div>
+    </div>
+</div>

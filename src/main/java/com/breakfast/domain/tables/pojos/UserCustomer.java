@@ -13,28 +13,38 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserCustomer implements java.io.Serializable {
 
-	private static final long serialVersionUID = -1727255319;
+	private static final long serialVersionUID = 1892495295;
 
-	private java.lang.String   userId;
-	private java.lang.String   customerLevel;
-	private java.lang.Integer  credits;
-	private java.lang.String   referrer;
-	private java.sql.Timestamp recommendTime;
-	private java.lang.String   address1;
-	private java.lang.String   address2;
-	private java.lang.String   address3;
+	private java.lang.String       userId;
+	private java.lang.String       customerLevel;
+	private java.lang.Integer      credits;
+	private java.lang.String       referrer;
+	private org.joda.time.DateTime recommendTime;
+	private java.lang.String       address1;
+	private java.lang.String       address2;
+	private java.lang.String       address3;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public UserCustomer() {}
 
 	public UserCustomer(
-		java.lang.String   userId,
-		java.lang.String   customerLevel,
-		java.lang.Integer  credits,
-		java.lang.String   referrer,
-		java.sql.Timestamp recommendTime,
-		java.lang.String   address1,
-		java.lang.String   address2,
-		java.lang.String   address3
+		java.lang.String       userId,
+		java.lang.String       customerLevel,
+		java.lang.Integer      credits,
+		java.lang.String       referrer,
+		org.joda.time.DateTime recommendTime,
+		java.lang.String       address1,
+		java.lang.String       address2,
+		java.lang.String       address3,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.userId = userId;
 		this.customerLevel = customerLevel;
@@ -44,6 +54,11 @@ public class UserCustomer implements java.io.Serializable {
 		this.address1 = address1;
 		this.address2 = address2;
 		this.address3 = address3;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getUserId() {
@@ -78,11 +93,11 @@ public class UserCustomer implements java.io.Serializable {
 		this.referrer = referrer;
 	}
 
-	public java.sql.Timestamp getRecommendTime() {
+	public org.joda.time.DateTime getRecommendTime() {
 		return this.recommendTime;
 	}
 
-	public void setRecommendTime(java.sql.Timestamp recommendTime) {
+	public void setRecommendTime(org.joda.time.DateTime recommendTime) {
 		this.recommendTime = recommendTime;
 	}
 
@@ -108,5 +123,45 @@ public class UserCustomer implements java.io.Serializable {
 
 	public void setAddress3(java.lang.String address3) {
 		this.address3 = address3;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

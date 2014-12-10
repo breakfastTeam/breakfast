@@ -13,34 +13,52 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Coupon implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1560655590;
+	private static final long serialVersionUID = -1512008660;
 
-	private java.lang.String     couponId;
-	private java.lang.String     userId;
-	private java.sql.Timestamp   createTime;
-	private java.sql.Timestamp   endTime;
-	private java.math.BigDecimal price;
-	private java.lang.String     source;
-	private java.lang.String     status;
+	private java.lang.String       couponId;
+	private java.lang.String       userId;
+	private org.joda.time.DateTime startTime;
+	private org.joda.time.DateTime endTime;
+	private java.math.BigDecimal   price;
+	private java.lang.String       source;
+	private java.lang.String       status;
+	private java.lang.String       briefIntro;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public Coupon() {}
 
 	public Coupon(
-		java.lang.String     couponId,
-		java.lang.String     userId,
-		java.sql.Timestamp   createTime,
-		java.sql.Timestamp   endTime,
-		java.math.BigDecimal price,
-		java.lang.String     source,
-		java.lang.String     status
+		java.lang.String       couponId,
+		java.lang.String       userId,
+		org.joda.time.DateTime startTime,
+		org.joda.time.DateTime endTime,
+		java.math.BigDecimal   price,
+		java.lang.String       source,
+		java.lang.String       status,
+		java.lang.String       briefIntro,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.couponId = couponId;
 		this.userId = userId;
-		this.createTime = createTime;
+		this.startTime = startTime;
 		this.endTime = endTime;
 		this.price = price;
 		this.source = source;
 		this.status = status;
+		this.briefIntro = briefIntro;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getCouponId() {
@@ -59,19 +77,19 @@ public class Coupon implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
-		return this.createTime;
+	public org.joda.time.DateTime getStartTime() {
+		return this.startTime;
 	}
 
-	public void setCreateTime(java.sql.Timestamp createTime) {
-		this.createTime = createTime;
+	public void setStartTime(org.joda.time.DateTime startTime) {
+		this.startTime = startTime;
 	}
 
-	public java.sql.Timestamp getEndTime() {
+	public org.joda.time.DateTime getEndTime() {
 		return this.endTime;
 	}
 
-	public void setEndTime(java.sql.Timestamp endTime) {
+	public void setEndTime(org.joda.time.DateTime endTime) {
 		this.endTime = endTime;
 	}
 
@@ -97,5 +115,53 @@ public class Coupon implements java.io.Serializable {
 
 	public void setStatus(java.lang.String status) {
 		this.status = status;
+	}
+
+	public java.lang.String getBriefIntro() {
+		return this.briefIntro;
+	}
+
+	public void setBriefIntro(java.lang.String briefIntro) {
+		this.briefIntro = briefIntro;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

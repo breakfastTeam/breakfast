@@ -13,40 +13,70 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order implements java.io.Serializable {
 
-	private static final long serialVersionUID = -45462727;
+	private static final long serialVersionUID = -151179973;
 
-	private java.lang.String  orderId;
-	private java.lang.String  customerId;
-	private java.lang.String  type;
-	private java.lang.String  status;
-	private java.lang.String  consigneeName;
-	private java.lang.String  consigneeAddress;
-	private java.lang.String  consigneeMobile;
-	private java.lang.Integer orderPrice;
-	private java.lang.Integer exccreaditCount;
+	private java.lang.String       orderId;
+	private java.lang.String       customerId;
+	private java.lang.String       orderNo;
+	private java.lang.String       orderType;
+	private java.lang.String       status;
+	private java.lang.String       consigneeName;
+	private java.lang.String       consigneeAddress;
+	private java.lang.String       consigneeMobile;
+	private java.math.BigDecimal   orderPrice;
+	private java.lang.Integer      exccreaditCount;
+	private java.lang.String       usedCoupons;
+	private java.lang.String       comments;
+	private java.sql.Timestamp     preSendDate;
+	private org.joda.time.DateTime preSendTime;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Integer      optTime;
 
 	public Order() {}
 
 	public Order(
-		java.lang.String  orderId,
-		java.lang.String  customerId,
-		java.lang.String  type,
-		java.lang.String  status,
-		java.lang.String  consigneeName,
-		java.lang.String  consigneeAddress,
-		java.lang.String  consigneeMobile,
-		java.lang.Integer orderPrice,
-		java.lang.Integer exccreaditCount
+		java.lang.String       orderId,
+		java.lang.String       customerId,
+		java.lang.String       orderNo,
+		java.lang.String       orderType,
+		java.lang.String       status,
+		java.lang.String       consigneeName,
+		java.lang.String       consigneeAddress,
+		java.lang.String       consigneeMobile,
+		java.math.BigDecimal   orderPrice,
+		java.lang.Integer      exccreaditCount,
+		java.lang.String       usedCoupons,
+		java.lang.String       comments,
+		java.sql.Timestamp     preSendDate,
+		org.joda.time.DateTime preSendTime,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Integer      optTime
 	) {
 		this.orderId = orderId;
 		this.customerId = customerId;
-		this.type = type;
+		this.orderNo = orderNo;
+		this.orderType = orderType;
 		this.status = status;
 		this.consigneeName = consigneeName;
 		this.consigneeAddress = consigneeAddress;
 		this.consigneeMobile = consigneeMobile;
 		this.orderPrice = orderPrice;
 		this.exccreaditCount = exccreaditCount;
+		this.usedCoupons = usedCoupons;
+		this.comments = comments;
+		this.preSendDate = preSendDate;
+		this.preSendTime = preSendTime;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getOrderId() {
@@ -65,12 +95,20 @@ public class Order implements java.io.Serializable {
 		this.customerId = customerId;
 	}
 
-	public java.lang.String getType() {
-		return this.type;
+	public java.lang.String getOrderNo() {
+		return this.orderNo;
 	}
 
-	public void setType(java.lang.String type) {
-		this.type = type;
+	public void setOrderNo(java.lang.String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public java.lang.String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(java.lang.String orderType) {
+		this.orderType = orderType;
 	}
 
 	public java.lang.String getStatus() {
@@ -105,11 +143,11 @@ public class Order implements java.io.Serializable {
 		this.consigneeMobile = consigneeMobile;
 	}
 
-	public java.lang.Integer getOrderPrice() {
+	public java.math.BigDecimal getOrderPrice() {
 		return this.orderPrice;
 	}
 
-	public void setOrderPrice(java.lang.Integer orderPrice) {
+	public void setOrderPrice(java.math.BigDecimal orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 
@@ -119,5 +157,77 @@ public class Order implements java.io.Serializable {
 
 	public void setExccreaditCount(java.lang.Integer exccreaditCount) {
 		this.exccreaditCount = exccreaditCount;
+	}
+
+	public java.lang.String getUsedCoupons() {
+		return this.usedCoupons;
+	}
+
+	public void setUsedCoupons(java.lang.String usedCoupons) {
+		this.usedCoupons = usedCoupons;
+	}
+
+	public java.lang.String getComments() {
+		return this.comments;
+	}
+
+	public void setComments(java.lang.String comments) {
+		this.comments = comments;
+	}
+
+	public java.sql.Timestamp getPreSendDate() {
+		return this.preSendDate;
+	}
+
+	public void setPreSendDate(java.sql.Timestamp preSendDate) {
+		this.preSendDate = preSendDate;
+	}
+
+	public org.joda.time.DateTime getPreSendTime() {
+		return this.preSendTime;
+	}
+
+	public void setPreSendTime(org.joda.time.DateTime preSendTime) {
+		this.preSendTime = preSendTime;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Integer getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Integer optTime) {
+		this.optTime = optTime;
 	}
 }

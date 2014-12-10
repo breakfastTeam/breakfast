@@ -13,37 +13,52 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Express implements java.io.Serializable {
 
-	private static final long serialVersionUID = 560354647;
+	private static final long serialVersionUID = 2126995607;
 
-	private java.lang.String   expressId;
-	private java.lang.String   订单id;
-	private java.lang.String   courierId;
-	private java.sql.Timestamp startTime;
-	private java.sql.Timestamp finishTime;
-	private java.lang.String   longitude;
-	private java.lang.String   latitude;
-	private java.lang.String   status;
+	private java.lang.String       expressId;
+	private java.lang.String       orderId;
+	private java.lang.String       courierId;
+	private org.joda.time.DateTime startTime;
+	private org.joda.time.DateTime finishTime;
+	private java.lang.String       longitude;
+	private java.lang.String       latitude;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public Express() {}
 
 	public Express(
-		java.lang.String   expressId,
-		java.lang.String   订单id,
-		java.lang.String   courierId,
-		java.sql.Timestamp startTime,
-		java.sql.Timestamp finishTime,
-		java.lang.String   longitude,
-		java.lang.String   latitude,
-		java.lang.String   status
+		java.lang.String       expressId,
+		java.lang.String       orderId,
+		java.lang.String       courierId,
+		org.joda.time.DateTime startTime,
+		org.joda.time.DateTime finishTime,
+		java.lang.String       longitude,
+		java.lang.String       latitude,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.expressId = expressId;
-		this.订单id = 订单id;
+		this.orderId = orderId;
 		this.courierId = courierId;
 		this.startTime = startTime;
 		this.finishTime = finishTime;
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.status = status;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getExpressId() {
@@ -54,12 +69,12 @@ public class Express implements java.io.Serializable {
 		this.expressId = expressId;
 	}
 
-	public java.lang.String get订单id() {
-		return this.订单id;
+	public java.lang.String getOrderId() {
+		return this.orderId;
 	}
 
-	public void set订单id(java.lang.String 订单id) {
-		this.订单id = 订单id;
+	public void setOrderId(java.lang.String orderId) {
+		this.orderId = orderId;
 	}
 
 	public java.lang.String getCourierId() {
@@ -70,19 +85,19 @@ public class Express implements java.io.Serializable {
 		this.courierId = courierId;
 	}
 
-	public java.sql.Timestamp getStartTime() {
+	public org.joda.time.DateTime getStartTime() {
 		return this.startTime;
 	}
 
-	public void setStartTime(java.sql.Timestamp startTime) {
+	public void setStartTime(org.joda.time.DateTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public java.sql.Timestamp getFinishTime() {
+	public org.joda.time.DateTime getFinishTime() {
 		return this.finishTime;
 	}
 
-	public void setFinishTime(java.sql.Timestamp finishTime) {
+	public void setFinishTime(org.joda.time.DateTime finishTime) {
 		this.finishTime = finishTime;
 	}
 
@@ -108,5 +123,45 @@ public class Express implements java.io.Serializable {
 
 	public void setStatus(java.lang.String status) {
 		this.status = status;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

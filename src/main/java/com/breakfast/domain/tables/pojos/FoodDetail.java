@@ -13,25 +13,40 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodDetail implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1217815212;
+	private static final long serialVersionUID = 1025143450;
 
-	private java.lang.String  detailId;
-	private java.lang.String  foodId;
-	private java.lang.String  rawMaterialId;
-	private java.lang.Integer count;
+	private java.lang.String       detailId;
+	private java.lang.String       foodId;
+	private java.lang.String       rawMaterialId;
+	private java.lang.Integer      rawMaterialCount;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Integer      optTime;
 
 	public FoodDetail() {}
 
 	public FoodDetail(
-		java.lang.String  detailId,
-		java.lang.String  foodId,
-		java.lang.String  rawMaterialId,
-		java.lang.Integer count
+		java.lang.String       detailId,
+		java.lang.String       foodId,
+		java.lang.String       rawMaterialId,
+		java.lang.Integer      rawMaterialCount,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Integer      optTime
 	) {
 		this.detailId = detailId;
 		this.foodId = foodId;
 		this.rawMaterialId = rawMaterialId;
-		this.count = count;
+		this.rawMaterialCount = rawMaterialCount;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getDetailId() {
@@ -58,11 +73,51 @@ public class FoodDetail implements java.io.Serializable {
 		this.rawMaterialId = rawMaterialId;
 	}
 
-	public java.lang.Integer getCount() {
-		return this.count;
+	public java.lang.Integer getRawMaterialCount() {
+		return this.rawMaterialCount;
 	}
 
-	public void setCount(java.lang.Integer count) {
-		this.count = count;
+	public void setRawMaterialCount(java.lang.Integer rawMaterialCount) {
+		this.rawMaterialCount = rawMaterialCount;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Integer getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Integer optTime) {
+		this.optTime = optTime;
 	}
 }

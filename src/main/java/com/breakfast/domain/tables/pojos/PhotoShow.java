@@ -13,31 +13,49 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PhotoShow implements java.io.Serializable {
 
-	private static final long serialVersionUID = -1517656345;
+	private static final long serialVersionUID = 1379116633;
 
-	private java.lang.String   photoId;
-	private java.lang.String   fileId;
-	private java.sql.Timestamp createTime;
-	private java.sql.Timestamp validDate;
-	private java.lang.String   createby;
-	private java.lang.String   status;
+	private java.lang.String       photoId;
+	private java.lang.String       orginFileId;
+	private java.lang.String       smallFileId;
+	private org.joda.time.DateTime uploadTime;
+	private org.joda.time.DateTime validDate;
+	private java.lang.String       createby;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public PhotoShow() {}
 
 	public PhotoShow(
-		java.lang.String   photoId,
-		java.lang.String   fileId,
-		java.sql.Timestamp createTime,
-		java.sql.Timestamp validDate,
-		java.lang.String   createby,
-		java.lang.String   status
+		java.lang.String       photoId,
+		java.lang.String       orginFileId,
+		java.lang.String       smallFileId,
+		org.joda.time.DateTime uploadTime,
+		org.joda.time.DateTime validDate,
+		java.lang.String       createby,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.photoId = photoId;
-		this.fileId = fileId;
-		this.createTime = createTime;
+		this.orginFileId = orginFileId;
+		this.smallFileId = smallFileId;
+		this.uploadTime = uploadTime;
 		this.validDate = validDate;
 		this.createby = createby;
 		this.status = status;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getPhotoId() {
@@ -48,27 +66,35 @@ public class PhotoShow implements java.io.Serializable {
 		this.photoId = photoId;
 	}
 
-	public java.lang.String getFileId() {
-		return this.fileId;
+	public java.lang.String getOrginFileId() {
+		return this.orginFileId;
 	}
 
-	public void setFileId(java.lang.String fileId) {
-		this.fileId = fileId;
+	public void setOrginFileId(java.lang.String orginFileId) {
+		this.orginFileId = orginFileId;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
-		return this.createTime;
+	public java.lang.String getSmallFileId() {
+		return this.smallFileId;
 	}
 
-	public void setCreateTime(java.sql.Timestamp createTime) {
-		this.createTime = createTime;
+	public void setSmallFileId(java.lang.String smallFileId) {
+		this.smallFileId = smallFileId;
 	}
 
-	public java.sql.Timestamp getValidDate() {
+	public org.joda.time.DateTime getUploadTime() {
+		return this.uploadTime;
+	}
+
+	public void setUploadTime(org.joda.time.DateTime uploadTime) {
+		this.uploadTime = uploadTime;
+	}
+
+	public org.joda.time.DateTime getValidDate() {
 		return this.validDate;
 	}
 
-	public void setValidDate(java.sql.Timestamp validDate) {
+	public void setValidDate(org.joda.time.DateTime validDate) {
 		this.validDate = validDate;
 	}
 
@@ -86,5 +112,45 @@ public class PhotoShow implements java.io.Serializable {
 
 	public void setStatus(java.lang.String status) {
 		this.status = status;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

@@ -2,22 +2,24 @@ package com.breakfast.service.impl;
 
 import com.breakfast.constants.IConstants;
 import com.breakfast.domain.Tables;
-import com.breakfast.domain.tables.File;
-import com.breakfast.domain.tables.SetMeal;
-import com.breakfast.domain.tables.records.SetMealRecord;
+
+import com.breakfast.domain.tables.TSetMeal;
+import com.breakfast.domain.tables.pojos.SetMeal;
+import com.breakfast.domain.tables.records.TSetMealRecord;
+import com.breakfast.service.FileService;
 import com.breakfast.service.SetMealService;
 import com.core.page.Page;
-import com.core.utils.ITimeUtil;
 import com.core.utils.IUUIDGenerator;
-import org.jooq.DSLContext;
-import org.jooq.Record;
-import org.jooq.Record7;
-import org.jooq.Result;
+import org.joda.time.DateTime;
+import org.jooq.*;
+import org.jooq.tools.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by qingfeilee on 2014/11/21.
@@ -27,66 +29,73 @@ import java.math.BigDecimal;
 public class SetMealServiceImpl implements SetMealService {
     @Autowired
     DSLContext creator;
+    @Autowired
+    private FileService fileService;
 
     @Override
-    public void add(SetMealRecord setMealRecord) {
-        SetMeal setMeal = Tables.SetMeal.as("meal");
+    public void add(TSetMealRecord TSetMealRecord) {
+        TSetMeal setMeal = Tables.SetMeal.as("meal");
         creator.insertInto(setMeal)
                 .set(setMeal.setMealId, IUUIDGenerator.getUUID())
-                .set(setMeal.setName, setMealRecord.getSetName())
-                .set(setMeal.introduce, setMealRecord.getIntroduce())
-                .set(setMeal.starTime, setMealRecord.getStarTime())
-                .set(setMeal.endTime, setMealRecord.getEndTime())
-                .set(setMeal.privilege, setMealRecord.getPrivilege())
-                .set(setMeal.price, setMealRecord.getPrice())
-                .set(setMeal.foodCount, setMealRecord.getFoodCount())
+                .set(setMeal.setName, TSetMealRecord.getSetName())
+                .set(setMeal.introduce, TSetMealRecord.getIntroduce())
+                .set(setMeal.startTime, TSetMealRecord.getStartTime())
+                .set(setMeal.endTime, TSetMealRecord.getEndTime())
+                .set(setMeal.privilege, TSetMealRecord.getPrivilege())
+                .set(setMeal.price, TSetMealRecord.getPrice())
+                .set(setMeal.foodCount, TSetMealRecord.getFoodCount())
                 .set(setMeal.status, IConstants.VALID)
-                .set(setMeal.realFoodCount, setMealRecord.getRealFoodCount())
-                .set(setMeal.smallPicId, setMealRecord.getSmallPicId())
-                .set(setMeal.orginPicId, setMealRecord.getOrginPicId())
+                .set(setMeal.realFoodCount, TSetMealRecord.getRealFoodCount())
+                .set(setMeal.smallPicId, TSetMealRecord.getSmallPicId())
+                .set(setMeal.orginPicId, TSetMealRecord.getOrginPicId())
                 .execute();
     }
 
     @Override
-    public Page<Record> query(Page<Record> page) {
-        SetMeal setMeal = Tables.SetMeal.as("meal");
-        File file = Tables.File.as("file");
-        Result<Record> result =
-                creator.select()
-                        .from(setMeal)
-                        .join(file)
-                        .on(setMeal.smallPicId.equal(file.fileId))
-                        .where(setMeal.starTime.lessThan(ITimeUtil.getCurrentTime()))
-                        .and(setMeal.endTime.greaterThan(ITimeUtil.getCurrentTime()))
-                        .and(setMeal.status.notEqual(IConstants.INVALID))
+    public Page<SetMeal> query(Page<SetMeal> page) {
+        TSetMeal setMeal = Tables.SetMeal.as("meal");
+        int count=creator.selectFrom(setMeal)
+                        .where(setMeal.startTime.lessOrEqual(DateTime.now()))
+                        .and(setMeal.endTime.greaterOrEqual(DateTime.now()))
+                        .and(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
+                        .and(setMeal.realFoodCount.greaterThan(0)).fetchCount();
+        page.setTotalCount(count);
+        List<SetMeal> result =
+                creator.selectFrom(setMeal)
+                        .where(setMeal.startTime.lessOrEqual(DateTime.now()))
+                        .and(setMeal.endTime.greaterOrEqual(DateTime.now()))
+                        .and(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
                         .and(setMeal.realFoodCount.greaterThan(0))
-                        .orderBy(setMeal.setMealId)
+                        .orderBy(setMeal.showOrder)
                         .limit(((page.getPageNo() - 1)) * page.getPageSize(), page.getPageSize())
-                        .fetch();
+                        .fetch().into(SetMeal.class);
+        Map<String, Object> extMap = null;
+        for (SetMeal sm : result) {
+            extMap=new HashMap<String, Object>();
+            if (StringUtils.isBlank(sm.getOrginPicId())) {
+                continue;
+            }
+            String sPath = fileService.get(sm.getSmallPicId()).getFilePath();
+            String oPath = fileService.get(sm.getOrginPicId()).getFilePath();
+            extMap.put("sPath", sPath);
+            extMap.put("oPath", oPath);
+            sm.setExtMap(extMap);
+        }
         page.setResult(result);
         return page;
     }
 
     @Override
-    public void update(SetMealRecord setMeal) {
+    public void update(TSetMealRecord setMeal) {
 
     }
 
     @Override
-    public Record getSetMeal(String setMealId) {
-        SetMeal setMeal = Tables.SetMeal.as("meal");
-        File file = Tables.File.as("file");
-        Result<Record> result =
-                creator.select()
-                        .from(setMeal)
-                        .join(file)
-                        .on(setMeal.orginPicId.equal(file.fileId))
+    public SetMeal getSetMeal(String setMealId) {
+        TSetMeal setMeal = Tables.SetMeal.as("meal");
+        SetMeal sm =creator.selectFrom(setMeal)
                         .where(setMeal.setMealId.equal(setMealId))
-                        .fetch();
-        if(result.size() > 0){
-            return result.get(0);
-        }else{
-            return null;
-        }
+                        .fetchAnyInto(SetMeal.class);
+        return sm;
     }
 }

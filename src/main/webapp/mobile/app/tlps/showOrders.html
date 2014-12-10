@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default nav-green mgb20" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">我的积分</p>
+        </div>
+    </div>
+</nav>
+
+<ul class="list-group" ng-repeat="order in orders">
+    <li class="list-group-item">
+        订单编号：<span ng-bind="order.orderNo"></span>
+        订单金额：<span ng-bind="order.orderPrice"></span>
+        下单时间：<span ng-bind="order.createTime"></span>
+    </li>
+</ul>

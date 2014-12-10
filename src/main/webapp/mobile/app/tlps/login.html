@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default nav-green mgb0" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">登录<a class="hide" ui-sref="register">注册</a></p>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid mgb20">
+<form class="form" role="form" ng-submit="login()">
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="text" class="form-control" ng-model="user.loginName" placeholder="手机号">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="password" class="form-control" ng-model="user.password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-2">
+            <button type="submit" class="btn btn-success btn-block">登录</button>
+        </div>
+    </div>
+</form>
+</div>
+<div class="row text-center">
+    <p class="text-danger" ng-show="loginError"><span ng-bind="errorText"></span></p>
+</div>

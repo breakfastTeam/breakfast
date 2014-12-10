@@ -13,37 +13,46 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Feedback implements java.io.Serializable {
 
-	private static final long serialVersionUID = -658811895;
+	private static final long serialVersionUID = 1803850789;
 
-	private java.lang.String   feedbackId;
-	private java.lang.String   userId;
-	private java.lang.String   targetType;
-	private java.lang.String   objectId;
-	private java.lang.String   content;
-	private java.sql.Timestamp createTime;
-	private java.sql.Timestamp lastModifyTime;
-	private java.lang.String   状态;
+	private java.lang.String       feedbackId;
+	private java.lang.String       userId;
+	private java.lang.String       targetType;
+	private java.lang.String       targetId;
+	private java.lang.String       content;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public Feedback() {}
 
 	public Feedback(
-		java.lang.String   feedbackId,
-		java.lang.String   userId,
-		java.lang.String   targetType,
-		java.lang.String   objectId,
-		java.lang.String   content,
-		java.sql.Timestamp createTime,
-		java.sql.Timestamp lastModifyTime,
-		java.lang.String   状态
+		java.lang.String       feedbackId,
+		java.lang.String       userId,
+		java.lang.String       targetType,
+		java.lang.String       targetId,
+		java.lang.String       content,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.feedbackId = feedbackId;
 		this.userId = userId;
 		this.targetType = targetType;
-		this.objectId = objectId;
+		this.targetId = targetId;
 		this.content = content;
+		this.status = status;
 		this.createTime = createTime;
+		this.createBy = createBy;
 		this.lastModifyTime = lastModifyTime;
-		this.状态 = 状态;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getFeedbackId() {
@@ -70,12 +79,12 @@ public class Feedback implements java.io.Serializable {
 		this.targetType = targetType;
 	}
 
-	public java.lang.String getObjectId() {
-		return this.objectId;
+	public java.lang.String getTargetId() {
+		return this.targetId;
 	}
 
-	public void setObjectId(java.lang.String objectId) {
-		this.objectId = objectId;
+	public void setTargetId(java.lang.String targetId) {
+		this.targetId = targetId;
 	}
 
 	public java.lang.String getContent() {
@@ -86,27 +95,51 @@ public class Feedback implements java.io.Serializable {
 		this.content = content;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
+	public java.lang.String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(java.lang.String status) {
+		this.status = status;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
 		return this.createTime;
 	}
 
-	public void setCreateTime(java.sql.Timestamp createTime) {
+	public void setCreateTime(org.joda.time.DateTime createTime) {
 		this.createTime = createTime;
 	}
 
-	public java.sql.Timestamp getLastModifyTime() {
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
 		return this.lastModifyTime;
 	}
 
-	public void setLastModifyTime(java.sql.Timestamp lastModifyTime) {
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
 		this.lastModifyTime = lastModifyTime;
 	}
 
-	public java.lang.String get状态() {
-		return this.状态;
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
 	}
 
-	public void set状态(java.lang.String 状态) {
-		this.状态 = 状态;
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

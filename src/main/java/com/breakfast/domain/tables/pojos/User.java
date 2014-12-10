@@ -13,43 +13,65 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User implements java.io.Serializable {
 
-	private static final long serialVersionUID = -477123157;
+	private static final long serialVersionUID = 657645101;
 
-	private java.lang.String   userId;
-	private java.lang.String   loginName;
-	private java.lang.String   password;
-	private java.lang.String   status;
-	private java.lang.String   userName;
-	private java.lang.String   mobile;
-	private java.lang.String   weixin;
-	private java.lang.String   qq;
-	private java.sql.Timestamp createTime;
-	private java.lang.String   createWay;
+	private java.lang.String       userId;
+	private java.lang.String       loginName;
+	private java.lang.String       password;
+	private java.lang.String       status;
+	private java.lang.String       userType;
+	private java.lang.String       userName;
+	private java.lang.String       sex;
+	private java.lang.String       mobile;
+	private java.lang.String       weixin;
+	private java.lang.String       qq;
+	private org.joda.time.DateTime registerTime;
+	private java.lang.String       registerWay;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
+	private UserCustomer userCustomer;
 
 	public User() {}
 
 	public User(
-		java.lang.String   userId,
-		java.lang.String   loginName,
-		java.lang.String   password,
-		java.lang.String   status,
-		java.lang.String   userName,
-		java.lang.String   mobile,
-		java.lang.String   weixin,
-		java.lang.String   qq,
-		java.sql.Timestamp createTime,
-		java.lang.String   createWay
+		java.lang.String       userId,
+		java.lang.String       loginName,
+		java.lang.String       password,
+		java.lang.String       status,
+		java.lang.String       userType,
+		java.lang.String       userName,
+		java.lang.String       sex,
+		java.lang.String       mobile,
+		java.lang.String       weixin,
+		java.lang.String       qq,
+		org.joda.time.DateTime registerTime,
+		java.lang.String       registerWay,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.userId = userId;
 		this.loginName = loginName;
 		this.password = password;
 		this.status = status;
+		this.userType = userType;
 		this.userName = userName;
+		this.sex = sex;
 		this.mobile = mobile;
 		this.weixin = weixin;
 		this.qq = qq;
+		this.registerTime = registerTime;
+		this.registerWay = registerWay;
 		this.createTime = createTime;
-		this.createWay = createWay;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getUserId() {
@@ -84,12 +106,28 @@ public class User implements java.io.Serializable {
 		this.status = status;
 	}
 
+	public java.lang.String getUserType() {
+		return this.userType;
+	}
+
+	public void setUserType(java.lang.String userType) {
+		this.userType = userType;
+	}
+
 	public java.lang.String getUserName() {
 		return this.userName;
 	}
 
 	public void setUserName(java.lang.String userName) {
 		this.userName = userName;
+	}
+
+	public java.lang.String getSex() {
+		return this.sex;
+	}
+
+	public void setSex(java.lang.String sex) {
+		this.sex = sex;
 	}
 
 	public java.lang.String getMobile() {
@@ -116,19 +154,67 @@ public class User implements java.io.Serializable {
 		this.qq = qq;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
+	public org.joda.time.DateTime getRegisterTime() {
+		return this.registerTime;
+	}
+
+	public void setRegisterTime(org.joda.time.DateTime registerTime) {
+		this.registerTime = registerTime;
+	}
+
+	public java.lang.String getRegisterWay() {
+		return this.registerWay;
+	}
+
+	public void setRegisterWay(java.lang.String registerWay) {
+		this.registerWay = registerWay;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
 		return this.createTime;
 	}
 
-	public void setCreateTime(java.sql.Timestamp createTime) {
+	public void setCreateTime(org.joda.time.DateTime createTime) {
 		this.createTime = createTime;
 	}
 
-	public java.lang.String getCreateWay() {
-		return this.createWay;
+	public java.lang.String getCreateBy() {
+		return this.createBy;
 	}
 
-	public void setCreateWay(java.lang.String createWay) {
-		this.createWay = createWay;
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
+	}
+
+	public void setUserCustomer(UserCustomer userCustomer) {
+		this.userCustomer = userCustomer;
+	}
+
+	public UserCustomer getUserCustomer() {
+		return userCustomer;
 	}
 }

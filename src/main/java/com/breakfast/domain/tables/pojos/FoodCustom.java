@@ -13,28 +13,36 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FoodCustom implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1126581948;
+	private static final long serialVersionUID = 1054627964;
 
-	private java.lang.String     foodCustomId;
-	private java.lang.String     customOrderName;
-	private java.lang.String     customerId;
-	private java.lang.String     foodId;
-	private java.lang.Integer    foodCount;
-	private java.math.BigDecimal price;
-	private java.sql.Timestamp   createTime;
-	private java.lang.String     status;
+	private java.lang.String       foodCustomId;
+	private java.lang.String       customOrderName;
+	private java.lang.String       customerId;
+	private java.lang.String       foodId;
+	private java.lang.Integer      foodCount;
+	private java.math.BigDecimal   price;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Integer      optTime;
 
 	public FoodCustom() {}
 
 	public FoodCustom(
-		java.lang.String     foodCustomId,
-		java.lang.String     customOrderName,
-		java.lang.String     customerId,
-		java.lang.String     foodId,
-		java.lang.Integer    foodCount,
-		java.math.BigDecimal price,
-		java.sql.Timestamp   createTime,
-		java.lang.String     status
+		java.lang.String       foodCustomId,
+		java.lang.String       customOrderName,
+		java.lang.String       customerId,
+		java.lang.String       foodId,
+		java.lang.Integer      foodCount,
+		java.math.BigDecimal   price,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Integer      optTime
 	) {
 		this.foodCustomId = foodCustomId;
 		this.customOrderName = customOrderName;
@@ -42,8 +50,12 @@ public class FoodCustom implements java.io.Serializable {
 		this.foodId = foodId;
 		this.foodCount = foodCount;
 		this.price = price;
-		this.createTime = createTime;
 		this.status = status;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getFoodCustomId() {
@@ -94,19 +106,51 @@ public class FoodCustom implements java.io.Serializable {
 		this.price = price;
 	}
 
-	public java.sql.Timestamp getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(java.sql.Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
 	public java.lang.String getStatus() {
 		return this.status;
 	}
 
 	public void setStatus(java.lang.String status) {
 		this.status = status;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Integer getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Integer optTime) {
+		this.optTime = optTime;
 	}
 }

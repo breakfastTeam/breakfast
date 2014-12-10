@@ -13,25 +13,40 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SetFoods implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1432208228;
+	private static final long serialVersionUID = -550187046;
 
-	private java.lang.String  setFoodsId;
-	private java.lang.String  setMealId;
-	private java.lang.String  foodId;
-	private java.lang.Integer foodCount;
+	private java.lang.String       setFoodsId;
+	private java.lang.String       setMealId;
+	private java.lang.String       foodId;
+	private java.lang.Integer      foodCount;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Long         optTime;
 
 	public SetFoods() {}
 
 	public SetFoods(
-		java.lang.String  setFoodsId,
-		java.lang.String  setMealId,
-		java.lang.String  foodId,
-		java.lang.Integer foodCount
+		java.lang.String       setFoodsId,
+		java.lang.String       setMealId,
+		java.lang.String       foodId,
+		java.lang.Integer      foodCount,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Long         optTime
 	) {
 		this.setFoodsId = setFoodsId;
 		this.setMealId = setMealId;
 		this.foodId = foodId;
 		this.foodCount = foodCount;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getSetFoodsId() {
@@ -64,5 +79,45 @@ public class SetFoods implements java.io.Serializable {
 
 	public void setFoodCount(java.lang.Integer foodCount) {
 		this.foodCount = foodCount;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Long getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Long optTime) {
+		this.optTime = optTime;
 	}
 }

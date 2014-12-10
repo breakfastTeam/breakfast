@@ -2,8 +2,6 @@ package com.core.page;
 
 import com.breakfast.constants.IConstants;
 import org.apache.commons.lang3.StringUtils;
-import org.jooq.Record;
-import org.jooq.Result;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 /**
  * Created by qingfeilee on 2014/11/21.
  */
-public class Page<T extends Record>  {
+public class Page<T>  {
     //分页参数
     protected int pageNo = 1;//当前页数
     protected int prePage = 1;//上一页
@@ -25,7 +23,7 @@ public class Page<T extends Record>  {
     protected boolean autoCount = true;
 
     //返回结果
-    protected Result<T> result = null;
+    protected List<T> result = null;
     protected int totalCount = 0;
 
 
@@ -124,11 +122,11 @@ public class Page<T extends Record>  {
     /**
      * 取得页内的记录列表.
      */
-    public Result<T> getResult() {
+    public List<T> getResult() {
         return result;
     }
 
-    public void setResult(final Result<T> result) {
+    public void setResult(final List<T> result) {
         this.result = result;
     }
 

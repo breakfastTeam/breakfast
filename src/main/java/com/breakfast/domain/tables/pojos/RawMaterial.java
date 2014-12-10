@@ -13,24 +13,34 @@ package com.breakfast.domain.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RawMaterial implements java.io.Serializable {
 
-	private static final long serialVersionUID = -1291328369;
+	private static final long serialVersionUID = 1237137877;
 
-	private java.lang.String     rawMaterialId;
-	private java.lang.String     rawMaterialName;
-	private java.math.BigDecimal price;
-	private java.lang.String     providerId;
-	private java.lang.String     unit;
-	private java.lang.String     status;
+	private java.lang.String       rawMaterialId;
+	private java.lang.String       rawMaterialName;
+	private java.math.BigDecimal   price;
+	private java.lang.String       providerId;
+	private java.lang.String       unit;
+	private java.lang.String       status;
+	private org.joda.time.DateTime createTime;
+	private java.lang.String       createBy;
+	private org.joda.time.DateTime lastModifyTime;
+	private java.lang.String       lastModifyBy;
+	private java.lang.Integer      optTime;
 
 	public RawMaterial() {}
 
 	public RawMaterial(
-		java.lang.String     rawMaterialId,
-		java.lang.String     rawMaterialName,
-		java.math.BigDecimal price,
-		java.lang.String     providerId,
-		java.lang.String     unit,
-		java.lang.String     status
+		java.lang.String       rawMaterialId,
+		java.lang.String       rawMaterialName,
+		java.math.BigDecimal   price,
+		java.lang.String       providerId,
+		java.lang.String       unit,
+		java.lang.String       status,
+		org.joda.time.DateTime createTime,
+		java.lang.String       createBy,
+		org.joda.time.DateTime lastModifyTime,
+		java.lang.String       lastModifyBy,
+		java.lang.Integer      optTime
 	) {
 		this.rawMaterialId = rawMaterialId;
 		this.rawMaterialName = rawMaterialName;
@@ -38,6 +48,11 @@ public class RawMaterial implements java.io.Serializable {
 		this.providerId = providerId;
 		this.unit = unit;
 		this.status = status;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.lastModifyTime = lastModifyTime;
+		this.lastModifyBy = lastModifyBy;
+		this.optTime = optTime;
 	}
 
 	public java.lang.String getRawMaterialId() {
@@ -86,5 +101,45 @@ public class RawMaterial implements java.io.Serializable {
 
 	public void setStatus(java.lang.String status) {
 		this.status = status;
+	}
+
+	public org.joda.time.DateTime getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(org.joda.time.DateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public java.lang.String getCreateBy() {
+		return this.createBy;
+	}
+
+	public void setCreateBy(java.lang.String createBy) {
+		this.createBy = createBy;
+	}
+
+	public org.joda.time.DateTime getLastModifyTime() {
+		return this.lastModifyTime;
+	}
+
+	public void setLastModifyTime(org.joda.time.DateTime lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	public java.lang.String getLastModifyBy() {
+		return this.lastModifyBy;
+	}
+
+	public void setLastModifyBy(java.lang.String lastModifyBy) {
+		this.lastModifyBy = lastModifyBy;
+	}
+
+	public java.lang.Integer getOptTime() {
+		return this.optTime;
+	}
+
+	public void setOptTime(java.lang.Integer optTime) {
+		this.optTime = optTime;
 	}
 }

@@ -6,32 +6,44 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>早啊</title>
+  <title>breakfast</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-  <link rel="stylesheet" href="bower_components/angular-material/themes/light-green-theme.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  <meta name="renderer" content="webkit">
+  <!--<link rel="stylesheet" href="components/resources/css/normalize.css">-->
+  <link rel="stylesheet" href="components/resources/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="components/resources/css/bootstrap.css">-->
+  <!--<link rel="stylesheet" href="components/resources/css/bootstrap_flat.css">-->
+  <link rel="stylesheet" href="components/resources/css/main.css">
+  <link rel="stylesheet" href="components/resources/css/app.css">
+
+  <!--<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>-->
 </head>
-<body>
-  <div class="welcome" layout="row" ng-controller="welcomeController">
-    <img src="components/resources/images/welcome.png" alt="早啊"/>
-  </div>
+<body ng-controller="ApplicationController">
+    <ui-view>
+    </ui-view>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/resources/js/angular.js"></script>
+  <script src="components/resources/js/jquery-1.10.2.min.js"></script>
+  <script src="components/resources/js/angular-animate.js"></script>
+  <script src="components/resources/js/angular-aria.js"></script>
+  <script src="components/resources/js/hammer.js"></script>
+  <script src="components/resources/js/angular-ui-router.js"></script>
+  <script src="components/resources/js/plugins.js"></script>
+  <script src="components/resources/js/ui-bootstrap.js"></script>
+  <script src="components/resources/js/ui-bootstrap-tpls.js"></script>
+  <script src="components/resources/js/bindonce.min.js"></script>
+
+  <script src="components/app.js"></script>
+  <script src="components/controllers.js"></script>
+  <script src="components/services.js"></script>
+  <script>
+    angular.module('bfApp.constants', [])
+            .constant('ctx','${request.contextPath!}');
+
+  </script>
 </body>
 </html>

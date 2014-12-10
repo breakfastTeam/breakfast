@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default nav-green mgb20" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">我的积分</p>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <table class="table table-bordered-bottom table-striped table-hover">
+        <tr>
+            <td class="col-xs-2">姓名：</td>
+            <td class="col-xs-10 text-center"><span ng-bind="user.userName"></span></td>
+        </tr>
+        <tr>
+            <td>手机：</td>
+            <td class="text-center"><span ng-bind="user.mobile"></span></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td class="text-center"><span ng-bind="user.sex"></span></td>
+        </tr>
+        <tr>
+            <td>微信：</td>
+            <td class="text-center"><span ng-bind="user.weixin"></span></td>
+        </tr>
+        <tr>
+            <td>QQ：</td>
+            <td class="text-center"><span ng-bind="user.qq"></span></td>
+        </tr>
+        <tr>
+            <td>联系地址1：</td>
+            <td class="text-center"><span ng-bind="user.userCustomer.address1"></span></td>
+        </tr>
+        <tr>
+            <td>联系地址2：</td>
+            <td class="text-center"><span ng-bind="user.userCustomer.address2"></span></td>
+        </tr>
+        <tr>
+            <td>联系地址3：</td>
+            <td class="text-center"><span ng-bind="user.userCustomer.address3"></span></td>
+        </tr>
+    </table>
+</div>

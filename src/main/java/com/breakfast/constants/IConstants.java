@@ -6,7 +6,9 @@ import java.sql.Timestamp;
  * Created by qingfeilee on 2014/11/21.
  */
 public class IConstants {
-    public static int DEFAULT_PAGE_SIZE = 20;
+    public static final String SEESION_USER_ID = "SEESION_USER_ID";
+
+    public static int DEFAULT_PAGE_SIZE = 5;
 
     public static final String RETURN_CODE = "rtnCode";
     public static final String RETURN_MESSAGE = "rtnMsg";
@@ -25,19 +27,34 @@ public class IConstants {
     public static final String INVALID = "INVALID";
 
 
-    /********************************字段名定义*****************************/
-    //CGetSetMealsDTO
+    /**
+     * 人员状态  User.status
+     */
+    public static final String USER_STATUS_ENABLE = "ENABLE";
+    public static final String USER_STATUS_DISABLE = "DISABLE";
 
-    public static final String SET_MEAL_ID = "set_meal_id";
-    public static final String SET_NAME = "set_name";
-    public static final String INTRODUCE = "introduce";
-    public static final String START_TIME = "star_time";
-    public static final String PRICE = "price";
-    public static final String PRIVILEGE = "privilege";
-    public static final String STATUS = "status";
-    public static final String FOOD_COUNT = "food_count";
-    public static final String REAL_FOOD_COUNT = "real_food_count";
-    public static final String SMALL_PIC_ID = "small_pic_id";
-    public static final String ORGIN_PIC_ID = "orgin_pic_id";
+    /**
+     * 套餐状态
+     * 上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
+     */
+    public static final String SET_MEAL_STATUS_PUTAWAY = "PUTAWAY";
+    public static final String SET_MEAL_STATUS_SOLD_PUT = "SOLD_PUT";
+    public static final String SET_MEAL_STATUS_DISCARD = "DISCARD";
+
+    /**
+     * 公告状态
+     */
+    public static final String INFORMATION_STATUS_ENABLE = "ENABLE";
+    public static final String INFORMATION_STATUS_DISABLE = "DISABLE";
+
+    /**
+     * 订单状态
+     */
+    public static final String ORDER_STATUS_DRAFT = "DRAFT";
+    public static final String ORDER_STATUS_DISTRIBUTION = "DISTRIBUTION";
+    public static final String ORDER_STATUS_FINISH = "FINISH";
+
+    public static final String COUPON_STATUS_ENABLE = "ENABLE";
+    public static final String COUPON_STATUS_DISABLE = "DISABLE";
 
 }

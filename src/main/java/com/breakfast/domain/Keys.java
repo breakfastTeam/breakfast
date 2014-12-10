@@ -23,26 +23,30 @@ public class Keys {
 	// UNIQUE and PRIMARY KEY definitions
 	// -------------------------------------------------------------------------
 
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord> keyTBfAddressPrimary = UniqueKeys0.keyTBfAddressPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord> keyTBfCouponPrimary = UniqueKeys0.keyTBfCouponPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord> keyTBfCustomerServicePrimary = UniqueKeys0.keyTBfCustomerServicePrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = UniqueKeys0.keyTBfCustomOrderDetailPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.ExpressRecord> keyTBfExpressPrimary = UniqueKeys0.keyTBfExpressPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord> keyTBfFeedbackPrimary = UniqueKeys0.keyTBfFeedbackPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord> keyTBfFilePrimary = UniqueKeys0.keyTBfFilePrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodRecord> keyTBfFoodPrimary = UniqueKeys0.keyTBfFoodPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord> keyTBfFoodCustomPrimary = UniqueKeys0.keyTBfFoodCustomPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord> keyTBfFoodDetailPrimary = UniqueKeys0.keyTBfFoodDetailPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord> keyTBfGradePrimary = UniqueKeys0.keyTBfGradePrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord> keyTBfOrderPrimary = UniqueKeys0.keyTBfOrderPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderDetailRecord> keyTBfOrderDetailPrimary = UniqueKeys0.keyTBfOrderDetailPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord> keyTBfPhotoShowPrimary = UniqueKeys0.keyTBfPhotoShowPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord> keyTBfRawMaterialPrimary = UniqueKeys0.keyTBfRawMaterialPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord> keyTBfSetFoodsPrimary = UniqueKeys0.keyTBfSetFoodsPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetMealRecord> keyTBfSetMealPrimary = UniqueKeys0.keyTBfSetMealPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord> keyTBfUserPrimary = UniqueKeys0.keyTBfUserPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord> keyTBfUserCourierPrimary = UniqueKeys0.keyTBfUserCourierPrimary;
-	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCustomerRecord> keyTBfUserCustomerPrimary = UniqueKeys0.keyTBfUserCustomerPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TAddressRecord> keyTBfAddressPrimary = UniqueKeys0.keyTBfAddressPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCouponRecord> keyTBfCouponPrimary = UniqueKeys0.keyTBfCouponPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomerServiceRecord> keyTBfCustomerServicePrimary = UniqueKeys0.keyTBfCustomerServicePrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = UniqueKeys0.keyTBfCustomOrderDetailPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TExpressRecord> keyTBfExpressPrimary = UniqueKeys0.keyTBfExpressPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFeedbackRecord> keyTBfFeedbackPrimary = UniqueKeys0.keyTBfFeedbackPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFileRecord> keyTBfFilePrimary = UniqueKeys0.keyTBfFilePrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodRecord> keyTBfFoodPrimary = UniqueKeys0.keyTBfFoodPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodCustomRecord> keyTBfFoodCustomPrimary = UniqueKeys0.keyTBfFoodCustomPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodDetailRecord> keyTBfFoodDetailPrimary = UniqueKeys0.keyTBfFoodDetailPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TGradeRecord> keyTBfGradePrimary = UniqueKeys0.keyTBfGradePrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TInformationRecord> keyTBfInformationPrimary = UniqueKeys0.keyTBfInformationPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TMessageRecord> keyTBfMessagePrimary = UniqueKeys0.keyTBfMessagePrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TOrderRecord> keyTBfOrderPrimary = UniqueKeys0.keyTBfOrderPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TOrderDetailRecord> keyTBfOrderDetailPrimary = UniqueKeys0.keyTBfOrderDetailPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TPhotoShowRecord> keyTBfPhotoShowPrimary = UniqueKeys0.keyTBfPhotoShowPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TProviderRecord> keyTBfProviderPrimary = UniqueKeys0.keyTBfProviderPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TRawMaterialRecord> keyTBfRawMaterialPrimary = UniqueKeys0.keyTBfRawMaterialPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TSetFoodsRecord> keyTBfSetFoodsPrimary = UniqueKeys0.keyTBfSetFoodsPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TSetMealRecord> keyTBfSetMealPrimary = UniqueKeys0.keyTBfSetMealPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TShareRecord> keyTBfSharePrimary = UniqueKeys0.keyTBfSharePrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserRecord> keyTBfUserPrimary = UniqueKeys0.keyTBfUserPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCourierRecord> keyTBfUserCourierPrimary = UniqueKeys0.keyTBfUserCourierPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCustomerRecord> keyTBfUserCustomerPrimary = UniqueKeys0.keyTBfUserCustomerPrimary;
 
 	// -------------------------------------------------------------------------
 	// FOREIGN KEY definitions
@@ -54,25 +58,29 @@ public class Keys {
 	// -------------------------------------------------------------------------
 
 	private static class UniqueKeys0 extends org.jooq.impl.AbstractKeys {
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.AddressRecord> keyTBfAddressPrimary = createUniqueKey(com.breakfast.domain.tables.Address.Address, com.breakfast.domain.tables.Address.Address.adddressId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CouponRecord> keyTBfCouponPrimary = createUniqueKey(com.breakfast.domain.tables.Coupon.Coupon, com.breakfast.domain.tables.Coupon.Coupon.couponId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomerServiceRecord> keyTBfCustomerServicePrimary = createUniqueKey(com.breakfast.domain.tables.CustomerService.CustomerService, com.breakfast.domain.tables.CustomerService.CustomerService.userId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.CustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = createUniqueKey(com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail, com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail.detailId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.ExpressRecord> keyTBfExpressPrimary = createUniqueKey(com.breakfast.domain.tables.Express.Express, com.breakfast.domain.tables.Express.Express.expressId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FeedbackRecord> keyTBfFeedbackPrimary = createUniqueKey(com.breakfast.domain.tables.Feedback.Feedback, com.breakfast.domain.tables.Feedback.Feedback.feedbackId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FileRecord> keyTBfFilePrimary = createUniqueKey(com.breakfast.domain.tables.File.File, com.breakfast.domain.tables.File.File.fileId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodRecord> keyTBfFoodPrimary = createUniqueKey(com.breakfast.domain.tables.Food.Food, com.breakfast.domain.tables.Food.Food.foodId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodCustomRecord> keyTBfFoodCustomPrimary = createUniqueKey(com.breakfast.domain.tables.FoodCustom.FoodCustom, com.breakfast.domain.tables.FoodCustom.FoodCustom.foodCustomId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.FoodDetailRecord> keyTBfFoodDetailPrimary = createUniqueKey(com.breakfast.domain.tables.FoodDetail.FoodDetail, com.breakfast.domain.tables.FoodDetail.FoodDetail.detailId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.GradeRecord> keyTBfGradePrimary = createUniqueKey(com.breakfast.domain.tables.Grade.Grade, com.breakfast.domain.tables.Grade.Grade.gradeId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderRecord> keyTBfOrderPrimary = createUniqueKey(com.breakfast.domain.tables.Order.Order, com.breakfast.domain.tables.Order.Order.orderId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.OrderDetailRecord> keyTBfOrderDetailPrimary = createUniqueKey(com.breakfast.domain.tables.OrderDetail.OrderDetail, com.breakfast.domain.tables.OrderDetail.OrderDetail.detailId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.PhotoShowRecord> keyTBfPhotoShowPrimary = createUniqueKey(com.breakfast.domain.tables.PhotoShow.PhotoShow, com.breakfast.domain.tables.PhotoShow.PhotoShow.photoId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.RawMaterialRecord> keyTBfRawMaterialPrimary = createUniqueKey(com.breakfast.domain.tables.RawMaterial.RawMaterial, com.breakfast.domain.tables.RawMaterial.RawMaterial.rawMaterialId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetFoodsRecord> keyTBfSetFoodsPrimary = createUniqueKey(com.breakfast.domain.tables.SetFoods.SetFoods, com.breakfast.domain.tables.SetFoods.SetFoods.setFoodsId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.SetMealRecord> keyTBfSetMealPrimary = createUniqueKey(com.breakfast.domain.tables.SetMeal.SetMeal, com.breakfast.domain.tables.SetMeal.SetMeal.setMealId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserRecord> keyTBfUserPrimary = createUniqueKey(com.breakfast.domain.tables.User.User, com.breakfast.domain.tables.User.User.userId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCourierRecord> keyTBfUserCourierPrimary = createUniqueKey(com.breakfast.domain.tables.UserCourier.UserCourier, com.breakfast.domain.tables.UserCourier.UserCourier.userId);
-		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.UserCustomerRecord> keyTBfUserCustomerPrimary = createUniqueKey(com.breakfast.domain.tables.UserCustomer.UserCustomer, com.breakfast.domain.tables.UserCustomer.UserCustomer.userId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TAddressRecord> keyTBfAddressPrimary = createUniqueKey(com.breakfast.domain.tables.TAddress.Address, com.breakfast.domain.tables.TAddress.Address.adddressId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCouponRecord> keyTBfCouponPrimary = createUniqueKey(com.breakfast.domain.tables.TCoupon.Coupon, com.breakfast.domain.tables.TCoupon.Coupon.couponId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomerServiceRecord> keyTBfCustomerServicePrimary = createUniqueKey(com.breakfast.domain.tables.TCustomerService.CustomerService, com.breakfast.domain.tables.TCustomerService.CustomerService.userId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = createUniqueKey(com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail, com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail.detailId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TExpressRecord> keyTBfExpressPrimary = createUniqueKey(com.breakfast.domain.tables.TExpress.Express, com.breakfast.domain.tables.TExpress.Express.expressId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFeedbackRecord> keyTBfFeedbackPrimary = createUniqueKey(com.breakfast.domain.tables.TFeedback.Feedback, com.breakfast.domain.tables.TFeedback.Feedback.feedbackId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFileRecord> keyTBfFilePrimary = createUniqueKey(com.breakfast.domain.tables.TFile.File, com.breakfast.domain.tables.TFile.File.fileId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodRecord> keyTBfFoodPrimary = createUniqueKey(com.breakfast.domain.tables.TFood.Food, com.breakfast.domain.tables.TFood.Food.foodId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodCustomRecord> keyTBfFoodCustomPrimary = createUniqueKey(com.breakfast.domain.tables.TFoodCustom.FoodCustom, com.breakfast.domain.tables.TFoodCustom.FoodCustom.foodCustomId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFoodDetailRecord> keyTBfFoodDetailPrimary = createUniqueKey(com.breakfast.domain.tables.TFoodDetail.FoodDetail, com.breakfast.domain.tables.TFoodDetail.FoodDetail.detailId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TGradeRecord> keyTBfGradePrimary = createUniqueKey(com.breakfast.domain.tables.TGrade.Grade, com.breakfast.domain.tables.TGrade.Grade.gradeId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TInformationRecord> keyTBfInformationPrimary = createUniqueKey(com.breakfast.domain.tables.TInformation.Information, com.breakfast.domain.tables.TInformation.Information.informationId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TMessageRecord> keyTBfMessagePrimary = createUniqueKey(com.breakfast.domain.tables.TMessage.Message, com.breakfast.domain.tables.TMessage.Message.messageId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TOrderRecord> keyTBfOrderPrimary = createUniqueKey(com.breakfast.domain.tables.TOrder.Order, com.breakfast.domain.tables.TOrder.Order.orderId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TOrderDetailRecord> keyTBfOrderDetailPrimary = createUniqueKey(com.breakfast.domain.tables.TOrderDetail.OrderDetail, com.breakfast.domain.tables.TOrderDetail.OrderDetail.detailId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TPhotoShowRecord> keyTBfPhotoShowPrimary = createUniqueKey(com.breakfast.domain.tables.TPhotoShow.PhotoShow, com.breakfast.domain.tables.TPhotoShow.PhotoShow.photoId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TProviderRecord> keyTBfProviderPrimary = createUniqueKey(com.breakfast.domain.tables.TProvider.Provider, com.breakfast.domain.tables.TProvider.Provider.providerId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TRawMaterialRecord> keyTBfRawMaterialPrimary = createUniqueKey(com.breakfast.domain.tables.TRawMaterial.RawMaterial, com.breakfast.domain.tables.TRawMaterial.RawMaterial.rawMaterialId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TSetFoodsRecord> keyTBfSetFoodsPrimary = createUniqueKey(com.breakfast.domain.tables.TSetFoods.SetFoods, com.breakfast.domain.tables.TSetFoods.SetFoods.setFoodsId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TSetMealRecord> keyTBfSetMealPrimary = createUniqueKey(com.breakfast.domain.tables.TSetMeal.SetMeal, com.breakfast.domain.tables.TSetMeal.SetMeal.setMealId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TShareRecord> keyTBfSharePrimary = createUniqueKey(com.breakfast.domain.tables.TShare.Share, com.breakfast.domain.tables.TShare.Share.shareId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserRecord> keyTBfUserPrimary = createUniqueKey(com.breakfast.domain.tables.TUser.User, com.breakfast.domain.tables.TUser.User.userId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCourierRecord> keyTBfUserCourierPrimary = createUniqueKey(com.breakfast.domain.tables.TUserCourier.UserCourier, com.breakfast.domain.tables.TUserCourier.UserCourier.userId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCustomerRecord> keyTBfUserCustomerPrimary = createUniqueKey(com.breakfast.domain.tables.TUserCustomer.UserCustomer, com.breakfast.domain.tables.TUserCustomer.UserCustomer.userId);
 	}
 }

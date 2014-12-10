@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default nav-green mgb0" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">早啊</p>
+        </div>
+    </div>
+</nav>
+<div class="text-center row tab-green" style="padding-top: 10px;">
+    <div class="col-xs-4 btn-tab">
+        <a ui-sref="main.setMeals">营养套餐</a>
+    </div>
+    <div class="col-xs-4 btn-tab">
+        <a ui-sref="main.foods">健康单品</a>
+    </div>
+    <div class="col-xs-4 btn-tab border-right0">
+        <a ui-sref="main.informations">吧台公告</a>
+    </div>
+</div>
+
+<div ui-view style="overflow-y: scroll;overflow-x: hidden;height:500px;">
+
+
+</div>
+
+<div class="text-center row tab-green navbar-fixed-bottom" style="padding-top: 10px;">
+    <div class="col-xs-4 btn-tab">
+        <a ui-sref="main.setMeals"><span class="glyphicon glyphicon-th"></span></a>
+    </div>
+    <div class="col-xs-4 btn-tab">
+        <a ui-sref="main.setMeals"><span class="glyphicon glyphicon-time"></span></a>
+    </div>
+    <div class="col-xs-4 btn-tab border-right0">
+        <a ui-sref="userInfo"><span class="glyphicon glyphicon-user"></span></a>
+    </div>
+</div>

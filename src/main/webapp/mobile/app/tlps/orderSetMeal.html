@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default nav-green mgb0" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">早啊</p>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="thumbnail">
+            <img src="components/resources/images/setmeal_em_o.jpg">
+            <div class="carousel-caption top65">
+                <rating class="pull-left star-color" ng-model="setMeal.grade" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                <span class="label pull-left" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}分</span>
+                <span class="pull-right">{{setMeal.privilege}} 元</span>
+            </div>
+            <div class="caption col-xs-8 col-xs-offset-2">
+                <a href="#" ui-sref="addToOrder({setMealId:setMeal.setMealId})" class="btn btn-success btn-block" role="button">现在预订</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <p class="text-info text-center" ng-bind="setMeal.introduce"></p>
+</div>

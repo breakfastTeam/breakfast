@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default nav-green mgb0" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text text-center">登录</p>
+            <a class="navbar-text pull-right" ui-sref="register">注册</a>
+        </div>
+    </div>
+
+</nav>
+<div class="container-fluid mgb20">
+<form class="form" role="form" ng-submit="login()">
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="text" class="form-control" ng-model="user.loginName" placeholder="手机号">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <label class="radio-inline">
+                <input type="radio" name="user.sex" id="inlineRadio1" value="male"> 男
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="user.sex" id="inlineRadio2" value="female"> 女
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="text" class="form-control" ng-model="user.authCode" placeholder="验证码">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="password" class="form-control" ng-model="user.password" placeholder="登录密码">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 mgb20">
+            <input type="text" class="form-control" ng-model="user.authCode" placeholder="邀请码(选填)">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-2">
+            <button type="submit" class="btn btn-success btn-block">注册</button>
+        </div>
+    </div>
+</form>
+</div>
+<div class="row text-center">
+    <p class="text-danger" ng-show="loginError"><span ng-bind="errorText"></span></p>
+</div>

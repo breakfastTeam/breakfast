@@ -1,14 +1,16 @@
 package com.core.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.breakfast.constants.IConstants;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
 /**
  * Created by qingfeilee on 2014/11/21.
+ * update .k:json-lib to fastjson
  */
 public class IMsgUtil {
     private MsgMap<String, String> headMap = new MsgMap<String, String>();//返回报文头部信息
@@ -33,36 +35,22 @@ public class IMsgUtil {
     /**
      * 生成整个报文信息并以JSON格式返回
      * @author Felix
-     * @param bodyList List 将要生成的对象集合
+     * @param bodyObj 将要生成的对象
      * @return String
      * @since 2014-04-24 09:09
      * 变更记录：
      */
     @SuppressWarnings("unchecked")
-    public String generateRtnMsg(List bodyList){
+    public String generateRtnMsg(Object bodyObj) {
 
-        JSONObject jsonHead=JSONObject.fromObject(this.getHeadMap());
-        JSONArray jsonBody=JSONArray.fromObject(bodyList);
-        String headStr="{\"head\":"+jsonHead.toString()+",";
-        String bodyStr="\"body\":{\"results\":"+jsonBody.toString()+"}}";
-        return headStr+bodyStr;
+        String head = JSON.toJSONString(this.headMap);
+        String body =  JSON.toJSONString(bodyObj);
+        String headStr = "{\"head\":" + head + ",";
+        String bodyStr = "\"body\":{\"results\":" + body + "}}";
+        return headStr + bodyStr;
     }
 
-    /**
-     * 生成整个报文信息并以JSON格式返回
-     * @author Felix
-     * @param bodyMap Map 将要生成的对象
-     * @return String
-     * @since 2014-04-24 09:09
-     * 变更记录：
-     */
-    public String generateRtnMsg(Map<String, Object> bodyMap){
-        JSONObject jsonHead=JSONObject.fromObject(this.getHeadMap());
-        JSONObject jsonBody=JSONObject.fromObject(bodyMap);
-        String headStr="{\"head\":"+jsonHead.toString()+",";
-        String bodyStr="\"body\":"+jsonBody.toString()+"}";
-        return headStr+bodyStr;
-    }
+
     /**
      * 生成整个报文信息并以JSON格式返回，消息体为空
      * @author Felix
@@ -71,10 +59,42 @@ public class IMsgUtil {
      * 变更记录：
      */
     public String generateRtnMsg(){
-        JSONObject jsonHead=JSONObject.fromObject(this.getHeadMap());
-        String headStr="{\"head\":"+jsonHead.toString()+",";
+        String head = JSON.toJSONString(this.headMap);
+        String headStr="{\"head\":"+head+",";
         String bodyStr="\"body\":{}}";
         return headStr+bodyStr;
+    }
+
+    /**
+     * 生成整个报文信息并以JSON格式返回，消息体为空
+     * @author Felix
+     * @return String
+     * @since 2014-04-24 09:09
+     * 变更记录：
+     */
+    public String generateMsg(String code, String msg) {
+        Map<String, Object> map = Maps.newHashMapWithExpectedSize(2);
+        this.headMap.put(IConstants.RETURN_CODE, code);
+        this.headMap.put(IConstants.RETURN_MESSAGE, msg);
+        map.put("head", this.headMap);
+        map.put("body", "");
+        return JSON.toJSONString(map);
+    }
+
+    /**
+     * 生成整个报文信息并以JSON格式返回，消息体为空
+     * @author Felix
+     * @return String
+     * @since 2014-04-24 09:09
+     * 变更记录：
+     */
+    public Map generateMsg(String code, String msg ,Object bodyObj) {
+        Map<String, Object> map = Maps.newHashMapWithExpectedSize(2);
+        this.headMap.put(IConstants.RETURN_CODE, code);
+        this.headMap.put(IConstants.RETURN_MESSAGE, msg);
+        map.put("head", this.headMap);
+        map.put("body", bodyObj);
+        return map;
     }
 
     private void setHeadMap(MsgMap<String, String> headMap){
@@ -106,6 +126,6 @@ public class IMsgUtil {
 @SuppressWarnings("serial")
 class MsgMap<T, TT> extends HashMap<T, TT>{
     public MsgMap(){
-        super();
+        super(2);
     }
 }

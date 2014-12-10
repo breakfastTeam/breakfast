@@ -11,7 +11,7 @@ package com.breakfast.domain;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Breakfast extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 1190156960;
+	private static final long serialVersionUID = 362266626;
 
 	/**
 	 * The singleton instance of <code>breakfast</code>
@@ -34,27 +34,29 @@ public class Breakfast extends org.jooq.impl.SchemaImpl {
 
 	private final java.util.List<org.jooq.Table<?>> getTables0() {
 		return java.util.Arrays.<org.jooq.Table<?>>asList(
-			com.breakfast.domain.tables.Address.Address,
-			com.breakfast.domain.tables.Coupon.Coupon,
-			com.breakfast.domain.tables.CustomerService.CustomerService,
-			com.breakfast.domain.tables.CustomOrderDetail.CustomOrderDetail,
-			com.breakfast.domain.tables.Express.Express,
-			com.breakfast.domain.tables.Feedback.Feedback,
-			com.breakfast.domain.tables.File.File,
-			com.breakfast.domain.tables.Food.Food,
-			com.breakfast.domain.tables.FoodCustom.FoodCustom,
-			com.breakfast.domain.tables.FoodDetail.FoodDetail,
-			com.breakfast.domain.tables.Grade.Grade,
-			com.breakfast.domain.tables.Message.Message,
-			com.breakfast.domain.tables.Order.Order,
-			com.breakfast.domain.tables.OrderDetail.OrderDetail,
-			com.breakfast.domain.tables.PhotoShow.PhotoShow,
-			com.breakfast.domain.tables.Provider.Provider,
-			com.breakfast.domain.tables.RawMaterial.RawMaterial,
-			com.breakfast.domain.tables.SetFoods.SetFoods,
-			com.breakfast.domain.tables.SetMeal.SetMeal,
-			com.breakfast.domain.tables.User.User,
-			com.breakfast.domain.tables.UserCourier.UserCourier,
-			com.breakfast.domain.tables.UserCustomer.UserCustomer);
+			com.breakfast.domain.tables.TAddress.Address,
+			com.breakfast.domain.tables.TCoupon.Coupon,
+			com.breakfast.domain.tables.TCustomerService.CustomerService,
+			com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail,
+			com.breakfast.domain.tables.TExpress.Express,
+			com.breakfast.domain.tables.TFeedback.Feedback,
+			com.breakfast.domain.tables.TFile.File,
+			com.breakfast.domain.tables.TFood.Food,
+			com.breakfast.domain.tables.TFoodCustom.FoodCustom,
+			com.breakfast.domain.tables.TFoodDetail.FoodDetail,
+			com.breakfast.domain.tables.TGrade.Grade,
+			com.breakfast.domain.tables.TInformation.Information,
+			com.breakfast.domain.tables.TMessage.Message,
+			com.breakfast.domain.tables.TOrder.Order,
+			com.breakfast.domain.tables.TOrderDetail.OrderDetail,
+			com.breakfast.domain.tables.TPhotoShow.PhotoShow,
+			com.breakfast.domain.tables.TProvider.Provider,
+			com.breakfast.domain.tables.TRawMaterial.RawMaterial,
+			com.breakfast.domain.tables.TSetFoods.SetFoods,
+			com.breakfast.domain.tables.TSetMeal.SetMeal,
+			com.breakfast.domain.tables.TShare.Share,
+			com.breakfast.domain.tables.TUser.User,
+			com.breakfast.domain.tables.TUserCourier.UserCourier,
+			com.breakfast.domain.tables.TUserCustomer.UserCustomer);
 	}
 }
