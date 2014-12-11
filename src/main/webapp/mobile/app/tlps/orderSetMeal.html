@@ -15,8 +15,8 @@
                 <span class="label pull-left" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}分</span>
                 <span class="pull-right">{{setMeal.privilege}} 元</span>
             </div>
-            <div class="caption col-xs-8 col-xs-offset-2">
-                <a href="#" ui-sref="addToOrder({setMealId:setMeal.setMealId})" class="btn btn-success btn-block" role="button">现在预订</a>
+            <div class="caption col-xs-10 col-xs-offset-1">
+                <a ui-sref="addToOrder({setMealId:setMeal.setMealId})" class="btn btn-success btn-block" role="button">现在预订</a>
             </div>
         </div>
     </div>
