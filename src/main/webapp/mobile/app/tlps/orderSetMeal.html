@@ -22,5 +22,5 @@
     </div>
 </div>
 <div class="container">
-    <p class="text-info text-center" ng-bind="setMeal.introduce"></p>
+    <p class="text-info text-center" ng-bind-html="setMeal.introduce|to_trusted"></p>
 </div>
