@@ -170,42 +170,41 @@ ctrls
         {stateOff: 'glyphicon-off'}
     ];
 })
-.controller('orderCtrl','Order',function($scope,promise,Order){
-    $scope={
-        foodObjName:setMeal.setName,
-        count:1,
-        orderDetail:{
-            foodObjId:setMeal.setMealId,
-            foodObjCount:$scope.count,
-            foodObjType:'SETMEAL',
-            foodObjPrice:setMeal.privilege
-        },
-        order:{
-            exccreaditCount:'',
-            usedCoupons:'',
-            status : 'DRAFT',
-            orderPrice:setMeal.privilege*$scope.count
-        },
-        minus:function(){
-            $scope.count--;
-            $scope.order.orderPrice=setMeal.privilege*$scope.count;
-        },
-        plus:function(){
-            $scope.count++;
-            $scope.order.orderPrice=setMeal.privilege*$scope.count;
-        },
-        online:function() {
-            $scope.order.orderType = 'online';
-        },
-        offline:function() {
-            $scope.order.orderType = 'offline';
-        },
-        toOrder:function(){
-            Order.toOrder().then(function(data){
-                $scope.showResult=true;
-            })
-        }
-    }
+.controller('orderCtrl',function($scope,promise,Order){
+    var setMeal=promise.body;
+    $scope.foodObjName=setMeal.setName;
+    $scope.count=1;
+    $scope.orderDetail={
+        foodObjId:setMeal.setMealId,
+        foodObjCount:$scope.count,
+        foodObjType:'SETMEAL',
+        foodObjPrice:setMeal.privilege
+    };
+    $scope.order={
+        exccreaditCount:'',
+        usedCoupons:'',
+        status : 'DRAFT',
+        orderPrice:setMeal.privilege*$scope.count
+    };
+    $scope.minus=function(){
+        $scope.count--;
+        $scope.order.orderPrice=setMeal.privilege*$scope.count;
+    };
+    $scope.plus=function(){
+        $scope.count++;
+        $scope.order.orderPrice=setMeal.privilege*$scope.count;
+    };
+    $scope.online=function() {
+        $scope.order.orderType = 'online';
+    };
+    $scope.offline=function() {
+        $scope.order.orderType = 'offline';
+    };
+    $scope.toOrder=function(){
+        Order.toOrder().then(function(data){
+            $scope.showResult=true;
+        })
+    };
 })
 .controller('userInfoCtrl',function($scope) {
 

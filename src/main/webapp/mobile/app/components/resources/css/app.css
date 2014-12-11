@@ -25,8 +25,8 @@ html,body{
 .tab-green{
     color:#449d44;
     background-color: #FFF;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .tab-green a:hover{
@@ -36,7 +36,7 @@ html,body{
 
 .top-tab{
     border-style: solid;
-    border-bottom-width: 2px;
+    border-bottom-width: 1px;
     border-bottom-color: #ccc;
 }
 
@@ -46,6 +46,10 @@ html,body{
 }
 
 .mgb0{
+    margin-bottom: 0px;
+}
+.mgtb0 {
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 .mgb20{

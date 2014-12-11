@@ -1,14 +1,14 @@
 <nav class="navbar navbar-default nav-green mgb20" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <p class="navbar-text text-center">立即支付</p>
+            <h4 class="navbar-text text-center" style="color:#FFF;">立即支付</h4>
         </div>
     </div>
 </nav>
 
 <form class="form" role="form" ng-submit="toOrder()">
-<input name="type" type="hidden" ng-model="order.orderType"/>
-<input name="status" type="hidden" ng-model="order.status"/>
+<input name="type" type="hidden" name="order.orderType" ng-model="order.orderType"/>
+<input name="status" type="hidden" name="order.status" ng-model="order.status"/>
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
         <td class="col-xs-4">名称：</td>
@@ -21,7 +21,7 @@
     <tr>
         <td>数量：</td>
         <td class="text-center">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-10 col-xs-offset-1">
             <div class="input-group">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" ng-click="minus()">-1</button>
@@ -43,7 +43,7 @@
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
         <td>
-            <div class="checkbox">
+            <div class="checkbox mgtb0">
                 <label>
                     <input type="checkbox" value="">积分兑换：
                 </label>
@@ -55,7 +55,7 @@
     </tr>
     <tr>
         <td>
-            <div class="checkbox">
+            <div class="checkbox mgtb0">
                 <label>
                     <input type="checkbox" value="">使用代金券：
                 </label>
