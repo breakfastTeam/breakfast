@@ -55,6 +55,9 @@ public class OrderController {
         Express express = new Express();
         if(expresses !=  null && expresses.size()>0){
             express = expresses.get(0);
+            if(Double.parseDouble(express.getLongitude())<Double.parseDouble(IConstants.WENHUALU_LNG)){
+                express.setLongitude(IConstants.WENHUALU_LNG);
+            }
         }
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, express);
     }

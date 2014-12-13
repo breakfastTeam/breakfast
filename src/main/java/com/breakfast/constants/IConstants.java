@@ -7,7 +7,7 @@ import java.sql.Timestamp;
  */
 public class IConstants {
     public static final String SEESION_USER_ID = "SEESION_USER_ID";
-
+    public static final String WENHUALU_LNG="113.674";//郑州市文化路经度
     public static int DEFAULT_PAGE_SIZE = 5;
 
     public static final String RETURN_CODE = "rtnCode";
