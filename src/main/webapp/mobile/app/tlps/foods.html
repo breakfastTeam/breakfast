@@ -1,9 +1,9 @@
-<div ng-repeat="food in foods">
+<div class="row" ng-repeat="food in foods">
     <div class="media media-border row">
-        <a class="media-left col-xs-4" href="javascript:void(0);">
+        <a class="media-left col-xs-5" href="javascript:void(0);">
             <img src="components/resources/images/setmeal_ex.png" class="img-thumbnail">
         </a>
-        <div class="media-body col-xs-8">
+        <div class="media-body col-xs-7" style="padding-top:8px;">
             <h4 class="media-heading" ng-bind="food.foodName"></h4>
             <!--
             <span class="label label-success" ng-if="food.status=='PUTAWAY'&&food.foodCount>=1">接受预定中</span>

@@ -31,9 +31,9 @@ public class InformationServiceImpl implements InformationService {
         page.setTotalCount(count);
         List<Information> result =
                 creator.selectFrom(information)
-                        .where(information.status.notEqual(IConstants.INFORMATION_STATUS_ENABLE))
+                        .where(information.status.equal(IConstants.INFORMATION_STATUS_ENABLE))
                         .limit(((page.getPageNo() - 1)) * page.getPageSize(), page.getPageSize())
-                        .fetch().into(Information.class);
+                        .fetchInto(Information.class);
         page.setResult(result);
         return page;
 
