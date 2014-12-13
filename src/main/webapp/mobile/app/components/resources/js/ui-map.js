@@ -20,8 +20,8 @@
     }
 
     app.value('uiMapConfig', {})
-        .directive('uiMap', ['uiMapConfig', '$window', '$parse', '$timeout',
-        function (uiMapConfig, $window, $parse, $timeout) {
+        .directive('uiMap', ['uiMapConfig', '$window', '$parse', '$timeout','$interval',
+        function (uiMapConfig, $window, $parse, $timeout, $interval) {
             var mapEvents = 'click dblclick rightclick rightdblclick maptypechange mousemove mouseover mouseout '
                 +'movestart moving moveend zoomstart zoomend addoverlay addcontrol removecontrol removeoverlay '
                 +'clearoverlays dragstart dragging dragend addtilelayer removetilelayer load resize hotspotclick '
@@ -44,7 +44,6 @@
                         $timeout(function() {
                             initMap();
                         }, 200);
-
                     }
 
                     function initMap() {
@@ -52,11 +51,21 @@
                             elm.replaceWith($window[attrs.uiMapCache]);
                             map = $window[attrs.uiMapCache + "Map"];
                         } else {
-
                             map = new $window.BMap.Map(elm[0], opts);
+                            var count=0;
+                            $interval(function () {
+                                count = count+1;
+                                if(count>3){
+                                    count=0;
+                                    map.centerAndZoom(new BMap.Point(opts.lng, opts.lat), 14);
+                                }
 
-                            // 上海市
-                            map.centerAndZoom(new BMap.Point(121.491, 31.233), 11);
+                                map.clearOverlays();
+                                var marker1 = new BMap.Marker(new BMap.Point(opts.lng, opts.lat));  //创建标注
+                                map.addOverlay(marker1);
+
+
+                            },5000);
 
                             /*********************** add baidu Map plugins ****************/
                             if (opts.scrollzoom) {
@@ -71,6 +80,8 @@
                                 map.addControl(new BMap.OverviewMapControl());
                             }
                             /*********************** end add baidu Map plugins ****************/
+
+
                         }
                         var model = $parse(attrs.uiMap);
                         //Set scope variable for the map

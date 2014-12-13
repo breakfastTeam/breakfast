@@ -214,7 +214,9 @@ ctrls
         $scope.mapOptions = {
             enableMapClick: false,
             // ui map config
-            uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
+            uiMapCache: true, // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
+            lng:116.404,
+            lat:39.915
         };
         $scope.map =function(){
             console.log("dfs");
