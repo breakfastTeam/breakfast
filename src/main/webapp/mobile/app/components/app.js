@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app=angular.module('bfApp', ['ui.router','ui.bootstrap','pasvaz.bindonce','bfControllers','bfServices']);
+var app=angular.module('bfApp', ['ui.router','ui.bootstrap','pasvaz.bindonce','bfControllers','bfServices','ui.map']);
 
 app.config(function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.when("", "/welcome");
@@ -63,6 +63,11 @@ app.config(function($stateProvider,$urlRouterProvider){
                     return SetMeal.loadSetMeal(data);
                 }
             }
+        })
+        .state('expressMap',{
+            url:'/expressMap',
+            templateUrl:'tlps/expressMap.html',
+            controller:'expressMapCtrl'
         })
         .state('userInfo',{
             url:'/userInfo',
@@ -152,4 +157,10 @@ app.filter('to_trusted', ['$sce', function ($sce) {
     return function (text) {
         return $sce.trustAsHtml(text);
     }
+}]);
+app.config(['uiMapLoadParamsProvider', function (uiMapLoadParamsProvider) {
+    uiMapLoadParamsProvider.setParams({
+        v: '2.0',
+        ak:'G8eLGMlNf9Yh0ncZEqcro4K2'
+    });
 }]);

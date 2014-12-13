@@ -207,7 +207,18 @@ ctrls
     };
 })
 .controller('userInfoCtrl',function($scope) {
-        console.log("1-----------"+$scope.title);$scope.nav.title = '个人中心';console.log("0-----------"+$scope.title);$scope.$broadcast();
+       $scope.nav.title = '个人中心';
+})
+.controller('expressMapCtrl',function($scope) {
+        $scope.nav.title = '想看看';
+        $scope.mapOptions = {
+            enableMapClick: false,
+            // ui map config
+            uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
+        };
+        $scope.map =function(){
+            console.log("dfs");
+        }
 })
 .controller('showCreditsCtrl',function($scope,promise){
     $scope.user=promise.body;
@@ -221,3 +232,4 @@ ctrls
 .controller('showInfosCtrl',function($scope,promise){
     $scope.infos=promise.body;
 })
+
