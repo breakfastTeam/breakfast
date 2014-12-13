@@ -14,4 +14,10 @@ public interface InformationService {
      */
     Page<Information> query(Page<Information> page);
 
+    /**
+     * 获取公告
+     * @param informationId
+     * @return
+     */
+    Information loadInformation(String informationId);
 }

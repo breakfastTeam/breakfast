@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 import org.jooq.*;
 import org.jooq.tools.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,8 @@ public class SetMealServiceImpl implements SetMealService {
     DSLContext creator;
     @Autowired
     private FileService fileService;
+    @Value("host")
+    private String host;
 
     @Override
     public void add(TSetMealRecord TSetMealRecord) {
@@ -77,8 +80,8 @@ public class SetMealServiceImpl implements SetMealService {
             }
             String sPath = fileService.get(sm.getSmallPicId()).getFilePath();
             String oPath = fileService.get(sm.getOrginPicId()).getFilePath();
-            extMap.put("sPath", sPath);
-            extMap.put("oPath", oPath);
+            extMap.put("sPath", host+sPath);
+            extMap.put("oPath", host+oPath);
             sm.setExtMap(extMap);
         }
         page.setResult(result);

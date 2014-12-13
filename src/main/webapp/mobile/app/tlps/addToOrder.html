@@ -1,42 +1,22 @@
-<nav class="navbar navbar-default nav-green mgb20" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <h4 class="navbar-text text-center" style="color:#FFF;">立即支付</h4>
-        </div>
-    </div>
-</nav>
-
 <form class="form" role="form" ng-submit="toOrder()">
 <input name="type" type="hidden" name="order.orderType" ng-model="order.orderType"/>
 <input name="status" type="hidden" name="order.status" ng-model="order.status"/>
 <table class="table table-bordered-bottom table-striped table-hover">
+    <thead>
     <tr>
-        <td class="col-xs-4">名称：</td>
-        <td class="col-xs-10 text-center"><span ng-bind="foodObjName"></span></td>
+        <td>餐品</td>
+        <td>数量</td>
+        <td>小计</td>
     </tr>
-    <tr>
-        <td>单价：</td>
-        <td class="text-center"><span ng-bind="orderDetail.foodObjPrice"></span></td>
-    </tr>
-    <tr>
-        <td>数量：</td>
-        <td class="text-center">
-            <div class="col-xs-10 col-xs-offset-1">
-            <div class="input-group">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng-click="minus()">-1</button>
-                </span>
-                <input type="text" class="form-control text-center" ng-model="count">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng-click="plus()">+1</button>
-                </span>
-            </div>
-            </div>
-        </td>
+    </thead>
+    <tr ng-repeat="orderDetail in orderDetails track by orderDetail.foodObjId">
+        <td class="col-xs-6 text-left"><span class="text-info" ng-bind="orderDetail.foodObjName"></span></td>
+        <td class="col-xs-3 text-left"><i class="fa fa-times"></i> <span ng-bind="orderDetail.foodObjCount"></span></td>
+        <td class="col-xs-3 text-left"><i class="fa fa-jpy"></i> <span ng-bind="orderDetail.foodObjTotalPrice"></span></td>
     </tr>
     <tr>
         <td>总价：</td>
-        <td class="text-center"><span ng-bind="order.orderPrice"></span></td>
+        <td colspan=2 class="text-center"><span ng-bind="order.orderPrice"></span></td>
     </tr>
 </table>
 
@@ -45,24 +25,24 @@
         <td>
             <div class="checkbox mgtb0">
                 <label>
-                    <input type="checkbox" value="">积分兑换：
+                    <input type="checkbox" ng-disabled="!hasCredits">积分兑换：
                 </label>
             </div>
         </td>
         <td>
-            <span ng-bind="order.exccreaditCount"></span>
+            <span ng-bind="user.userCustomer.credits||0"></span>
         </td>
     </tr>
     <tr>
         <td>
             <div class="checkbox mgtb0">
                 <label>
-                    <input type="checkbox" value="">使用代金券：
+                    <input type="checkbox"  ng-disabled="!hasCoupons">使用代金券：
                 </label>
             </div>
         </td>
         <td>
-            <span ng-bind="order.usedCoupons"></span>
+            <span ng-bind="user.coupons||'无'"></span>
         </td>
     </tr>
 </table>
@@ -70,31 +50,32 @@
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
         <td class="col-xs-4">手机：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.mobile"/></td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeMobile"/></td>
     </tr>
     <tr>
         <td class="col-xs-4">姓名：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.mobile"/></td>
-    </tr>
-    <tr>
-        <td class="col-xs-4">城市：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.city"/></td>
-    </tr>
-    <tr>
-        <td class="col-xs-4">区域：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.area"/></td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeName"/></td>
     </tr>
     <tr>
         <td class="col-xs-4">地址：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.address"/></td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeAddress"/></td>
     </tr>
     <tr>
         <td class="col-xs-5">预计送达日期：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.preSendDate"/></td>
+        <td class="col-xs-10 text-center">
+            <select class="form-control" ng-model="order.preSendTime">
+                <option>07:00-07:30</option>
+                <option>07:30-08:00</option>
+                <option>08:00-08:30</option>
+                <option>08:30-09:00</option>
+                <option>09:00-09:30</option>
+                <option>09:30-10:00</option>
+            </select>
+        </td>
     </tr>
     <tr>
         <td class="col-xs-5">订单备注：</td>
-        <td class="col-xs-10 text-center"><input type="text" ng-bind="order.comments"/></td>
+        <td class="col-xs-10 text-center"><textarea class="form-control" ng-model="order.comments"></textarea></td>
     </tr>
 </table>
 

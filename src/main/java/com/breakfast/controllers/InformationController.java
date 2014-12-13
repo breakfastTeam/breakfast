@@ -11,6 +11,7 @@ import com.core.utils.IMsgUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -26,7 +27,6 @@ public class InformationController {
 
     /**
      * 获取公告列表
-     * 变更记录:
      *
      */
     @ResponseBody
@@ -37,4 +37,15 @@ public class InformationController {
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, page);
     }
 
+    /**
+     * 获取公告详情
+     * cGetInformation
+     */
+    @ResponseBody
+    @RequestMapping(value = "/cGetInformation")
+    public Map<String, Object> cGetInformation(@RequestParam String informationId) {
+        IMsgUtil msgUtil = new IMsgUtil();
+        Information information = informationService.loadInformation(informationId);
+        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, information);
+    }
 }

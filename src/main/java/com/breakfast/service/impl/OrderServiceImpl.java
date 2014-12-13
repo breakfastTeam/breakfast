@@ -6,13 +6,20 @@ import com.breakfast.domain.tables.TExpress;
 import com.breakfast.domain.tables.TOrder;
 import com.breakfast.domain.tables.TOrderDetail;
 import com.breakfast.domain.tables.pojos.Express;
+import com.alipay.util.UtilDate;
+import com.breakfast.domain.Tables;
+import com.breakfast.domain.tables.TOrder;
+import com.breakfast.domain.tables.TOrderDetail;
 import com.breakfast.domain.tables.pojos.Order;
 import com.breakfast.domain.tables.pojos.OrderDetail;
 import com.breakfast.domain.tables.records.TOrderDetailRecord;
+import com.breakfast.domain.tables.records.TOrderRecord;
 import com.breakfast.service.OrderService;
+import com.core.utils.IUUIDGenerator;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -47,5 +54,24 @@ public class OrderServiceImpl implements OrderService {
                 .orderBy(order.createTime)
                 .fetchInto(Express.class);
         return expresses;
+    }
+
+    @Override
+    public String saveOrderWithDetail(Order order) {
+        String orderId = IUUIDGenerator.getUUID();
+        order.setOrderId(orderId);
+        order.setOrderNo(UtilDate.getOrderNum());
+        TOrderRecord orderRecord = creator.newRecord(Tables.Order, order);
+        orderRecord.store();
+        int count = creator.executeInsert(orderRecord);
+        for (OrderDetail orderDetail : order.getOrderDetails()) {
+            String orderDetailId = IUUIDGenerator.getUUID();
+            orderDetail.setDetailId(orderDetailId);
+            orderDetail.setOrderId(orderId);
+            TOrderDetailRecord record = creator.newRecord(Tables.OrderDetail, orderDetail);
+            record.store();
+            count += creator.executeInsert(record);
+        }
+        return orderId;
     }
 }

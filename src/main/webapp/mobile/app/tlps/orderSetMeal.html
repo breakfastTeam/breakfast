@@ -1,26 +1,55 @@
-<nav class="navbar navbar-default nav-green mgb0" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <h4 class="navbar-text text-center" style="color:#FFF;">早啊</h4>
-        </div>
-    </div>
-</nav>
-
 <div class="row">
     <div class="col-xs-12">
         <div class="thumbnail">
             <img src="components/resources/images/setmeal_em_o.jpg">
-            <div class="carousel-caption top65">
+            <div class="carousel-caption">
                 <rating class="pull-left star-color" ng-model="setMeal.grade" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
                 <span class="label pull-left" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}分</span>
                 <span class="pull-right">{{setMeal.privilege}} 元</span>
             </div>
-            <div class="caption col-xs-10 col-xs-offset-1">
-                <a ui-sref="addToOrder({setMealId:setMeal.setMealId})" class="btn btn-success btn-block" role="button">现在预订</a>
-            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <p class="text-info text-center" ng-bind-html="setMeal.introduce|to_trusted"></p>
+
+<div class="container-fluid">
+<div class="row">
+<table class="table table-bordered-bottom table-striped table-hover" style="margin-bottom: 10px;">
+    <tr>
+        <td class="col-xs-4">名称：</td>
+        <td class="col-xs-10 text-center"><span ng-bind="orderDetail.foodObjName"></span></td>
+    </tr>
+    <tr>
+        <td>单价：</td>
+        <td class="text-center"><span ng-bind="orderDetail.foodObjPrice"></span></td>
+    </tr>
+    <tr>
+        <td>数量：</td>
+        <td class="text-center">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="input-group">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="minus()" ng-disabled="orderDetail.foodObjCount==1">-1</button>
+                </span>
+                    <input type="text" class="form-control text-center" ng-model="orderDetail.foodObjCount">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="plus()">+1</button>
+                </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>总价：</td>
+        <td class="text-center"><span ng-bind="orderDetail.foodObjTotalPrice"></span></td>
+    </tr>
+</table>
+</div>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+        <button ng-click="toOrder()" class="btn btn-success btn-block">现在预订</button>
+    </div>
+</div>
+<div class="row">
+    <p ng-bind-html="setMeal.introduce|to_trusted" style="text-indent:2em;margin-top:10px;"></p>
+</div>
 </div>

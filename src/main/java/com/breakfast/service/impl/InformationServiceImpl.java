@@ -4,6 +4,7 @@ import com.breakfast.constants.IConstants;
 import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TInformation;
 import com.breakfast.domain.tables.pojos.Information;
+import com.breakfast.domain.tables.records.TInformationRecord;
 import com.breakfast.service.InformationService;
 import com.core.page.Page;
 import org.jooq.DSLContext;
@@ -27,7 +28,7 @@ public class InformationServiceImpl implements InformationService {
     public Page<Information> query(Page<Information> page) {
         TInformation information = Tables.Information.as("information");
         int count=creator.selectFrom(information)
-                .where(information.status.notEqual(IConstants.INFORMATION_STATUS_ENABLE)).fetchCount();
+                .where(information.status.equal(IConstants.INFORMATION_STATUS_ENABLE)).fetchCount();
         page.setTotalCount(count);
         List<Information> result =
                 creator.selectFrom(information)
@@ -37,5 +38,13 @@ public class InformationServiceImpl implements InformationService {
         page.setResult(result);
         return page;
 
+    }
+
+    @Override
+    public Information loadInformation(String informationId) {
+        TInformation record = Tables.Information.as("info");
+        return creator.selectFrom(record).
+                where(record.informationId.equal(informationId)).
+                fetchOneInto(Information.class);
     }
 }

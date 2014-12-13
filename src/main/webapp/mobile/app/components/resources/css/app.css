@@ -22,6 +22,14 @@ html,body{
     border-color: transparent;
 }
 
+.navbar-header h4{
+    margin-top: 15px;
+    color:#FFF;
+}
+.navbar-header h5{
+    margin-top: 15px;
+}
+
 .tab-green{
     color:#449d44;
     background-color: #FFF;
@@ -78,11 +86,34 @@ html,body{
     border-width: 1px 0 0 0;
 }
 
+.media-border h4{
+    color:#000;
+}
+.media-border a:hover{
+    text-decoration: none;
+}
+
+.media-left{
+    display: block;
+}
 .star-color i{
     color:#FCC02F;
 }
 
 .table-bordered-bottom {
     border-bottom: 1px solid #ddd;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.carousel-caption {
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    left: 5.6%;
+    right: 6.1%;
+    bottom: 0;
+    z-index: 10;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: left;
 }

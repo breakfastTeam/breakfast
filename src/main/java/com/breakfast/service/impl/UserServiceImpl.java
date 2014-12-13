@@ -12,11 +12,16 @@ import com.breakfast.domain.tables.pojos.User;
 import com.breakfast.domain.tables.pojos.UserCustomer;
 import com.breakfast.domain.tables.records.TUserRecord;
 import com.breakfast.service.UserService;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by kkk on 14/11/28.
@@ -78,6 +83,15 @@ public class UserServiceImpl implements UserService {
                 .where(order.customerId.equal(userId))
                 .orderBy(order.createTime)
                 .fetchInto(Order.class);
+        Map<String, Object> extMap = null;
+        DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+        for (Order order1 : orders) {
+            extMap = new HashMap<String, Object>();
+            DateTime createTime = order1.getCreateTime();
+            if (createTime != null) {
+                extMap.put("createTimeStr",createTime.toString(dtf));
+            }
+        }
         return orders;
     }
 }

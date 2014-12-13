@@ -66,6 +66,19 @@ services
 
         return deferred.promise;
     }
+    services.loadInformation=function(data){
+        var deferred = $q.defer();
+        $http({
+            method:'POST',
+            url:ctx+'/mobile/cGetInformation',
+            params:data
+        }).success(function(data){
+            deferred.resolve(data);
+        }).error(function(data){
+            deferred.reject(data);
+        });
+        return deferred.promise;
+    }
 
     return services;
 }])
@@ -186,14 +199,25 @@ services
     return this;
 })
 
-.service('shoppingCart', function(){
-    this.create = function(shoppingCart, userId){
-        this.shoppingCart = shoppingCart;
+.service('ShoppingCart', function($window,Session){
+    this.orderDetails = [];
+    this.userId = '';
+    this.create = function(orderDetails, userId){
+        this.orderDetails = orderDetails;
         this.userId = userId;
+        return this;
     };
     this.destroy = function(){
-        this.userId = null;
-        this.shoppingCart = null;
+        this.userId = '';
+        this.orderDetails = [];
     };
+    this.saveOrderDetail=function(orderDetail){
+        var shoppingCart=this||this.create([],Session.userId||'');
+        shoppingCart.orderDetails.push(orderDetail);
+        $window.sessionStorage["shoppingCart"] = JSON.stringify(shoppingCart);
+    }
     return this;
+})
+.factory('_', function() {
+    return window._;
 })

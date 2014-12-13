@@ -3,6 +3,7 @@ package com.breakfast.controllers;
 import com.breakfast.constants.IConstants;
 import com.breakfast.domain.tables.pojos.Express;
 import com.breakfast.domain.tables.pojos.Food;
+import com.breakfast.domain.tables.pojos.Order;
 import com.breakfast.domain.tables.pojos.OrderDetail;
 import com.breakfast.provider.FastJson;
 import com.breakfast.service.FoodService;
@@ -36,9 +37,9 @@ public class OrderController {
      */
     @ResponseBody
     @RequestMapping(value = "/cOrder")
-    public Map<String,Object> cOrder(@ModelAttribute OrderDetail orderDetail){
+    public Map<String,Object> cOrder(@FastJson Order order){
         IMsgUtil msgUtil = new IMsgUtil();
-        String id = orderService.saveOrderDetail(orderDetail);
+        String id = orderService.saveOrderWithDetail(order);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, id);
     }
     /**

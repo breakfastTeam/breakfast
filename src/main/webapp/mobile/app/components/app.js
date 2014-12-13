@@ -1,9 +1,11 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app=angular.module('bfApp', ['ui.router','ui.bootstrap','pasvaz.bindonce','bfControllers','bfServices','ui.map']);
+var app=angular.module('bfApp', ['ui.router','ui.bootstrap','pasvaz.bindonce','bfControllers','bfServices','bfDirectives','ui.map']);
 
-app.config(function($stateProvider,$urlRouterProvider){
+app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
+    //$locationProvider.html5Mode(true);
+
     $urlRouterProvider.when("", "/welcome");
 
     $stateProvider
@@ -42,6 +44,17 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'tlps/informations.html',
             controller:'mainInformationsCtrl'
         })
+        .state('informationDetail',{
+            url:'/informationDetail/:informationId',
+            templateUrl:'tlps/informationDetail.html',
+            controller:'informationDetailCtrl',
+            resolve:{
+                promise:function($stateParams,Information){
+                    var data={informationId:$stateParams.informationId};
+                    return Information.loadInformation(data);
+                }
+            }
+        })
         .state('orderSetMeal',{
             url:'/orderSetMeal/:setMealId',
             templateUrl:'tlps/orderSetMeal.html',
@@ -58,9 +71,11 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'tlps/addToOrder.html',
             controller:'orderCtrl',
             resolve:{
-                promise:function($stateParams,SetMeal){
-                    var data={setMealId:$stateParams.setMealId};
-                    return SetMeal.loadSetMeal(data);
+                userInfo:function(User,Session){
+                    if(Session.userId) {
+                        var data={userId:Session.userId};
+                        return User.loadUser(data);
+                    }
                 }
             }
         })
@@ -139,19 +154,24 @@ app.constant('AUTH_EVENTS', {
 app.run([
     '$rootScope',
     '$state',
+    '$window',
     'AUTH_EVENTS',
     'User',
     'Session',
-    '$window',
-    function($rootScope,$state, AUTH_EVENTS, User,Session,$window){
+    'ShoppingCart',
+    function($rootScope,$state,$window, AUTH_EVENTS, User,Session,ShoppingCart){
         if ($window.sessionStorage["userInfo"]) {
             var userInfo = JSON.parse($window.sessionStorage["userInfo"]);
             Session.create(userInfo.userId, userInfo.userId, userInfo);
         }
+        if ($window.sessionStorage["shoppingCart"]) {
+            var shoppingCart = JSON.parse($window.sessionStorage["shoppingCart"]);
+            ShoppingCart.create(shoppingCart.orderDetails, Session.userId);
+        }
         $rootScope.$on('$locationChangeStart', function(event, next){
-            if(!User.isAuthenticated()) {
+            if(next.state!='login'&&!User.isAuthenticated()) {
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-                $state.go('login');
+                //$state.go('login');
                 console.log("未登录");
             }
         });
