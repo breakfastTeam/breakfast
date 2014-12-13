@@ -209,19 +209,26 @@ ctrls
 .controller('userInfoCtrl',function($scope) {
        $scope.nav.title = '个人中心';
 })
-.controller('expressMapCtrl',function($scope) {
+    .controller('expressMapCtrl',["$scope","$interval","$state",'Express',"Session",function($scope,$interval, $state,Express, Session){
         $scope.nav.title = '想看看';
         $scope.mapOptions = {
             enableMapClick: false,
             // ui map config
-            uiMapCache: true, // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
-            lng:116.404,
-            lat:39.915
+            uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
         };
-        $scope.map =function(){
-            console.log("dfs");
-        }
-})
+        $scope.$watch('$viewContentLoaded', function() {
+            $interval(function(){
+                Express.expressPosition({userId:Session.userId}).then(function(res){
+                    var position=res.body;
+                    sessionStorage.setItem("lng",position.longitude);
+                    sessionStorage.setItem("lat",position.latitude);
+            });
+        },5000)
+
+    });
+
+    }])
+
 .controller('showCreditsCtrl',function($scope,promise){
     $scope.user=promise.body;
 })

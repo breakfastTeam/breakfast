@@ -67,7 +67,13 @@ app.config(function($stateProvider,$urlRouterProvider){
         .state('expressMap',{
             url:'/expressMap',
             templateUrl:'tlps/expressMap.html',
-            controller:'expressMapCtrl'
+            controller:'expressMapCtrl',
+            resolve:{
+                promise:function($stateParams,Session,Express){
+                    var data={userId:Session.userId};
+                    return Express.expressPosition(data);
+                }
+            }
         })
         .state('userInfo',{
             url:'/userInfo',

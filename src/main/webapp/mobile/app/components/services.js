@@ -86,7 +86,25 @@ services
 
     return services;
 }])
+    .factory('Express',['$q','$http','ctx',function($q,$http,ctx){
+        var services = {};
+        services.expressPosition=function(data){
+            var deferred = $q.defer();
+            $http({
+                method:'POST',
+                url:ctx+'/mobile/cGetExpressPosition',
+                params:data
+            }).success(function(data){
+                    deferred.resolve(data);
+                }).error(function(data){
+                    deferred.reject(data);
+                });
 
+            return deferred.promise;
+        }
+
+        return services;
+    }])
 .factory('User',['$q','$http','ctx','Session','$window',function($q,$http,ctx,Session,$window){
     var services = {};
 
@@ -102,8 +120,7 @@ services
                 deferred.resolve(data);
             }).error(function(data){
                 deferred.reject(data);
-            })
-        ;
+            });
 
         return deferred.promise;
     }

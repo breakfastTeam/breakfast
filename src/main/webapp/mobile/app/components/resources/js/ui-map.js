@@ -47,28 +47,33 @@
                     }
 
                     function initMap() {
+
                         if (opts.uiMapCache && $window[attrs.uiMapCache]) {
                             elm.replaceWith($window[attrs.uiMapCache]);
                             map = $window[attrs.uiMapCache + "Map"];
                         } else {
-                            map = new $window.BMap.Map(elm[0], opts);
+                            var lng = sessionStorage.getItem("lng");
+                            var lat = sessionStorage.getItem("lat");
+                            map = new BMap.Map(elm[0]);//初始化地图
+                            map.centerAndZoom(new BMap.Point(lng, lat), 14);//设置地图初始位置
+                            var marker1 = new BMap.Marker(new BMap.Point(lng,lat));  //创建标注
+                            map.addOverlay(marker1);
                             var count=0;
                             $interval(function () {
+                                lng = sessionStorage.getItem("lng");
+                                lat = sessionStorage.getItem("lat");
                                 count = count+1;
-                                if(count>3){
+                                if(count>5){//刷新初始位置
                                     count=0;
-                                    map.centerAndZoom(new BMap.Point(opts.lng, opts.lat), 14);
+                                    map.centerAndZoom(new BMap.Point(lng, lat), 14);
                                 }
-
                                 map.clearOverlays();
-                                var marker1 = new BMap.Marker(new BMap.Point(opts.lng, opts.lat));  //创建标注
+                                marker1 = new BMap.Marker(new BMap.Point(lng, lat));  //创建标注
                                 map.addOverlay(marker1);
-
-
                             },5000);
 
                             /*********************** add baidu Map plugins ****************/
-                            if (opts.scrollzoom) {
+                            /**if (opts.scrollzoom) {
                                 map.addControl(new BMap.NavigationControl());
                                 map.enableScrollWheelZoom();
                             }
@@ -78,8 +83,8 @@
                             }
                             if (opts.overview) {
                                 map.addControl(new BMap.OverviewMapControl());
-                            }
-                            /*********************** end add baidu Map plugins ****************/
+                            }**/
+                           /************************ end add baidu Map plugins ****************/
 
 
                         }
@@ -192,7 +197,7 @@
                         if(!($window.BMap&&$window.BMap.Map)) {
                             var script = document.createElement("script");
                             script.type = "text/javascript";
-                            script.src = "http://api.map.baidu.com/api?" + param(params);
+                            script.src = "http://api.map.baidu.com/api?type=quick&ak=G8eLGMlNf9Yh0ncZEqcro4K2&v=1.0";
                             document.body.appendChild(script);
                         }else {
                             mapbaiduLoadedCallback();
