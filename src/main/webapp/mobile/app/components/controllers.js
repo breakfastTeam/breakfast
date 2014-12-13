@@ -288,14 +288,19 @@ ctrls
         // ui map config
         uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
     };
+    var interval;
     $scope.$watch('$viewContentLoaded', function() {
-        $interval(function(){
+        interval=$interval(function(){
             Express.expressPosition({userId:Session.userId}).then(function(res){
                 var position=res.body;
                 sessionStorage.setItem("lng",position.longitude);
                 sessionStorage.setItem("lat",position.latitude);
             });
         },5000)
+    });
+
+    $scope.$on("$destroy", function() {
+        $interval.cancel(interval);
     });
 }])
 
