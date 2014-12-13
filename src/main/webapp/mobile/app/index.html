@@ -19,9 +19,26 @@
 
   <!--<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>-->
 </head>
-<body ng-controller="ApplicationController">
+<body ng-controller="ApplicationController"><nav class="navbar navbar-default nav-green mgb0" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h4 class="navbar-text text-center" style="color:#FFF;">{{nav.title}}</h4>
+    </div>
+  </div>
+</nav>
   <div ui-view style="width:100%;overflow-x: hidden;">
 
+  </div>
+  <div class="text-center row tab-green navbar-fixed-bottom">
+    <div class="col-xs-4 btn-tab">
+      <a ui-sref="main.setMeals"><span class="glyphicon glyphicon-th"></span></a>
+    </div>
+    <div class="col-xs-4 btn-tab">
+      <a ui-sref="main.setMeals"><span class="glyphicon glyphicon-time"></span></a>
+    </div>
+    <div class="col-xs-4 btn-tab border-right0">
+      <a ui-sref="userInfo"><span class="glyphicon glyphicon-user"></span></a>
+    </div>
   </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

@@ -11,7 +11,7 @@ ctrls
     'User',
     function($scope, User){
         $scope.currentUser = null;
-        $scope.isAuthorized = User.isAuthorized;
+        $scope.isAuthorized = User.isAuthorized;$scope.nav={title : '早点吧'};
     }
 ])
 .controller('welcomeCtrl',['$scope','$timeout','$state',function($scope,$timeout,$state){
@@ -207,7 +207,7 @@ ctrls
     };
 })
 .controller('userInfoCtrl',function($scope) {
-
+        console.log("1-----------"+$scope.title);$scope.nav.title = '个人中心';console.log("0-----------"+$scope.title);$scope.$broadcast();
 })
 .controller('showCreditsCtrl',function($scope,promise){
     $scope.user=promise.body;
