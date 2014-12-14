@@ -278,11 +278,20 @@ ctrls
         })
     };
 })
-.controller('userInfoCtrl',function($scope) {
-    $scope.nav.title = '个人中心';
-})
+.controller('userInfoCtrl',['$scope','$state',function($scope, $state) {
+    $scope.nav.title = '零距离';
+    $scope.$watch('$viewContentLoaded', function() {
+        $state.go('userInfo.personalCenter')
+    });
+}])
+
+.controller('wantToLookCtrl',['$scope','$state',function($scope,$state){
+     $scope.nav.title='想看看';
+     $scope.$watch('$viewContentLoaded', function() {
+        $state.go('wantToLook.expressMap')
+     });
+}])
 .controller('expressMapCtrl',["$scope","$interval","$state",'Express',"Session",function($scope,$interval, $state,Express, Session){
-    $scope.nav.title = '想看看';
     $scope.mapOptions = {
         enableMapClick: false,
         // ui map config

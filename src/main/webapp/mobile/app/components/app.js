@@ -79,8 +79,13 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
                 }
             }
         })
-        .state('expressMap',{
-            url:'/expressMap',
+        .state('wantToLook',{
+            url:'/wantToLook',
+            templateUrl:'tlps/wantToLook.html',
+            controller:'wantToLookCtrl'
+        })
+        .state('wantToLook.expressMap',{
+            url:'/wantToLook',
             templateUrl:'tlps/expressMap.html',
             controller:'expressMapCtrl',
             resolve:{
@@ -90,10 +95,22 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
                 }
             }
         })
+        .state('wantToLook.serviceArea',{
+            url:'/wantToLook',
+            templateUrl:'tlps/serviceArea.html'
+        })
         .state('userInfo',{
             url:'/userInfo',
             templateUrl:'tlps/userInfo.html',
             controller:'userInfoCtrl'
+        })
+        .state('userInfo.personalCenter',{
+            url:'/userInfo',
+            templateUrl:'tlps/personalCenter.html'
+        })
+        .state('userInfo.feedback',{
+            url:'/userInfo',
+            templateUrl:'tlps/feedback.html'
         })
         .state('showCredits',{
             url:'/showCredits',
