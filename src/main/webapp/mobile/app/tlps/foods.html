@@ -1,9 +1,10 @@
 <div class="row" ng-repeat="food in foods">
+    <div class="container-fluid">
     <div class="media media-border row">
         <a class="media-left col-xs-5" href="javascript:void(0);">
             <img src="components/resources/images/setmeal_ex.png" class="img-thumbnail">
         </a>
-        <div class="media-body col-xs-7" style="padding-top:8px;">
+        <div class="media-body">
             <h4 class="media-heading" ng-bind="food.foodName"></h4>
             <!--
             <span class="label label-success" ng-if="food.status=='PUTAWAY'&&food.foodCount>=1">接受预定中</span>
@@ -13,6 +14,7 @@
             <h4><small>现价: <span style="color:#398439;" ng-bind="food.price"></span> 元</small></h4>
             -->
         </div>
+    </div>
     </div>
 </div>
 <div>
