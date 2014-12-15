@@ -15,4 +15,12 @@ public interface FoodService {
      * @return
      */
     public Page<Food> query(Page<Food> page);
+
+    /**
+     * 获取单品详情
+     * @param foodId
+     * @return
+     */
+    Food getFood(String foodId);
+
 }

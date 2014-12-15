@@ -10,9 +10,9 @@ import com.breakfast.service.FileService;
 import com.breakfast.service.SetMealService;
 import com.core.page.Page;
 import com.core.utils.IUUIDGenerator;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.jooq.*;
-import org.jooq.tools.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,7 @@ public class SetMealServiceImpl implements SetMealService {
     DSLContext creator;
     @Autowired
     private FileService fileService;
-    @Value("host")
+    @Value("#{conf['host']}")
     private String host;
 
     @Override
@@ -74,15 +74,7 @@ public class SetMealServiceImpl implements SetMealService {
                         .fetch().into(SetMeal.class);
         Map<String, Object> extMap = null;
         for (SetMeal sm : result) {
-            extMap=new HashMap<String, Object>();
-            if (StringUtils.isBlank(sm.getOrginPicId())) {
-                continue;
-            }
-            String sPath = fileService.get(sm.getSmallPicId()).getFilePath();
-            String oPath = fileService.get(sm.getOrginPicId()).getFilePath();
-            extMap.put("sPath", host+sPath);
-            extMap.put("oPath", host+oPath);
-            sm.setExtMap(extMap);
+            addFilePath(sm);
         }
         page.setResult(result);
         return page;
@@ -99,6 +91,19 @@ public class SetMealServiceImpl implements SetMealService {
         SetMeal sm =creator.selectFrom(setMeal)
                         .where(setMeal.setMealId.equal(setMealId))
                         .fetchAnyInto(SetMeal.class);
+        addFilePath(sm);
         return sm;
+    }
+
+    private void addFilePath(SetMeal sm) {
+        if (sm!=null&&StringUtils.isNotBlank(sm.getOrginPicId())) {
+            Map<String, Object> extMap =new HashMap<String, Object>();
+            String sPath = fileService.get(sm.getSmallPicId()).getFilePath();
+            String oPath = fileService.get(sm.getOrginPicId()).getFilePath();
+            extMap.put("sPath", host+sPath);
+            extMap.put("oPath", host+oPath);
+            sm.setExtMap(extMap);
+        }
+
     }
 }

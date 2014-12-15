@@ -63,6 +63,7 @@ public class UserServiceImpl implements UserService {
                 .where(tuc.userId.equal(userId))
                 .fetchAnyInto(UserCustomer.class);
         result.setUserCustomer(uc);
+        result.setCoupons(loadUserCoupons(userId));
         return result;
     }
 
@@ -72,6 +73,8 @@ public class UserServiceImpl implements UserService {
         List<Coupon> coupons = dsl.selectFrom(coupon)
                 .where(coupon.userId.equal(userId))
                 .and(coupon.status.equal(IConstants.COUPON_STATUS_ENABLE))
+                .and(coupon.startTime.le(DateTime.now()))
+                .and(coupon.endTime.ge(DateTime.now()))
                 .fetchInto(Coupon.class);
         return coupons;
     }

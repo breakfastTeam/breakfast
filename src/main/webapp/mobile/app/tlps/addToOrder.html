@@ -19,30 +19,32 @@
         <td colspan=2 class="text-center"><span ng-bind="order.orderPrice"></span></td>
     </tr>
 </table>
-
+<alert type="{{alert.type}}" ng-show="alert.show">{{alert.msg}}</alert>
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
-        <td>
+        <td class="col-xs-5">
             <div class="checkbox mgtb0">
                 <label>
-                    <input type="checkbox" ng-disabled="!hasCredits">积分兑换：
+                    <input type="checkbox" ng-disabled="!hasCredits" ng-model="useCredits">积分兑换：
                 </label>
             </div>
         </td>
         <td>
-            <span ng-bind="user.userCustomer.credits||0"></span>
+            <input type="text" class="form-control" ng-disabled="!useCredits" ng-model="order.exccreaditCount"/>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="col-xs-4">
             <div class="checkbox mgtb0">
                 <label>
-                    <input type="checkbox"  ng-disabled="!hasCoupons">使用代金券：
+                    <input type="checkbox"  ng-disabled="!hasCoupons" ng-model="useCoupons">使用代金券：
                 </label>
             </div>
         </td>
         <td>
-            <span ng-bind="user.coupons||'无'"></span>
+            <span ng-hide="hasCoupons">无</span>
+            <a  ng-show="hasCoupons" ng-disabled="!useCoupons" class="btn btn-default" ng-click="open('sm')">选择</a>
+            <span ng-show="selected">{{selected}} 元</span>
         </td>
     </tr>
 </table>
@@ -88,3 +90,26 @@
     </div>
 </div>
 </form>
+
+
+
+<script type="text/ng-template" id="coupons.html">
+    <div class="container-fluid">
+    <div class="modal-header">
+        <h3 class="modal-title">选择一个代金券</h3>
+    </div>
+    <div class="modal-body">
+        <div class="radio" ng-repeat="coupon in items">
+            <label>
+                <input type="radio" ng-model="selected.item" id="optionsRadios1" value="{{coupon.price}}" checked>
+                {{coupon.price}}元
+            </label>
+        </div>
+        <!--<b>{{selected.item}}</b>-->
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+    </div>
+</script>

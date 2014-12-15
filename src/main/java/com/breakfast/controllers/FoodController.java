@@ -2,10 +2,8 @@ package com.breakfast.controllers;
 
 import com.breakfast.constants.IConstants;
 import com.breakfast.domain.tables.pojos.Food;
-import com.breakfast.domain.tables.pojos.SetMeal;
 import com.breakfast.provider.FastJson;
 import com.breakfast.service.FoodService;
-import com.breakfast.service.SetMealService;
 import com.core.page.Page;
 import com.core.utils.IMsgUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +35,14 @@ public class FoodController {
         IMsgUtil msgUtil = new IMsgUtil();
         page = foodService.query(page);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, page);
+    }
+
+    @ResponseBody
+    @RequestMapping("cGetFoodDetail")
+    public Map<String,Object> cGetFoodDetail(@RequestParam String foodId){
+        IMsgUtil msgUtil = new IMsgUtil();
+        Food food = foodService.getFood(foodId);
+        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, food);
     }
 
 }

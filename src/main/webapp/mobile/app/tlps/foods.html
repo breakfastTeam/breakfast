@@ -1,20 +1,17 @@
 <div class="row" ng-repeat="food in foods">
-    <div class="container-fluid">
-    <div class="media media-border row">
-        <a class="media-left col-xs-5" href="javascript:void(0);">
-            <img src="components/resources/images/setmeal_ex.png" class="img-thumbnail">
+    <div class="media media-border container-fluid">
+        <a class="media-left row" ui-sref="orderFood({foodId:food.foodId,type:'FOOD'})" unlink="!(food.status=='PUTAWAY'&&food.foodCount>=1)">
+            <div class="col-xs-5">
+                <img ng-src="{{food.extMap.sPath||'components/resources/images/setmeal_ex.png'}}" class="img-thumbnail" style="width:90%;margin-left:5px;height:70px;">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading" ng-bind="food.foodName"></h4>
+                <span class="label label-success" ng-if="food.status=='PUTAWAY'&&food.foodCount>=1">接受预定中</span>
+                <span class="label label-default" ng-if="food.status=='SOLD_PUT'">暂不能预订</span>
+                <span class="label label-default" ng-if="food.foodCount<1">已经售完了</span>
+                <h4><small>售价: <span style="color:#398439;" ng-bind="food.price"></span> {{food.unit}}</small></h4>
+            </div>
         </a>
-        <div class="media-body">
-            <h4 class="media-heading" ng-bind="food.foodName"></h4>
-            <!--
-            <span class="label label-success" ng-if="food.status=='PUTAWAY'&&food.foodCount>=1">接受预定中</span>
-            <span class="label label-default" ng-if="food.status=='SOLD_PUT'">暂不能预订</span>
-            <span class="label label-default" ng-if="food.foodCount<1">已经售完了</span>
-
-            <h4><small>现价: <span style="color:#398439;" ng-bind="food.price"></span> 元</small></h4>
-            -->
-        </div>
-    </div>
     </div>
 </div>
 <div>

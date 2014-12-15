@@ -58,4 +58,11 @@ public class FoodServiceImpl implements FoodService {
         page.setResult(result);
         return page;
     }
+
+    @Override
+    public Food getFood(String foodId) {
+        TFood food = Tables.Food.as("food");
+        Food record = creator.selectFrom(food).where(food.foodId.endsWith(foodId)).fetchOneInto(Food.class);
+        return record;
+    }
 }

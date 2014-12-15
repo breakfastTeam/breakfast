@@ -56,7 +56,7 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
         .state('orderSetMeal',{
-            url:'/orderSetMeal/:setMealId',
+            url:'/orderSetMeal/:type/:setMealId',
             templateUrl:'tlps/orderSetMeal.html',
             controller:'setMealCtrl',
             resolve:{
@@ -66,12 +66,23 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
                 }
             }
         })
+        .state('orderFood',{
+            url:'/orderFood/:type/:foodId',
+            templateUrl:'tlps/orderFood.html',
+            controller:'foodCtrl',
+            resolve:{
+                promise:function($stateParams,Food){
+                    var data={foodId:$stateParams.foodId};
+                    return Food.loadFood(data);
+                }
+            }
+        })
         .state('addToOrder',{
-            url:'/addToOrder/:setMealId',
+            url:'/addToOrder',
             templateUrl:'tlps/addToOrder.html',
             controller:'orderCtrl',
             resolve:{
-                userInfo:function(User,Session){
+                promise:function(User,Session){
                     if(Session.userId) {
                         var data={userId:Session.userId};
                         return User.loadUser(data);
@@ -158,14 +169,15 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
         })
 });
 
-app.constant('AUTH_EVENTS', {
+app
+.constant('AUTH_EVENTS', {
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',
     logoutSuccess: 'auth-logout-success',
     sessionTimeout: 'auth-session-timeout',
     notAuthenticated: 'auth-not-authenticated',
     notAuthorized: 'auth-not-authorized'
-});
+}).constant('ORDER_LIMIT',10);
 
 
 app.run([

@@ -16,6 +16,12 @@
               </property>
        </bean>
 
+       <bean id="conf" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+              <property name="locations">
+                     <value>classpath:conf.properties</value>
+              </property>
+       </bean>
+
        <!-- Configure the DSL object -->
        <bean id="dsl" class="org.jooq.impl.DefaultDSLContext">
               <constructor-arg ref="config" />

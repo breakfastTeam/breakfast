@@ -33,6 +33,7 @@ public class OrderController {
      * 获取订单列表
      * @author Felix
      * 变更记录:
+     * todo:重新校验总价。。
      *
      */
     @ResponseBody

@@ -49,6 +49,20 @@ services
 
         return deferred.promise;
     }
+    services.loadFood=function(data){
+        var deferred = $q.defer();
+        $http({
+            method:'POST',
+            url:ctx+'/mobile/cGetFoodDetail',
+            params:data
+        }).success(function(data){
+                deferred.resolve(data);
+            }).error(function(data){
+                deferred.reject(data);
+            });
+
+        return deferred.promise;
+    }
 
     return services;
 }])

@@ -207,7 +207,8 @@ ctrls
         foodObjCount:1,
         foodObjType:'SETMEAL',
         foodObjPrice:setMeal.privilege,
-        foodObjTotalPrice:setMeal.privilege
+        foodObjTotalPrice:setMeal.privilege,
+        credits:setMeal.exchangeCount
     };
     $scope.minus=function(){
         $scope.orderDetail.foodObjCount--;
@@ -220,23 +221,68 @@ ctrls
 
     $scope.toOrder=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
-        $state.go('addToOrder',{setMealId:setMeal.setMealId});
+        $state.go('addToOrder');
     };
 })
-.controller('orderCtrl',function($scope,Order,ShoppingCart,userInfo,$window,Session,_){
+.controller('foodCtrl',function($scope,$state,promise,ShoppingCart){
+    $scope.food=promise.body;
+    $scope.food.briefIntro = $scope.food.briefIntro || '暂无介绍';
+    $scope.food.grade = $scope.food.grade || 0;
+
+    $scope.max = 10;
+    $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+    };
+    $scope.ratingStates = [
+        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+        {stateOn: 'glyphicon-heart'},
+        {stateOff: 'glyphicon-off'}
+    ];
+    var food=promise.body;
+
+    $scope.orderDetail={
+        foodObjName:food.foodName,
+        foodObjId:food.foodId,
+        foodObjCount:1,
+        foodObjType:'FOOD',
+        foodObjPrice:food.price,
+        foodObjTotalPrice:food.price
+    };
+    $scope.minus=function(){
+        $scope.orderDetail.foodObjCount--;
+        $scope.orderDetail.foodObjTotalPrice=food.price*$scope.orderDetail.foodObjCount;
+    };
+    $scope.plus=function(){
+        $scope.orderDetail.foodObjCount++;
+        $scope.orderDetail.foodObjTotalPrice=food.price*$scope.orderDetail.foodObjCount;
+    };
+
+    $scope.toOrder=function(){
+        ShoppingCart.saveOrderDetail($scope.orderDetail);
+        $state.go('addToOrder');
+    };
+})
+.controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,$modal,_){
     $scope.nav.title='立即支付';
     $scope.hasCoupons=false;
     $scope.hasCredits=false;
+    var userInfo=promise.body;
     if(userInfo){
         userInfo.userCustomer=userInfo.userCustomer||{};
         $scope.hasCredits=userInfo.userCustomer.credits||0>0;
+        $scope.hasCoupons=userInfo.coupons.length>0;
     }else{
-        userInfo = {userCustomer:{}};
+        userInfo = {userCustomer:{},coupons:[]};
     }
-
+    $scope.userInfo=userInfo;
     var loadOrderDetails=ShoppingCart.orderDetails;
-    var total= 0,orderDetails=[],temp=[],od={},index=-1,el={};
-    for(var i= 0,length=loadOrderDetails.length;i<length;i++) {
+    var total= 0,length=loadOrderDetails.length,
+        orderDetails=[],temp=[],od={},
+        index=-1,el={},allFood=true,allCredits=0;
+    for(var i= 0;i<length;i++) {
         od=loadOrderDetails[i];
         total+=od.foodObjTotalPrice;
         if(_.contains(temp, od.foodObjId)) {
@@ -248,12 +294,26 @@ ctrls
             temp.push(od.foodObjId);
             orderDetails.push(od);
         }
+        //判断是否全为单品
+        if(od.foodObjType=='SETMEAL'){
+            allFood=false;
+        }
+        //套餐积分限制
+        if(od.credits) {
+            allCredits+=od.credits;
+        }
+    }
+    $scope.alterLimit=allFood&&(length>0);
+    $scope.alert={
+        type:"warning",
+        msg:"温馨提示：只购买单品时总价不能低于"+ORDER_LIMIT+"元",
+        show:$scope.alterLimit
     }
     $scope.orderDetails=orderDetails;
     $scope.order={
         customerId:Session.userId||'',
-        exccreaditCount:0,
-        usedCoupons:'',
+        exccreaditCount:userInfo.userCustomer.credits,
+        usedCoupons:0,
         status:'DRAFT',
         orderDetails:$scope.orderDetails,
         orderPrice:total,
@@ -270,12 +330,56 @@ ctrls
         $scope.order.orderType = 'offline';
     };
     $scope.toOrder=function(){
+        if($scope.alterLimit&&total<ORDER_LIMIT){
+            $scope.alert.type = 'danger';
+            return false;
+        }else{
+            $scope.alert.type = 'warning';
+        }
+        if(total<=0) {
+            $scope.alert.type = 'danger';
+            $scope.alert.msg='您的订单必须包含一份食品'
+            $scope.alert.show=true;
+            return false;
+        }else{
+            $scope.alert.show=false;
+        }
+        if(allCredits&&$scope.useCredits&&$scope.order.exccreaditCount>allCredits){
+            $scope.alert.type = 'danger';
+            $scope.alert.msg='您的订单内套餐最大支持'+allCredits+'积分';
+            $scope.alert.show=true;
+            return false;
+        }else{
+            $scope.alert.show=false;
+        }
+
         Order.toOrder($scope.order).then(function(data){
             $window.alert('订单已生成!');
             $scope.showResult=true;
             ShoppingCart.destroy();
             $window.sessionStorage.removeItem("shoppingCart");
         })
+    };
+
+    $scope.open = function (size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'coupons.html',
+            controller: 'ModalInstanceCtrl',
+            size: size,
+            resolve: {
+                items: function () {
+                    return $scope.userInfo.coupons;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+            $scope.order.usedCoupons=selectedItem;
+        }, function () {
+            console.log('Modal dismissed at: ' + new Date());
+        });
     };
 })
 .controller('userInfoCtrl',['$scope','$state',function($scope, $state) {
@@ -330,3 +434,21 @@ ctrls
     $scope.user=promise.body;
 })
 
+
+
+
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+
+    $scope.items = items;
+    $scope.selected = {
+        item: $scope.items[0].price
+    };
+
+    $scope.ok = function () {
+        $modalInstance.close($scope.selected.item);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+})
