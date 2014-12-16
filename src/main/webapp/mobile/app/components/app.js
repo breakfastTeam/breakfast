@@ -11,8 +11,13 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
     $stateProvider
         .state('welcome',{
             url:'/welcome',
-            templateUrl:'tlps/welcome.html',
-            controller:'welcomeCtrl'
+            views:{
+                'full' : {
+                    url:'/welcome',
+                    templateUrl:'tlps/welcome.html',
+                    controller:'welcomeCtrl'
+                }
+            }
         })
         .state('login',{
             url:'login',

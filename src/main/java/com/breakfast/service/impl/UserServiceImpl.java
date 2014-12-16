@@ -10,8 +10,11 @@ import com.breakfast.domain.tables.pojos.Coupon;
 import com.breakfast.domain.tables.pojos.Order;
 import com.breakfast.domain.tables.pojos.User;
 import com.breakfast.domain.tables.pojos.UserCustomer;
+import com.breakfast.domain.tables.records.TUserCustomerRecord;
 import com.breakfast.domain.tables.records.TUserRecord;
 import com.breakfast.service.UserService;
+import com.core.utils.IUUIDGenerator;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -46,10 +49,39 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int saveUser(User user) {
-        TUserRecord record = dsl.newRecord(Tables.User, user);
-        record.store();
-        int count=dsl.executeInsert(record);
-        return count;
+        if (StringUtils.isBlank(user.getUserId())) {
+            String userId = IUUIDGenerator.getUUID();
+            user.setUserId(userId);
+            TUserRecord record = dsl.newRecord(Tables.User, user);
+            record.store();
+            int count = dsl.executeInsert(record);
+            UserCustomer userCustomer=user.getUserCustomer();
+            userCustomer.setUserId(userId);
+            TUserCustomerRecord recordCustomer = dsl.newRecord(Tables.UserCustomer, userCustomer);
+            recordCustomer.store();
+            count += dsl.executeInsert(recordCustomer);
+            return count;
+        }else{
+            TUser u = Tables.User.as("u");
+            TUserCustomer uc = Tables.UserCustomer.as("uc");
+            TUserRecord record = dsl.fetchOne(u, u.userId.equal(user.getUserId()));
+            TUserCustomerRecord recordCustomer = dsl.fetchOne(uc, uc.userId.equal(user.getUserId()));
+
+            record.setUserName(user.getUserName());
+            record.setMobile(user.getMobile());
+            record.setSex(user.getSex());
+            record.setWeixin(user.getWeixin());
+            record.setQq(user.getQq());
+
+            recordCustomer.setAddress1(user.getUserCustomer().getAddress1());
+            recordCustomer.setAddress2(user.getUserCustomer().getAddress2());
+            recordCustomer.setAddress3(user.getUserCustomer().getAddress3());
+
+
+            int count = record.store();
+            count += recordCustomer.store();
+            return count;
+        }
     }
 
     @Override

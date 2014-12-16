@@ -196,6 +196,18 @@ services
     services.isAuthenticated=function(){
         return !!Session.userId;
     }
+
+    services.saveUser=function(data){
+        var deferred = $q.defer();
+        $http.post(ctx+'/mobile/cSaveUser',data)
+        .success(function(data){
+            deferred.resolve(data);
+        }).error(function(data){
+            deferred.reject(data);
+        });
+        return deferred.promise;
+    }
+
     return services;
 }])
 

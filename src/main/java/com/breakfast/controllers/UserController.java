@@ -73,4 +73,12 @@ public class UserController {
         List<Order> orders=userService.loadUserOrders(userId);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, orders);
     }
+
+    @ResponseBody
+    @RequestMapping("cSaveUser")
+    public Map<String, Object> cSaveUser(@FastJson User user) {
+        IMsgUtil msgUtil = new IMsgUtil();
+        int count=userService.saveUser(user);
+        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, true);
+    }
 }

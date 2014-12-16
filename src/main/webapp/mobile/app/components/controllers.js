@@ -26,6 +26,9 @@ ctrls
                 $state.go('login');
             }
         }
+        $scope.edit=function(){
+            $scope.$broadcast('edit');
+        }
     }
 ])
 .controller('welcomeCtrl',['$scope','$timeout','$state',function($scope,$timeout,$state){
@@ -33,7 +36,7 @@ ctrls
         $timeout(function(){
             //$state.go('login');
             $state.go('main');
-        },100)
+        },3000)
     });
 }])
 .controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
@@ -267,6 +270,7 @@ ctrls
 })
 .controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,$modal,_){
     $scope.nav.title='立即支付';
+    $scope.nav.back=true;
     $scope.hasCoupons=false;
     $scope.hasCredits=false;
     var userInfo=promise.body;
@@ -429,9 +433,27 @@ ctrls
     $scope.nav.title = '我的订单';
     $scope.orders=promise.body;
 })
-.controller('showInfosCtrl',function($scope,promise){
+.controller('showInfosCtrl',function($scope,promise,User){
     $scope.nav.title = '个人信息';
+    $scope.nav.edit = true;
+    $scope.edit = false;
     $scope.user=promise.body;
+
+    $scope.$on('edit', function(d) {
+        $scope.edit = true;
+    });
+    $scope.saveUser=function(){
+        User.saveUser($scope.user).then(function(data){
+            if(data.body) {
+                $scope.edit = false;
+            }
+        });
+    }
+
+    $scope.$on("$destroy", function() {
+        $scope.nav.title='早点吧';
+        $scope.nav.edit = false;
+    });
 })
 
 

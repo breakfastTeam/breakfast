@@ -17,19 +17,24 @@
 
   <!--<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>-->
 </head>
-<body ng-controller="ApplicationController">
+<body ng-controller="ApplicationController" ui-view="full">
 
-  <nav class="navbar navbar-default nav-green mgb0" role="navigation">
-    <div class="container-fluid">
-      <div class="container-fluid navbar-header">
-        <div class="row">
-        <h4 class="col-xs-4 col-xs-offset-4 text-center">{{nav.title}}</h4>
-        <h5 class="col-xs-4 text-right"><a ng-show="nav.registerShow" ui-sref="register">注册</a></h5>
-        </div>
+  <div class="container-fluid nav-green">
+    <div class="row">
+      <div class="col-xs-4">
+        <a href="javascript:void(0);" ng-show="nav.back" class="navback"><i class="fa fa-arrow-left"></i> </a>
+      </div>
+      <div class="col-xs-4 text-center">
+        <h4>{{nav.title}}</h4>
+      </div>
+      <div class="col-xs-4">
+        <p class="text-right">
+          <a href="#" ng-show="nav.registerShow" ui-sref="register">注册</a>
+          <button ng-show="nav.edit" class="btn btn-xs" ng-click="edit()">编辑</button>
+        </p>
       </div>
     </div>
-  </nav>
-
+  </div>
   <div ui-view style="width:100%;overflow-x: hidden;overflow-y: auto;padding-bottom:50px;">
 
   </div>

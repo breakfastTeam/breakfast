@@ -20,14 +20,21 @@ html,body{
 .nav-green{
     background-color: #5cb85c;
     border-color: transparent;
+    height:50px;
 }
 
-.navbar-header h4{
-    margin-top: 15px;
+.nav-green .col-xs-4 h4{
+    margin:0 auto;
+    line-height: 50px;
     color:#FFF;
 }
-.navbar-header h5{
-    margin-top: 15px;
+.nav-green .col-xs-4 p{
+    line-height: 50px;
+    margin:0 auto;
+}
+.nav-green .col-xs-4 a.navback{
+    line-height: 50px;
+    color:#000;
 }
 
 .tab-green{
