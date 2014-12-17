@@ -81,4 +81,5 @@ public class UserController {
         int count=userService.saveUser(user);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, true);
     }
+
 }

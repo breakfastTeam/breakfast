@@ -1,17 +1,19 @@
-<form class="form" style="overflow:hidden;" role="form" ng-submit="saveFeedback()">
+<form class="form" role="form" ng-submit="saveFeedback()">
+<div class="container-fluid">
 <table class="table table-bordered-bottom table-striped table-hover">
 
     <tr>
-        <td class="col-xs-10 text-center"><textarea class="form-control"  placeholder="您的建议是我们前进的动力"></textarea></td>
+        <td class="col-xs-10 text-center"><textarea class="form-control" ng-model="content1" placeholder="您的建议是我们前进的动力"></textarea></td>
     </tr>
     <tr>
-        <td class="col-xs-10 text-center"><input type="text" class="form-control" placeholder="请留下您宝贵的联系方式"/></td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="content2" placeholder="请留下您宝贵的联系方式"/></td>
     </tr>
 </table>
-
+<alert type="{{alert.type}}" ng-show="alert.show" close="closeAlert()">{{alert.msg}}</alert>
 <div class="row text-center">
     <div class="col-xs-10 col-xs-offset-1">
         <button type="submit" class="btn btn-success btn-block">提交</button>
     </div>
+</div>
 </div>
 </form>

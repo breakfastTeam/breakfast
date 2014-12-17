@@ -126,7 +126,8 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
         })
         .state('userInfo.feedback',{
             url:'/userInfo',
-            templateUrl:'tlps/feedback.html'
+            templateUrl:'tlps/feedback.html',
+            controller:'feedbackCtrl'
         })
         .state('showCredits',{
             url:'/showCredits',
@@ -189,14 +190,16 @@ app.run([
     '$rootScope',
     '$state',
     '$window',
+    '$http',
     'AUTH_EVENTS',
     'User',
     'Session',
     'ShoppingCart',
-    function($rootScope,$state,$window, AUTH_EVENTS, User,Session,ShoppingCart){
+    function($rootScope,$state,$window,$http, AUTH_EVENTS, User,Session,ShoppingCart){
         if ($window.sessionStorage["userInfo"]) {
             var userInfo = JSON.parse($window.sessionStorage["userInfo"]);
             Session.create(userInfo.userId, userInfo.userId, userInfo);
+            $http.defaults.headers.common.Authorization = 'Basic '+userInfo.userId;
         }
         if ($window.sessionStorage["shoppingCart"]) {
             var shoppingCart = JSON.parse($window.sessionStorage["shoppingCart"]);
@@ -211,7 +214,6 @@ app.run([
         });
     }
 ]);
-
 
 app.filter('to_trusted', ['$sce', function ($sce) {
     return function (text) {

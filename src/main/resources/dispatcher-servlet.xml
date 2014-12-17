@@ -47,7 +47,8 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/mobile"/>
+            <mvc:mapping path="/mobile/*"/>
+            <mvc:exclude-mapping path="/mobile/app/**"/>
             <bean class="com.breakfast.interceptor.ExecutionInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

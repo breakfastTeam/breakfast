@@ -32,6 +32,7 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public String saveFeedback(Feedback feedback) {
+        feedback.setFeedbackId(IUUIDGenerator.getUUID());
         TFeedbackRecord record = creator.newRecord(Tables.Feedback, feedback);
         record.store();
         int count=creator.executeInsert(record);

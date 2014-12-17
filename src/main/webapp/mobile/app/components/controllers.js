@@ -421,6 +421,27 @@ ctrls
     });
 }])
 
+.controller('feedbackCtrl',function($scope,Session,User){
+    $scope.saveFeedback=function(){
+        var data={
+            userId:Session.userId,
+            targetType:'ADVICE',
+            content:$scope.content1+' - 联系方式：'+$scope.content2
+        }
+        User.saveFeedback(data).then(function(res){
+            if(res.head.rtnMsg='success'){
+                $scope.alert={
+                    type:'success',
+                    show:true,
+                    msg:'感谢您的建议!我们会认真处理.'
+                }
+            }
+        });
+        $scope.closeAlert=function(){
+            $scope.alert.show=false;
+        }
+    }
+})
 .controller('showCreditsCtrl',function($scope,promise){
     $scope.nav.title = '我的积分';
     $scope.user=promise.body;

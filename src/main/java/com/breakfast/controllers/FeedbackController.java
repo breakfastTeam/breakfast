@@ -10,6 +10,7 @@ import com.breakfast.service.OrderService;
 import com.core.utils.IMsgUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +35,7 @@ public class FeedbackController {
      */
     @ResponseBody
     @RequestMapping(value = "/cFeedback")
-    public Map<String,Object> cFeedback(@FastJson Feedback feedback){
+    public Map<String,Object> cFeedback(@ModelAttribute Feedback feedback){
         IMsgUtil msgUtil = new IMsgUtil();
         String id = feedbackService.saveFeedback(feedback);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, id);
