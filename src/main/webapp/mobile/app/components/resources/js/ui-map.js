@@ -54,24 +54,25 @@
                         } else {
                             var lng = sessionStorage.getItem("lng");
                             var lat = sessionStorage.getItem("lat");
-                            map = new BMap.Map(elm[0]);//初始化地图
-                            map.centerAndZoom(new BMap.Point(lng, lat), 14);//设置地图初始位置
-                            var marker1 = new BMap.Marker(new BMap.Point(lng,lat));  //创建标注
-                            map.addOverlay(marker1);
-                            var count=0;
-                            $interval(function () {
-                                lng = sessionStorage.getItem("lng");
-                                lat = sessionStorage.getItem("lat");
-                                count = count+1;
-                                if(count>5){//刷新初始位置
-                                    count=0;
-                                    map.centerAndZoom(new BMap.Point(lng, lat), 14);
-                                }
-                                map.clearOverlays();
-                                marker1 = new BMap.Marker(new BMap.Point(lng, lat));  //创建标注
+                            if(lng && lat){
+                                map = new BMap.Map(elm[0]);//初始化地图
+                                map.centerAndZoom(new BMap.Point(lng, lat), 14);//设置地图初始位置
+                                var marker1 = new BMap.Marker(new BMap.Point(lng,lat));  //创建标注
                                 map.addOverlay(marker1);
-                            },5000);
-
+                                var count=0;
+                                $interval(function () {
+                                    lng = sessionStorage.getItem("lng");
+                                    lat = sessionStorage.getItem("lat");
+                                    count = count+1;
+                                    if(count>5){//刷新初始位置
+                                        count=0;
+                                        map.centerAndZoom(new BMap.Point(lng, lat), 14);
+                                    }
+                                    map.clearOverlays();
+                                    marker1 = new BMap.Marker(new BMap.Point(lng, lat));  //创建标注
+                                    map.addOverlay(marker1);
+                                },5000);
+                            }
                             /*********************** add baidu Map plugins ****************/
                             /**if (opts.scrollzoom) {
                                 map.addControl(new BMap.NavigationControl());
