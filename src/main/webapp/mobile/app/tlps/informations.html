@@ -2,10 +2,10 @@
     <div class="container-fluid">
     <div class="media media-border container-fluid">
         <a class="media-left row" ui-sref="informationDetail({informationId:information.informationId})">
-        <!--<div class="col-xs-5">-->
-            <!--<img ng-src="components/resources/images/setmeal_ex.png" class="img-thumbnail">-->
-        <!--</div>-->
-        <div class="media-body col-xs-10 col-xs-offset-1" style="height:90px;overflow:hidden;">
+        <div class="col-xs-5">
+            <img ng-src="{{information.extMap.sPath||'components/resources/images/setmeal_ex.png'}}" class="img-thumbnail" style="width:90%;height: 72px;margin-left:5px;">
+        </div>
+        <div class="media-body col-xs-7" style="height:90px;overflow:hidden;">
             <h4 class="media-heading" ng-bind="information.title"></h4>
             <h4><small class="text-overflow" ng-bind-html="information.content|to_trusted"></small></h4>
         </div>

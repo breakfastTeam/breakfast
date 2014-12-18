@@ -1,10 +1,16 @@
-<div class="container" ng-repeat="coupon in coupons">
+<div class="container-fluid" ng-repeat="coupon in coupons">
     <div class="media media-border row">
-        <a class="media-left col-xs-4" href="#">
-            <img src="components/resources/images/setmeal_ex.png" class="img-thumbnail">
+        <a class="media-left col-xs-5" href="#">
+            <img ng-src="{{coupon.extMap.sPath||'components/resources/images/setmeal_ex.png'}}" class="img-thumbnail" style="width:90%;height: 72px;margin-left:5px;">
         </a>
-        <div class="media-body col-xs-8">
-            <p ng-bind="coupon.briefIntro"></p>
+        <div class="media-body">
+            <h4 class="media-heading">金额：{{coupon.price}} 元</h4>
+            <p ng-bind="coupon.briefIntro" style="overflow: hidden;text-overflow: ellipsis;word-break: break-all;"></p>
+            <p>截止日期：{{coupon.endTime.year}}-{{coupon.endTime.monthOfYear}}-{{coupon.endTime.dayOfMonth}}</p>
         </div>
     </div>
+</div>
+
+<div class="container" ng-show="coupons.length<1">
+    <img class="img-rounded" style="width:100%;height:100%;background-color:#FFF;" ng-src="components/resources/images/empty_coupon.png"/>
 </div>
