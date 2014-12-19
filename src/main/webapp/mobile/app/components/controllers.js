@@ -71,7 +71,7 @@ ctrls
 
     $scope.saveRedPaper=function($stateParams){
         $scope.disableBtn=true;
-        var data={sendCouponId:$stateParams.sendCouponId, useId:$stateParams.userId};
+        var data={sendCouponId:$stateParams.sendCouponId, userId:$stateParams.userId};
         var promise = RedPaper.saveRedPaper(data);
         promise.then(function(data){
             console.log(data)
