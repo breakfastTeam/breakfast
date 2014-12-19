@@ -39,25 +39,40 @@ ctrls
         },3000)
     });
 }])
-.controller('activityCtrl',function($scope, Session, $state){
+.controller('activityCtrl',function($scope, Session, $state, RedPaper){
     $scope.disableBtn=true;
 
     $scope.$watch('$viewContentLoaded', function() {
         if(Session.userId){
-            $scope.activityInfo = true;
-            $scope.activityInfoText = "恭喜您抢到10元红包";
+            $scope.activityInfoText = "好友分享给您一份红包，赶快去抢吧";
+            $scope.showPhoneRow = false;
+            $scope.btnColor = "btn-danger";
+            $scope.disableBtn=false;
         }else{
-            $scope.phoneRow = true;
-            $scope.openRow = true;
+            $scope.activityInfoText = "输入手机号，红包将放入您的生活账户";
+            $scope.showPhoneRow = true;
+
+            $scope.$watch('phone', function(newValue, oldValue) {
+                var phone = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;//校验手机号的正则表达式
+                if(phone.test(newValue)){
+                    $scope.btnColor = "btn-danger";
+                    $scope.disableBtn=false;
+                }else{
+                    $scope.btnColor = "btn-default";
+                    $scope.disableBtn=true;
+                }
+            });
+
         }
     });
-    $scope.$watch('phone', function(newValue, oldValue) {
-        console.log(newValue)
-        $scope.disableBtn = !newValue;
-        console.log($scope.disableBtn);
-    });
-    $scope.saveActivity=function(){
+
+    $scope.saveRedPaper=function($stateParams){
         $scope.disableBtn=true;
+        var data={sendCouponId:$stateParams.sendCouponId, useId:$stateParams.userId};
+        var promise = RedPaper.saveRedPaper(data);
+        promise.then(function(data){
+            console.log(data)
+        });
     }
 })
 .controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
