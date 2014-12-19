@@ -1,4 +1,5 @@
 <div class="activity container-fluid">
+    <form ng-submit="saveActivity()">
     <div class="mgt50">
         <div class="row text-center" ng-show="activityInfo">
             <p class="text-danger"><span ng-bind="activityInfoText"></span></p>
@@ -11,9 +12,9 @@
 
         <div class="row mgb20" ng-show="openRow">
             <div class="col-xs-8 col-xs-offset-2">
-                <button type="submit" class="btn-lg btn-danger btn-block">打开红包</button>
+                <button type="submit" class="btn-lg btn-danger btn-block" ng-disabled="hideBtn">打开红包</button>
             </div>
         </div>
-
+    </form>
     </div>
 </div>

@@ -49,6 +49,9 @@ ctrls
             $scope.openRow = true;
         }
     });
+    $scope.saveActivity=function(){
+        $scope.hideBtn=true;
+    }
 })
 .controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
     $scope.loginError=false;
