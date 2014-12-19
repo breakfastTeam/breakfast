@@ -29,6 +29,9 @@ ctrls
         $scope.edit=function(){
             $scope.$broadcast('edit');
         }
+        $scope.back=function(){
+            $scope.$broadcast('back');
+        }
     }
 ])
 .controller('welcomeCtrl',['$scope','$timeout','$state',function($scope,$timeout,$state){
@@ -114,6 +117,7 @@ ctrls
 }])
 .controller('mainCtrl',['$scope','$state',function($scope,$state){
     $scope.nav.title='早点吧';
+    $scope.nav.back=false;
 
     $scope.$watch('$viewContentLoaded', function() {
         $state.go('main.setMeals')
@@ -221,7 +225,7 @@ ctrls
     $scope.nav.title = '吧台公告';
     $scope.information = promise.body;
 })
-.controller('setMealCtrl',function($scope,$state,promise,ShoppingCart){
+.controller('setMealCtrl',function($scope,$state,promise,ShoppingCart,$stateParams){
     $scope.setMeal=promise.body;
     $scope.setMeal.introduce = $scope.setMeal.introduce || '暂无介绍';
     $scope.setMeal.grade = $scope.setMeal.grade || 0;
@@ -260,10 +264,14 @@ ctrls
 
     $scope.toOrder=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
-        $state.go('addToOrder');
+        $state.go('addToOrder',{from:'SETMEAL',fromId:setMeal.setMealId});
     };
+
+    $scope.$on('back', function() {
+        $state.go('main.setMeals');
+    });
 })
-.controller('foodCtrl',function($scope,$state,promise,ShoppingCart){
+.controller('foodCtrl',function($scope,$state,promise,ShoppingCart,$stateParams){
     $scope.food=promise.body;
     $scope.food.briefIntro = $scope.food.briefIntro || '暂无介绍';
     $scope.food.grade = $scope.food.grade || 0;
@@ -301,10 +309,13 @@ ctrls
 
     $scope.toOrder=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
-        $state.go('addToOrder');
+        $state.go('addToOrder',{from:'FOOD',fromId:food.foodId});
     };
+    $scope.$on('back', function() {
+        $state.go('main.foods');
+    });
 })
-.controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,$modal,_){
+.controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,$modal,$stateParams,$state,_){
     $scope.nav.title='立即支付';
     $scope.nav.back=true;
     $scope.hasCoupons=false;
@@ -343,7 +354,7 @@ ctrls
             allCredits+=od.credits;
         }
     }
-    $scope.alterLimit=allFood&&(length>0);
+    $scope.alterLimit=allFood&&(length>0)&total<ORDER_LIMIT;
     $scope.alert={
         type:"warning",
         msg:"温馨提示：只购买单品时总价不能低于"+ORDER_LIMIT+"元",
@@ -421,6 +432,13 @@ ctrls
             console.log('Modal dismissed at: ' + new Date());
         });
     };
+    $scope.$on('back', function() {
+        if($stateParams.from=='SETMEAL'){
+            $state.go('orderSetMeal',{setMealId:$stateParams.fromId});
+        }else if($stateParams.from=='FOOD') {
+            $state.go('orderFood',{foodId:$stateParams.fromId});
+        }
+    });
 })
 .controller('userInfoCtrl',['$scope','$state',function($scope, $state) {
     $scope.nav.title = '零距离';

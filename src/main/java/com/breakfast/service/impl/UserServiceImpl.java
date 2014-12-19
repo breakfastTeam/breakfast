@@ -41,7 +41,8 @@ public class UserServiceImpl implements UserService {
         TUser u = Tables.User.as("u");
         User result=dsl.selectFrom(u)
                 .where(u.status.equal(IConstants.USER_STATUS_ENABLE))
-                .and(u.loginName.equal(user.getLoginName()))
+                .and(u.loginName.equal(user.getLoginName()).or(u.mobile.equal(user.getLoginName())))
+                .and(u.userType.equal(IConstants.USER_TYPE_CUSTOMER))
                 .and(u.password.equal(user.getPassword()))
                 .fetchAnyInto(User.class);
         return result;

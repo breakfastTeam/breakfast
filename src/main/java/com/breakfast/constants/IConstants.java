@@ -38,7 +38,7 @@ public class IConstants {
      * 上架PUTAWAY、下架SOLD_PUT、废弃DISCARD
      */
     public static final String SET_MEAL_STATUS_PUTAWAY = "PUTAWAY";
-    public static final String SET_MEAL_STATUS_SOLD_PUT = "SOLD_PUT";
+    public static final String SET_MEAL_STATUS_SOLDOUT = "SOLDOUT";
     public static final String SET_MEAL_STATUS_DISCARD = "DISCARD";
 
     /**
@@ -56,5 +56,12 @@ public class IConstants {
 
     public static final String COUPON_STATUS_ENABLE = "ENABLE";
     public static final String COUPON_STATUS_DISABLE = "DISABLE";
+
+
+    public static final String USER_TYPE_ADMIN = "ADMIN";
+    public static final String USER_TYPE_CUSTOMER = "CUSTOMER";
+    public static final String USER_TYPE_COURIER = "COURIER";
+    public static final String USER_TYPE_CUSTOMER_SERVICE = "CUSTOMER_SERVICE";
+
 
 }

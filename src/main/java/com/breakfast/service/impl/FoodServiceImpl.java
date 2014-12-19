@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 import org.jooq.DSLContext;
 import org.jooq.tools.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -28,6 +29,8 @@ public class FoodServiceImpl implements FoodService {
     DSLContext creator;
     @Autowired
     private FileService fileService;
+    @Value("#{conf['host']}")
+    private String host;
 
     @Override
     public Page<Food> query(Page<Food> page) {
@@ -43,17 +46,8 @@ public class FoodServiceImpl implements FoodService {
                         .orderBy(food.showOrder)
                         .limit(((page.getPageNo() - 1)) * page.getPageSize(), page.getPageSize())
                         .fetch().into(Food.class);
-        Map<String, Object> extMap = null;
         for (Food f : result) {
-            extMap=new HashMap<String, Object>();
-            if (StringUtils.isBlank(f.getOrginPicId())) {
-                continue;
-            }
-            String sPath = fileService.get(f.getSmallPicId()).getFilePath();
-            String oPath = fileService.get(f.getOrginPicId()).getFilePath();
-            extMap.put("sPath", sPath);
-            extMap.put("oPath", oPath);
-            f.setExtMap(extMap);
+            addFilePath(f);
         }
         page.setResult(result);
         return page;
@@ -64,5 +58,18 @@ public class FoodServiceImpl implements FoodService {
         TFood food = Tables.Food.as("food");
         Food record = creator.selectFrom(food).where(food.foodId.endsWith(foodId)).fetchOneInto(Food.class);
         return record;
+    }
+
+
+    private void addFilePath(Food f) {
+        if (f!=null&& org.apache.commons.lang3.StringUtils.isNotBlank(f.getOrginPicId())) {
+            Map<String, Object> extMap =new HashMap<String, Object>();
+            String sPath = fileService.get(f.getSmallPicId()).getFilePath();
+            String oPath = fileService.get(f.getOrginPicId()).getFilePath();
+            extMap.put("sPath", host+sPath);
+            extMap.put("oPath", host+oPath);
+            f.setExtMap(extMap);
+        }
+
     }
 }

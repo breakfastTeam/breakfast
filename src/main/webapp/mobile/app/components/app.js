@@ -71,7 +71,7 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
         .state('orderSetMeal',{
-            url:'/orderSetMeal/:type/:setMealId',
+            url:'/orderSetMeal/:setMealId',
             templateUrl:'tlps/orderSetMeal.html',
             controller:'setMealCtrl',
             resolve:{
@@ -82,7 +82,7 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
         .state('orderFood',{
-            url:'/orderFood/:type/:foodId',
+            url:'/orderFood/:foodId',
             templateUrl:'tlps/orderFood.html',
             controller:'foodCtrl',
             resolve:{
@@ -93,7 +93,7 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
         .state('addToOrder',{
-            url:'/addToOrder',
+            url:'/addToOrder?from&fromId',
             templateUrl:'tlps/addToOrder.html',
             controller:'orderCtrl',
             resolve:{
