@@ -40,6 +40,8 @@ ctrls
     });
 }])
 .controller('activityCtrl',function($scope, Session, $state){
+    $scope.disableBtn=true;
+
     $scope.$watch('$viewContentLoaded', function() {
         if(Session.userId){
             $scope.activityInfo = true;
@@ -49,8 +51,13 @@ ctrls
             $scope.openRow = true;
         }
     });
+    $scope.$watch('phone', function(newValue, oldValue) {
+        console.log(newValue)
+        $scope.disableBtn = !newValue;
+        console.log($scope.disableBtn);
+    });
     $scope.saveActivity=function(){
-        $scope.hideBtn=true;
+        $scope.disableBtn=true;
     }
 })
 .controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
