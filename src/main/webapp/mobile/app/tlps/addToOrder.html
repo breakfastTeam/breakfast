@@ -63,7 +63,11 @@
         <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeAddress"/></td>
     </tr>
     <tr>
-        <td class="col-xs-5">预计送达日期：</td>
+        <td class="col-xs-4">送达日期：</td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control"/></td>
+    </tr>
+    <tr>
+        <td class="col-xs-5">送达时间：</td>
         <td class="col-xs-10 text-center">
             <select class="form-control" ng-model="order.preSendTime">
                 <option>07:00-07:30</option>
@@ -108,8 +112,8 @@
         <!--<b>{{selected.item}}</b>-->
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" ng-click="ok()">确定</button>
+        <button class="btn btn-warning" ng-click="cancel()">取消</button>
     </div>
     </div>
 </script>

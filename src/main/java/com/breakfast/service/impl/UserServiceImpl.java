@@ -126,6 +126,7 @@ public class UserServiceImpl implements UserService {
             DateTime createTime = order1.getCreateTime();
             if (createTime != null) {
                 extMap.put("createTimeStr",createTime.toString(dtf));
+                order1.setExtMap(extMap);
             }
         }
         return orders;

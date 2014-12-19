@@ -283,7 +283,8 @@ CREATE TABLE t_bf_information
 (
   information_id    VARCHAR(32) NOT NULL,
   title            VARCHAR(100) COMMENT '信息标题',
-  content          VARCHAR(1000) COMMENT '信息内容',
+  brief_intro      VARCHAR(100) COMMENT '简介',
+  content          TEXT COMMENT '信息内容',
   information_type VARCHAR(20) COMMENT '信息类型',
   post_time        DATETIME COMMENT '发布日期',
   post_by          VARCHAR(32) COMMENT '发布人',

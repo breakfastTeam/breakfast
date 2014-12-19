@@ -296,7 +296,8 @@ ctrls
         foodObjCount:1,
         foodObjType:'FOOD',
         foodObjPrice:food.price,
-        foodObjTotalPrice:food.price
+        foodObjTotalPrice:food.price,
+        credits:food.exchangeCount
     };
     $scope.minus=function(){
         $scope.orderDetail.foodObjCount--;
@@ -349,7 +350,7 @@ ctrls
         if(od.foodObjType=='SETMEAL'){
             allFood=false;
         }
-        //套餐积分限制
+        //积分限制
         if(od.credits) {
             allCredits+=od.credits;
         }
@@ -370,7 +371,7 @@ ctrls
         orderPrice:total,
         consigneeMobile:userInfo.mobile||'',
         consigneeName:userInfo.userName||'',
-        consigneeAddress:userInfo.userCustomer.address1||'',
+        consigneeAddress:userInfo.userCustomer.address1||'如:财富广场3号楼302室',
         preSendTime:'08:00-08:30'
     };
 
@@ -389,7 +390,7 @@ ctrls
         }
         if(total<=0) {
             $scope.alert.type = 'danger';
-            $scope.alert.msg='您的订单必须包含一份食品'
+            $scope.alert.msg='提示：您的订单必须包含一份食品'
             $scope.alert.show=true;
             return false;
         }else{
@@ -397,7 +398,7 @@ ctrls
         }
         if(allCredits&&$scope.useCredits&&$scope.order.exccreaditCount>allCredits){
             $scope.alert.type = 'danger';
-            $scope.alert.msg='您的订单内套餐最大支持'+allCredits+'积分';
+            $scope.alert.msg='提示：您的订单最多能使用'+allCredits+'积分';
             $scope.alert.show=true;
             return false;
         }else{
@@ -442,6 +443,7 @@ ctrls
 })
 .controller('userInfoCtrl',['$scope','$state',function($scope, $state) {
     $scope.nav.title = '零距离';
+    $scope.nav.back=false;
     $scope.$watch('$viewContentLoaded', function() {
         $state.go('userInfo.personalCenter')
     });
@@ -508,19 +510,34 @@ ctrls
         }
     }
 })
-.controller('showCreditsCtrl',function($scope,promise){
+.controller('showCreditsCtrl',function($scope,$state,promise){
     $scope.nav.title = '我的积分';
     $scope.user=promise.body;
+
+    $scope.nav.back=true;
+    $scope.$on('back', function() {
+        $state.go('userInfo');
+    });
 })
-.controller('showCouponsCtrl',function($scope,promise){
+.controller('showCouponsCtrl',function($scope,$state,promise){
     $scope.nav.title = '我的礼券';
     $scope.coupons=promise.body;
+
+    $scope.nav.back=true;
+    $scope.$on('back', function() {
+        $state.go('userInfo');
+    });
 })
-.controller('showOrdersCtrl',function($scope,promise){
+.controller('showOrdersCtrl',function($scope,$state,promise){
     $scope.nav.title = '我的订单';
     $scope.orders=promise.body;
+
+    $scope.nav.back=true;
+    $scope.$on('back', function() {
+        $state.go('userInfo');
+    });
 })
-.controller('showInfosCtrl',function($scope,promise,User){
+.controller('showInfosCtrl',function($scope,$state,promise,User){
     $scope.nav.title = '个人信息';
     $scope.nav.edit = true;
     $scope.edit = false;
@@ -540,6 +557,11 @@ ctrls
     $scope.$on("$destroy", function() {
         $scope.nav.title='早点吧';
         $scope.nav.edit = false;
+    });
+
+    $scope.nav.back=true;
+    $scope.$on('back', function() {
+        $state.go('userInfo');
     });
 })
 
