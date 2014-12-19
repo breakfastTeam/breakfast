@@ -1,27 +1,20 @@
 <div class="activity container-fluid">
     <form ng-submit="saveActivity()">
-        <div class="mgt50">
-            <div class="row text-center" ng-show="activityInfo">
-                <p class="text-warning">
+    <div class="mgt50">
+        <div class="row text-center" ng-show="activityInfo">
+            <p class="text-danger"><span ng-bind="activityInfoText"></span></p>
+        </div>
+        <div class="row mgb20" ng-show="phoneRow">
+            <div class="col-xs-8 col-xs-offset-2">
+                <input class="form-control text-center" ng-model="phone" placeholder="请输入您的手机号">
+            </div>
+        </div>
 
-                <h3 style="color:#ffff00" ng-bind="activityInfoText"></h3></p>
-            </div>
-            <div class="row mgb20" ng-show="activityInfo">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <button type="submit" class="btn-lg btn-block {{btnColor}}">马上订餐</button>
-                </div>
-            </div>
-
-            <div class="row mgb20" ng-show="phoneRow">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <input class="form-control text-center" ng-model="phone" placeholder="请输入您的手机号">
-                </div>
-            </div>
-            <div class="row mgb20" ng-show="openRow">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <button type="submit" class="btn-lg btn-block {{btnColor}}" ng-disabled="hideBtn">打开红包</button>
-                </div>
+        <div class="row mgb20" ng-show="openRow">
+            <div class="col-xs-8 col-xs-offset-2">
+                <button type="submit" class="btn-lg btn-danger btn-block" ng-disabled="disableBtn">打开红包</button>
             </div>
         </div>
     </form>
+    </div>
 </div>
