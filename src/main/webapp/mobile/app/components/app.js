@@ -19,6 +19,16 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
                 }
             }
         })
+        .state('activity',{
+            url:'/activity',
+            views:{
+                'full' : {
+                    url:'/activity',
+                    templateUrl:'activity/activity.html',
+                    controller:'activityCtrl'
+                }
+            }
+        })
         .state('login',{
             url:'login',
             templateUrl:'tlps/login.html',

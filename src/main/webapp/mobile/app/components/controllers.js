@@ -39,6 +39,17 @@ ctrls
         },3000)
     });
 }])
+.controller('activityCtrl',function($scope, Session, $state){
+    $scope.$watch('$viewContentLoaded', function() {
+        if(Session.userId){
+            $scope.activityInfo = true;
+            $scope.activityInfoText = "恭喜您抢到10元红包";
+        }else{
+            $scope.phoneRow = true;
+            $scope.openRow = true;
+        }
+    });
+})
 .controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
     $scope.loginError=false;
     $scope.errorText='用户名或密码错误';

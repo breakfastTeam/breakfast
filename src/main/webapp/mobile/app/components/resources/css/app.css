@@ -14,7 +14,17 @@ html,body{
     height: 100%;
     overflow-x: hidden;
 }
-
+.activity {
+    max-width: 100%;
+    background: url("../images/activity.jpg") no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    border: 0px solid #000000;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .nav-green{
@@ -74,8 +84,12 @@ html,body{
 .mgb20{
     margin-bottom: 20px;
 }
+
 .top65{
     top:65%;
+}
+.mgt50{
+    margin-top: 50%;
 }
 .btn-tab{
     background-color:#fff;
