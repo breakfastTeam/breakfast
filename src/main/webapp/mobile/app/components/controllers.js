@@ -470,10 +470,10 @@ ctrls
             console.log(position);
             if(!position.longitude || !position.latitude) {
                 $scope.hideMap=true;
-                $scope.hideTip = false;
+                $scope.showTip = true;
             }else{
                 $scope.hideMap=false;
-                $scope.hideTip = true;
+                $scope.showTip = false;
                 interval=$interval(function(){
                     Express.expressPosition({userId:Session.userId}).then(function(res){
                         var position=res.body;
