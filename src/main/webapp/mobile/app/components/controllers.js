@@ -27,6 +27,13 @@ ctrls
                 $state.go('login');
             }
         }
+        $scope.toExpressMap=function(){
+            if(Session.userId) {
+                $state.go('wantToLook.expressMap');
+            }else{
+                $state.go('login');
+            }
+        }
         $scope.edit=function(){
             $scope.$broadcast('edit');
         }

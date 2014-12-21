@@ -135,7 +135,6 @@ services
     .factory('RedPaper', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
         var services = {};
         services.saveRedPaper = function (data) {
-            console.log(data);
             var deferred = $q.defer();
             $http({
                 method: 'POST',

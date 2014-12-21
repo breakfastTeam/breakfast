@@ -41,9 +41,9 @@
                     });
 
                     if ($window.BMap&&$window.BMap.Map) {
-                        $timeout(function() {
-                            initMap();
-                        }, 200);
+                        //$timeout(function() {
+                        //    initMap();
+                        //}, 200);
                     }
 
                     function initMap() {
