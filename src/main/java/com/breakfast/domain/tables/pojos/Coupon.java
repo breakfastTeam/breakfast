@@ -13,7 +13,7 @@ package com.breakfast.domain.tables.pojos;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Coupon implements java.io.Serializable {
 
-	private static final long serialVersionUID = -1107894946;
+	private static final long serialVersionUID = -1483216894;
 
 	private String       couponId;
 	private String       userId;
@@ -23,6 +23,7 @@ public class Coupon implements java.io.Serializable {
 	private String       source;
 	private String       status;
 	private String       briefIntro;
+	private String       sendCouponId;
 	private org.joda.time.DateTime createTime;
 	private String       createBy;
 	private org.joda.time.DateTime lastModifyTime;
@@ -33,20 +34,21 @@ public class Coupon implements java.io.Serializable {
 	public Coupon() {}
 
 	public Coupon(
-		String       couponId,
-		String       userId,
-		org.joda.time.DateTime startTime,
-		org.joda.time.DateTime endTime,
-		java.math.BigDecimal   price,
-		String       source,
-		String       status,
-		String       briefIntro,
-		org.joda.time.DateTime createTime,
-		String       createBy,
-		org.joda.time.DateTime lastModifyTime,
-		String       lastModifyBy,
-		Long         optTime,
-		String       smallPicId
+			String couponId,
+			String userId,
+			org.joda.time.DateTime startTime,
+			org.joda.time.DateTime endTime,
+			java.math.BigDecimal price,
+			String source,
+			String status,
+			String briefIntro,
+			String sendCouponId,
+			org.joda.time.DateTime createTime,
+			String createBy,
+			org.joda.time.DateTime lastModifyTime,
+			String lastModifyBy,
+			Long optTime,
+			String smallPicId
 	) {
 		this.couponId = couponId;
 		this.userId = userId;
@@ -56,6 +58,7 @@ public class Coupon implements java.io.Serializable {
 		this.source = source;
 		this.status = status;
 		this.briefIntro = briefIntro;
+		this.sendCouponId = sendCouponId;
 		this.createTime = createTime;
 		this.createBy = createBy;
 		this.lastModifyTime = lastModifyTime;
@@ -126,6 +129,14 @@ public class Coupon implements java.io.Serializable {
 
 	public void setBriefIntro(String briefIntro) {
 		this.briefIntro = briefIntro;
+	}
+
+	public String getSendCouponId() {
+		return this.sendCouponId;
+	}
+
+	public void setSendCouponId(String sendCouponId) {
+		this.sendCouponId = sendCouponId;
 	}
 
 	public org.joda.time.DateTime getCreateTime() {

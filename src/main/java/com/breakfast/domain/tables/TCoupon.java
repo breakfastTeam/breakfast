@@ -13,7 +13,7 @@ package com.breakfast.domain.tables;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TCoupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.TCouponRecord> {
 
-	private static final long serialVersionUID = 599670121;
+	private static final long serialVersionUID = 117936101;
 
 	/**
 	 * The singleton instance of <code>breakfast.t_bf_coupon</code>
@@ -67,6 +67,11 @@ public class TCoupon extends org.jooq.impl.TableImpl<com.breakfast.domain.tables
 	 * The column <code>breakfast.t_bf_coupon.brief_intro</code>. 简介
 	 */
 	public final org.jooq.TableField<com.breakfast.domain.tables.records.TCouponRecord, String> briefIntro = createField("brief_intro", org.jooq.impl.SQLDataType.VARCHAR.length(200), this, "简介");
+
+	/**
+	 * The column <code>breakfast.t_bf_coupon.send_coupon_id</code>.
+	 */
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.TCouponRecord, String> sendCouponId = createField("send_coupon_id", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
 
 	/**
 	 * The column <code>breakfast.t_bf_coupon.create_time</code>. 创建时间
