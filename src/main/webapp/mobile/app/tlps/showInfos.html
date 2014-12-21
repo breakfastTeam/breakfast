@@ -19,8 +19,13 @@
         <tr>
             <td>性别：</td>
             <td class="text-left">
-                <span ng-hide="edit" ng-bind="user.sex"></span>
-                <input ng-show="edit" type="text" ng-model="user.sex"/>
+                <span ng-hide="edit" ng-bind="user.sexStr"></span>
+                <label ng-show="edit" class="radio-inline">
+                    <input type="radio" ng-model="user.sex" id="inlineRadio1" value="male"> 男
+                </label>
+                <label ng-show="edit" class="radio-inline">
+                    <input type="radio" ng-model="user.sex" id="inlineRadio2" value="female"> 女
+                </label>
             </td>
         </tr>
         <tr>

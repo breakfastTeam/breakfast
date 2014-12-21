@@ -356,6 +356,7 @@ CREATE TABLE t_bf_order_detail
   food_obj_id      VARCHAR(32) COMMENT '单品/套餐 ID',
   food_obj_count   INT COMMENT '数量',
   food_obj_type	   varchar(20) COMMENT '单品/套餐',
+  food_obj_price	 varchar(20) COMMENT '总金额(小计)',
   create_time      DATETIME COMMENT '创建时间',
   create_by        VARCHAR(32) COMMENT '创建人',
   last_modify_time DATETIME COMMENT '最后修改时间',

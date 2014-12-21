@@ -25,4 +25,6 @@ public interface OrderService {
      * @return
      */
     String saveOrderWithDetail(Order order);
+
+    List<OrderDetail> getOrderDetails(String orderId);
 }

@@ -1,17 +1,18 @@
 <div class="container-fluid mgb20">
-<form class="form" role="form" ng-submit="login()">
+<form class="form" role="form" ng-submit="register()">
     <div class="form-group">
         <div class="col-xs-12 mgb20">
             <input type="text" class="form-control" ng-model="user.loginName" placeholder="手机号">
         </div>
     </div>
+    <!--
     <div class="form-group">
         <div class="col-xs-12 mgb20">
             <label class="radio-inline">
-                <input type="radio" name="user.sex" id="inlineRadio1" value="male"> 男
+                <input type="radio" name="user.sex" value="male"> 男
             </label>
             <label class="radio-inline">
-                <input type="radio" name="user.sex" id="inlineRadio2" value="female"> 女
+                <input type="radio" name="user.sex" value="female"> 女
             </label>
         </div>
     </div>
@@ -20,6 +21,7 @@
             <input type="text" class="form-control" ng-model="user.authCode" placeholder="验证码">
         </div>
     </div>
+    -->
     <div class="form-group">
         <div class="col-xs-12 mgb20">
             <input type="password" class="form-control" ng-model="user.password" placeholder="登录密码">
@@ -36,6 +38,9 @@
         </div>
     </div>
 </form>
+</div>
+<div class="container">
+    <alert type="{{alert.type}}" ng-show="alert.show">{{alert.msg}}</alert>
 </div>
 <div class="row text-center">
     <p class="text-danger" ng-show="loginError"><span ng-bind="errorText"></span></p>

@@ -63,5 +63,7 @@ public class IConstants {
     public static final String USER_TYPE_COURIER = "COURIER";
     public static final String USER_TYPE_CUSTOMER_SERVICE = "CUSTOMER_SERVICE";
 
+    public static final String FOOD_OBJ_TYPE_SETMEAL="SETMEAL";
+    public static final String FOOD_OBJ_TYPE_FOOD="FOOD";
 
 }

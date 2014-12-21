@@ -78,6 +78,10 @@ public class UserController {
     @RequestMapping("cSaveUser")
     public Map<String, Object> cSaveUser(@FastJson User user) {
         IMsgUtil msgUtil = new IMsgUtil();
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        if (StringUtils.isEmpty(user.getUserId())&&userService.checkMobile(user)) {
+            return msgUtil.generateMsg(IConstants.ERROR_CODE, "手机号重复", null);
+        }
         int count=userService.saveUser(user);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, true);
     }

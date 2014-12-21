@@ -57,6 +57,7 @@ public class FoodServiceImpl implements FoodService {
     public Food getFood(String foodId) {
         TFood food = Tables.Food.as("food");
         Food record = creator.selectFrom(food).where(food.foodId.endsWith(foodId)).fetchOneInto(Food.class);
+        addFilePath(record);
         return record;
     }
 

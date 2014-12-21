@@ -14,7 +14,9 @@ import com.breakfast.domain.tables.pojos.Order;
 import com.breakfast.domain.tables.pojos.OrderDetail;
 import com.breakfast.domain.tables.records.TOrderDetailRecord;
 import com.breakfast.domain.tables.records.TOrderRecord;
+import com.breakfast.service.FoodService;
 import com.breakfast.service.OrderService;
+import com.breakfast.service.SetMealService;
 import com.core.utils.IUUIDGenerator;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     DSLContext creator;
+    @Autowired
+    SetMealService setMealService;
+    @Autowired
+    FoodService foodService;
 
     @Override
     public String saveOrderDetail(OrderDetail orderDetail) {
@@ -73,5 +79,22 @@ public class OrderServiceImpl implements OrderService {
             count += creator.executeInsert(record);
         }
         return orderId;
+    }
+
+    @Override
+    public List<OrderDetail> getOrderDetails(String orderId) {
+        TOrderDetail od = Tables.OrderDetail.as("od");
+        List<OrderDetail> orderDetails = creator.selectFrom(od)
+                .where(od.orderId.equal(orderId))
+                .orderBy(od.createTime)
+                .fetchInto(OrderDetail.class);
+        for (OrderDetail orderDetail : orderDetails) {
+            if(orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_SETMEAL)){
+                orderDetail.setFoodObjName(setMealService.getSetMeal(orderDetail.getFoodObjId()).getSetName());
+            }else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
+                orderDetail.setFoodObjName(foodService.getFood(orderDetail.getFoodObjId()).getFoodName());
+            }
+        }
+        return orderDetails;
     }
 }

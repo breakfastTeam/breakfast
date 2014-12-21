@@ -40,6 +40,8 @@ public class Order implements java.io.Serializable {
 
 	private List<OrderDetail> orderDetails;
 	private Map<String, Object> extMap;
+	private String couponPrice;
+
 	public Order() {}
 
 	public Order(
@@ -250,5 +252,13 @@ public class Order implements java.io.Serializable {
 
 	public void setExtMap(Map<String, Object> extMap) {
 		this.extMap = extMap;
+	}
+
+	public String getCouponPrice() {
+		return couponPrice;
+	}
+
+	public void setCouponPrice(String couponPrice) {
+		this.couponPrice = couponPrice;
 	}
 }

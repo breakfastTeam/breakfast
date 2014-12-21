@@ -35,4 +35,7 @@ public interface UserService {
      * @return
      */
     List<Order> loadUserOrders(String userId);
+
+    boolean checkMobile(User user);
+
 }

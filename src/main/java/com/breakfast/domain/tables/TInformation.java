@@ -13,7 +13,7 @@ package com.breakfast.domain.tables;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TInformation extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.TInformationRecord> {
 
-	private static final long serialVersionUID = 357476639;
+	private static final long serialVersionUID = -1389892252;
 
 	/**
 	 * The singleton instance of <code>breakfast.t_bf_information</code>
@@ -37,6 +37,11 @@ public class TInformation extends org.jooq.impl.TableImpl<com.breakfast.domain.t
 	 * The column <code>breakfast.t_bf_information.title</code>. 信息标题
 	 */
 	public final org.jooq.TableField<com.breakfast.domain.tables.records.TInformationRecord, String> title = createField("title", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "信息标题");
+
+	/**
+	 * The column <code>breakfast.t_bf_information.brief_intro</code>.
+	 */
+	public final org.jooq.TableField<com.breakfast.domain.tables.records.TInformationRecord, String> briefIntro = createField("brief_intro", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "");
 
 	/**
 	 * The column <code>breakfast.t_bf_information.content</code>. 信息内容

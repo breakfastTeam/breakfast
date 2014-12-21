@@ -1,4 +1,5 @@
 <div class="container">
     <h4 ng-bind="information.title"></h4>
+    <h4><small>{{information.briefIntro}}</small></h4>
     <p ng-bind-html="information.content|to_trusted" style="text-indent: 2em;"></p>
 </div>

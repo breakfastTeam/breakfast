@@ -15,10 +15,11 @@ import java.util.Map;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Information implements java.io.Serializable {
 
-	private static final long serialVersionUID = 292970794;
+	private static final long serialVersionUID = -2133377472;
 
 	private String       informationId;
 	private String       title;
+	private String       briefIntro;
 	private String       content;
 	private String       informationType;
 	private org.joda.time.DateTime postTime;
@@ -35,22 +36,24 @@ public class Information implements java.io.Serializable {
 	public Information() {}
 
 	public Information(
-		String       informationId,
-		String       title,
-		String       content,
-		String       informationType,
-		org.joda.time.DateTime postTime,
-		String       postBy,
-		String       status,
-		String       smallPicId,
-		org.joda.time.DateTime createTime,
-		String       createBy,
-		org.joda.time.DateTime lastModifyTime,
-		String       lastModifyBy,
-		Long         optTime
+			String informationId,
+			String title,
+			String briefIntro,
+			String content,
+			String informationType,
+			org.joda.time.DateTime postTime,
+			String postBy,
+			String status,
+			String smallPicId,
+			org.joda.time.DateTime createTime,
+			String createBy,
+			org.joda.time.DateTime lastModifyTime,
+			String lastModifyBy,
+			Long optTime
 	) {
 		this.informationId = informationId;
 		this.title = title;
+		this.briefIntro = briefIntro;
 		this.content = content;
 		this.informationType = informationType;
 		this.postTime = postTime;
@@ -78,6 +81,14 @@ public class Information implements java.io.Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getBriefIntro() {
+		return this.briefIntro;
+	}
+
+	public void setBriefIntro(String briefIntro) {
+		this.briefIntro = briefIntro;
 	}
 
 	public String getContent() {
@@ -167,6 +178,7 @@ public class Information implements java.io.Serializable {
 	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
+
 
 	public void setExtMap(Map<String, Object> extMap) {
 		this.extMap = extMap;

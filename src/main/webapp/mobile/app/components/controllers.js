@@ -17,7 +17,8 @@ ctrls
         $scope.nav={
             title : '早点吧',
             registerShow : false,
-            bottomShow : true
+            bottomShow : true,
+            shop:true
         };
         $scope.toLogin=function(){
             if(Session.userId) {
@@ -103,17 +104,28 @@ ctrls
         $scope.nav.bottomShow=true;
     });
 }])
-.controller('registerCtrl',['$scope','User','$state','$window',function($scope,User,$state,$window){
+.controller('registerCtrl',['$scope','User','$state','$window','$timeout',function($scope,User,$state,$timeout){
     $scope.nav.title='注册';
-
-    $scope.login=function(){
-    var promise=User.register($scope.user);
-    promise.then(function(data){
-        if(data.head.rtnMsg=='success'){
-            $state.go('login');
-        }
-    })
-}
+    $scope.alert={
+        type:'warning',
+        show:false
+    };
+    $scope.register=function(){
+        var promise=User.saveUser($scope.user);
+        promise.then(function(data){
+            if(data.head.rtnCode=='888888'){
+                $scope.alert.type='success';
+                $scope.alert.show=true;
+                $scope.alert.msg='注册成功,自动跳转到登陆页面';
+                $timeout(function(){
+                    $state.go('login');
+                },2000);
+            }else if(data.head.rtnCode=='000000'){
+                $scope.alert.show=true;
+                $scope.alert.msg=data.head.rtnMsg;
+            }
+        })
+    }
 }])
 .controller('mainCtrl',['$scope','$state',function($scope,$state){
     $scope.nav.title='早点吧';
@@ -427,8 +439,9 @@ ctrls
         });
 
         modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-            $scope.order.usedCoupons=selectedItem;
+            console.log(selectedItem);
+            $scope.selected = selectedItem.price;
+            $scope.order.usedCoupons=selectedItem.couponId;
         }, function () {
             console.log('Modal dismissed at: ' + new Date());
         });
@@ -544,8 +557,11 @@ ctrls
 .controller('showInfosCtrl',function($scope,$state,promise,User){
     $scope.nav.title = '个人信息';
     $scope.nav.edit = true;
+    $scope.nav.shop = false;
     $scope.edit = false;
     $scope.user=promise.body;
+
+    $scope.user.sexStr=$scope.user.sex=='male'?'男':'女';
 
     $scope.$on('edit', function(d) {
         $scope.edit = true;
@@ -561,6 +577,7 @@ ctrls
     $scope.$on("$destroy", function() {
         $scope.nav.title='早点吧';
         $scope.nav.edit = false;
+        $scope.nav.shop = true;
     });
 
     $scope.nav.back=true;
@@ -576,11 +593,11 @@ ctrls
 
     $scope.items = items;
     $scope.selected = {
-        item: $scope.items[0].price
+        item: 1
     };
 
     $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
+        $modalInstance.close(items[$scope.selected.item]);
     };
 
     $scope.cancel = function () {

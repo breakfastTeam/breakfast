@@ -105,7 +105,7 @@
     <div class="modal-body">
         <div class="radio" ng-repeat="coupon in items">
             <label>
-                <input type="radio" ng-model="selected.item" id="optionsRadios1" value="{{coupon.price}}" checked>
+                <input type="radio" ng-model="selected.item" id="optionsRadios1" value="{{$index}}" checked>
                 {{coupon.price}}元
             </label>
         </div>
