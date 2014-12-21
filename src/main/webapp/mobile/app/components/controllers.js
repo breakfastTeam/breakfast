@@ -90,6 +90,7 @@ ctrls
     $scope.loginError=false;
     $scope.errorText='用户名或密码错误';
     $scope.nav.title='登录';
+    $scope.nav.shop=false;
     $scope.nav.registerShow=true;
     $scope.nav.bottomShow=false;
 
@@ -119,10 +120,12 @@ ctrls
         $scope.nav.title='早点吧';
         $scope.nav.registerShow=false;
         $scope.nav.bottomShow=true;
+        $scope.nav.shop=true;
     });
 }])
 .controller('registerCtrl',['$scope','User','$state','$window','$timeout',function($scope,User,$state,$timeout){
     $scope.nav.title='注册';
+    $scope.nav.shop=false;
     $scope.alert={
         type:'warning',
         show:false
@@ -143,6 +146,10 @@ ctrls
             }
         })
     }
+
+    $scope.$on("$destroy", function() {
+        $scope.nav.shop=true;
+    });
 }])
 .controller('mainCtrl',['$scope','$state',function($scope,$state){
     $scope.nav.title='早点吧';
@@ -295,7 +302,9 @@ ctrls
         ShoppingCart.saveOrderDetail($scope.orderDetail);
         $state.go('addToOrder',{from:'SETMEAL',fromId:setMeal.setMealId});
     };
-
+    $scope.addToShop=function(){
+        ShoppingCart.saveOrderDetail($scope.orderDetail);
+    };
     $scope.$on('back', function() {
         $state.go('main.setMeals');
     });
@@ -341,6 +350,9 @@ ctrls
         ShoppingCart.saveOrderDetail($scope.orderDetail);
         $state.go('addToOrder',{from:'FOOD',fromId:food.foodId});
     };
+    $scope.addToShop=function(){
+        ShoppingCart.saveOrderDetail($scope.orderDetail);
+    };
     $scope.$on('back', function() {
         $state.go('main.foods');
     });
@@ -384,6 +396,9 @@ ctrls
             allCredits+=od.credits;
         }
     }
+    if(allCredits>userInfo.userCustomer.credits) {
+        allCredits=userInfo.userCustomer.credits;
+    }
     $scope.alterLimit=allFood&&(length>0)&total<ORDER_LIMIT;
     $scope.alert={
         type:"warning",
@@ -401,15 +416,11 @@ ctrls
         consigneeMobile:userInfo.mobile||'',
         consigneeName:userInfo.userName||'',
         consigneeAddress:userInfo.userCustomer.address1||'如:财富广场3号楼302室',
+        orderType:'online',
+        preSendDate:new Date(),
         preSendTime:'08:00-08:30'
     };
 
-    $scope.online=function() {
-        $scope.order.orderType = 'online';
-    };
-    $scope.offline=function() {
-        $scope.order.orderType = 'offline';
-    };
     $scope.toOrder=function(){
         if($scope.alterLimit&&total<ORDER_LIMIT){
             $scope.alert.type = 'danger';
@@ -441,7 +452,6 @@ ctrls
             $window.sessionStorage.removeItem("shoppingCart");
         })
     };
-
     $scope.open = function (size) {
 
         var modalInstance = $modal.open({
@@ -456,18 +466,29 @@ ctrls
         });
 
         modalInstance.result.then(function (selectedItem) {
-            console.log(selectedItem);
             $scope.selected = selectedItem.price;
             $scope.order.usedCoupons=selectedItem.couponId;
         }, function () {
-            console.log('Modal dismissed at: ' + new Date());
+            //console.log('Modal dismissed at: ' + new Date());
         });
     };
+
+    $scope.$watch('order.orderType', function(newValue, oldValue) {
+        if(newValue=='online'){
+            $scope.privilege=true;
+        }else{
+            $scope.privilege=false;
+            $scope.useCredits=false;
+            $scope.hasCoupons=false;
+        }
+    });
     $scope.$on('back', function() {
         if($stateParams.from=='SETMEAL'){
             $state.go('orderSetMeal',{setMealId:$stateParams.fromId});
         }else if($stateParams.from=='FOOD') {
             $state.go('orderFood',{foodId:$stateParams.fromId});
+        }else{
+            $state.go($stateParams.from);
         }
     });
 })
@@ -496,7 +517,6 @@ ctrls
                 // ui map config
                 uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
             };
-
             var position=res.body;
             if(!position.longitude || !position.latitude) {
                 $scope.hideMap=true;
