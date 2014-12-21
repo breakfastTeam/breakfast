@@ -22,7 +22,7 @@ public class Breakfast extends org.jooq.impl.SchemaImpl {
 	 * No further instances allowed
 	 */
 	private Breakfast() {
-		super("breakfast");
+		super("breakfast_test");
 	}
 
 	@Override

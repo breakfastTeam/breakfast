@@ -50,7 +50,7 @@ ctrls
         },3000)
     });
 }])
-.controller('activityCtrl',function($scope, Session, $state, RedPaper){
+.controller('activityCtrl',function($scope, Session, $state, RedPaper, $stateParams){
     $scope.disableBtn=true;
 
     $scope.$watch('$viewContentLoaded', function() {
@@ -64,7 +64,7 @@ ctrls
             $scope.showPhoneRow = true;
 
             $scope.$watch('phone', function(newValue, oldValue) {
-                var phone = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;//校验手机号的正则表达式
+                var phone = /^1[34578]\d{9}$/;//校验手机号的正则表达式
                 if(phone.test(newValue)){
                     $scope.btnColor = "btn-danger";
                     $scope.disableBtn=false;
@@ -79,14 +79,14 @@ ctrls
 
     $scope.saveRedPaper=function($stateParams){
         $scope.disableBtn=true;
-        var data={sendCouponId:$stateParams.sendCouponId, userId:$stateParams.userId};
+        var data={sendCouponId:$stateParams.sendCouponId};
         var promise = RedPaper.saveRedPaper(data);
         promise.then(function(data){
             console.log(data)
         });
     }
 })
-.controller('loginCtrl',['$scope','$rootScope','User','$state','$window','AUTH_EVENTS',function($scope,$rootScope,User,$state,$window,AUTH_EVENTS){
+.controller('loginCtrl',['$scope','$rootScope','User','RedPaper','$state','$window','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,$state,$window,Session, AUTH_EVENTS){
     $scope.loginError=false;
     $scope.errorText='用户名或密码错误';
     $scope.nav.title='登录';
@@ -98,7 +98,17 @@ ctrls
         promise.then(function(data){
             if(data.head.rtnMsg=='success'){
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-                $state.go('main');
+
+                var getSendingRedPaperData={userId:Session.userId};
+                var redPaperPromise = RedPaper.getSendingRedPaper(getSendingRedPaperData)
+                redPaperPromise.then(function(data){
+                    console.log(data);
+                    if(data.body.sendCouponId){
+                        $state.go('activity',{sendCouponId:data.body.sendCouponId});
+                    }else{
+                        $state.go('main');
+                    }
+                });
             }else{
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
                 $scope.loginError=true;
@@ -476,18 +486,18 @@ ctrls
      });
 }])
 .controller('expressMapCtrl',["$scope","$interval","$state",'Express',"Session",function($scope,$interval, $state,Express, Session){
-    $scope.mapOptions = {
-        enableMapClick: false,
-        // ui map config
-        uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
-    };
+
     var interval;
-    $scope.hideMap=true;
 
     $scope.$watch('$viewContentLoaded', function() {
         Express.expressPosition({userId:Session.userId}).then(function(res){
+            $scope.mapOptions = {
+                enableMapClick: false,
+                // ui map config
+                uiMapCache: true // 是否使用缓存来缓存此map dom，而不是每次链接跳转来都重新创建
+            };
+
             var position=res.body;
-            console.log(position);
             if(!position.longitude || !position.latitude) {
                 $scope.hideMap=true;
                 $scope.showTip = true;
