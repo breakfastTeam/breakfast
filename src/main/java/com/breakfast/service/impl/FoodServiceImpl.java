@@ -37,12 +37,12 @@ public class FoodServiceImpl implements FoodService {
         TFood food = Tables.Food.as("food");
         int count=creator.selectFrom(food)
                 .where(food.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
-                .and(food.realFoodCount.greaterThan(0)).fetchCount();
+                .and(food.foodCount.ge(0)).fetchCount();
         page.setTotalCount(count);
         List<Food> result =
                 creator.selectFrom(food)
                         .where(food.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
-                        .and(food.realFoodCount.greaterThan(0))
+                        .and(food.foodCount.ge(0))
                         .orderBy(food.showOrder)
                         .limit(((page.getPageNo() - 1)) * page.getPageSize(), page.getPageSize())
                         .fetch().into(Food.class);

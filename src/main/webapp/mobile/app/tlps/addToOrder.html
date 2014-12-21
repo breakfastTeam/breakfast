@@ -1,5 +1,4 @@
 <form class="form" role="form" ng-submit="toOrder()">
-<input name="type" type="hidden" name="order.orderType" ng-model="order.orderType"/>
 <input name="status" type="hidden" name="order.status" ng-model="order.status"/>
 <table class="table table-bordered-bottom table-striped table-hover">
     <thead>
@@ -21,7 +20,7 @@
 </table>
 <alert type="{{alert.type}}" ng-show="alert.show">{{alert.msg}}</alert>
 <table class="table table-bordered-bottom table-striped table-hover">
-    <tr>
+    <tr ng-show="privilege">
         <td class="col-xs-5">
             <div class="checkbox mgtb0">
                 <label>
@@ -33,7 +32,7 @@
             <input type="text" class="form-control" ng-disabled="!useCredits" ng-model="order.exccreaditCount"/>
         </td>
     </tr>
-    <tr>
+    <tr ng-show="privilege">
         <td class="col-xs-4">
             <div class="checkbox mgtb0">
                 <label>
@@ -48,7 +47,7 @@
         </td>
     </tr>
 </table>
-
+<div class="clearfix"></div>
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
         <td class="col-xs-4">手机：</td>
@@ -63,8 +62,19 @@
         <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeAddress"/></td>
     </tr>
     <tr>
+        <td class="col-xs-4">支付方式：</td>
+        <td class="col-xs-10 text-center">
+            <select class="form-control" ng-model="order.orderType">
+                <option value="online">在线支付</option>
+                <option value="offline">货到付款</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
         <td class="col-xs-4">送达日期：</td>
-        <td class="col-xs-10 text-center"><input type="text" class="form-control"/></td>
+        <td class="col-xs-10 text-center">
+            <input type="date" class="form-control" ng-model="order.preSendDate"/>
+        </td>
     </tr>
     <tr>
         <td class="col-xs-5">送达时间：</td>
@@ -86,11 +96,8 @@
 </table>
 
 <div class="row text-center">
-    <div class="col-xs-5 col-xs-offset-1">
-        <button type="submit" class="btn btn-primary btn-block" ng-click="online()">在线支付</button>
-    </div>
-    <div class="col-xs-5">
-        <button type="submit" class="btn btn-warning btn-block" ng-click="offline()">货到付款</button>
+    <div class="col-xs-8 col-xs-offset-2">
+        <button type="submit" class="btn btn-primary btn-block">提交订单</button>
     </div>
 </div>
 </form>

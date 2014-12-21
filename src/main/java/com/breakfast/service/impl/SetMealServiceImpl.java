@@ -58,17 +58,13 @@ public class SetMealServiceImpl implements SetMealService {
     public Page<SetMeal> query(Page<SetMeal> page) {
         TSetMeal setMeal = Tables.SetMeal.as("meal");
         int count=creator.selectFrom(setMeal)
-                        .where(setMeal.startTime.lessOrEqual(DateTime.now()))
-                        .and(setMeal.endTime.greaterOrEqual(DateTime.now()))
-                        .and(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
-                        .and(setMeal.realFoodCount.greaterThan(0)).fetchCount();
+                        .where(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
+                        .and(setMeal.foodCount.ge(0)).fetchCount();
         page.setTotalCount(count);
         List<SetMeal> result =
                 creator.selectFrom(setMeal)
-                        .where(setMeal.startTime.lessOrEqual(DateTime.now()))
-                        .and(setMeal.endTime.greaterOrEqual(DateTime.now()))
-                        .and(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
-                        .and(setMeal.realFoodCount.greaterThan(0))
+                        .where(setMeal.status.notEqual(IConstants.SET_MEAL_STATUS_DISCARD))
+                        .and(setMeal.foodCount.ge(0))
                         .orderBy(setMeal.showOrder)
                         .limit(((page.getPageNo() - 1)) * page.getPageSize(), page.getPageSize())
                         .fetch().into(SetMeal.class);
