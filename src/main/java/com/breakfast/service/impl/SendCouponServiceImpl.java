@@ -36,6 +36,7 @@ public class SendCouponServiceImpl implements SendCouponService {
                 .on(sendCoupon.sendCouponId.notIn(
                         creator.select(coupon.sendCouponId)
                                 .from(coupon)
+                                .join(sendCoupon).on(sendCoupon.sendCouponId.eq(coupon.sendCouponId))
                                 .where(coupon.status.notEqual(IConstants.DISCARD))
                                 .and(coupon.userId.eq(userId))
                                 .fetch()
