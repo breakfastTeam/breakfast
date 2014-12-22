@@ -125,6 +125,10 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             url:'/wantToLook',
             templateUrl:'tlps/serviceArea.html'
         })
+        .state('wantToLook.rawMaterial',{
+            url:'/wantToLook',
+            templateUrl:'tlps/rawMaterial.html'
+        })
         .state('userInfo',{
             url:'/userInfo',
             templateUrl:'tlps/userInfo.html',
