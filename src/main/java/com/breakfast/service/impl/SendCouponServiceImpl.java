@@ -42,7 +42,7 @@ public class SendCouponServiceImpl implements SendCouponService {
                 ))
                 .where(sendCoupon.status.equal(IConstants.ENABLE))
                 .orderBy(sendCoupon.createTime)
-                .fetchOneInto(SendCoupon.class);
+                .fetchAnyInto(SendCoupon.class);
         return sc;
     }
 
