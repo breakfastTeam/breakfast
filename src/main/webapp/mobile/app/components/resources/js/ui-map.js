@@ -72,6 +72,11 @@
                                     marker1 = new BMap.Marker(new BMap.Point(lng, lat));  //创建标注
                                     map.addOverlay(marker1);
                                 },5000);
+
+                                var model = $parse(attrs.uiMap);
+                                //Set scope variable for the map
+                                model.assign(scope, map);
+                                bindMapEvents(scope, mapEvents, map, elm);
                             }
                             /*********************** add baidu Map plugins ****************/
                             /**if (opts.scrollzoom) {
@@ -89,10 +94,7 @@
 
 
                         }
-                        var model = $parse(attrs.uiMap);
-                        //Set scope variable for the map
-                        model.assign(scope, map);
-                        bindMapEvents(scope, mapEvents, map, elm);
+
                     }
                 }
             };

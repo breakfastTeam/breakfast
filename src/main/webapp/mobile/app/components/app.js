@@ -20,10 +20,10 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
         .state('activity',{
-            url:'/activity',
+            url:'/activity/:sendCouponId',
             views:{
                 'full' : {
-                    url:'/activity',
+                    url:'/activity/:sendCouponId',
                     templateUrl:'activity/activity.html',
                     controller:'activityCtrl'
                 }

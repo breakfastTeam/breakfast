@@ -1,8 +1,11 @@
 package com.breakfast.controllers;
 
 import com.breakfast.constants.IConstants;
+import com.breakfast.domain.tables.TCoupon;
+import com.breakfast.domain.tables.pojos.Coupon;
 import com.breakfast.domain.tables.pojos.Feedback;
 import com.breakfast.provider.FastJson;
+import com.breakfast.service.CouponService;
 import com.breakfast.service.FeedbackService;
 import com.core.utils.IMsgUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,8 @@ import java.util.Map;
 @RequestMapping("/mobile")
 public class CouponController {
 
-
+    @Autowired
+    CouponService couponService;
     /**
      * 保存我的红包信息
      * @author Felix
@@ -31,7 +35,8 @@ public class CouponController {
     @RequestMapping(value = "/cSaveRedPaper")
     public Map<String,Object> cSaveRedPaper(@RequestParam String sendCouponId,@RequestParam String userId){
         IMsgUtil msgUtil = new IMsgUtil();
-        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, null);
+        Coupon coupon = couponService.generateCoupon(sendCouponId, userId);
+        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, coupon);
     }
 
 }

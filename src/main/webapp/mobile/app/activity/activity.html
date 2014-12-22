@@ -1,5 +1,6 @@
 <div class="activity container-fluid">
-    <form ng-submit="saveRedPaper({sendCouponId:'1232',userId:'123'})">
+    <form ng-submit="saveRedPaper()">
+        <input type="hidden" value = "{{sendCouponId}}"/>
         <div class="mgt50">
             <div class="row text-center">
                 <p class="text-danger"><h4 style="color: #ffff00" ng-bind="activityInfoText"></h4></p>

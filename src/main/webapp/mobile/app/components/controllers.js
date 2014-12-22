@@ -54,11 +54,13 @@ ctrls
     $scope.disableBtn=true;
 
     $scope.$watch('$viewContentLoaded', function() {
+
         if(Session.userId){
             $scope.activityInfoText = "好友分享给您一份红包，赶快去抢吧";
             $scope.showPhoneRow = false;
             $scope.btnColor = "btn-danger";
             $scope.disableBtn=false;
+            $scope.sendCouponId=$stateParams.sendCouponId;
         }else{
             $scope.activityInfoText = "输入手机号，红包将放入您的生活账户";
             $scope.showPhoneRow = true;
@@ -77,9 +79,10 @@ ctrls
         }
     });
 
-    $scope.saveRedPaper=function($stateParams){
+    $scope.saveRedPaper=function(){
         $scope.disableBtn=true;
-        var data={sendCouponId:$stateParams.sendCouponId};
+        console.log($scope.sendCouponId);
+        var data={sendCouponId:$scope.sendCouponId, userId:Session.userId};
         var promise = RedPaper.saveRedPaper(data);
         promise.then(function(data){
             console.log(data)
@@ -103,9 +106,10 @@ ctrls
                 var getSendingRedPaperData={userId:Session.userId};
                 var redPaperPromise = RedPaper.getSendingRedPaper(getSendingRedPaperData)
                 redPaperPromise.then(function(data){
-                    console.log(data);
-                    if(data.body.sendCouponId){
-                        $state.go('activity',{sendCouponId:data.body.sendCouponId});
+                    if(data.body){
+                        console.log("================"+data.body.sendCouponId);
+                        console.log("*****************");
+                        $state.go('activity',{sendCouponId: data.body.sendCouponId});
                     }else{
                         $state.go('main');
                     }

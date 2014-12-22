@@ -9,6 +9,7 @@ public class IConstants {
     public static final String SEESION_USER_ID = "SEESION_USER_ID";
     public static final String WENHUALU_LNG="113.674";//郑州市文化路经度
     public static int DEFAULT_PAGE_SIZE = 5;
+    public static int MONEY_SCALE=2;//钱精确小数点位数
 
     public static final String RETURN_CODE = "rtnCode";
     public static final String RETURN_MESSAGE = "rtnMsg";
@@ -45,7 +46,7 @@ public class IConstants {
      * 公告状态
      */
     public static final String INFORMATION_STATUS_ENABLE = "ENABLE";
-    public static final String INFORMATION_STATUS_DISABLE = "DISABLE";
+    public static final String INFORMATION_STATUS_DISABLE = "DISCARD";
 
     /**
      * 订单状态
@@ -55,7 +56,11 @@ public class IConstants {
     public static final String ORDER_STATUS_FINISH = "FINISH";
 
     public static final String COUPON_STATUS_ENABLE = "ENABLE";
-    public static final String COUPON_STATUS_DISABLE = "DISABLE";
+    public static final String COUPON_STATUS_DISABLE = "DISCARD";
+
+    public static final String ENABLE = "ENABLE";
+    public static final String DISCARD = "DISCARD";
+
 
 
     public static final String USER_TYPE_ADMIN = "ADMIN";
