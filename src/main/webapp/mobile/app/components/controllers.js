@@ -125,7 +125,7 @@ ctrls
         $scope.nav.shop=true;
     });
 }])
-.controller('registerCtrl',['$scope','User','$state','$window','$timeout',function($scope,User,$state,$timeout){
+.controller('registerCtrl',['$scope','User','$state','$timeout',function($scope,User,$state,$timeout){
     $scope.nav.title='注册';
     $scope.nav.shop=false;
     $scope.alert={
@@ -139,16 +139,19 @@ ctrls
                 $scope.alert.type='success';
                 $scope.alert.show=true;
                 $scope.alert.msg='注册成功,自动跳转到登陆页面';
-                $timeout(function(){
-                    $state.go('login');
-                },2000);
+                toLogin();
             }else if(data.head.rtnCode=='000000'){
                 $scope.alert.show=true;
                 $scope.alert.msg=data.head.rtnMsg;
             }
         })
-    }
+    };
 
+    function toLogin(){
+        $timeout(function(){
+            $state.go('login');
+        },2000);
+    }
     $scope.$on("$destroy", function() {
         $scope.nav.shop=true;
     });
