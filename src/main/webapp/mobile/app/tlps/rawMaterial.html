@@ -3,24 +3,15 @@
         <thead>
         <tr>
             <td>名称</td>
-            <td>数量</td>
+            <td>时间</td>
         </tr>
         </thead>
-        <tr>
-            <td class="col-xs-7 text-left"><span class="text-info">鲁花花生油</span></td>
-            <td class="col-xs-2 text-left"><span class="text-info">1桶</span></td>
+        <tr ng-repeat="rawMaterial in rawMaterials">
+            <td class="col-xs-6 text-left"><span ng-bind="rawMaterial.rawMaterialName" class="text-info"></span></td>
+            <td class="col-xs-3 text-left"><span class="text-info">{{rawMaterial.lastModifyTime.year}}-{{rawMaterial.lastModifyTime.monthOfYear}}-{{rawMaterial.lastModifyTime.dayOfMonth}}</span></td>
         </tr>
         <tr>
-            <td class="col-xs-7 text-left"><span class="text-info">双汇冷鲜肉</span></td>
-            <td class="col-xs-2 text-left"><span class="text-info">3斤</span></td>
-        </tr>
-        <tr>
-            <td class="col-xs-7 text-left"><span class="text-info">新鲜油麦菜</span></td>
-            <td class="col-xs-2 text-left"><span class="text-info">1斤</span></td>
-        </tr>
-        <tr>
-            <td colspan="2">更新于<span>2014-12-22 12:18:11</span></td>
+            <td colspan="2"><span>透明、健康、安全是我们的标准</span></td>
         </tr>
     </table>
-
 </div>

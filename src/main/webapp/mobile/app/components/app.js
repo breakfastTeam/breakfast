@@ -127,7 +127,8 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
         })
         .state('wantToLook.rawMaterial',{
             url:'/wantToLook',
-            templateUrl:'tlps/rawMaterial.html'
+            templateUrl:'tlps/rawMaterial.html',
+            controller:'rawMaterialCtrl'
         })
         .state('userInfo',{
             url:'/userInfo',

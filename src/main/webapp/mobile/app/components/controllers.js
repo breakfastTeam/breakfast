@@ -107,8 +107,6 @@ ctrls
                 var redPaperPromise = RedPaper.getSendingRedPaper(getSendingRedPaperData)
                 redPaperPromise.then(function(data){
                     if(data.body){
-                        console.log("================"+data.body.sendCouponId);
-                        console.log("*****************");
                         $state.go('activity',{sendCouponId: data.body.sendCouponId});
                     }else{
                         $state.go('main');
@@ -502,6 +500,18 @@ ctrls
     $scope.$watch('$viewContentLoaded', function() {
         $state.go('userInfo.personalCenter')
     });
+}])
+.controller('rawMaterialCtrl',['$scope','RawMaterial',function($scope, RawMaterial) {
+     $scope.nav.back=false;
+     $scope.$watch('$viewContentLoaded', function() {
+         listRawMaterial();
+     });
+     function listRawMaterial(){
+         var promise=RawMaterial.loadRawMaterial();
+         promise.then(function(data){
+             $scope.rawMaterials=data.body;
+         })
+     }
 }])
 
 .controller('wantToLookCtrl',['$scope','$state',function($scope,$state){
