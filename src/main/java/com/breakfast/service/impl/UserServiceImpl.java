@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
             String userId = IUUIDGenerator.getUUID();
             user.setUserId(userId);
             user.setUserType(IConstants.USER_TYPE_CUSTOMER);
+            user.setStatus(IConstants.ENABLE);
             TUserRecord record = dsl.newRecord(Tables.User, user);
             record.store();
             int count = dsl.executeInsert(record);
@@ -150,7 +151,8 @@ public class UserServiceImpl implements UserService {
     public boolean checkMobile(User user) {
         TUser u = Tables.User.as("u");
         User result=dsl.selectFrom(u)
-                .where(u.mobile.equal(user.getMobile()))
+                .where(u.mobile.equal(user.getMobile()).or(u.loginName.equal(user.getMobile())))
+                .and(u.status.equal(IConstants.ENABLE))
                 .fetchAnyInto(User.class);
         return result!=null;
     }

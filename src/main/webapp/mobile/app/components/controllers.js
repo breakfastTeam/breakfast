@@ -50,42 +50,102 @@ ctrls
         },3000)
     });
 }])
-.controller('activityCtrl',function($scope, Session, $state, RedPaper, $stateParams){
+.controller('activityCtrl',function($scope,$rootScope, Session, $state, RedPaper,User, $stateParams, AUTH_EVENTS){
     $scope.disableBtn=true;
+    $scope.takeRedPaperBtn=true;
     $scope.$watch('$viewContentLoaded', function() {
+
+        $scope.sendCouponId=$stateParams.sendCouponId;
+
+        var checkRedPaperData={sendCouponId:$stateParams.sendCouponId};
+        var checkRedPaperPromise = RedPaper.checkRedPaper(checkRedPaperData)
+        checkRedPaperPromise.then(function(data){
+            if(!data.body){
+                if(Session.userId){
+                    $scope.activityInfoText = "红包已被抢完，下次要火速疯抢";
+                    $scope.backBtn=true;
+                    $scope.takeRedPaperBtn=false;
+                }else{
+                    $scope.activityInfoText = "输入您的红包账号，下次火速疯抢";
+                }
+            }
+        });
         if(Session.userId){
-            $scope.activityInfoText = "抢红包要眼疾手快，否则就被抢完咯，赶快动手吧";
             $scope.showPhoneRow = false;
             $scope.btnColor = "btn-danger";
             $scope.disableBtn=false;
-            $scope.sendCouponId=$stateParams.sendCouponId;
         }else{
-            $scope.activityInfoText = "输入您的账号和密码，红包将放入您的生活账户";
             $scope.showPhoneRow = true;
+            var phone = /^1[34578]\d{9}$/;//校验手机号的正则表达式
+            $scope.$watch('user.loginName', function(newValue) {
 
-            $scope.$watch('phone', function(newValue, oldValue) {
-                var phone = /^1[34578]\d{9}$/;//校验手机号的正则表达式
                 if(phone.test(newValue)){
-                    $scope.btnColor = "btn-danger";
-                    $scope.disableBtn=false;
+                    var user = $scope.user;
+                    if(user){
+                        if(user.password){
+                            $scope.btnColor = "btn-danger";
+                            $scope.disableBtn=false;
+                        }else{
+                            $scope.btnColor = "btn-default";
+                            $scope.disableBtn=true;
+                        }
+                    }
                 }else{
                     $scope.btnColor = "btn-default";
                     $scope.disableBtn=true;
                 }
             });
-
+            $scope.$watch('user.password', function(newValue) {
+                var user = $scope.user;
+                if(user){
+                    var loginName = user.loginName;
+                    if(newValue && phone.test(loginName)){
+                        $scope.btnColor = "btn-danger";
+                        $scope.disableBtn=false;
+                    }else{
+                        $scope.btnColor = "btn-default";
+                        $scope.disableBtn=true;
+                    }
+                }
+            });
         }
     });
-
+        $scope.$on('back', function() {
+            $state.go('userInfo');
+        });
     $scope.saveRedPaper=function(){
         $scope.disableBtn=true;
-        var data={sendCouponId:$scope.sendCouponId, userId:Session.userId};
-        var promise = RedPaper.saveRedPaper(data);
-        promise.then(function(data){
-            if(data.head.rtnCode == "888888"){
-                $state.go('userInfo');
-            }
-        });
+        if(Session.userId){//如果用户当前为登录状态
+            var data={sendCouponId:$scope.sendCouponId, userId:Session.userId};
+            var promise = RedPaper.saveRedPaper(data);
+            promise.then(function(data){
+                if(data.head.rtnCode == "888888"){
+                    $state.go('userInfo');
+                }
+            });
+        }else{//当前用户为非登录状态
+            var promise=User.saveOrLoginUser($scope.user);
+            promise.then(function(data){
+                if(data.head.rtnCode=="888888"){//如果登录或者注册成功
+                    var registUserId = data.body.userId;
+                    $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                    if($scope.sendCouponId){//如果红包有效
+                        var data={sendCouponId:$scope.sendCouponId, userId:registUserId};
+                        var promise = RedPaper.saveRedPaper(data);
+                        promise.then(function(data){
+                            if(data.head.rtnCode == "888888"){
+                                $state.go('userInfo');
+                            }
+                        });
+                    }else{//如果红包失效
+                        $state.go('userInfo');
+                    }
+                }else{//登录或者注册失败
+                    $scope.loginText=data.head.rtnMsg;
+                }
+            });
+        }
+
     }
 })
 .controller('loginCtrl',['$scope','$rootScope','User','RedPaper','Express','$state','$window','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,Express, $state,$window,Session, AUTH_EVENTS){

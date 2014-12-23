@@ -183,7 +183,21 @@ services
 
             return deferred.promise;
         }
+        services.checkRedPaper = function (data) {
+            var deferred = $q.defer();
+            $http({
+                method: 'POST',
+                url: ctx + '/mobile/cCheckRedPaper',
+                params: data,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
 
+            return deferred.promise;
+        }
         return services;
     }])
     .factory('User', ['$q', '$http', 'ctx', 'Session', '$window', function ($q, $http, ctx, Session, $window) {
@@ -261,7 +275,16 @@ services
                 });
             return deferred.promise;
         }
-
+        services.saveOrLoginUser = function (data) {
+            var deferred = $q.defer();
+            $http.post(ctx + '/mobile/cSaveOrLoginUser', data)
+                .success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject(data);
+                });
+            return deferred.promise;
+        }
         services.saveFeedback = function (data) {
             var deferred = $q.defer();
             $http({

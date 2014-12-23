@@ -79,11 +79,28 @@ public class UserController {
     public Map<String, Object> cSaveUser(@FastJson User user) {
         IMsgUtil msgUtil = new IMsgUtil();
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-        if (StringUtils.isEmpty(user.getUserId())&&userService.checkMobile(user)) {
-            return msgUtil.generateMsg(IConstants.ERROR_CODE, "手机号重复", null);
+        if (StringUtils.isEmpty(user.getUserId()) && userService.checkMobile(user)) {
+            return msgUtil.generateMsg(IConstants.ERROR_CODE, "账号已被注册", null);
         }
         int count=userService.saveUser(user);
-        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, true);
+        return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, user);
     }
-
+    @ResponseBody
+    @RequestMapping("cSaveOrLoginUser")
+    public Map<String, Object> cSaveOrLoginUser(@FastJson User user , final HttpSession session) {
+        IMsgUtil msgUtil = new IMsgUtil();
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        if (StringUtils.isEmpty(user.getUserId()) && userService.checkMobile(user)) {
+            User ruser=userService.findUser(user);
+            if (ruser != null) {
+                session.setAttribute(IConstants.SEESION_USER_ID, user.getUserId());
+                return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, ruser);
+            }else{
+                return msgUtil.generateMsg(IConstants.ERROR_CODE, "账号或密码错误", null);
+            }
+        }else{
+            int count=userService.saveUser(user);
+            return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, user);
+        }
+    }
 }

@@ -11,9 +11,11 @@ import com.breakfast.service.FeedbackService;
 import com.breakfast.service.SendCouponService;
 import com.core.utils.IUUIDGenerator;
 import org.jooq.DSLContext;
+import org.jooq.Record1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.transform.Result;
 import java.util.List;
 
 /**
@@ -32,16 +34,13 @@ public class SendCouponServiceImpl implements SendCouponService {
 
         SendCoupon sc = creator.select(sendCoupon.sendCouponId, sendCoupon.source, sendCoupon.url)
                 .from(sendCoupon)
-                .join(coupon)
-                .on(sendCoupon.sendCouponId.notIn(
-                        creator.select(coupon.sendCouponId)
+                .where(sendCoupon.status.equal(IConstants.ENABLE))
+                .and(sendCoupon.sendCouponId.notIn(creator.select(coupon.sendCouponId)
                                 .from(coupon)
-                                .join(sendCoupon).on(sendCoupon.sendCouponId.eq(coupon.sendCouponId))
                                 .where(coupon.status.notEqual(IConstants.DISCARD))
                                 .and(coupon.userId.eq(userId))
-                                .fetch()
+                                .fetch(coupon.sendCouponId)
                 ))
-                .where(sendCoupon.status.equal(IConstants.ENABLE))
                 .orderBy(sendCoupon.createTime)
                 .fetchAnyInto(SendCoupon.class);
         return sc;

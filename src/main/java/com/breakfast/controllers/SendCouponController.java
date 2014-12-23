@@ -36,7 +36,23 @@ public class SendCouponController {
         }else{
             return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, null);
         }
-
     }
+    /**
+     * 保存我的红包信息
+     * @author Felix
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/cCheckRedPaper")
+    public Map<String,Object> cCheckRedPaper(@RequestParam String sendCouponId){
+        IMsgUtil msgUtil = new IMsgUtil();
+        SendCoupon sendCoupon = sendCouponService.getSendCoupon(sendCouponId);
+        if(sendCoupon != null){
+            return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, sendCoupon);
+        }else{
+            return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, null);
+        }
+    }
+
 
 }
