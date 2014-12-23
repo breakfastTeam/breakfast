@@ -371,8 +371,13 @@ ctrls
     $scope.nav.back=true;
     $scope.hasCoupons=false;
     $scope.hasCredits=false;
-    var userInfo=promise.body;
-    if(userInfo){
+    var userInfo={};
+    var isLogin=false;
+    if(promise) {
+        userInfo=promise.body;
+    }
+    if(userInfo.userId){
+        isLogin=true;
         userInfo.userCustomer=userInfo.userCustomer||{};
         $scope.hasCredits=userInfo.userCustomer.credits||0>0;
         $scope.hasCoupons=userInfo.coupons.length>0;
@@ -390,8 +395,8 @@ ctrls
         if(_.contains(temp, od.foodObjId)) {
             index=_.indexOf(temp,od.foodObjId);
             el=orderDetails[index];
-            el.foodObjCount+=od.foodObjCount;
-            el.foodObjTotalPrice+=od.foodObjTotalPrice;
+            el.foodObjCount=parseInt(el.foodObjCount)+parseInt(od.foodObjCount);
+            el.foodObjTotalPrice=parseFloat(el.foodObjTotalPrice)+parseFloat(od.foodObjTotalPrice);
         }else{
             temp.push(od.foodObjId);
             orderDetails.push(od);
@@ -405,6 +410,8 @@ ctrls
             allCredits+=od.credits;
         }
     }
+    ShoppingCart.destroy();
+    ShoppingCart.orderDetails=orderDetails;
     if(allCredits>userInfo.userCustomer.credits) {
         allCredits=userInfo.userCustomer.credits;
     }

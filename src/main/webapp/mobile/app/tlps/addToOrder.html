@@ -20,7 +20,7 @@
 </table>
 <alert type="{{alert.type}}" ng-show="alert.show">{{alert.msg}}</alert>
 <table class="table table-bordered-bottom table-striped table-hover">
-    <tr ng-show="privilege">
+    <tr ng-show="privilege&&isLogin">
         <td class="col-xs-5">
             <div class="checkbox mgtb0">
                 <label>
@@ -32,7 +32,7 @@
             <input type="text" class="form-control" ng-disabled="!useCredits" ng-model="order.exccreaditCount"/>
         </td>
     </tr>
-    <tr ng-show="privilege">
+    <tr ng-show="privilege&&isLogin">
         <td class="col-xs-4">
             <div class="checkbox mgtb0">
                 <label>
