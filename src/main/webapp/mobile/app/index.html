@@ -23,7 +23,7 @@
   <div class="container-fluid nav-green">
     <div class="row">
       <div class="col-xs-4">
-        <a ng-click="back()" ng-show="nav.back" class="navback"><i class="fa fa-arrow-left"></i> </a>
+        <a ng-click="back()" ng-show="nav.back" class="navback"><i class="fa fa-arrow-left nav-icon"></i> </a>
       </div>
       <div class="col-xs-4 text-center">
         <h4>{{nav.title}}</h4>
@@ -32,7 +32,7 @@
         <p class="text-right">
           <a href="#" ng-show="nav.registerShow" ui-sref="register" style="color: #fff;">注册</a>
           <button ng-show="nav.edit" class="btn btn-xs btn-info" ng-click="edit()">编辑</button>
-          <a ui-sref="addToOrder({from:'main'})" ng-show="nav.shop"><i class="fa fa-shopping-cart" style="font-size: 1.5em;color:#FFF;"></i> <span class="badge shopCartBubble">{{nav.shopCount}}</span></a>
+          <a ui-sref="addToOrder({from:'main'})" ng-show="nav.shop"><i class="fa fa-shopping-cart nav-icon"></i> <span class="badge shopCartBubble">{{nav.shopCount}}</span></a>
         </p>
       </div>
     </div>

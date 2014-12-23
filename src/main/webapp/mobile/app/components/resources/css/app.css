@@ -57,7 +57,10 @@ html,body{
     color:#449d44;
     background-color: #FFF;
 }
-
+i.nav-icon{
+    font-size: 1.5em;
+    color:#FFF;
+}
 .tab-green{
     color:#449d44;
     background-color: #FFF;
