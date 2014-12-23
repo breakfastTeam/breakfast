@@ -61,11 +61,18 @@ i.nav-icon{
     font-size: 1.5em;
     color:#FFF;
 }
+span.nav-icon{
+    font-size: 0.8em;
+}
 .tab-green{
     color:#449d44;
     background-color: #FFF;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+.pading5{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .tab-green a:hover{

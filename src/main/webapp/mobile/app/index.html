@@ -42,22 +42,22 @@
   </div>
 
   <div class="container-fluid">
-    <div ng-show="nav.bottomShow" class="text-center row tab-green navbar-fixed-bottom">
+    <div ng-show="nav.bottomShow" class="text-center row tab-green navbar-fixed-bottom pading5">
       <div class="col-xs-4" ui-sref-active="active">
-        <a ui-sref="main.setMeals"><div><span class="glyphicon glyphicon-th"></span></div><div><span style="font-size: 1px;">菜单</span></div></a>
+        <a ui-sref="main.setMeals"><div><span class="glyphicon glyphicon-th"></span></div><div><span class="nav-icon">菜单</span></div></a>
       </div>
       <div class="col-xs-4">
-        <a ng-click="toExpressMap()"><div><span class="fa fa-eye"></span></div><div><span style="font-size: 1px;">零距离</span></div></a>
+        <a ng-click="toExpressMap()"><div><span class="fa fa-eye"></span></div><div><span class="nav-icon">零距离</span></div></a>
       </div>
       <div class="col-xs-4">
-        <a ng-click="toLogin()"><div><span class="glyphicon glyphicon-user"></span></div><div><span style="font-size: 1px;">个人</span></div></a>
+        <a ng-click="toLogin()"><div><span class="glyphicon glyphicon-user"></span></div><div><span class="nav-icon">个人</span></div></a>
       </div>
     </div>
   </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="components/resources/js/angular.js"></script>
+  <script src="components/resources/js/angular.min.js"></script>
   <script src="components/resources/js/jquery-1.10.2.min.js"></script>
   <script src="components/resources/js/angular-animate.js"></script>
   <script src="components/resources/js/angular-aria.js"></script>
@@ -67,7 +67,7 @@
   <script src="components/resources/js/plugins.js"></script>
   <script src="components/resources/js/ui-bootstrap.js"></script>
   <script src="components/resources/js/ui-bootstrap-tpls.js"></script>
-  <script src="components/resources/js/bindonce.min.js"></script>
+  <!--<script src="components/resources/js/bindonce.js"></script>-->
   <script src="components/resources/js/ui-map.js"></script>
   <script src="components/resources/js/ui-utils.min.js"></script>
 

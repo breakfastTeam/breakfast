@@ -700,6 +700,7 @@ ctrls
     $scope.nav.title = '我的订单';
     $scope.orders=promise.body;
 
+    $scope.oneAtATime=true;
     $scope.nav.back=true;
     $scope.$on('back', function() {
         $state.go('userInfo');

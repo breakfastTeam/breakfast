@@ -1,8 +1,8 @@
-<accordion close-others="oneAtATime" ng-repeat="order in orders">
+<accordion close-others="oneAtATime" ng-repeat="order in ::orders">
     <accordion-group is-open="$first">
         <accordion-heading>
             <h5 class="list-group-item-heading" ng-switch on="order.status">
-                订单编号：<span ng-bind="order.orderNo"></span>
+                订单编号：<span>{{::order.orderNo}}</span>
                 <span class="label label-info pull-right" ng-switch-when="DRAFT">待确认</span>
                 <span class="label label-success pull-right" ng-switch-when="FINISH">完成</span>
                 <span class="label label-success pull-right" ng-switch-default>配送中</span>
@@ -10,8 +10,8 @@
         </accordion-heading>
         <h5>
         <small style="margin-top: 5px;">
-        <p>订单金额：<span ng-bind="order.orderPrice"></span> 元</p>
-        <p>下单时间：<span ng-bind="order.extMap.createTimeStr"></span></p>
+        <p>订单金额：<span>{{::order.orderPrice}}</span> 元</p>
+        <p>下单时间：<span>{{::order.createTimeStr}}</span></p>
         </small>
         </h5>
         <!--订单详情-->
@@ -23,22 +23,22 @@
                 <td>小计</td>
             </tr>
             </thead>
-            <tr ng-repeat="orderDetail in order.orderDetails track by orderDetail.foodObjId">
-                <td class="col-xs-6 text-left"><span class="text-info" ng-bind="orderDetail.foodObjName"></span></td>
-                <td class="col-xs-3 text-left"><i class="fa fa-times"></i> <span ng-bind="orderDetail.foodObjCount"></span></td>
-                <td class="col-xs-3 text-left"><i class="fa fa-jpy"></i> <span ng-bind="orderDetail.foodObjPrice"></span></td>
+            <tr ng-repeat="orderDetail in ::order.orderDetails track by orderDetail.foodObjId">
+                <td class="col-xs-6 text-left"><span class="text-info">{{::orderDetail.foodObjName}}</span></td>
+                <td class="col-xs-3 text-left"><i class="fa fa-times"></i> <span>{{::orderDetail.foodObjCount}}</span></td>
+                <td class="col-xs-3 text-left"><i class="fa fa-jpy"></i> <span>{{::orderDetail.foodObjPrice}}</span></td>
             </tr>
             <tr ng-show="order.exccreaditCount&&order.exccreaditCount>0">
                 <td>使用积分：</td>
-                <td colspan=2 class="text-center"><span ng-bind="order.exccreaditCount"></span></td>
+                <td colspan=2 class="text-center"><span>{{::order.exccreaditCount}}</span></td>
             </tr>
             <tr ng-show="order.couponPrice">
                 <td>使用优惠券：</td>
-                <td colspan=2 class="text-center"><span ng-bind="order.couponPrice"></span> 元</td>
+                <td colspan=2 class="text-center"><span>{{::order.couponPrice}}</span> 元</td>
             </tr>
             <tr>
                 <td>总价：</td>
-                <td colspan=2 class="text-center"><span ng-bind="order.orderPrice"></span> 元</td>
+                <td colspan=2 class="text-center"><span>{{::order.orderPrice}}</span> 元</td>
             </tr>
         </table>
 
