@@ -3,6 +3,8 @@
  */
 package com.breakfast.domain.tables.pojos;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +43,7 @@ public class Order implements java.io.Serializable {
 	private List<OrderDetail> orderDetails;
 	private Map<String, Object> extMap;
 	private String couponPrice;
-
+	private String preSendDateStr;
 	public Order() {}
 
 	public Order(
@@ -260,5 +262,13 @@ public class Order implements java.io.Serializable {
 
 	public void setCouponPrice(String couponPrice) {
 		this.couponPrice = couponPrice;
+	}
+
+	public String getPreSendDateStr() {
+		return preSendDateStr;
+	}
+
+	public void setPreSendDateStr(String preSendDateStr) {
+		this.preSendDateStr = preSendDateStr;
 	}
 }

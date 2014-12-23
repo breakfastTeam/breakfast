@@ -10,6 +10,11 @@ import com.breakfast.service.FoodService;
 import com.breakfast.service.OrderService;
 import com.core.page.Page;
 import com.core.utils.IMsgUtil;
+import freemarker.template.utility.StringUtil;
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,6 +45,9 @@ public class OrderController {
     @RequestMapping(value = "/cOrder")
     public Map<String,Object> cOrder(@FastJson Order order){
         IMsgUtil msgUtil = new IMsgUtil();
+        if (StringUtils.isNotBlank(order.getPreSendDateStr())) {
+            order.setPreSendDate(DateTime.parse(order.getPreSendDateStr().substring(0,10), DateTimeFormat.forPattern("yyyy-MM-dd")));
+        }
         String id = orderService.saveOrderWithDetail(order);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, id);
     }

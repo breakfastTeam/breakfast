@@ -433,7 +433,7 @@ ctrls
         consigneeName:userInfo.userName||'',
         consigneeAddress:userInfo.userCustomer.address1||'如:财富广场3号楼302室',
         orderType:'online',
-        preSendDate:new Date(),
+        preSendDateStr:new Date(),
         preSendTime:'08:00-08:30'
     };
 
