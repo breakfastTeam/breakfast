@@ -15,7 +15,7 @@ ctrls
         $scope.currentUser = null;
         $scope.isAuthorized = User.isAuthorized;
         $scope.nav={
-            title : '早点吧',
+            title : '豆点吧',
             registerShow : false,
             bottomShow : true,
             shop:true
@@ -183,7 +183,7 @@ ctrls
         })
     }
     $scope.$on("$destroy", function() {
-        $scope.nav.title='早点吧';
+        $scope.nav.title='豆点吧';
         $scope.nav.registerShow=false;
         $scope.nav.bottomShow=true;
         $scope.nav.shop=true;
@@ -221,7 +221,7 @@ ctrls
     });
 }])
 .controller('mainCtrl',['$scope','$state',function($scope,$state){
-    $scope.nav.title='早点吧';
+    $scope.nav.title='豆点吧';
     $scope.nav.back=false;
 
     $scope.$watch('$viewContentLoaded', function() {
@@ -700,7 +700,7 @@ ctrls
     }
 
     $scope.$on("$destroy", function() {
-        $scope.nav.title='早点吧';
+        $scope.nav.title='豆点吧';
         $scope.nav.edit = false;
         $scope.nav.shop = true;
     });
