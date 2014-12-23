@@ -52,17 +52,15 @@ ctrls
 }])
 .controller('activityCtrl',function($scope, Session, $state, RedPaper, $stateParams){
     $scope.disableBtn=true;
-
     $scope.$watch('$viewContentLoaded', function() {
-
         if(Session.userId){
-            $scope.activityInfoText = "好友分享给您一份红包，赶快去抢吧";
+            $scope.activityInfoText = "抢红包要眼疾手快，否则就被抢完咯，赶快动手吧";
             $scope.showPhoneRow = false;
             $scope.btnColor = "btn-danger";
             $scope.disableBtn=false;
             $scope.sendCouponId=$stateParams.sendCouponId;
         }else{
-            $scope.activityInfoText = "输入手机号，红包将放入您的生活账户";
+            $scope.activityInfoText = "输入您的账号和密码，红包将放入您的生活账户";
             $scope.showPhoneRow = true;
 
             $scope.$watch('phone', function(newValue, oldValue) {
@@ -81,15 +79,16 @@ ctrls
 
     $scope.saveRedPaper=function(){
         $scope.disableBtn=true;
-        console.log($scope.sendCouponId);
         var data={sendCouponId:$scope.sendCouponId, userId:Session.userId};
         var promise = RedPaper.saveRedPaper(data);
         promise.then(function(data){
-            console.log(data)
+            if(data.head.rtnCode == "888888"){
+                $state.go('userInfo');
+            }
         });
     }
 })
-.controller('loginCtrl',['$scope','$rootScope','User','RedPaper','$state','$window','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,$state,$window,Session, AUTH_EVENTS){
+.controller('loginCtrl',['$scope','$rootScope','User','RedPaper','Express','$state','$window','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,Express, $state,$window,Session, AUTH_EVENTS){
     $scope.loginError=false;
     $scope.errorText='用户名或密码错误';
     $scope.nav.title='登录';
@@ -100,7 +99,7 @@ ctrls
     $scope.login=function(){
         var promise=User.login($scope.user);
         promise.then(function(data){
-            if(data.head.rtnMsg=='success'){
+            if(data.head.rtnCode=='888888'){
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
 
                 var getSendingRedPaperData={userId:Session.userId};
@@ -111,6 +110,11 @@ ctrls
                     }else{
                         $state.go('main');
                     }
+                });
+                Express.expressPosition({userId:Session.userId}).then(function(res){
+                    var position=res.body;
+                    sessionStorage.setItem("lng",position.longitude);
+                    sessionStorage.setItem("lat",position.latitude);
                 });
             }else{
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);

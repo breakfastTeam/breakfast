@@ -11,11 +11,15 @@ import com.breakfast.domain.tables.records.TSendCouponRecord;
 import com.breakfast.service.CouponService;
 import com.breakfast.service.SendCouponService;
 import com.core.utils.IUUIDGenerator;
+import org.joda.time.DateTime;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -49,12 +53,16 @@ public class CouponServiceImpl implements CouponService {
         coupon.setSendCouponId(sendCouponId);
         coupon.setPrice(redPaperPrice);
         coupon.setUserId(userId);
+        coupon.setCreateTime(DateTime.now());
+        coupon.setEndTime(DateTime.now().plusDays(IConstants.RED_PAPER_EFFECT_DATE));
+        coupon.setStartTime(DateTime.now());
         coupon.setSource(sendCoupon.getSource());
+        coupon.setStatus(IConstants.ENABLE);
         TCouponRecord tCouponRecord = creator.newRecord(Tables.Coupon, coupon);
         creator.executeInsert(tCouponRecord);
 
         int leftNum = sendCoupon.getNum() - 1;
-        BigDecimal leftMoney = sendCoupon.getPrice().min(redPaperPrice);
+        BigDecimal leftMoney = sendCoupon.getPrice().subtract(redPaperPrice);
         sendCoupon.setNum(leftNum);
         sendCoupon.setPrice(leftMoney);
         if(leftNum <= 0 || leftMoney.compareTo(BigDecimal.ZERO)<=0){
