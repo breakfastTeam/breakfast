@@ -51,7 +51,7 @@ ctrls
         },3000)
     });
 }])
-.controller('activityCtrl',function($scope,$rootScope, Session, $state, RedPaper,User, $stateParams, AUTH_EVENTS){
+.controller('activityCtrl',function($scope,$rootScope, Session, $state, RedPaper,User,$modal, $stateParams, AUTH_EVENTS){
     $scope.disableBtn=true;
     $scope.takeRedPaperBtn=true;
     $scope.$watch('$viewContentLoaded', function() {
@@ -63,11 +63,19 @@ ctrls
         checkRedPaperPromise.then(function(data){
             if(!data.body){
                 if(Session.userId){
-                    $scope.activityInfoText = "红包已被抢完，下次要火速疯抢";
+                    $scope.activityInfoText = "红包已被抢完，下次要火速疯抢！";
                     $scope.backBtn=true;
                     $scope.takeRedPaperBtn=false;
                 }else{
-                    $scope.activityInfoText = "输入您的红包账号，下次火速疯抢";
+                    $scope.activityInfoText = "红包已经被抢完，下次记得火速围观！";
+                }
+            }else{
+                if(Session.userId){
+                    $scope.activityInfoText = "抢红包就应该眼疾手快，赶快抢呀！";
+                    $scope.backBtn=false;
+                    $scope.takeRedPaperBtn=true;
+                }else{
+                    $scope.activityInfoText = "输入您的信息，赶快抢呀！";
                 }
             }
         });
@@ -114,6 +122,17 @@ ctrls
         $scope.$on('back', function() {
             $state.go('userInfo');
         });
+        $scope.openAboutUs=function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'aboutUs.html'
+            });
+        };
+        $scope.openHowToShare=function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'howToShare.html'
+            });
+        };
+
     $scope.saveRedPaper=function(){
         $scope.disableBtn=true;
         if(Session.userId){//如果用户当前为登录状态

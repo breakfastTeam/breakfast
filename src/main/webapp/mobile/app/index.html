@@ -8,11 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>豆点，让生活更便捷</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1。0">
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-store" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
 
   <link rel="stylesheet" href="components/resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="components/resources/css/font-awesome.min.css">
@@ -33,7 +30,7 @@
       </div>
       <div class="col-xs-4">
         <p class="text-right">
-          <a href="#" ng-show="nav.registerShow" ui-sref="register">注册</a>
+          <a href="#" ng-show="nav.registerShow" ui-sref="register" style="color: #fff;">注册</a>
           <button ng-show="nav.edit" class="btn btn-xs btn-info" ng-click="edit()">编辑</button>
           <a ui-sref="addToOrder({from:'main'})" ng-show="nav.shop"><i class="fa fa-shopping-cart" style="font-size: 1.5em;color:#FFF;"></i> <span class="badge shopCartBubble">{{nav.shopCount}}</span></a>
         </p>
