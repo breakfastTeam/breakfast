@@ -549,6 +549,7 @@ ctrls
             $window.alert('订单已生成!');
             $scope.showResult=true;
             ShoppingCart.destroy();
+            $scope.nav.shopCount=0;
             $window.sessionStorage.removeItem("shoppingCart");
         })
     };
