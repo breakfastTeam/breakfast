@@ -317,7 +317,7 @@ services
         return this;
     })
 
-    .service('ShoppingCart', function ($window, Session) {
+    .service('ShoppingCart', function ($window, Session , _) {
         this.orderDetails = [];
         this.userId = '';
         this.create = function (orderDetails, userId) {
@@ -333,6 +333,17 @@ services
             var shoppingCart = this || this.create([], Session.userId || '');
             shoppingCart.orderDetails.push(orderDetail);
             $window.sessionStorage["shoppingCart"] = JSON.stringify(shoppingCart);
+        }
+        this.count = function(){
+            var orderDetails=this.orderDetails,length=orderDetails.length,od={},temp=[],count=0;
+            for(var i= 0;i<length;i++) {
+                od=orderDetails[i];
+                if(!_.contains(temp, od.foodObjId)) {
+                    count++;
+                    temp.push(od.foodObjId);
+                }
+            }
+            return count;
         }
         return this;
     })

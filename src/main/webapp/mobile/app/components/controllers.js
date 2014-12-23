@@ -18,7 +18,8 @@ ctrls
             title : '豆点吧',
             registerShow : false,
             bottomShow : true,
-            shop:true
+            shop:true,
+            shopCount:0
         };
         $scope.toLogin=function(){
             if(Session.userId) {
@@ -369,10 +370,12 @@ ctrls
 
     $scope.toOrder=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
+        $scope.nav.shopCount=ShoppingCart.count();
         $state.go('addToOrder',{from:'SETMEAL',fromId:setMeal.setMealId});
     };
     $scope.addToShop=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
+        $scope.nav.shopCount=ShoppingCart.count();
     };
     $scope.$on('back', function() {
         $state.go('main.setMeals');
@@ -417,10 +420,12 @@ ctrls
 
     $scope.toOrder=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
+        $scope.nav.shopCount=ShoppingCart.count();
         $state.go('addToOrder',{from:'FOOD',fromId:food.foodId});
     };
     $scope.addToShop=function(){
         ShoppingCart.saveOrderDetail($scope.orderDetail);
+        $scope.nav.shopCount=ShoppingCart.count();
     };
     $scope.$on('back', function() {
         $state.go('main.foods');

@@ -35,7 +35,7 @@
         <p class="text-right">
           <a href="#" ng-show="nav.registerShow" ui-sref="register">注册</a>
           <button ng-show="nav.edit" class="btn btn-xs btn-info" ng-click="edit()">编辑</button>
-          <a ui-sref="addToOrder({from:'main'})" ng-show="nav.shop"><i class="fa fa-shopping-cart" style="font-size: 1.5em;color:#FFF;"></i> <span class="badge shopCartBubble">60</span></a>
+          <a ui-sref="addToOrder({from:'main'})" ng-show="nav.shop"><i class="fa fa-shopping-cart" style="font-size: 1.5em;color:#FFF;"></i> <span class="badge shopCartBubble">{{nav.shopCount}}</span></a>
         </p>
       </div>
     </div>
