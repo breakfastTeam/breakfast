@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-xs-12">
-        <div class="thumbnail">
+        <div class="thumbnail" style="padding:0px;">
             <img ng-src="{{setMeal.extMap.oPath||'components/resources/images/setmeal_em_o.jpg'}}" style="height:200px;">
-            <div class="carousel-caption">
+            <div class="carousel-caption" style="left: 1%;right: 1%;">
                 <rating class="pull-left star-color" ng-model="setMeal.grade" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
                 <span class="label pull-left" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}分</span>
-                <span class="pull-right">{{setMeal.privilege}} 元</span>
+                <span class="pull-right" style="margin-right: 20px;">{{setMeal.privilege}} 元</span>
             </div>
         </div>
     </div>
