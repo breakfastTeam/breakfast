@@ -175,6 +175,7 @@ ctrls
     $scope.nav.shop=false;
     $scope.nav.registerShow=true;
     $scope.nav.bottomShow=false;
+    $scope.nav.back=false;
 
     $scope.login=function(){
         var promise=User.login($scope.user);
