@@ -43,14 +43,14 @@
 
   <div class="container-fluid">
     <div ng-show="nav.bottomShow" class="text-center row tab-green navbar-fixed-bottom">
-      <div class="col-xs-4 btn-tab">
-        <a ui-sref="main.setMeals"><span class="glyphicon glyphicon-th"></span></a>
+      <div class="col-xs-4" ui-sref-active="active">
+        <a ui-sref="main.setMeals"><div><span class="glyphicon glyphicon-th"></span></div><div><span style="font-size: 1px;">菜单</span></div></a>
       </div>
-      <div class="col-xs-4 btn-tab">
-        <a ng-click="toExpressMap()"><span class="fa fa-eye"></span></a>
+      <div class="col-xs-4">
+        <a ng-click="toExpressMap()"><div><span class="fa fa-eye"></span></div><div><span style="font-size: 1px;">零距离</span></div></a>
       </div>
-      <div class="col-xs-4 btn-tab border-right0">
-        <a ng-click="toLogin()"><span class="glyphicon glyphicon-user"></span></a>
+      <div class="col-xs-4">
+        <a ng-click="toLogin()"><div><span class="glyphicon glyphicon-user"></span></div><div><span style="font-size: 1px;">个人</span></div></a>
       </div>
     </div>
   </div>

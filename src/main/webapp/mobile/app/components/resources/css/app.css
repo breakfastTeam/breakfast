@@ -53,7 +53,7 @@ html,body{
     line-height: 50px;
     color:#FFF;
 }
-.active h5{
+.active h5,.active span{
     color:#449d44;
     background-color: #FFF;
 }
