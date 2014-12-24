@@ -8,6 +8,9 @@
             <div class="row text-center">
                 <p class="text-danger"><h4 style="color: #ffff00" ng-bind="activityInfoText"></h4></p>
             </div>
+            <div class="row text-center" ng-show="showRegisterTip">
+                <p class="text-danger"><h5 style="color: #ffff00">现在注册还可以领取系统红包，赶快加入我们吧</h5></p>
+            </div>
             <div class="row text-center">
                 <p class="text-danger"><h4 style="color: #ffff00" ng-bind="loginText"></h4></p>
             </div>
@@ -22,17 +25,20 @@
                 </div>
             </div>
                 <div class="row text-center" style="margin-top:20px;">
-                    <p class="text-danger"><a style="color: #ffff00" ng-click="openAboutUs()">关于我们</a></p>
+                    <p class="text-danger"><a style="color:blue" ng-click="openAboutUs()">关于我们</a></p>
                 </div>
             <div class="row mgb20">
-                <div class="col-xs-6" ng-show="takeRedPaperBtn">
-                    <button type="submit" class="btn-lg {{btnColor}} btn-block" ng-disabled="disableBtn">领取红包</button>
+                <div class="col-xs-6" ng-show="showTakeRedPaperBtn">
+                    <button type="submit" class="btn-lg {{btnColor}} btn-block" ng-disabled="disableTakePaperBtn">领取红包</button>
+                </div>
+                <div class="col-xs-6" ng-show="showRegistBtn">
+                    <button type="button" class="btn-lg btn-danger btn-block"  ng-click="register()">现在注册</button>
+                </div>
+                <div class="col-xs-6" ng-show="showBackBtn">
+                    <button type="submit" class="btn-lg {{btnColor}} btn-block" ng-click="goNow()">进入商城</button>
                 </div>
                 <div class="col-xs-6">
                     <button type="submit" class="btn-lg btn-warning btn-block" ng-click="openHowToShare()">立即分享</button>
-                </div>
-                <div class="col-xs-10 col-xs-offset-1" ng-show="backBtn">
-                    <button class="btn-lg btn-danger btn-block" ng-click="back()">返回</button>
                 </div>
             </div>
         </div>
@@ -44,21 +50,16 @@
             <tr>
                 <td valign="top" style="width:30%;padding-top: 10px;">活动规则：</td>
                 <td style="width:30%;padding-top: 10px;">
-                    亲！领红包后，即可进入商城选购您喜欢吃的美餐了。在您提交订单支付时可选择红包抵消部分金额，注意每次抢到的红包只有一个月的有效期~
+                    亲！领红包后，即可在豆点商城（<a style="color: blue" ui-href="javascript:void(0)" ng-click="goNow()">现在进入</a>）选购您喜欢吃的美餐了。在您提交订单支付时可选择红包抵消支付金额，注意每次抢到的红包只有一个月的有效期哦~
+                    独乐乐不如众乐乐，赶紧分享给您的好友吧~
                 </td>
             </tr>
             <tr>
-                <td valign="top" style="width:30%;padding-top: 10px;">分享理由：</td>
+                <td valign="top" style="width:30%;padding-top: 10px;">领取规则：</td>
                 <td style="width:30%;padding-top: 10px;">
-                    1、提供健康、味美、便捷的工作餐外卖；</br>
-                    2、变态的卫生标准，可参考官网：www.xiaohuangdou.cn；</br>
-                    3、极致的就餐服务，不信可以关注公众号“ddcb”试试；</br>
-                    4、每天将所用食材公布于互联网；</br>
-                    5、每一个订单都可实时追踪位置；</br>
-                    6、独乐了不如众乐乐，红包里还有银子赶紧分享给您的好友吧。
+                    如果您还没有加入我们的大家庭（<a style="color: blue" ui-href="javascript:void(0)" ng-click="register()">现在注册</a>）可以获取系统大红包，如果您已经是我们的家人输入账号就可以领取啦~
                 </td>
             </tr>
-
         </table>
     </form>
 </div>
@@ -69,9 +70,9 @@
             <h3 class="modal-title">关于我们</h3>
         </div>
         <div class="modal-body">
-            <div class="radio" ng-repeat="coupon in items">
+            <div class="radio">
                 <label>
-                    关于我们，关于我们
+                    豆点餐吧是专门针对白领用户而设计的订餐平台，全部食品由豆点餐吧自主管控，每个环节都经过反复检验，目的就是为客户提供优质的服务和卫生，美味，便捷的工作餐。
                 </label>
             </div>
         </div>

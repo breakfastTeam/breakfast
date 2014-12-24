@@ -61,21 +61,24 @@ ctrls
         var checkRedPaperData={sendCouponId:$stateParams.sendCouponId};
         var checkRedPaperPromise = RedPaper.checkRedPaper(checkRedPaperData)
         checkRedPaperPromise.then(function(data){
-            if(!data.body){
+            if(!data.body){//红包已经被抢完
+                $scope.showTakeRedPaperBtn=false;
                 if(Session.userId){
-                    $scope.activityInfoText = "红包已被抢完，下次要火速疯抢！";
-                    $scope.backBtn=true;
-                    $scope.takeRedPaperBtn=false;
+                    $scope.activityInfoText = "红包已被抢完，下次要火速疯抢哦！";
+                    $scope.showPhoneRow = false;
+                    $scope.showBackBtn = true;
                 }else{
-                    $scope.activityInfoText = "红包已经被抢完，下次记得火速围观！";
+                    $scope.activityInfoText = "红包被抢完啦，下次记得火速围观哦！";
+                    $scope.showRegistBtn = true;
+                    $scope.showRegisterTip = true;
                 }
-            }else{
+            }else{//红包尚未被抢完
+                $scope.showTakeRedPaperBtn=true;
                 if(Session.userId){
                     $scope.activityInfoText = "抢红包就应该眼疾手快，赶快抢呀！";
-                    $scope.backBtn=false;
-                    $scope.takeRedPaperBtn=true;
                 }else{
                     $scope.activityInfoText = "输入您的信息，赶快抢呀！";
+                    $scope.showPhoneRow = true;
                 }
             }
         });
@@ -84,10 +87,8 @@ ctrls
             $scope.btnColor = "btn-danger";
             $scope.disableBtn=false;
         }else{
-            $scope.showPhoneRow = true;
             var phone = /^1[34578]\d{9}$/;//校验手机号的正则表达式
             $scope.$watch('user.loginName', function(newValue) {
-
                 if(phone.test(newValue)){
                     var user = $scope.user;
                     if(user){
@@ -119,9 +120,14 @@ ctrls
             });
         }
     });
-        $scope.$on('back', function() {
-            $state.go('userInfo');
-        });
+
+        $scope.register = function(){
+            $state.go('register');
+        }
+        $scope.goNow = function() {
+            $state.go('main.setMeals');
+        };
+
         $scope.openAboutUs=function(){
             var modalInstance = $modal.open({
                 templateUrl: 'aboutUs.html'

@@ -9,7 +9,7 @@
                 <span class="label label-success" ng-if="setMeal.status=='PUTAWAY'&&setMeal.foodCount>=1">接受预定中</span>
                 <span class="label label-default" ng-if="setMeal.status=='SOLDOUT'">暂不能预订</span>
                 <span class="label label-default" ng-if="setMeal.foodCount<1">已经售完了</span>
-                <h4><small>单买总价: <span ng-bind="setMeal.price"></span> 元 套餐价: <span style="color:#398439;" ng-bind="setMeal.privilege"></span> 元</small></h4>
+                <h4><small>原价: <span ng-bind="setMeal.price"></span> 元 优惠价: <span style="color:#398439;" ng-bind="setMeal.privilege"></span> 元</small></h4>
             </div>
         </a>
     </div>
