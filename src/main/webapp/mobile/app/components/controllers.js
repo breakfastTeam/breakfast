@@ -468,7 +468,7 @@ ctrls
         userInfo=promise.body;
     }
     if(userInfo.userId){
-        isLogin=true;
+        $scope.isLogin=true;
         userInfo.userCustomer=userInfo.userCustomer||{};
         $scope.hasCredits=userInfo.userCustomer.credits||0>0;
         $scope.hasCoupons=userInfo.coupons.length>0;
