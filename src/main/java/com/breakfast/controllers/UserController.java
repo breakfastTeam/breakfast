@@ -91,10 +91,10 @@ public class UserController {
         IMsgUtil msgUtil = new IMsgUtil();
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         if (StringUtils.isEmpty(user.getUserId()) && userService.checkMobile(user)) {
-            User ruser=userService.findUser(user);
-            if (ruser != null) {
+            User u=userService.findUser(user);
+            if ( u!= null) {
                 session.setAttribute(IConstants.SEESION_USER_ID, user.getUserId());
-                return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, ruser);
+                return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, u);
             }else{
                 return msgUtil.generateMsg(IConstants.ERROR_CODE, "账号或密码错误", null);
             }

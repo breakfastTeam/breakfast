@@ -279,6 +279,11 @@ services
             var deferred = $q.defer();
             $http.post(ctx + '/mobile/cSaveOrLoginUser', data)
                 .success(function (data) {
+                    var userInfo = data.body;
+                    if (userInfo) {
+                        Session.create(userInfo.userId, userInfo.userId, userInfo);
+                        $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
+                    }
                     deferred.resolve(data);
                 }).error(function (data) {
                     deferred.reject(data);
