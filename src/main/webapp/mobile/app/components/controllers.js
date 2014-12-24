@@ -595,7 +595,7 @@ ctrls
     });
 })
 .controller('userInfoCtrl',['$scope','$state',function($scope, $state) {
-    $scope.nav.title = '零距离';
+    $scope.nav.title = '个人中心';
     $scope.nav.back=false;
     $scope.$watch('$viewContentLoaded', function() {
         $state.go('userInfo.personalCenter')
@@ -615,7 +615,7 @@ ctrls
 }])
 
 .controller('wantToLookCtrl',['$scope','$state',function($scope,$state){
-     $scope.nav.title='想看看';
+     $scope.nav.title='零距离';
      $scope.$watch('$viewContentLoaded', function() {
         $state.go('wantToLook.expressMap')
      });
