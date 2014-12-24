@@ -151,7 +151,7 @@ public class UserServiceImpl implements UserService {
     public boolean checkMobile(User user) {
         TUser u = Tables.User.as("u");
         User result=dsl.selectFrom(u)
-                .where(u.mobile.equal(user.getMobile()).or(u.loginName.equal(user.getMobile())))
+                .where(u.loginName.equal(user.getLoginName()))
                 .and(u.status.equal(IConstants.ENABLE))
                 .fetchAnyInto(User.class);
         return result!=null;
