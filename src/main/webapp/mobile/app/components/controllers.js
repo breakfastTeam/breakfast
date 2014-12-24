@@ -522,7 +522,7 @@ ctrls
         orderPrice:total,
         consigneeMobile:userInfo.mobile||'',
         consigneeName:userInfo.userName||'',
-        consigneeAddress:userInfo.userCustomer.address1||'如:财富广场3号楼302室',
+        consigneeAddress:userInfo.userCustomer.address1,
         orderType:'online',
         preSendDateStr:new Date(),
         preSendTime:'08:00-08:30'
