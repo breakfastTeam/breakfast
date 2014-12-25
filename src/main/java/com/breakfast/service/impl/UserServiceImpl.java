@@ -12,7 +12,9 @@ import com.breakfast.domain.tables.pojos.User;
 import com.breakfast.domain.tables.pojos.UserCustomer;
 import com.breakfast.domain.tables.records.TUserCustomerRecord;
 import com.breakfast.domain.tables.records.TUserRecord;
+import com.breakfast.service.CouponService;
 import com.breakfast.service.OrderService;
+import com.breakfast.service.SendCouponService;
 import com.breakfast.service.UserService;
 import com.core.utils.IUUIDGenerator;
 import org.apache.commons.lang3.StringUtils;
@@ -23,6 +25,7 @@ import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +41,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private CouponService couponService;
 
     @Override
     public User findUser(User user) {
@@ -66,9 +71,20 @@ public class UserServiceImpl implements UserService {
                 userCustomer = new UserCustomer();
             }
             userCustomer.setUserId(userId);
+            userCustomer.setCredits(IConstants.DEFAULT_USER_CREDITS);//用户注册默认送积分
             TUserCustomerRecord recordCustomer = dsl.newRecord(Tables.UserCustomer, userCustomer);
             recordCustomer.store();
             count += dsl.executeInsert(recordCustomer);
+            //现在注册系统就送2元红包
+            Coupon coupon = new Coupon();
+            coupon.setCouponId(IUUIDGenerator.getUUID());
+            coupon.setStatus(IConstants.ENABLE);
+            coupon.setStartTime(DateTime.now());
+            coupon.setEndTime(DateTime.now().plusDays(IConstants.RED_PAPER_EFFECT_DATE));
+            coupon.setPrice(BigDecimal.valueOf(IConstants.DEFAULT_USER_COUPON));
+            coupon.setUserId(userId);
+            couponService.saveCoupon(coupon);
+
             return count;
         }else{
             TUser u = Tables.User.as("u");

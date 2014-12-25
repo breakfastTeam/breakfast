@@ -22,6 +22,13 @@ public interface CouponService {
      */
     void updateCoupon(Coupon coupon);
     /**
+     * 更新红包状态
+     * @param coupon
+     * @return
+     */
+    void saveCoupon(Coupon coupon);
+
+    /**
      * 根据红包主键获取红包
      * @param couponId
      * @return

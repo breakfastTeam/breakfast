@@ -41,6 +41,7 @@ public class SendCouponServiceImpl implements SendCouponService {
                                 .and(coupon.userId.eq(userId))
                                 .fetch(coupon.sendCouponId)
                 ))
+                .and(sendCoupon.source.eq(userId))
                 .orderBy(sendCoupon.createTime)
                 .fetchAnyInto(SendCoupon.class);
         return sc;

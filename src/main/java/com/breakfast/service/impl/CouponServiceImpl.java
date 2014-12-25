@@ -78,7 +78,11 @@ public class CouponServiceImpl implements CouponService {
         TCouponRecord couponRecord = creator.newRecord(Tables.Coupon, coupon);
         creator.executeUpdate(couponRecord);
     }
-
+    @Override
+    public void saveCoupon(Coupon coupon) {
+        TCouponRecord couponRecord = creator.newRecord(Tables.Coupon, coupon);
+        creator.executeInsert(couponRecord);
+    }
     @Override
     public Coupon getCoupon(String couponId) {
         TCoupon coupon = Tables.Coupon.as("s");
