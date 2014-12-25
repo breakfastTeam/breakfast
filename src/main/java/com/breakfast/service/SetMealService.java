@@ -17,7 +17,7 @@ public interface SetMealService {
      * @return
      */
     public Page<SetMeal> query(Page<SetMeal> page);
-    public void update(TSetMealRecord setMeal);
+    public void update(SetMeal setMeal);
     public SetMeal getSetMeal(String setMealId);
 
 }

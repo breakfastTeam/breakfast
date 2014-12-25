@@ -5,6 +5,7 @@ import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TFood;
 import com.breakfast.domain.tables.pojos.Food;
 import com.breakfast.domain.tables.pojos.SetMeal;
+import com.breakfast.domain.tables.records.TFoodRecord;
 import com.breakfast.service.FileService;
 import com.breakfast.service.FoodService;
 import com.core.page.Page;
@@ -59,6 +60,15 @@ public class FoodServiceImpl implements FoodService {
         Food record = creator.selectFrom(food).where(food.foodId.endsWith(foodId)).fetchOneInto(Food.class);
         addFilePath(record);
         return record;
+    }
+
+    @Override
+    public int update(Food food) {
+        TFood f = Tables.Food.as("food");
+        TFoodRecord record = creator.fetchOne(f, f.foodId.equal(food.getFoodId()));
+        record.setFoodCount(food.getFoodCount());
+        record.setRealFoodCount(food.getRealFoodCount());
+        return record.store();
     }
 
 

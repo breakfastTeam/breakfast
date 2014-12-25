@@ -5,14 +5,11 @@ import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TExpress;
 import com.breakfast.domain.tables.TOrder;
 import com.breakfast.domain.tables.TOrderDetail;
-import com.breakfast.domain.tables.pojos.Coupon;
-import com.breakfast.domain.tables.pojos.Express;
+import com.breakfast.domain.tables.pojos.*;
 import com.alipay.util.UtilDate;
 import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TOrder;
 import com.breakfast.domain.tables.TOrderDetail;
-import com.breakfast.domain.tables.pojos.Order;
-import com.breakfast.domain.tables.pojos.OrderDetail;
 import com.breakfast.domain.tables.records.TOrderDetailRecord;
 import com.breakfast.domain.tables.records.TOrderRecord;
 import com.breakfast.service.CouponService;
@@ -81,6 +78,18 @@ public class OrderServiceImpl implements OrderService {
             TOrderDetailRecord record = creator.newRecord(Tables.OrderDetail, orderDetail);
             record.store();
             count += creator.executeInsert(record);
+
+            if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_SETMEAL)) {
+                SetMeal setMeal = setMealService.getSetMeal(orderDetail.getFoodObjId());
+                setMeal.setFoodCount(setMeal.getFoodCount()-1);
+                setMeal.setRealFoodCount(setMeal.getRealFoodCount() - 1);
+                setMealService.update(setMeal);
+            }else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
+                Food food = foodService.getFood(orderDetail.getFoodObjId());
+                food.setFoodCount(food.getFoodCount()-1);
+                food.setRealFoodCount(food.getRealFoodCount() - 1);
+                foodService.update(food);
+            }
         }
         Coupon coupon =  couponService.getCoupon(order.getUsedCoupons());
         coupon.setStatus(IConstants.DISCARD);

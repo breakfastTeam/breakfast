@@ -77,8 +77,12 @@ public class SetMealServiceImpl implements SetMealService {
     }
 
     @Override
-    public void update(TSetMealRecord setMeal) {
-
+    public void update(SetMeal setMeal) {
+        TSetMeal set = Tables.SetMeal.as("meal");
+        TSetMealRecord record = creator.fetchOne(set, set.setMealId.equal(setMeal.getSetMealId()));
+        record.setFoodCount(setMeal.getFoodCount());
+        record.setRealFoodCount(setMeal.getRealFoodCount());
+        record.store();
     }
 
     @Override

@@ -23,4 +23,7 @@ public interface FoodService {
      */
     Food getFood(String foodId);
 
+
+    public int update(Food food);
+
 }
