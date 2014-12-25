@@ -15,4 +15,18 @@ public interface CouponService {
      */
     Coupon generateCoupon(String sendCouponId, String userId);
 
+    /**
+     * 更新红包状态
+     * @param coupon
+     * @return
+     */
+    void updateCoupon(Coupon coupon);
+    /**
+     * 根据红包主键获取红包
+     * @param couponId
+     * @return
+     * */
+    Coupon getCoupon(String couponId);
+
+
 }

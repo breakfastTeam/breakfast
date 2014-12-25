@@ -5,6 +5,7 @@ import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TExpress;
 import com.breakfast.domain.tables.TOrder;
 import com.breakfast.domain.tables.TOrderDetail;
+import com.breakfast.domain.tables.pojos.Coupon;
 import com.breakfast.domain.tables.pojos.Express;
 import com.alipay.util.UtilDate;
 import com.breakfast.domain.Tables;
@@ -14,6 +15,7 @@ import com.breakfast.domain.tables.pojos.Order;
 import com.breakfast.domain.tables.pojos.OrderDetail;
 import com.breakfast.domain.tables.records.TOrderDetailRecord;
 import com.breakfast.domain.tables.records.TOrderRecord;
+import com.breakfast.service.CouponService;
 import com.breakfast.service.FoodService;
 import com.breakfast.service.OrderService;
 import com.breakfast.service.SetMealService;
@@ -37,6 +39,8 @@ public class OrderServiceImpl implements OrderService {
     SetMealService setMealService;
     @Autowired
     FoodService foodService;
+    @Autowired
+    CouponService couponService;
 
     @Override
     public String saveOrderDetail(OrderDetail orderDetail) {
@@ -78,6 +82,9 @@ public class OrderServiceImpl implements OrderService {
             record.store();
             count += creator.executeInsert(record);
         }
+        Coupon coupon =  couponService.getCoupon(order.getUsedCoupons());
+        coupon.setStatus(IConstants.DISCARD);
+        couponService.updateCoupon(coupon);
         return orderId;
     }
 

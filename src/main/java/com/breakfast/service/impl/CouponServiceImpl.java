@@ -72,4 +72,20 @@ public class CouponServiceImpl implements CouponService {
         creator.executeUpdate(tSendCouponRecord);
         return coupon;
     }
+
+    @Override
+    public void updateCoupon(Coupon coupon) {
+        TCouponRecord couponRecord = creator.newRecord(Tables.Coupon, coupon);
+        creator.executeUpdate(couponRecord);
+    }
+
+    @Override
+    public Coupon getCoupon(String couponId) {
+        TCoupon coupon = Tables.Coupon.as("s");
+        Coupon c = creator.select()
+                .from(coupon)
+                .where(coupon.couponId.equal(couponId))
+                .fetchOneInto(Coupon.class);
+        return c;
+    }
 }
