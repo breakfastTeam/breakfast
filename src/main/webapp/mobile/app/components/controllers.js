@@ -516,7 +516,7 @@ ctrls
     $scope.order={
         customerId:Session.userId||'',
         exccreaditCount:userInfo.userCustomer.credits,
-        usedCoupons:0,
+        usedCoupons:'',
         status:'DRAFT',
         orderDetails:$scope.orderDetails,
         orderPrice:total,

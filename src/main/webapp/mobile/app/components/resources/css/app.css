@@ -159,3 +159,7 @@ span.nav-icon{
     color: #fff;
     text-align: left;
 }
+
+.require{
+    color:red;
+}

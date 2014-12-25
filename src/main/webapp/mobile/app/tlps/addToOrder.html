@@ -1,4 +1,4 @@
-<form class="form" role="form" ng-submit="toOrder()">
+<form class="form" role="form" name="orderForm" ng-submit="toOrder(orderForm.$valid)" novalidate>
 <input name="status" type="hidden" name="order.status" ng-model="order.status"/>
 <table class="table table-bordered-bottom table-striped table-hover">
     <thead>
@@ -50,16 +50,16 @@
 <div class="clearfix"></div>
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
-        <td class="col-xs-4">手机：</td>
-        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeMobile" required="true"/></td>
+        <td class="col-xs-4"><span class="require">*</span>手机：</td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" name="order.consigneeMobile" ng-model="order.consigneeMobile" required/></td>
     </tr>
     <tr>
-        <td class="col-xs-4">姓名：</td>
-        <td class="col-xs-10 text-center"><input type="text" class="form-control" ng-model="order.consigneeName" required="true"/></td>
+        <td class="col-xs-4"><span class="require">*</span>姓名：</td>
+        <td class="col-xs-10 text-center"><input type="text" class="form-control" name="order.consigneeName" ng-model="order.consigneeName" required/></td>
     </tr>
     <tr>
-        <td class="col-xs-4">地址：</td>
-        <td class="col-xs-10 text-center"><input type="text" placeholder="如:财富广场3号楼302室" class="form-control" ng-model="order.consigneeAddress" required="true"/></td>
+        <td class="col-xs-4"><span class="require">*</span>地址：</td>
+        <td class="col-xs-10 text-center"><input type="text" placeholder="如:财富广场3号楼302室" class="form-control" name="order.consigneeAddress" ng-model="order.consigneeAddress" required/></td>
     </tr>
     <tr>
         <td class="col-xs-4">支付方式：</td>
@@ -71,7 +71,7 @@
         </td>
     </tr>
     <tr>
-        <td class="col-xs-4">送达日期：</td>
+        <td class="col-xs-4"><span class="require">*</span>送达日期：</td>
         <td class="col-xs-10 text-center">
             <input type="date" class="form-control" ng-model="order.preSendDateStr"/>
         </td>
@@ -97,7 +97,7 @@
 
 <div class="row text-center mgb20">
     <div class="col-xs-10 col-xs-offset-1">
-        <button type="submit" class="btn btn-success btn-block">提交订单</button>
+        <button type="submit" class="btn btn-success btn-block" ng-disabled="orderForm.$invalid">提交订单</button>
     </div>
 </div>
 </form>

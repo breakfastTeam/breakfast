@@ -14,6 +14,7 @@ import com.breakfast.domain.tables.records.TOrderDetailRecord;
 import com.breakfast.domain.tables.records.TOrderRecord;
 import com.breakfast.service.*;
 import com.core.utils.IUUIDGenerator;
+import org.apache.commons.lang3.StringUtils;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -92,19 +93,24 @@ public class OrderServiceImpl implements OrderService {
                 foodService.update(food);
             }
         }
-        //将使用的红包置为不可用状态
-        Coupon coupon =  couponService.getCoupon(order.getUsedCoupons());
-        coupon.setStatus(IConstants.DISCARD);
-        couponService.updateCoupon(coupon);
+        if (StringUtils.isNotBlank(order.getUsedCoupons())) {
+            //将使用的红包置为不可用状态
+            Coupon coupon =  couponService.getCoupon(order.getUsedCoupons());
+            coupon.setStatus(IConstants.DISCARD);
+            couponService.updateCoupon(coupon);
+        }
 
-        //收货人姓名、手机号、地址默认存储为会员的姓名、手机号和地址
-        User user = userService.loadUser(order.getCustomerId());
-        user.setMobile(order.getConsigneeMobile());
-        user.setUserName(order.getConsigneeName());
-        UserCustomer userCustomer = user.getUserCustomer();
-        userCustomer.setAddress1(order.getConsigneeAddress());
-        user.setUserCustomer(userCustomer);
-        userService.saveUser(user);
+        if(StringUtils.isNotBlank(order.getCustomerId())){
+            //收货人姓名、手机号、地址默认存储为会员的姓名、手机号和地址
+            User user = userService.loadUser(order.getCustomerId());
+            user.setMobile(order.getConsigneeMobile());
+            user.setUserName(order.getConsigneeName());
+            UserCustomer userCustomer = user.getUserCustomer();
+            userCustomer.setAddress1(order.getConsigneeAddress());
+            user.setUserCustomer(userCustomer);
+            userService.saveUser(user);
+        }
+
         return orderId;
     }
 
