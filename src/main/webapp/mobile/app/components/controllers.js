@@ -527,7 +527,13 @@ ctrls
         preSendDateStr:new Date(),
         preSendTime:'08:00-08:30'
     };
-
+    $scope.removeOrderDetail=function(index){
+        orderDetails.splice(index,1);
+        ShoppingCart.destroy();
+        ShoppingCart.orderDetails=orderDetails;
+        var shoppingCart=ShoppingCart.create(orderDetails, Session.userId);
+        $window.sessionStorage["shoppingCart"] = JSON.stringify(shoppingCart);
+    }
     $scope.toOrder=function(){
         if($scope.alterLimit&&total<ORDER_LIMIT){
             $scope.alert.type = 'danger';

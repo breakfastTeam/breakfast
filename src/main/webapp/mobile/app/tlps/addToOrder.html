@@ -6,16 +6,18 @@
         <td>餐品</td>
         <td>数量</td>
         <td>小计</td>
+        <td></td>
     </tr>
     </thead>
     <tr ng-repeat="orderDetail in orderDetails track by orderDetail.foodObjId">
-        <td class="col-xs-6 text-left"><span class="text-info" ng-bind="orderDetail.foodObjName"></span></td>
+        <td class="col-xs-5 text-left"><span class="text-info" ng-bind="orderDetail.foodObjName"></span></td>
         <td class="col-xs-3 text-left"><i class="fa fa-times"></i> <span ng-bind="orderDetail.foodObjCount"></span></td>
         <td class="col-xs-3 text-left"><i class="fa fa-jpy"></i> <span ng-bind="orderDetail.foodObjTotalPrice"></span></td>
+        <td class="col-xs-1 text-left" ng-click="removeOrderDetail($index)"><i class="fa fa-minus-square require"></i> </td>
     </tr>
     <tr>
         <td>总价：</td>
-        <td colspan=2 class="text-center"><span ng-bind="order.orderPrice"></span></td>
+        <td colspan=3 class="text-center"><span ng-bind="order.orderPrice"></span></td>
     </tr>
 </table>
 <alert type="{{alert.type}}" ng-show="alert.show">{{alert.msg}}</alert>
@@ -51,7 +53,7 @@
 <table class="table table-bordered-bottom table-striped table-hover">
     <tr>
         <td class="col-xs-4"><span class="require">*</span>手机：</td>
-        <td class="col-xs-10 text-center"><input type="text" class="form-control" name="order.consigneeMobile" ng-model="order.consigneeMobile" required/></td>
+        <td class="col-xs-10 text-center"><input type="tel" class="form-control" name="order.consigneeMobile" ng-model="order.consigneeMobile" required/></td>
     </tr>
     <tr>
         <td class="col-xs-4"><span class="require">*</span>姓名：</td>
