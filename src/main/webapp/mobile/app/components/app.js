@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app=angular.module('bfApp', ['ui.router','ui.bootstrap','bfControllers','bfServices','bfDirectives','ui.map']);
+var app=angular.module('bfApp', ['ui.router','ui.bootstrap','ngAnimate','bfControllers','bfServices','bfDirectives','ui.map']);
 
 app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
     //$locationProvider.html5Mode(true);
