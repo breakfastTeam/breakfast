@@ -17,8 +17,8 @@
     opacity: 0;
 }
 .slide, .slide.ng-enter.ng-enter-active {
-    -webkit-transform: scaleX(1);
-    -o-transform: scaleX(1);
-    transform: scaleX(1);
+    /*-webkit-transform: scaleX(1);*/
+    /*-o-transform: scaleX(1);*/
+    /*transform: scaleX(1);*/
     opacity: 1;
 }

@@ -1,13 +1,11 @@
 package com.breakfast.controllers;
 
 import com.breakfast.constants.IConstants;
-import com.breakfast.domain.tables.pojos.Express;
-import com.breakfast.domain.tables.pojos.Food;
-import com.breakfast.domain.tables.pojos.Order;
-import com.breakfast.domain.tables.pojos.OrderDetail;
+import com.breakfast.domain.tables.pojos.*;
 import com.breakfast.provider.FastJson;
 import com.breakfast.service.FoodService;
 import com.breakfast.service.OrderService;
+import com.breakfast.service.SetMealService;
 import com.core.page.Page;
 import com.core.utils.IMsgUtil;
 import freemarker.template.utility.StringUtil;
@@ -22,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +33,10 @@ import java.util.Map;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private SetMealService setMealService;
+    @Autowired
+    private FoodService foodService;
 
     /**
      * 获取订单列表
@@ -48,9 +52,63 @@ public class OrderController {
         if (StringUtils.isNotBlank(order.getPreSendDateStr())) {
             order.setPreSendDate(DateTime.parse(order.getPreSendDateStr().substring(0,10), DateTimeFormat.forPattern("yyyy-MM-dd")));
         }
+        Map result = handleOrder(order, msgUtil);
+        if (result != null) {
+            return result;
+        }
         String id = orderService.saveOrderWithDetail(order);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, id);
     }
+
+    private Map handleOrder(Order order,IMsgUtil msgUtil) {
+        List<OrderDetail> orderDetails = order.getOrderDetails();
+        int length = orderDetails.size();
+        Map result = null;
+        boolean error=false;
+        String names = "";
+        List<SetMeal> setMeals = new ArrayList<SetMeal>();
+        List<Food> foods = new ArrayList<Food>();
+        for (int i = 0; i < length; i++) {
+            OrderDetail orderDetail = orderDetails.get(i);
+            int orderFoodCount = orderDetail.getFoodObjCount();
+
+            if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_SETMEAL)) {
+                SetMeal setMeal = setMealService.getSetMeal(orderDetail.getFoodObjId());
+                if (setMeal.getFoodCount() < orderFoodCount) {
+                    error = true;
+                    names += setMeal.getSetName()+"、";
+                    break;
+                } else {
+                    setMeal.setFoodCount(setMeal.getFoodCount() - orderFoodCount);
+                    setMeal.setRealFoodCount(setMeal.getRealFoodCount() - orderFoodCount);
+                    setMeals.add(setMeal);
+                }
+            } else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
+                Food food = foodService.getFood(orderDetail.getFoodObjId());
+                if (food.getFoodCount() < orderFoodCount) {
+                    error = true;
+                    names += food.getFoodName()+"、";
+                    break;
+                } else {
+                    food.setFoodCount(food.getFoodCount() - orderFoodCount);
+                    food.setRealFoodCount(food.getRealFoodCount() - orderFoodCount);
+                    foods.add(food);
+                }
+            }
+        }
+        if (error) {
+            result = msgUtil.generateMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR, names + "库存不足");
+        } else {
+            for (SetMeal setMeal : setMeals) {
+                setMealService.update(setMeal);
+            }
+            for (Food food : foods) {
+                foodService.update(food);
+            }
+        }
+        return result;
+    }
+
     /**
      * 获取指定用户订单位置信息
      * @author Felix

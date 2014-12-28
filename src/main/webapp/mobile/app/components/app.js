@@ -219,12 +219,15 @@ app.run([
         if ($window.sessionStorage["shoppingCart"]) {
             var shoppingCart = JSON.parse($window.sessionStorage["shoppingCart"]);
             ShoppingCart.create(shoppingCart.orderDetails, Session.userId);
+            $rootScope.config={shopCount:ShoppingCart.count()};
+            //console.log($rootScope.config);
+            $rootScope.$broadcast('updateShopCount','');
         }
         $rootScope.$on('$locationChangeStart', function(event, next){
             if(next.state!='login'&&!User.isAuthenticated()) {
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
                 //$state.go('login');
-                console.log("未登录");
+                //console.log("未登录");
             }
         });
     }

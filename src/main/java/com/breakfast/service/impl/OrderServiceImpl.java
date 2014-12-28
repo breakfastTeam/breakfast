@@ -80,18 +80,6 @@ public class OrderServiceImpl implements OrderService {
             TOrderDetailRecord record = creator.newRecord(Tables.OrderDetail, orderDetail);
             record.store();
             count += creator.executeInsert(record);
-
-            if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_SETMEAL)) {
-                SetMeal setMeal = setMealService.getSetMeal(orderDetail.getFoodObjId());
-                setMeal.setFoodCount(setMeal.getFoodCount()-1);
-                setMeal.setRealFoodCount(setMeal.getRealFoodCount() - 1);
-                setMealService.update(setMeal);
-            }else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
-                Food food = foodService.getFood(orderDetail.getFoodObjId());
-                food.setFoodCount(food.getFoodCount()-1);
-                food.setRealFoodCount(food.getRealFoodCount() - 1);
-                foodService.update(food);
-            }
         }
         if (StringUtils.isNotBlank(order.getUsedCoupons())) {
             //将使用的红包置为不可用状态
@@ -107,6 +95,9 @@ public class OrderServiceImpl implements OrderService {
             user.setUserName(order.getConsigneeName());
             UserCustomer userCustomer = user.getUserCustomer();
             userCustomer.setAddress1(order.getConsigneeAddress());
+            if (order.getExccreaditCount()!=null && order.getExccreaditCount()>0){
+                userCustomer.setCredits(userCustomer.getCredits()-order.getExccreaditCount());
+            }
             user.setUserCustomer(userCustomer);
             userService.saveUser(user);
         }

@@ -9,9 +9,11 @@ ctrls
 .controller('ApplicationController', [
     '$scope',
     '$state',
+    '$rootScope',
+    '$modal',
     'User',
     'Session',
-    function($scope,$state, User,Session){
+    function($scope,$state,$rootScope,$modal, User,Session){
         $scope.currentUser = null;
         $scope.isAuthorized = User.isAuthorized;
         $scope.nav={
@@ -27,20 +29,37 @@ ctrls
             }else{
                 $state.go('login');
             }
-        }
+        };
         $scope.toExpressMap=function(){
             if(Session.userId) {
                 $state.go('wantToLook.expressMap');
             }else{
                 $state.go('login');
             }
-        }
+        };
         $scope.edit=function(){
             $scope.$broadcast('edit');
-        }
+        };
         $scope.back=function(){
             $scope.$broadcast('back');
-        }
+        };
+        $scope.$on('updateShopCount',function(event){
+            console.log($rootScope.config);
+            event.stopPropagation();
+            $scope.nav.shopCount= $rootScope.config.shopCount;
+        })
+
+        $scope.openAlert = function (message) {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'tlps/modalAlert.html',
+                controller: 'modalAlertInstanceCtrl',
+                size: 'sm',
+                resolve: {
+                    message: function(){return message;}
+                }
+            });
+        };
     }
 ])
 .controller('welcomeCtrl',['$scope','$timeout','$state',function($scope,$timeout,$state){
@@ -533,6 +552,8 @@ ctrls
         ShoppingCart.orderDetails=orderDetails;
         var shoppingCart=ShoppingCart.create(orderDetails, Session.userId);
         $window.sessionStorage["shoppingCart"] = JSON.stringify(shoppingCart);
+        $scope.nav.shopCount=ShoppingCart.count();
+        $scope.order.orderPrice=ShoppingCart.total();
     }
     $scope.toOrder=function(){
         if($scope.alterLimit&&total<ORDER_LIMIT){
@@ -559,11 +580,16 @@ ctrls
         }
 
         Order.toOrder($scope.order).then(function(data){
-            $window.alert('订单已生成!');
-            $scope.showResult=true;
-            ShoppingCart.destroy();
-            $scope.nav.shopCount=0;
-            $window.sessionStorage.removeItem("shoppingCart");
+            if(data.head.rtnCode=='888888') {
+                $scope.openAlert('订单已生成!');
+                $scope.showResult=true;
+                ShoppingCart.destroy();
+                $scope.nav.shopCount=0;
+                $window.sessionStorage.removeItem("shoppingCart");
+            }else{
+                $scope.openAlert(data.body);
+            }
+
         })
     };
     $scope.open = function (size) {
@@ -765,6 +791,13 @@ ctrls
     };
 
     $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+})
+
+.controller('modalAlertInstanceCtrl',function($scope, $modalInstance, message){
+    $scope.message = message;
+    $scope.ok = function () {
         $modalInstance.dismiss('cancel');
     };
 })

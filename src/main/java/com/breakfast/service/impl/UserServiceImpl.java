@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService {
             record.setWeixin(user.getWeixin());
             record.setQq(user.getQq());
 
+            recordCustomer.setCredits(user.getUserCustomer().getCredits());
             recordCustomer.setAddress1(user.getUserCustomer().getAddress1());
             recordCustomer.setAddress2(user.getUserCustomer().getAddress2());
             recordCustomer.setAddress3(user.getUserCustomer().getAddress3());

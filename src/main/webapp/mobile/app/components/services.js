@@ -350,6 +350,13 @@ services
             }
             return count;
         }
+        this.total = function(){
+            var orderDetails=this.orderDetails,length=orderDetails.length,od={},total=0;
+            for(var i= 0;i<length;i++) {
+                total+=orderDetails[i].foodObjTotalPrice;
+            }
+            return total;
+        }
         return this;
     })
     .factory('_', function () {
