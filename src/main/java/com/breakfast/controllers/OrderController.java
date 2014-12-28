@@ -8,6 +8,9 @@ import com.breakfast.service.OrderService;
 import com.breakfast.service.SetMealService;
 import com.core.page.Page;
 import com.core.utils.IMsgUtil;
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import freemarker.template.utility.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -65,9 +68,9 @@ public class OrderController {
         int length = orderDetails.size();
         Map result = null;
         boolean error=false;
-        String names = "";
-        List<SetMeal> setMeals = new ArrayList<SetMeal>();
-        List<Food> foods = new ArrayList<Food>();
+        List<String> names = Lists.newArrayListWithCapacity(length);
+        List<SetMeal> setMeals = Lists.newArrayListWithCapacity(length);
+        List<Food> foods = Lists.newArrayListWithCapacity(length);
         for (int i = 0; i < length; i++) {
             OrderDetail orderDetail = orderDetails.get(i);
             int orderFoodCount = orderDetail.getFoodObjCount();
@@ -76,8 +79,7 @@ public class OrderController {
                 SetMeal setMeal = setMealService.getSetMeal(orderDetail.getFoodObjId());
                 if (setMeal.getFoodCount() < orderFoodCount) {
                     error = true;
-                    names += setMeal.getSetName()+"、";
-                    break;
+                    names.add(setMeal.getSetName());
                 } else {
                     setMeal.setFoodCount(setMeal.getFoodCount() - orderFoodCount);
                     setMeal.setRealFoodCount(setMeal.getRealFoodCount() - orderFoodCount);
@@ -87,8 +89,7 @@ public class OrderController {
                 Food food = foodService.getFood(orderDetail.getFoodObjId());
                 if (food.getFoodCount() < orderFoodCount) {
                     error = true;
-                    names += food.getFoodName()+"、";
-                    break;
+                    names.add(food.getFoodName());
                 } else {
                     food.setFoodCount(food.getFoodCount() - orderFoodCount);
                     food.setRealFoodCount(food.getRealFoodCount() - orderFoodCount);
@@ -97,7 +98,14 @@ public class OrderController {
             }
         }
         if (error) {
-            result = msgUtil.generateMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR, names + "库存不足");
+            Joiner joiner=Joiner.on("、");
+            String message = null;
+            if (names.size() == 1) {
+                message = names.get(0) + "库存不足";
+            }else {
+                message = joiner.join(names) + "，库存不足";
+            }
+            result = msgUtil.generateMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR, message);
         } else {
             for (SetMeal setMeal : setMeals) {
                 setMealService.update(setMeal);
