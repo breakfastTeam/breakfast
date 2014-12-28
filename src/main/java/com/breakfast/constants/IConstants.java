@@ -11,6 +11,7 @@ public class IConstants {
     public static int DEFAULT_PAGE_SIZE = 5;
     public static int MONEY_SCALE=2;//钱精确小数点位数
     public static int RED_PAPER_EFFECT_DATE = 30;//红包有效期为30天
+    public static String ADMIN = "admin";
 
     public static final String RETURN_CODE = "rtnCode";
     public static final String RETURN_MESSAGE = "rtnMsg";
