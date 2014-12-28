@@ -77,6 +77,7 @@ public class UserServiceImpl implements UserService {
             count += dsl.executeInsert(recordCustomer);
             //现在注册系统就送2元红包
             Coupon coupon = new Coupon();
+            coupon.setSource(IConstants.ADMIN);
             coupon.setCouponId(IUUIDGenerator.getUUID());
             coupon.setStatus(IConstants.ENABLE);
             coupon.setStartTime(DateTime.now());
