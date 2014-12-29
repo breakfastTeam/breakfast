@@ -193,7 +193,7 @@ ctrls
 
     }
 })
-.controller('loginCtrl',['$scope','$rootScope','User','RedPaper','Express','$state','$window','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,Express, $state,$window,Session, AUTH_EVENTS){
+.controller('loginCtrl',['$scope','$rootScope','User','RedPaper','Express','$state','$window','$auth','Session','AUTH_EVENTS',function($scope,$rootScope,User,RedPaper,Express, $state,$window,$auth,Session, AUTH_EVENTS){
     $scope.loginError=false;
     $scope.errorText='用户名或密码错误';
     $scope.nav.title='登录';
@@ -227,7 +227,10 @@ ctrls
                 $scope.loginError=true;
             }
         })
-    }
+    };
+    $scope.authenticate = function(provider) {
+        $auth.authenticate(provider);
+    };
     $scope.$on("$destroy", function() {
         $scope.nav.title='豆点吧';
         $scope.nav.registerShow=false;
@@ -476,7 +479,7 @@ ctrls
         $state.go('main.foods');
     });
 })
-.controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,$modal,$stateParams,$state,_){
+.controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,CREDIT_SCALE,$modal,$stateParams,$state,_){
     $scope.nav.title='立即支付';
     $scope.nav.back=true;
     $scope.hasCoupons=false;
@@ -534,7 +537,7 @@ ctrls
     $scope.orderDetails=orderDetails;
     $scope.order={
         customerId:Session.userId||'',
-        exccreaditCount:userInfo.userCustomer.credits,
+        exccreaditCount:null,
         usedCoupons:'',
         status:'DRAFT',
         orderDetails:$scope.orderDetails,
@@ -585,11 +588,14 @@ ctrls
                 $scope.showResult=true;
                 ShoppingCart.destroy();
                 $scope.nav.shopCount=0;
+                $scope.orderDetails=[];
+                $scope.order.orderPrice=null;
+                $scope.order.useCredits=false;
+                $scope.order.useCoupons=false;
                 $window.sessionStorage.removeItem("shoppingCart");
             }else{
                 $scope.openAlert(data.body);
             }
-
         })
     };
     $scope.open = function (size) {
@@ -622,6 +628,29 @@ ctrls
             $scope.hasCoupons=false;
         }
     });
+
+    $scope.$watch('useCredits', function(newValue, oldValue) {
+        if(!newValue){
+            $scope.order.exccreaditCount=null;
+        }
+    });
+    $scope.$watch('useCoupons', function(newValue, oldValue) {
+        if(!newValue){
+            $scope.order.usedCoupons='';
+        }
+    });
+    $scope.$watch('order.exccreaditCount', function(newValue, oldValue) {
+        var val=userInfo.userCustomer.credits;
+        if(newValue>val){
+            $scope.openAlert(["您只有"+val+"个积分"]);
+            $scope.order.exccreaditCount=val;
+        }
+        if(newValue>$scope.order.orderPrice){
+            var need=Math.ceil($scope.order.orderPrice/parseFloat(CREDIT_SCALE));
+            $scope.openAlert(["您只需"+need+"个积分即可"]);
+        }
+    });
+
     $scope.$on('back', function() {
         if($stateParams.from=='SETMEAL'){
             $state.go('orderSetMeal',{setMealId:$stateParams.fromId});
@@ -796,7 +825,11 @@ ctrls
 })
 
 .controller('modalAlertInstanceCtrl',function($scope, $modalInstance, message){
-    $scope.message = message;
+    if(Array.isArray(message)){
+        $scope.message = message;
+    }else{
+        $scope.message = [message];
+    }
     $scope.ok = function () {
         $modalInstance.dismiss('cancel');
     };

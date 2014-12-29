@@ -3,7 +3,6 @@ package com.breakfast.service;
 import com.breakfast.domain.tables.pojos.SetMeal;
 import com.breakfast.domain.tables.records.TSetMealRecord;
 import com.core.page.Page;
-import org.jooq.Record;
 
 /**
  * Created by qingfeilee on 2014/11/21.

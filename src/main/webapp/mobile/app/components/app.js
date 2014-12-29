@@ -1,9 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app=angular.module('bfApp', ['ui.router','ui.bootstrap','ngAnimate','bfControllers','bfServices','bfDirectives','ui.map']);
+var app=angular.module('bfApp', ['ui.router','ui.bootstrap','ngAnimate','satellizer','bfControllers','bfServices','bfDirectives','ui.map']);
 
-app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
+app.config(function($stateProvider,$urlRouterProvider,$authProvider){
     //$locationProvider.html5Mode(true);
 
     $urlRouterProvider.when("", "/welcome");
@@ -188,6 +188,14 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
                 }
             }
         })
+
+    $authProvider.oauth2({
+        name: 'weixin',
+        url: '/auth/weixin',
+        redirectUri: window.location.origin,
+        clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
+        authorizationEndpoint: 'http://open.weixin.qq.com/connect/oauth2'
+    });
 });
 
 app
@@ -198,7 +206,7 @@ app
     sessionTimeout: 'auth-session-timeout',
     notAuthenticated: 'auth-not-authenticated',
     notAuthorized: 'auth-not-authorized'
-}).constant('ORDER_LIMIT',10);
+})
 
 
 app.run([

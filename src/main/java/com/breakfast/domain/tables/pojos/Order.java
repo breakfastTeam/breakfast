@@ -3,8 +3,6 @@
  */
 package com.breakfast.domain.tables.pojos;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.List;
 import java.util.Map;
 

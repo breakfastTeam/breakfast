@@ -1,6 +1,5 @@
 package com.breakfast.service;
 
-import com.breakfast.domain.tables.pojos.Feedback;
 import com.breakfast.domain.tables.pojos.SendCoupon;
 
 /**

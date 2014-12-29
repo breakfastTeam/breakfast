@@ -2,7 +2,6 @@ package com.core.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.breakfast.constants.IConstants;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
 import java.util.HashMap;

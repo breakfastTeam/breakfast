@@ -1,15 +1,11 @@
 package com.breakfast.provider;
 
-import org.joda.time.DateTime;
-import org.jooq.*;
-import org.jooq.conf.Settings;
-import org.jooq.impl.DSL;
+import org.jooq.ExecuteContext;
+import org.jooq.SQLDialect;
 import org.jooq.impl.DefaultExecuteListener;
 import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
 import org.springframework.jdbc.support.SQLExceptionTranslator;
 import org.springframework.jdbc.support.SQLStateSQLExceptionTranslator;
-
-import java.util.List;
 
 public class CustomExecuteListener extends DefaultExecuteListener {
 

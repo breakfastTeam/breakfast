@@ -1,6 +1,5 @@
 package com.breakfast.interceptor;
 
-import com.breakfast.constants.IConstants;
 import com.breakfast.domain.tables.pojos.User;
 import com.breakfast.provider.ExecutionContext;
 import com.breakfast.service.UserService;
@@ -9,12 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.WebRequestInterceptor;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by kkk on 14/11/27.

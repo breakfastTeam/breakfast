@@ -65,7 +65,8 @@
   <!--<script src="components/resources/js/angular-aria.js"></script>-->
   <script src="components/resources/js/underscore-min.js"></script>
   <!--<script src="components/resources/js/hammer.js"></script>-->
-  <script src="components/resources/js/angular-ui-router.js"></script>
+  <script src="components/resources/js/angular-ui-router.min.js"></script>
+  <script src="components/resources/js/satellizer.min.js"></script>
   <script src="components/resources/js/plugins.js"></script>
   <script src="components/resources/js/ui-bootstrap.min.js"></script>
   <script src="components/resources/js/ui-bootstrap-tpls.min.js"></script>
@@ -81,7 +82,9 @@
   <script src="components/directives.js"></script>
   <script>
     angular.module('bfApp.constants', [])
-            .constant('ctx','${request.contextPath!}');
+            .constant('ctx','${request.contextPath!}')
+            .constant('ORDER_LIMIT','10')
+            .constant('CREDIT_SCALE','1.00');
 
   </script>
 </body>

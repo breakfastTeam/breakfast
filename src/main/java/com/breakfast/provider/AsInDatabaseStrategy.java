@@ -1,6 +1,8 @@
 package com.breakfast.provider;
 
-import org.jooq.util.*;
+import org.jooq.util.DefaultGeneratorStrategy;
+import org.jooq.util.Definition;
+import org.jooq.util.TableDefinition;
 
 /**
  * Created by kkk on 14/11/20.

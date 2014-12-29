@@ -1,15 +1,12 @@
 package com.breakfast.service.impl;
 
+import com.alipay.util.UtilDate;
 import com.breakfast.constants.IConstants;
 import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TExpress;
 import com.breakfast.domain.tables.TOrder;
 import com.breakfast.domain.tables.TOrderDetail;
 import com.breakfast.domain.tables.pojos.*;
-import com.alipay.util.UtilDate;
-import com.breakfast.domain.Tables;
-import com.breakfast.domain.tables.TOrder;
-import com.breakfast.domain.tables.TOrderDetail;
 import com.breakfast.domain.tables.records.TOrderDetailRecord;
 import com.breakfast.domain.tables.records.TOrderRecord;
 import com.breakfast.service.*;
@@ -18,7 +15,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -74,12 +70,26 @@ public class OrderServiceImpl implements OrderService {
         orderRecord.store();
         int count = creator.executeInsert(orderRecord);
         for (OrderDetail orderDetail : order.getOrderDetails()) {
-            String orderDetailId = IUUIDGenerator.getUUID();
+            String orderDetailId = com.core.utils.IUUIDGenerator.getUUID();
             orderDetail.setDetailId(orderDetailId);
             orderDetail.setOrderId(orderId);
             TOrderDetailRecord record = creator.newRecord(Tables.OrderDetail, orderDetail);
             record.store();
             count += creator.executeInsert(record);
+
+            int orderFoodCount = orderDetail.getFoodObjCount();
+            if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_SETMEAL)) {
+                SetMeal setMeal = setMealService.getSetMeal(orderDetail.getFoodObjId());
+                setMeal.setFoodCount(setMeal.getFoodCount() - orderFoodCount);
+                setMeal.setRealFoodCount(setMeal.getRealFoodCount() - orderFoodCount);
+                setMealService.update(setMeal);
+
+            } else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
+                Food food = foodService.getFood(orderDetail.getFoodObjId());
+                food.setFoodCount(food.getFoodCount() - orderFoodCount);
+                food.setRealFoodCount(food.getRealFoodCount() - orderFoodCount);
+                foodService.update(food);
+            }
         }
         if (StringUtils.isNotBlank(order.getUsedCoupons())) {
             //将使用的红包置为不可用状态

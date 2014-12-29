@@ -1,25 +1,20 @@
 package com.breakfast.controllers;
 
-import com.alibaba.fastjson.JSONObject;
 import com.breakfast.constants.IConstants;
-import com.breakfast.domain.tables.pojos.*;
+import com.breakfast.domain.tables.pojos.Coupon;
+import com.breakfast.domain.tables.pojos.Order;
+import com.breakfast.domain.tables.pojos.User;
 import com.breakfast.provider.FastJson;
-import com.breakfast.provider.JSONObjectWrapper;
-import com.breakfast.service.SetMealService;
 import com.breakfast.service.UserService;
-import com.core.page.Page;
 import com.core.utils.IMsgUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.jooq.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -79,8 +74,8 @@ public class UserController {
     public Map<String, Object> cSaveUser(@FastJson User user) {
         IMsgUtil msgUtil = new IMsgUtil();
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-        if (StringUtils.isEmpty(user.getUserId()) && userService.checkMobile(user)) {
-            return msgUtil.generateMsg(IConstants.ERROR_CODE, "账号已被注册", null);
+        if (StringUtils.isEmpty(user.getUserId()) && userService.checkLoginName(user)) {
+            return msgUtil.generateMsg(IConstants.ERROR_CODE, "登录账号已被注册", null);
         }
         int count=userService.saveUser(user);
         return msgUtil.generateMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS, user);
@@ -90,7 +85,7 @@ public class UserController {
     public Map<String, Object> cSaveOrLoginUser(@FastJson User user , final HttpSession session) {
         IMsgUtil msgUtil = new IMsgUtil();
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-        if (StringUtils.isEmpty(user.getUserId()) && userService.checkMobile(user)) {
+        if (StringUtils.isEmpty(user.getUserId()) && userService.checkLoginName(user)) {
             User u=userService.findUser(user);
             if ( u!= null) {
                 session.setAttribute(IConstants.SEESION_USER_ID, user.getUserId());

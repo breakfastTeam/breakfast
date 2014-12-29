@@ -3,7 +3,6 @@ package com.breakfast.service.impl;
 import com.breakfast.constants.IConstants;
 import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TCoupon;
-import com.breakfast.domain.tables.TSendCoupon;
 import com.breakfast.domain.tables.pojos.Coupon;
 import com.breakfast.domain.tables.pojos.SendCoupon;
 import com.breakfast.domain.tables.records.TCouponRecord;
@@ -17,10 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * Created by kkk on 14/12/9.
@@ -89,6 +84,7 @@ public class CouponServiceImpl implements CouponService {
         Coupon c = creator.select()
                 .from(coupon)
                 .where(coupon.couponId.equal(couponId))
+                .and(coupon.status.equal(IConstants.COUPON_STATUS_ENABLE))
                 .fetchOneInto(Coupon.class);
         return c;
     }

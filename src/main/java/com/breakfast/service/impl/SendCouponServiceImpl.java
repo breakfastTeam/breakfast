@@ -4,19 +4,11 @@ import com.breakfast.constants.IConstants;
 import com.breakfast.domain.Tables;
 import com.breakfast.domain.tables.TCoupon;
 import com.breakfast.domain.tables.TSendCoupon;
-import com.breakfast.domain.tables.pojos.Feedback;
 import com.breakfast.domain.tables.pojos.SendCoupon;
-import com.breakfast.domain.tables.records.TFeedbackRecord;
-import com.breakfast.service.FeedbackService;
 import com.breakfast.service.SendCouponService;
-import com.core.utils.IUUIDGenerator;
 import org.jooq.DSLContext;
-import org.jooq.Record1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.xml.transform.Result;
-import java.util.List;
 
 /**
  * Created by kkk on 14/12/9.

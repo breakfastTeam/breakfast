@@ -1,7 +1,5 @@
 package com.breakfast.constants;
 
-import java.sql.Timestamp;
-
 /**
  * Created by qingfeilee on 2014/11/21.
  */
@@ -76,4 +74,7 @@ public class IConstants {
     public static final String FOOD_OBJ_TYPE_SETMEAL="SETMEAL";
     public static final String FOOD_OBJ_TYPE_FOOD="FOOD";
 
+    //1个积分兑换钱数(元）
+    public static final double creditScale = 1.00;
+    public static final double ONLY_FOOD_LIMIT = 10.00;
 }

@@ -1,7 +1,6 @@
 package com.breakfast.service;
 
 import com.breakfast.domain.tables.pojos.Coupon;
-import com.breakfast.domain.tables.pojos.SendCoupon;
 
 /**
  * Created by kkk .

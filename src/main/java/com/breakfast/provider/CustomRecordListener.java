@@ -1,11 +1,11 @@
 package com.breakfast.provider;
 
-import org.slf4j.Logger;
 import org.joda.time.DateTime;
 import org.jooq.Field;
 import org.jooq.Record;
 import org.jooq.RecordContext;
 import org.jooq.impl.DefaultRecordListener;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Date;

@@ -14,7 +14,6 @@ import com.breakfast.domain.tables.records.TUserCustomerRecord;
 import com.breakfast.domain.tables.records.TUserRecord;
 import com.breakfast.service.CouponService;
 import com.breakfast.service.OrderService;
-import com.breakfast.service.SendCouponService;
 import com.breakfast.service.UserService;
 import com.core.utils.IUUIDGenerator;
 import org.apache.commons.lang3.StringUtils;
@@ -166,10 +165,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean checkMobile(User user) {
+    public boolean checkLoginName(User user) {
         TUser u = Tables.User.as("u");
         User result=dsl.selectFrom(u)
-                .where(u.loginName.equal(user.getLoginName()))
+                .where(u.loginName.equal(user.getLoginName()).or(u.mobile.equal(user.getLoginName())))
                 .and(u.status.equal(IConstants.ENABLE))
                 .fetchAnyInto(User.class);
         return result!=null;

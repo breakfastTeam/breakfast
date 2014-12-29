@@ -36,6 +36,6 @@ public interface UserService {
      */
     List<Order> loadUserOrders(String userId);
 
-    boolean checkMobile(User user);
+    boolean checkLoginName(User user);
 
 }
