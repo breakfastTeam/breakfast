@@ -99,8 +99,9 @@ public class OrderController {
                 subtotal = setMeal.getPrivilege().multiply(new BigDecimal(orderFoodCount));
                 orderDetail.setFoodObjPrice(subtotal);
                 totalPrice = totalPrice.add(subtotal);
-
-                creditsLimit += setMeal.getExchangeCount()*orderFoodCount;
+                if (setMeal.getExchangeCount() != null) {
+                    creditsLimit += setMeal.getExchangeCount()*orderFoodCount;
+                }
                 onlyFood = false;
             } else if (orderDetail.getFoodObjType().equals(IConstants.FOOD_OBJ_TYPE_FOOD)) {
                 Food food = foodService.getFood(orderDetail.getFoodObjId());
@@ -111,8 +112,9 @@ public class OrderController {
                 subtotal = food.getPrice().multiply(new BigDecimal(orderFoodCount));
                 orderDetail.setFoodObjPrice(subtotal);
                 totalPrice = totalPrice.add(subtotal);
-
-                creditsLimit += food.getExchangeCount()*orderFoodCount;
+                if (food.getExchangeCount() != null) {
+                    creditsLimit += food.getExchangeCount() * orderFoodCount;
+                }
             }
         }
         if (error) {
