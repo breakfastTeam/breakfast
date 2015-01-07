@@ -150,6 +150,24 @@ services
 
         return services;
     }])
+    .factory('Look', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
+        var services = {};
+        services.getPhotoShow = function (data) {
+            var deferred = $q.defer();
+            $http({
+                method: 'POST',
+                url: ctx + '/mobile/cGetPhotoShow',
+                params: data
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+
+            return deferred.promise;
+        }
+        return services;
+    }])
     .factory('RedPaper', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
         var services = {};
         services.saveRedPaper = function (data) {

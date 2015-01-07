@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <h4 ng-bind="photoShowTime"></h4>
+        <div class="media media-border container-fluid">
+            <div ng-repeat="photoShow in photoShows" class="col-xs-4" style="padding:2px;">
+                <a ><img ng-click="openBigPhoto(photoShow.extMap.oPath)" ng-src="{{photoShow.extMap.sPath}}" class="img-thumbnail"></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/ng-template" id="bigPhoto.html">
+    <div>
+        <img style="width:100%;"  ng-src="{{bigPhotoPath}}">
+    </div>
+</script>

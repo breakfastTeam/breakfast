@@ -687,6 +687,29 @@ ctrls
         $state.go('wantToLook.expressMap')
      });
 }])
+.controller('lookCtrl',['$scope','$modal','Look',function($scope,$modal,Look){
+        $scope.$watch('$viewContentLoaded', function() {
+            var promise=Look.getPhotoShow();
+            promise.then(function(data){
+                $scope.photoShows=data.body;
+                $scope.photoShowTime=data.head.rtnMsg+"卫生抽查";
+
+            })
+        });
+        $scope.openBigPhoto=function(bigPhotoPath){
+
+            var modalInstance = $modal.open({
+                templateUrl: 'bigPhoto.html',
+                controller: 'modalOpenBigPhotoCtrl',
+                resolve: {
+                    message: function(){return bigPhotoPath;}
+                }
+            });
+        };
+}])
+    .controller("modalOpenBigPhotoCtrl", ["$scope","message", function($scope, message){
+        $scope.bigPhotoPath=message;
+    }])
 .controller('expressMapCtrl',["$scope","$interval","$state",'Express',"Session",function($scope,$interval, $state,Express, Session){
 
     var interval;

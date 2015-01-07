@@ -121,9 +121,15 @@ app.config(function($stateProvider,$urlRouterProvider,$authProvider){
                 }
             }
         })
+        /**
         .state('wantToLook.serviceArea',{
             url:'/wantToLook',
             templateUrl:'tlps/serviceArea.html'
+        })**/
+        .state('wantToLook.look',{
+            url:'/wantToLook',
+            templateUrl:'tlps/look.html',
+            controller:'lookCtrl'
         })
         .state('wantToLook.rawMaterial',{
             url:'/wantToLook',
