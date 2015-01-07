@@ -27,6 +27,8 @@ public class Keys {
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCouponRecord> keyTBfCouponPrimary = UniqueKeys0.keyTBfCouponPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomerServiceRecord> keyTBfCustomerServicePrimary = UniqueKeys0.keyTBfCustomerServicePrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = UniqueKeys0.keyTBfCustomOrderDetailPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TElementRecord> keyTBfElementPrimary = UniqueKeys0.keyTBfElementPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TElementContentRecord> keyTBfElementContentPrimary = UniqueKeys0.keyTBfElementContentPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TExpressRecord> keyTBfExpressPrimary = UniqueKeys0.keyTBfExpressPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFeedbackRecord> keyTBfFeedbackPrimary = UniqueKeys0.keyTBfFeedbackPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFileRecord> keyTBfFilePrimary = UniqueKeys0.keyTBfFilePrimary;
@@ -48,6 +50,7 @@ public class Keys {
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserRecord> keyTBfUserPrimary = UniqueKeys0.keyTBfUserPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCourierRecord> keyTBfUserCourierPrimary = UniqueKeys0.keyTBfUserCourierPrimary;
 	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCustomerRecord> keyTBfUserCustomerPrimary = UniqueKeys0.keyTBfUserCustomerPrimary;
+	public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserElementStatisticsRecord> keyTBfUserElementStatisticsPrimary = UniqueKeys0.keyTBfUserElementStatisticsPrimary;
 
 	// -------------------------------------------------------------------------
 	// FOREIGN KEY definitions
@@ -63,6 +66,8 @@ public class Keys {
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCouponRecord> keyTBfCouponPrimary = createUniqueKey(com.breakfast.domain.tables.TCoupon.Coupon, com.breakfast.domain.tables.TCoupon.Coupon.couponId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomerServiceRecord> keyTBfCustomerServicePrimary = createUniqueKey(com.breakfast.domain.tables.TCustomerService.CustomerService, com.breakfast.domain.tables.TCustomerService.CustomerService.userId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TCustomOrderDetailRecord> keyTBfCustomOrderDetailPrimary = createUniqueKey(com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail, com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail.detailId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TElementRecord> keyTBfElementPrimary = createUniqueKey(com.breakfast.domain.tables.TElement.Element, com.breakfast.domain.tables.TElement.Element.elementId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TElementContentRecord> keyTBfElementContentPrimary = createUniqueKey(com.breakfast.domain.tables.TElementContent.ElementContent, com.breakfast.domain.tables.TElementContent.ElementContent.id);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TExpressRecord> keyTBfExpressPrimary = createUniqueKey(com.breakfast.domain.tables.TExpress.Express, com.breakfast.domain.tables.TExpress.Express.expressId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFeedbackRecord> keyTBfFeedbackPrimary = createUniqueKey(com.breakfast.domain.tables.TFeedback.Feedback, com.breakfast.domain.tables.TFeedback.Feedback.feedbackId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TFileRecord> keyTBfFilePrimary = createUniqueKey(com.breakfast.domain.tables.TFile.File, com.breakfast.domain.tables.TFile.File.fileId);
@@ -84,5 +89,6 @@ public class Keys {
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserRecord> keyTBfUserPrimary = createUniqueKey(com.breakfast.domain.tables.TUser.User, com.breakfast.domain.tables.TUser.User.userId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCourierRecord> keyTBfUserCourierPrimary = createUniqueKey(com.breakfast.domain.tables.TUserCourier.UserCourier, com.breakfast.domain.tables.TUserCourier.UserCourier.userId);
 		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserCustomerRecord> keyTBfUserCustomerPrimary = createUniqueKey(com.breakfast.domain.tables.TUserCustomer.UserCustomer, com.breakfast.domain.tables.TUserCustomer.UserCustomer.userId);
+		public static final org.jooq.UniqueKey<com.breakfast.domain.tables.records.TUserElementStatisticsRecord> keyTBfUserElementStatisticsPrimary = createUniqueKey(com.breakfast.domain.tables.TUserElementStatistics.UserElementStatistics, com.breakfast.domain.tables.TUserElementStatistics.UserElementStatistics.statisticsId);
 	}
 }

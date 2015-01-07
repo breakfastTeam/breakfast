@@ -11,7 +11,7 @@ package com.breakfast.domain;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Breakfast extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 1911582752;
+	private static final long serialVersionUID = 1689013898;
 
 	/**
 	 * The singleton instance of <code>breakfast</code>
@@ -38,6 +38,8 @@ public class Breakfast extends org.jooq.impl.SchemaImpl {
 			com.breakfast.domain.tables.TCoupon.Coupon,
 			com.breakfast.domain.tables.TCustomerService.CustomerService,
 			com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail,
+			com.breakfast.domain.tables.TElement.Element,
+			com.breakfast.domain.tables.TElementContent.ElementContent,
 			com.breakfast.domain.tables.TExpress.Express,
 			com.breakfast.domain.tables.TFeedback.Feedback,
 			com.breakfast.domain.tables.TFile.File,
@@ -58,6 +60,7 @@ public class Breakfast extends org.jooq.impl.SchemaImpl {
 			com.breakfast.domain.tables.TShare.Share,
 			com.breakfast.domain.tables.TUser.User,
 			com.breakfast.domain.tables.TUserCourier.UserCourier,
-			com.breakfast.domain.tables.TUserCustomer.UserCustomer);
+			com.breakfast.domain.tables.TUserCustomer.UserCustomer,
+			com.breakfast.domain.tables.TUserElementStatistics.UserElementStatistics);
 	}
 }

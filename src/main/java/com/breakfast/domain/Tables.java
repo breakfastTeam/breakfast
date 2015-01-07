@@ -34,6 +34,16 @@ public class Tables {
 	public static final com.breakfast.domain.tables.TCustomOrderDetail CustomOrderDetail = com.breakfast.domain.tables.TCustomOrderDetail.CustomOrderDetail;
 
 	/**
+	 * 元素定义表
+	 */
+	public static final com.breakfast.domain.tables.TElement Element = com.breakfast.domain.tables.TElement.Element;
+
+	/**
+	 * 元素含量表
+	 */
+	public static final com.breakfast.domain.tables.TElementContent ElementContent = com.breakfast.domain.tables.TElementContent.ElementContent;
+
+	/**
 	 * 订单配送表
 	 */
 	public static final com.breakfast.domain.tables.TExpress Express = com.breakfast.domain.tables.TExpress.Express;
@@ -137,4 +147,9 @@ public class Tables {
 	 * 用户详情
 	 */
 	public static final com.breakfast.domain.tables.TUserCustomer UserCustomer = com.breakfast.domain.tables.TUserCustomer.UserCustomer;
+
+	/**
+	 * 用户摄入元素统计表
+	 */
+	public static final com.breakfast.domain.tables.TUserElementStatistics UserElementStatistics = com.breakfast.domain.tables.TUserElementStatistics.UserElementStatistics;
 }

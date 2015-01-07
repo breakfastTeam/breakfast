@@ -562,3 +562,51 @@ CREATE TABLE t_bf_user_courier
 )
   COMMENT '快递员详情';
 
+
+/*==============================================================*/
+/* Table: t_bf_element                                     */
+/*==============================================================*/
+create table t_bf_element
+(
+  element_id      VARCHAR(32) NOT NULL ,
+  element_name    VARCHAR(20) COMMENT '元素名称',
+  unit    VARCHAR(20) COMMENT '元素计量单位',
+  PRIMARY KEY (element_id)
+)COMMENT '元素定义表';
+
+/*==============================================================*/
+/* Table: t_bf_element_content                                     */
+/*==============================================================*/
+create table t_bf_element_content
+(
+  id              VARCHAR(32) NOT NULL ,
+  element_id      VARCHAR(32) NOT NULL COMMENT '元素ID',
+  object_id       VARCHAR(32) NOT NULL COMMENT '对象ID',
+  object_type     VARCHAR(10) NOT NULL COMMENT '对象类型',
+  quantity        DECIMAL(4,3) COMMENT '元素含量',
+  create_time      DATETIME COMMENT '创建时间',
+  create_by        VARCHAR(32) COMMENT '创建人',
+  last_modify_time DATETIME COMMENT '最后修改时间',
+  last_modify_by   VARCHAR(32) COMMENT '最后修改人',
+  opt_time         BIGINT COMMENT '操作时间',
+  PRIMARY KEY (id)
+)COMMENT '元素含量表';
+
+/*==============================================================*/
+/* Table: t_bf_user_element_statistics                                     */
+/*==============================================================*/
+create table t_bf_user_element_statistics
+(
+  statistics_id         VARCHAR(32) NOT NULL ,
+  user_id               VARCHAR(32) NOT NULL COMMENT 'user_id',
+  element_id            VARCHAR(32) NOT NULL COMMENT '元素ID',
+  quantity              DECIMAL(4,3) COMMENT '元素摄入',
+  statistics_start_time DATETIME COMMENT '统计开始时间',
+  statistics_end_time   DATETIME COMMENT '统计结束时间',
+  create_time           DATETIME COMMENT '创建时间',
+  create_by             VARCHAR(32) COMMENT '创建人',
+  last_modify_time      DATETIME COMMENT '最后修改时间',
+  last_modify_by        VARCHAR(32) COMMENT '最后修改人',
+  opt_time              BIGINT COMMENT '操作时间',
+  PRIMARY KEY (statistics_id)
+)COMMENT '用户摄入元素统计表';

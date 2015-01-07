@@ -6,8 +6,6 @@ import java.util.Map;
 /**
  * 用于在应用内及应用间保存、传递执行上下文信息。
  * 
- * @author LIU Fangran
- * 
  */
 public class ExecutionContext {
 	/**
