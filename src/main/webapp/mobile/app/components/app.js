@@ -194,6 +194,11 @@ app.config(function($stateProvider,$urlRouterProvider,$authProvider){
                 }
             }
         })
+        .state('elementStatics',{
+            url:'/elementStatics',
+            templateUrl:'tlps/elementStatistics.html',
+            controller:'elementStatisticsCtrl'
+        })
 
     $authProvider.oauth2({
         name: 'weixin',

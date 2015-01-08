@@ -1,0 +1,30 @@
+<div class="container">
+    <table class="table table-bordered-bottom table-striped table-hover">
+        <thead>
+        <tr>
+            <td colspan="2">今日摄取营养</td>
+        </tr>
+        </thead>
+        <tr ng-repeat="elementStatistics in todayElementStatistics">
+            <td class="col-xs-6 text-left"><span ng-bind="elementStatistics.element.elementName" class="text-info"></span></td>
+            <td class="col-xs-3 text-left"><span class="text-info"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span>关爱自己从每一顿餐做起</span></td>
+        </tr>
+    </table>
+    <table class="table table-bordered-bottom table-striped table-hover">
+        <thead>
+        <tr>
+            <td colspan="2">历史营养记录</td>
+        </tr>
+        </thead>
+        <tr ng-repeat="elementStatistics in historyElementStatistics">
+            <td class="col-xs-6 text-left"><span ng-bind="elementStatistics.element.elementName" class="text-info"></span></td>
+            <td class="col-xs-3 text-left"><span class="text-info"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span>豆点餐吧，开启便捷品质生活</span></td>
+        </tr>
+    </table>
+</div>

@@ -340,14 +340,13 @@ ctrls
             }
         })
     }
-
 }])
 .controller('mainInformationsCtrl',['$scope','Information',function($scope,Information){
 
     var scope={
         page:{pageNo:1,pageSize:5},
         totalPages:0,
-        loadMoreText:'点击加载更多品质美味',
+        loadMoreText:'点击加载更多信息',
         informations:[],
         loadNext:function(){
             if($scope.page.pageNo<=$scope.totalPages) {
@@ -379,7 +378,7 @@ ctrls
     $scope.nav.title = '吧台公告';
     $scope.information = promise.body;
 })
-.controller('setMealCtrl',function($scope,$state,promise,ShoppingCart,$stateParams){
+.controller('setMealCtrl',function($scope,$state,promise,ShoppingCart,ElementContent, $stateParams){
     $scope.setMeal=promise.body;
     $scope.setMeal.introduce = $scope.setMeal.introduce || '暂无介绍';
     $scope.setMeal.grade = $scope.setMeal.grade || 0;
@@ -428,8 +427,14 @@ ctrls
     $scope.$on('back', function() {
         $state.go('main.setMeals');
     });
+        $scope.$watch('$viewContentLoaded', function() {
+            var promise = ElementContent.getElementContent({objId:setMeal.setMealId});
+            promise.then(function(data){
+                $scope.elementContents = data.body;
+            })
+        });
 })
-.controller('foodCtrl',function($scope,$state,promise,ShoppingCart,$stateParams){
+.controller('foodCtrl',function($scope,$state,promise,ShoppingCart,ElementContent,$stateParams){
     $scope.food=promise.body;
     $scope.food.briefIntro = $scope.food.briefIntro || '暂无介绍';
     $scope.food.grade = $scope.food.grade || 0;
@@ -477,6 +482,13 @@ ctrls
     };
     $scope.$on('back', function() {
         $state.go('main.foods');
+    });
+
+    $scope.$watch('$viewContentLoaded', function() {
+        var promise = ElementContent.getElementContent({objId:food.foodId});
+        promise.then(function(data){
+            $scope.elementContents = data.body;
+        })
     });
 })
 .controller('orderCtrl',function($scope,Order,ShoppingCart,promise,$window,Session,ORDER_LIMIT,CREDIT_SCALE,$modal,$stateParams,$state,_){
@@ -668,6 +680,25 @@ ctrls
         $state.go('userInfo.personalCenter')
     });
 }])
+    .controller('elementStatisticsCtrl',['$scope','$state','ElementStatistics','Session',function($scope, $state,ElementStatistics, Session) {
+        $scope.nav.back=true;
+        $scope.$watch('$viewContentLoaded', function() {
+            listTodayElementStatistics();
+            listHistoryElementStatistics();
+        });
+        function listTodayElementStatistics(){
+            var promise=ElementStatistics.getTodayElementStatistics({userId:Session.userId});
+            promise.then(function(data){
+                $scope.todayElementStatistics=data.body;
+            })
+        }
+        function listHistoryElementStatistics(){
+            var promise=ElementStatistics.getHistoryElementStatistics({userId:Session.userId});
+            promise.then(function(data){
+                $scope.historyElementStatistics=data.body;
+            })
+        }
+    }])
 .controller('rawMaterialCtrl',['$scope','RawMaterial',function($scope, RawMaterial) {
      $scope.nav.back=false;
      $scope.$watch('$viewContentLoaded', function() {

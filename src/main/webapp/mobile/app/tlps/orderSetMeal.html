@@ -1,10 +1,15 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="thumbnail" style="padding:0px;">
-            <img ng-src="{{setMeal.extMap.oPath||'components/resources/images/setmeal_em_o.jpg'}}" style="height:200px;">
+            <img ng-src="{{setMeal.extMap.oPath||'components/resources/images/setmeal_em_o.jpg'}}"
+                 style="height:200px;">
+
             <div class="carousel-caption" style="left: 1%;right: 1%;">
-                <rating class="pull-left star-color" ng-model="setMeal.grade" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-                <span class="label pull-left" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}分</span>
+                <rating class="pull-left star-color" ng-model="setMeal.grade" max="max" on-hover="hoveringOver(value)"
+                        on-leave="overStar = null"></rating>
+                <span class="label pull-left"
+                      ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                      ng-show="overStar && !isReadonly">{{percent}}分</span>
                 <span class="pull-right" style="margin-right: 20px;">{{setMeal.privilege}} 元</span>
             </div>
         </div>
@@ -12,47 +17,65 @@
 </div>
 
 <div class="container-fluid">
-<div class="row">
-<table class="table table-bordered-bottom table-striped table-hover" style="margin-bottom: 10px;">
-    <tr>
-        <td class="col-xs-4">名称：</td>
-        <td class="col-xs-10 text-center"><span ng-bind="orderDetail.foodObjName"></span></td>
-    </tr>
-    <tr>
-        <td>单价：</td>
-        <td class="text-center"><span ng-bind="orderDetail.foodObjPrice"></span></td>
-    </tr>
-    <tr>
-        <td>数量：</td>
-        <td class="text-center">
-            <div class="col-xs-10 col-xs-offset-1">
-                <div class="input-group">
+    <div class="row">
+        <table class="table table-bordered-bottom table-striped table-hover" style="margin-bottom: 10px;">
+            <tr>
+                <td class="col-xs-4">名称：</td>
+                <td class="col-xs-10 text-center"><span ng-bind="orderDetail.foodObjName"></span></td>
+            </tr>
+            <tr>
+                <td>单价：</td>
+                <td class="text-center"><span ng-bind="orderDetail.foodObjPrice"></span></td>
+            </tr>
+            <tr>
+                <td>数量：</td>
+                <td class="text-center">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="input-group">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng-click="minus()" ng-disabled="orderDetail.foodObjCount==1">-</button>
+                  <button class="btn btn-default" type="button" ng-click="minus()"
+                          ng-disabled="orderDetail.foodObjCount==1">-
+                  </button>
                 </span>
-                    <input type="text" class="form-control text-center" ng-model="orderDetail.foodObjCount">
+                            <input type="text" class="form-control text-center" ng-model="orderDetail.foodObjCount">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" ng-click="plus()">+</button>
                 </span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>总价：</td>
-        <td class="text-center"><span ng-bind="orderDetail.foodObjTotalPrice"></span></td>
-    </tr>
-</table>
-</div>
-<div class="row">
-    <div class="col-xs-6">
-        <button class="btn btn-warning btn-block" ng-click="addToShop()">加入购物车</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>总价：</td>
+                <td class="text-center"><span ng-bind="orderDetail.foodObjTotalPrice"></span></td>
+            </tr>
+        </table>
     </div>
-    <div class="col-xs-6">
-        <button type="submit" class="btn btn-success btn-block" ng-click="toOrder()">立即购买</button>
+    <div class="row">
+        <div class="col-xs-6">
+            <button class="btn btn-warning btn-block" ng-click="addToShop()">加入购物车</button>
+        </div>
+        <div class="col-xs-6">
+            <button type="submit" class="btn btn-success btn-block" ng-click="toOrder()">立即购买</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <p ng-bind-html="setMeal.introduce|to_trusted" style="text-indent:8px;margin-top:10px;"></p>
-</div>
+    <div class="row">
+        <p ng-bind-html="setMeal.introduce|to_trusted" style="text-indent:8px;margin-top:10px;"></p>
+    </div>
+    <div class="row">
+        <table class="table table-bordered-bottom table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <td>元素</td>
+                <td>含量</td>
+            </tr>
+            </thead>
+            <tr ng-repeat="elementContent in elementContents">
+                <td class="col-xs-6 text-left"><span class="text-info">{{elementContent.element.elementName}}({{elementContent.element.unit}})</span>
+                </td>
+                <td class="col-xs-3 text-left"><span class="text-info">{{elementContent.quantity}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

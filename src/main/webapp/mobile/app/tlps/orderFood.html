@@ -55,4 +55,18 @@
 <div class="row">
     <p ng-bind-html="food.introduce|to_trusted" style="text-indent:2em;margin-top:10px;"></p>
 </div>
+    <div class="row">
+        <table class="table table-bordered-bottom table-bordered table-striped table-hover">
+            <tr>
+                <td>元素</td>
+                <td>含量</td>
+            </tr>
+            <tr ng-repeat="elementContent in elementContents">
+                <td class="col-xs-6 text-left"><span class="text-info">{{elementContent.element.elementName}}({{elementContent.element.unit}})</span>
+                </td>
+                <td class="col-xs-3 text-left"><span class="text-info">{{elementContent.quantity}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

@@ -66,6 +66,61 @@ services
 
         return services;
     }])
+    .factory('ElementContent', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
+        var services = {};
+
+        services.getElementContent = function (data) {
+            var deferred = $q.defer();
+            $http({
+                method: 'POST',
+                url: ctx + '/mobile/cGetElementContent',
+                params: data,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject(data);
+                });
+
+            return deferred.promise;
+        }
+        return services;
+    }])
+    .factory('ElementStatistics', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
+        var services = {};
+
+        services.getTodayElementStatistics = function (data) {
+            var deferred = $q.defer();
+            $http({
+                method: 'POST',
+                url: ctx + '/mobile/cGetTodayElementStatistics',
+                params: data,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+
+            return deferred.promise;
+        }
+        services.getHistoryElementStatistics = function (data) {
+            var deferred = $q.defer();
+            $http({
+                method: 'POST',
+                url: ctx + '/mobile/cGetHistoryElementStatistics',
+                params: data,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+
+            return deferred.promise;
+        }
+        return services;
+    }])
     .factory('Information', ['$q', '$http', 'ctx', function ($q, $http, ctx) {
         var services = {};
 

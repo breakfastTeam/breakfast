@@ -26,6 +26,7 @@ public class UserElementStatistics implements java.io.Serializable {
 	private org.joda.time.DateTime lastModifyTime;
 	private String       lastModifyBy;
 	private Long         optTime;
+	private Element element;
 
 	public UserElementStatistics() {}
 
@@ -141,5 +142,12 @@ public class UserElementStatistics implements java.io.Serializable {
 
 	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
+	}
+
+	public void setElement(Element element){
+		this.element = element;
+	}
+	public Element getElement(){
+		return this.element;
 	}
 }
