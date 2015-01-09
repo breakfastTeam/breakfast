@@ -13,14 +13,12 @@ package com.breakfast.domain.tables.pojos;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserElementStatistics implements java.io.Serializable {
 
-	private static final long serialVersionUID = -200019799;
+	private static final long serialVersionUID = 1305250897;
 
 	private String       statisticsId;
 	private String       userId;
 	private String       elementId;
 	private java.math.BigDecimal   quantity;
-	private org.joda.time.DateTime statisticsStartTime;
-	private org.joda.time.DateTime statisticsEndTime;
 	private org.joda.time.DateTime createTime;
 	private String       createBy;
 	private org.joda.time.DateTime lastModifyTime;
@@ -31,24 +29,20 @@ public class UserElementStatistics implements java.io.Serializable {
 	public UserElementStatistics() {}
 
 	public UserElementStatistics(
-		String       statisticsId,
-		String       userId,
-		String       elementId,
-		java.math.BigDecimal   quantity,
-		org.joda.time.DateTime statisticsStartTime,
-		org.joda.time.DateTime statisticsEndTime,
-		org.joda.time.DateTime createTime,
-		String       createBy,
-		org.joda.time.DateTime lastModifyTime,
-		String       lastModifyBy,
-		Long         optTime
+			String statisticsId,
+			String userId,
+			String elementId,
+			java.math.BigDecimal quantity,
+			org.joda.time.DateTime createTime,
+			String createBy,
+			org.joda.time.DateTime lastModifyTime,
+			String lastModifyBy,
+			Long optTime
 	) {
 		this.statisticsId = statisticsId;
 		this.userId = userId;
 		this.elementId = elementId;
 		this.quantity = quantity;
-		this.statisticsStartTime = statisticsStartTime;
-		this.statisticsEndTime = statisticsEndTime;
 		this.createTime = createTime;
 		this.createBy = createBy;
 		this.lastModifyTime = lastModifyTime;
@@ -86,22 +80,6 @@ public class UserElementStatistics implements java.io.Serializable {
 
 	public void setQuantity(java.math.BigDecimal quantity) {
 		this.quantity = quantity;
-	}
-
-	public org.joda.time.DateTime getStatisticsStartTime() {
-		return this.statisticsStartTime;
-	}
-
-	public void setStatisticsStartTime(org.joda.time.DateTime statisticsStartTime) {
-		this.statisticsStartTime = statisticsStartTime;
-	}
-
-	public org.joda.time.DateTime getStatisticsEndTime() {
-		return this.statisticsEndTime;
-	}
-
-	public void setStatisticsEndTime(org.joda.time.DateTime statisticsEndTime) {
-		this.statisticsEndTime = statisticsEndTime;
 	}
 
 	public org.joda.time.DateTime getCreateTime() {
@@ -144,10 +122,11 @@ public class UserElementStatistics implements java.io.Serializable {
 		this.optTime = optTime;
 	}
 
-	public void setElement(Element element){
+	public void setElement(Element element) {
 		this.element = element;
 	}
-	public Element getElement(){
-		return this.element;
+
+	public Element getElement() {
+		return element;
 	}
 }

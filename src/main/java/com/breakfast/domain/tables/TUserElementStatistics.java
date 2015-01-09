@@ -13,7 +13,7 @@ package com.breakfast.domain.tables;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TUserElementStatistics extends org.jooq.impl.TableImpl<com.breakfast.domain.tables.records.TUserElementStatisticsRecord> {
 
-	private static final long serialVersionUID = -204011489;
+	private static final long serialVersionUID = -197086554;
 
 	/**
 	 * The singleton instance of <code>breakfast.t_bf_user_element_statistics</code>
@@ -47,16 +47,6 @@ public class TUserElementStatistics extends org.jooq.impl.TableImpl<com.breakfas
 	 * The column <code>breakfast.t_bf_user_element_statistics.quantity</code>. 元素摄入
 	 */
 	public final org.jooq.TableField<com.breakfast.domain.tables.records.TUserElementStatisticsRecord, java.math.BigDecimal> quantity = createField("quantity", org.jooq.impl.SQLDataType.DECIMAL.precision(4, 3), this, "元素摄入");
-
-	/**
-	 * The column <code>breakfast.t_bf_user_element_statistics.statistics_start_time</code>. 统计开始时间
-	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.TUserElementStatisticsRecord, org.joda.time.DateTime> statisticsStartTime = createField("statistics_start_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "统计开始时间", new com.breakfast.provider.DateTimeConverter());
-
-	/**
-	 * The column <code>breakfast.t_bf_user_element_statistics.statistics_end_time</code>. 统计结束时间
-	 */
-	public final org.jooq.TableField<com.breakfast.domain.tables.records.TUserElementStatisticsRecord, org.joda.time.DateTime> statisticsEndTime = createField("statistics_end_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "统计结束时间", new com.breakfast.provider.DateTimeConverter());
 
 	/**
 	 * The column <code>breakfast.t_bf_user_element_statistics.create_time</code>. 创建时间
