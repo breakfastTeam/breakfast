@@ -79,5 +79,6 @@ public class ElementStatisticsServiceImpl implements ElementStatisticsService {
             uesTemp.setElement(elements.get(record2.field2()));
             elementStatistics.add(uesTemp);
         }
+        return elementStatistics;
     }
 }
