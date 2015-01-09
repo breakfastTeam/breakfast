@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by kkk on 14/12/9.
@@ -30,5 +31,14 @@ public class ElementServiceImpl implements ElementService {
                 .where(e.elementId.equal(elementId))
                 .fetchAnyInto(Element.class);
         return element;
+    }
+
+    @Override
+    public Map<String,Element> getElementsByIds(List<String> elementIds) {
+        TElement e = Tables.Element.as("e");
+        Map<String,Element> elements = creator.selectFrom(e)
+                .where(e.elementId.in(elementIds))
+                .fetchMap(e.elementId, Element.class);
+        return elements;
     }
 }

@@ -4,6 +4,7 @@ import com.breakfast.domain.tables.pojos.Element;
 import com.breakfast.domain.tables.pojos.ElementContent;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by kkk .
@@ -16,4 +17,5 @@ public interface ElementService {
      */
     Element getElementById(String elementId);
 
+    Map<String,Element> getElementsByIds(List<String> elementIds);
 }
